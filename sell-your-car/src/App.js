@@ -11,8 +11,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='*' element={<div className='home'>"HomePage"</div>} />
-            <Route path='login' element={<div className='login'>"LoginPage"</div>} />
-            <Route path='register' element={<div className='register'>"RegisterPage"</div>} />
             <Route path='profile' element={<div className='profile'>"ProfilePage"</div>} />
             <Route path='addNew' element={<div className='addNew'>"AddNewPage"</div>} />
             <Route path='addPictures' element={<div className='addPictures'>"AddPictures"</div>} />
