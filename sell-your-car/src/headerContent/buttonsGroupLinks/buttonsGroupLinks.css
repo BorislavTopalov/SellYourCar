@@ -1,0 +1,35 @@
+.headerContentDown {
+    margin: 15px auto 0;
+    padding-top: 3px;
+    position: relative;
+    height: 34px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-primary {
+    --bs-btn-bg: #605d5d;
+    --bs-btn-border-color: #605d5d;
+    margin-right: 1px;
+}
+
+.rentACarBtn {
+    --bs-btn-bg: fff;
+    --bs-btn-border-color: #605d5d;
+    --bs-btn-color: #0b5ed7;
+}
+
+.bottomLine {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: -2px;
+    height: 6px;
+    background: #0b5ed7;
+    
+}
+
+.btn btn-primary {
+    padding-bottom: 5px;
+}

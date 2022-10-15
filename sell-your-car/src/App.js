@@ -1,10 +1,33 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LogoLink from './headerContent/logo/logo';
+import LoginLink from './headerContent/loginLink/loginLink';
+import Registerlink from './headerContent/registerLink/registerlink';
+import EditAd from './headerContent/editAd/editAdBtn';
+import AddNewAd from './headerContent/addNewAd/addNewAd';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ButtonGroupLink from './headerContent/buttonsGroupLinks/buttonsGroupLinks';
 
 function App() {
   return (
     <div className="App">
-      <header className='header'>
+      <header className='headerContent'>
+        <div className='headerContentUp'>
+          <div>
+            <LogoLink />
+          </div>
+          <div>
+            <LoginLink />  | <Registerlink />
+          </div>
+          <div className='headerButtons'>
+            <EditAd />
+            <AddNewAd />
+          </div>
+        </div>
+
+
+        <ButtonGroupLink />
+
 
       </header>
       <div className='pageContent'>
