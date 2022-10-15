@@ -1,7 +1,9 @@
+import "./loginLink.css"
+
 export default function LoginLink() {
 
     return (
-        <a href="/login">Вход</a>
+        <a className="loginBtn" href="/login">Вход</a>
     )
 
 }

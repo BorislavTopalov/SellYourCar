@@ -1,7 +1,9 @@
+import "./registerLink.css";
+
 export default function Registerlink() {
 
     return (
-        <a href="/register">Нова регистрация</a>
+        <a className="registerBtn" href="/register">Нова регистрация</a>
     )
 
 }

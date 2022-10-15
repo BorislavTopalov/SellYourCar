@@ -53,10 +53,18 @@
   background-color: black;
 }
 
-/* .header {
-  height: 100px;
-  background-color: blue;
-} */
+.headerContent {
+  margin-top: 20px;
+}
+
+.headerContentUp {
+  display: flex;
+  justify-content: space-between;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: none;
+  padding: 0;
+}
 
 .footer {
   height: 100px;

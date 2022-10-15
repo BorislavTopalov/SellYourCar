@@ -1,9 +1,10 @@
 import Button from 'react-bootstrap/Button';
 
-export default function AddNewAd () {
+export default function AddNewAd() {
 
     return (
-
-        <Button variant="primary">+ ДОБАВИ ОБЯВА</Button>
+        <a href="/addNew">
+            <Button variant="primary">+ ДОБАВИ ОБЯВА</Button>
+        </a>
     )
 }

@@ -6,16 +6,29 @@ import Registerlink from './headerContent/registerLink/registerlink';
 import EditAd from './headerContent/editAd/editAdBtn';
 import AddNewAd from './headerContent/addNewAd/addNewAd';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ButtonGroupLink from './headerContent/buttonsGroupLinks/buttonsGroupLinks';
 
 function App() {
   return (
     <div className="App">
-      <header className='header'>
-          <LogoLink/>
-          <LoginLink/>
-          <Registerlink/>
-          <EditAd/>
-          <AddNewAd/>
+      <header className='headerContent'>
+        <div className='headerContentUp'>
+          <div>
+            <LogoLink />
+          </div>
+          <div>
+            <LoginLink />  | <Registerlink />
+          </div>
+          <div className='headerButtons'>
+            <EditAd />
+            <AddNewAd />
+          </div>
+        </div>
+
+
+        <ButtonGroupLink />
+
+
       </header>
       <div className='pageContent'>
         <BrowserRouter>
