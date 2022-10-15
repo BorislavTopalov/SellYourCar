@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+<<<<<<< Updated upstream
 import LogoLink from './headerContent/logo/logo';
 import LoginLink from './headerContent/loginLink/loginLink';
 import Registerlink from './headerContent/registerLink/registerlink';
@@ -7,8 +8,21 @@ import EditAd from './headerContent/editAd/editAdBtn';
 import AddNewAd from './headerContent/addNewAd/addNewAd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonGroupLink from './headerContent/buttonsGroupLinks/buttonsGroupLinks';
+=======
+import Login from './Login';
+import Register from "./Register";
+import { useState, useEffect } from 'react';
+>>>>>>> Stashed changes
 
 function App() {
+
+  const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || []);
+
+  useEffect(() => {
+    // console.log(users);
+    localStorage.setItem('users', JSON.stringify(users));
+  }, [users])
+
   return (
     <div className="App">
       <header className='headerContent'>
@@ -34,6 +48,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='*' element={<div className='home'>"HomePage"</div>} />
+            <Route path='login' element={<Login/>} />
+            <Route path='register' element={<Register users={users} setUsers={setUsers}/>} />
             <Route path='profile' element={<div className='profile'>"ProfilePage"</div>} />
             <Route path='addNew' element={<div className='addNew'>"AddNewPage"</div>} />
             <Route path='addPictures' element={<div className='addPictures'>"AddPictures"</div>} />
