@@ -1,4 +1,68 @@
 .App {
   text-align: center;
+  width: 990px;
+  margin: 0 auto;
+  padding: 5px;
+  position: relative;
+  z-index: 1;
+  cursor: auto;
+  box-sizing: border-box;
 }
 
+.home {
+  background-color: khaki;
+}
+
+.login {
+  background-color: blueviolet;
+}
+
+.register {
+  background-color: aliceblue;
+}
+
+.profile {
+  background-color: bisque;
+}
+
+.addNew {
+  background-color: royalblue;
+}
+
+.addPictures {
+  background-color: red;
+}
+
+.publication {
+  background-color: darkgreen;
+}
+
+.showingTheNew {
+  background-color: gray;
+}
+
+.detailSearch {
+  background-color: gainsboro;
+}
+
+.allResults {
+  background-color: yellowgreen;
+}
+
+.showTheChosenAd {
+  background-color: black;
+}
+
+.header {
+  height: 100px;
+  background-color: blue;
+}
+
+.footer {
+  height: 100px;
+  background-color: blue;
+}
+
+.pageContent {
+  height: 500px;
+}
