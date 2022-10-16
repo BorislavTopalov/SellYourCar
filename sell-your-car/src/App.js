@@ -17,11 +17,12 @@ import FooterCategoriesLinks from './footerContent/footerContentUp/footerCategor
 function App() {
 
   const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || []);
+  const [activeUser, setActiveUser] = useState(JSON.parse(localStorage.getItem('activeUser')) || {});
 
   useEffect(() => {
-    // console.log(users);
+    localStorage.setItem('activeUser', JSON.stringify(activeUser));
     localStorage.setItem('users', JSON.stringify(users));
-  }, [users])
+  }, [users, activeUser])
 
   return (
     <div className="App">
@@ -44,7 +45,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='*' element={<div className='home'>"HomePage"</div>} />
-            <Route path='login' element={<Login/>} />
+            <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />
             <Route path='register' element={<Register users={users} setUsers={setUsers}/>} />
             <Route path='profile' element={<div className='profile'>"ProfilePage"</div>} />
             <Route path='addNew' element={<div className='addNew'>"AddNewPage"</div>} />
