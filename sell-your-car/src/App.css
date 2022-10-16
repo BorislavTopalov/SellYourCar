@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   width: 990px;
   margin: 0 auto;
   padding: 5px;
@@ -67,6 +66,3 @@
   padding: 0;
 }
 
-.pageContent {
-  height: 500px;
-}
