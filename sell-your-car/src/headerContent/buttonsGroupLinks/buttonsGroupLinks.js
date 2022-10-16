@@ -17,7 +17,7 @@ export default function ButtonGroupLink() {
             </div>
 
             <div>
-                <Button href="/profile">Моите обяви</Button>
+                <Link to="/profile"><Button>Моите обяви</Button></Link>
             </div>
             <div className="bottomLine"></div>
         </div>

@@ -14,6 +14,7 @@ import { useState, useEffect } from 'react';
 import FooterCategoriesLinks from './footerContent/footerContentUp/footerCategoriesLinks';
 import FooterHelpLinks from './footerContent/footerContentMiddle/footerContactsContent';
 import GeneralTerms from './generalTerms/generalTerms';
+import CategoryIcons from './homeContent/homeTopIcons/categoryIcons';
 
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
         <div className='pageContent'>
 
           <Routes>
-            <Route path='*' element={<div className='home'>"HomePage"</div>} />
+            <Route path='*' element={<CategoryIcons/>} />
             <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />
             <Route path='register' element={<Register users={users} setUsers={setUsers} />} />
             <Route path='profile' element={<div className='profile'>"ProfilePage"</div>} />
