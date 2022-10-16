@@ -13,12 +13,13 @@ import Register from "./Register";
 import { useState, useEffect } from 'react';
 import FooterCategoriesLinks from './footerContent/footerContentUp/footerCategoriesLinks';
 import FooterHelpLinks from './footerContent/footerContentMiddle/footerContactsContent';
+import Logout from './Logout';
 
 
 function App() {
 
   const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || []);
-  const [activeUser, setActiveUser] = useState(JSON.parse(localStorage.getItem('activeUser')) || {});
+  const [activeUser, setActiveUser] = useState(JSON.parse(localStorage.getItem('activeUser')) || null);
 
   useEffect(() => {
     localStorage.setItem('activeUser', JSON.stringify(activeUser));
@@ -33,15 +34,24 @@ function App() {
             <div>
               <LogoLink />
             </div>
-            <div>
-              <LoginLink />  | <Registerlink />
-            </div>
+            {activeUser ? 
+              <div>
+                <div>{activeUser.email}</div>
+                <Logout setActiveUser={setActiveUser}/>
+              </div>
+               :
+              <div>
+                <LoginLink />  | <Registerlink />
+              </div>}
+            {/* <div>
+                <LoginLink />  | <Registerlink />
+              </div> */}
             <div className='headerButtons'>
-              <EditAd />
-              <AddNewAd />
+              <EditAd activeUser={activeUser} />
+              <AddNewAd activeUser={activeUser} />
             </div>
           </div>
-          <ButtonGroupLink />
+          <ButtonGroupLink activeUser={activeUser} />
         </header>
         <div className='pageContent'>
 
