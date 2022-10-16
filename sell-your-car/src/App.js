@@ -27,27 +27,28 @@ function App() {
 
   return (
     <div className="App">
-      <header className='headerContent'>
-        <div className='headerContentUp'>
-          <div>
-            <LogoLink />
+      <BrowserRouter>
+        <header className='headerContent'>
+          <div className='headerContentUp'>
+            <div>
+              <LogoLink />
+            </div>
+            <div>
+              <LoginLink />  | <Registerlink />
+            </div>
+            <div className='headerButtons'>
+              <EditAd />
+              <AddNewAd />
+            </div>
           </div>
-          <div>
-            <LoginLink />  | <Registerlink />
-          </div>
-          <div className='headerButtons'>
-            <EditAd />
-            <AddNewAd />
-          </div>
-        </div>
-        <ButtonGroupLink />
-      </header>
-      <div className='pageContent'>
-        <BrowserRouter>
+          <ButtonGroupLink />
+        </header>
+        <div className='pageContent'>
+
           <Routes>
             <Route path='*' element={<div className='home'>"HomePage"</div>} />
             <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />
-            <Route path='register' element={<Register users={users} setUsers={setUsers}/>} />
+            <Route path='register' element={<Register users={users} setUsers={setUsers} />} />
             <Route path='profile' element={<div className='profile'>"ProfilePage"</div>} />
             <Route path='addNew' element={<div className='addNew'>"AddNewPage"</div>} />
             <Route path='addPictures' element={<div className='addPictures'>"AddPictures"</div>} />
@@ -61,13 +62,15 @@ function App() {
             <Route path='help' element={<div className='helpPage'>"Help"</div>} />
             <Route path='generalTerms' element={<div className='generalTerms'>"GeneralTerms"</div>} />
           </Routes>
-        </BrowserRouter>
-      </div>
 
-      <footer className='footer'>
-          <FooterCategoriesLinks/>
-          <FooterHelpLinks/>
-      </footer>
+        </div>
+
+
+        <footer className='footer'>
+          <FooterCategoriesLinks />
+          <FooterHelpLinks />
+        </footer>
+      </BrowserRouter>
     </div>
   );
 }

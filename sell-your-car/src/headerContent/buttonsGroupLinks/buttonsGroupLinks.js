@@ -1,18 +1,19 @@
 import Button from "react-bootstrap/Button";
 import "./buttonsGroupLinks.css";
+import { Link } from "react-router-dom";
 
 export default function ButtonGroupLink() {
 
     return (
         <div className="headerContentDown">
             <div>
-                <Button href="/home">Начало</Button>
-                <Button href="/addNew">Публикуване</Button>
-                <Button href="/detailSearching">Търсене</Button>
-                <Button href="https://fakti.bg/">Новини</Button>
-                <Button className="rentACarBtn" href='https://toprentacar.bg/'>Rent-a-Car</Button>
-                <Button href="/profile">Средни цени</Button>
-                <Button href="/profile">Дилъри</Button>
+                <Link to="/home"><Button >Начало</Button></Link>
+                <Link to="/addNew"><Button >Публикуване</Button></Link>
+                <Link to="/detailSearching"><Button >Търсене</Button></Link>
+                <Link to="https://fakti.bg/"><Button >Новини</Button></Link>
+                <Link to='https://toprentacar.bg/'><Button className="rentACarBtn" >Rent-a-Car</Button></Link>
+                <Link to="/profile"><Button >Средни цени</Button></Link>
+                <Link to="/profile"><Button>Дилъри</Button></Link>                             
             </div>
 
             <div>
