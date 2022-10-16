@@ -1,11 +1,11 @@
-import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import "./addNewAd.css";
 
 export default function AddNewAd(props) {
 
     return (
         <Link to={props.activeUser ? "/addNew" : "/login"}>
-            <Button variant="primary">+ ДОБАВИ ОБЯВА</Button>
+            <button className="buttonAddHeader"><strong>+ ДОБАВИ ОБЯВА</strong></button>
         </Link>
     )
 }

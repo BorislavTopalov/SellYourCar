@@ -1,6 +1,5 @@
 .headerContentDown {
-    margin: 15px auto 0;
-    padding-top: 3px;
+    margin: 18px auto 0;
     position: relative;
     height: 34px;
     overflow: hidden;
@@ -17,6 +16,7 @@
     --bs-btn-active-bg: #0099ff;
     --bs-btn-active-border-color: #0099ff;
     padding-top: 0;
+    padding-bottom: 20px;
 }
 
 .rentACarBtn {
