@@ -4,7 +4,6 @@ const Logout = (props) => {
 
     function handleLogout(){
         props.setActiveUser(null);
-        window.location.pathname = "home"
     }
 
     return (

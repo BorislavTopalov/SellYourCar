@@ -44,9 +44,6 @@ function App() {
               <div>
                 <LoginLink />  | <Registerlink />
               </div>}
-            {/* <div>
-                <LoginLink />  | <Registerlink />
-              </div> */}
             <div className='headerButtons'>
               <EditAd activeUser={activeUser} />
               <AddNewAd activeUser={activeUser} />
