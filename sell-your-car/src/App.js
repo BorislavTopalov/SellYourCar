@@ -12,6 +12,7 @@ import Login from './Login';
 import Register from "./Register";
 import { useState, useEffect } from 'react';
 import FooterCategoriesLinks from './footerContent/footerContentUp/footerCategoriesLinks';
+import FooterHelpLinks from './footerContent/footerContentMiddle/footerContactsContent';
 
 
 function App() {
@@ -55,12 +56,17 @@ function App() {
             <Route path='detailSearching' element={<div className='detailSearch'>"DetailSearching"</div>} />
             <Route path='allResults' element={<div className='allResults'>"AllResults"</div>} />
             <Route path='showTheChosenAd' element={<div className='showTheChosenAd'>"ShowTheChosenAd"</div>} />
+            <Route path='contacts' element={<div className='contacts'>"Contacts"</div>} />
+            <Route path='advertisement' element={<div className='advertisement'>"Аdvertisement"</div>} />
+            <Route path='help' element={<div className='helpPage'>"Help"</div>} />
+            <Route path='generalTerms' element={<div className='generalTerms'>"GeneralTerms"</div>} />
           </Routes>
         </BrowserRouter>
       </div>
 
       <footer className='footer'>
           <FooterCategoriesLinks/>
+          <FooterHelpLinks/>
       </footer>
     </div>
   );

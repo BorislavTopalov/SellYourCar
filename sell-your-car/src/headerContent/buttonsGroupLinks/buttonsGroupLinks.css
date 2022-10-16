@@ -16,6 +16,7 @@
     --bs-btn-hover-border-color: #0099ff;
     --bs-btn-active-bg: #0099ff;
     --bs-btn-active-border-color: #0099ff;
+    padding-top: 0;
 }
 
 .rentACarBtn {
@@ -25,6 +26,7 @@
     --bs-btn-hover-border-color: #0099ff;
     --bs-btn-active-bg: #0099ff;
     --bs-btn-active-border-color: #0099ff;
+    padding-top: 0;
 }
 
 .bottomLine {

@@ -1,0 +1,17 @@
+.footerMiddleContent {
+    background-color: #0099ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 15px 0;
+}
+
+.footerHelpLinks {
+    color: white;
+    font-size: 14px;
+}
+
+.footerEndParagraph {
+    margin: 0;
+    font-size: 12px;
+}
