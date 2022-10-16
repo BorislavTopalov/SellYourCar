@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-<<<<<<< Updated upstream
+
 import LogoLink from './headerContent/logo/logo';
 import LoginLink from './headerContent/loginLink/loginLink';
 import Registerlink from './headerContent/registerLink/registerlink';
@@ -8,11 +8,11 @@ import EditAd from './headerContent/editAd/editAdBtn';
 import AddNewAd from './headerContent/addNewAd/addNewAd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonGroupLink from './headerContent/buttonsGroupLinks/buttonsGroupLinks';
-=======
 import Login from './Login';
 import Register from "./Register";
 import { useState, useEffect } from 'react';
->>>>>>> Stashed changes
+import FooterCategoriesLinks from './footerContent/footerContentUp/footerCategoriesLinks';
+
 
 function App() {
 
@@ -38,11 +38,7 @@ function App() {
             <AddNewAd />
           </div>
         </div>
-
-
         <ButtonGroupLink />
-
-
       </header>
       <div className='pageContent'>
         <BrowserRouter>
@@ -63,7 +59,7 @@ function App() {
       </div>
 
       <footer className='footer'>
-
+          <FooterCategoriesLinks/>
       </footer>
     </div>
   );

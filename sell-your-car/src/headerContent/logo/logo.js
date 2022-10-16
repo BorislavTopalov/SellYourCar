@@ -1,4 +1,5 @@
-
+import logo from "../../headerContent/logo/logo.png";
+import "./logoPng.css";
 
 export default function LogoLink() {
 
@@ -6,12 +7,9 @@ export default function LogoLink() {
         
         <span>
            <a href="/home">
-            LOGO
-            <img src="" alt="" />
+            <img className="logoPng" src={logo} alt="" />
            </a>
-        </span>
-            
-        
+        </span>     
 
     )
 

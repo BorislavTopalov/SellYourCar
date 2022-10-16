@@ -12,12 +12,19 @@
     --bs-btn-bg: #605d5d;
     --bs-btn-border-color: #605d5d;
     margin-right: 1px;
+    --bs-btn-hover-bg: #0099ff;
+    --bs-btn-hover-border-color: #0099ff;
+    --bs-btn-active-bg: #0099ff;
+    --bs-btn-active-border-color: #0099ff;
 }
 
 .rentACarBtn {
     --bs-btn-bg: fff;
     --bs-btn-border-color: #605d5d;
-    --bs-btn-color: #0b5ed7;
+    --bs-btn-color: #0099ff;
+    --bs-btn-hover-border-color: #0099ff;
+    --bs-btn-active-bg: #0099ff;
+    --bs-btn-active-border-color: #0099ff;
 }
 
 .bottomLine {
@@ -26,10 +33,9 @@
     z-index: 1;
     bottom: -2px;
     height: 6px;
-    background: #0b5ed7;
+    background: #0099ff;
     
 }
 
-.btn btn-primary {
-    padding-bottom: 5px;
-}
+
+
