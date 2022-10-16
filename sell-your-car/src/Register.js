@@ -36,7 +36,7 @@ const Register = (props) => {
         if(!(props.users.some(user => user.email === email.value))){
             props.setUsers((prev) => [...prev, {email: email.value, password: password.value}]);
             setError2(false);
-            // window.location.pathname = "/login";
+            window.location.pathname = "/login";
             e.target.reset();
         } else {
             setError2(true);
