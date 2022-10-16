@@ -13,6 +13,7 @@ import Register from "./Register";
 import { useState, useEffect } from 'react';
 import FooterCategoriesLinks from './footerContent/footerContentUp/footerCategoriesLinks';
 import FooterHelpLinks from './footerContent/footerContentMiddle/footerContactsContent';
+import GeneralTerms from './generalTerms/generalTerms';
 
 
 function App() {
@@ -58,7 +59,7 @@ function App() {
             <Route path='contacts' element={<div className='contacts'>"Contacts"</div>} />
             <Route path='advertisement' element={<div className='advertisement'>"Аdvertisement"</div>} />
             <Route path='help' element={<div className='helpPage'>"Help"</div>} />
-            <Route path='generalTerms' element={<div className='generalTerms'>"GeneralTerms"</div>} />
+            <Route path='generalTerms' element={<GeneralTerms/>} />
           </Routes>
         </BrowserRouter>
       </div>
