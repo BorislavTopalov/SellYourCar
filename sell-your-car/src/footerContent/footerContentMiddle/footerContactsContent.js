@@ -1,4 +1,5 @@
 import "./footerMiddleContent.css";
+import { Link } from "react-router-dom";
 
 export default function FooterHelpLinks() {
 
@@ -6,21 +7,21 @@ export default function FooterHelpLinks() {
 
         <div className="footerMiddleContent">
             <div >
-                <a className="footerHelpLinks" href="/contacts">
+                <Link className="footerHelpLinks" to="/contacts">
                     ЗА КОНТАКТИ
-                </a> | <a className="footerHelpLinks" href="/allResults">
+                </Link> | <Link className="footerHelpLinks" to="/allResults">
                     ОБЯВИ
-                </a> | <a className="footerHelpLinks" href="https://fakti.bg/">
+                </Link> | <Link className="footerHelpLinks" to="https://fakti.bg/">
                     НОВИНИ
-                </a> | <a className="footerHelpLinks" href="/advertisement">
+                </Link> | <Link className="footerHelpLinks" to="/advertisement">
                     ЗА РЕКЛАМА
-                </a> | <a className="footerHelpLinks" href="/help">
+                </Link> | <Link className="footerHelpLinks" to="/help">
                     ПОМОЩ
-                </a> | <a className="footerHelpLinks" href="/generalTerms">
+                </Link> | <Link className="footerHelpLinks" to="/generalTerms">
                     ОБЩИ УСЛОВИЯ
-                </a> | <a className="footerHelpLinks" href="/register">
+                </Link> | <Link className="footerHelpLinks" to="/register">
                     РЕГИСТРАЦИЯ
-                </a>
+                </Link>
             </div>
             <div>
                 <p className="footerEndParagraph">2022 IT tallents Борислав Топалов и Петър Томов</p>

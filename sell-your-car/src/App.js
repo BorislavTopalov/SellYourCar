@@ -19,35 +19,37 @@ import GeneralTerms from './generalTerms/generalTerms';
 function App() {
 
   const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || []);
+  const [activeUser, setActiveUser] = useState(JSON.parse(localStorage.getItem('activeUser')) || {});
 
   useEffect(() => {
-    // console.log(users);
+    localStorage.setItem('activeUser', JSON.stringify(activeUser));
     localStorage.setItem('users', JSON.stringify(users));
-  }, [users])
+  }, [users, activeUser])
 
   return (
     <div className="App">
-      <header className='headerContent'>
-        <div className='headerContentUp'>
-          <div>
-            <LogoLink />
+      <BrowserRouter>
+        <header className='headerContent'>
+          <div className='headerContentUp'>
+            <div>
+              <LogoLink />
+            </div>
+            <div>
+              <LoginLink />  | <Registerlink />
+            </div>
+            <div className='headerButtons'>
+              <EditAd />
+              <AddNewAd />
+            </div>
           </div>
-          <div>
-            <LoginLink />  | <Registerlink />
-          </div>
-          <div className='headerButtons'>
-            <EditAd />
-            <AddNewAd />
-          </div>
-        </div>
-        <ButtonGroupLink />
-      </header>
-      <div className='pageContent'>
-        <BrowserRouter>
+          <ButtonGroupLink />
+        </header>
+        <div className='pageContent'>
+
           <Routes>
             <Route path='*' element={<div className='home'>"HomePage"</div>} />
-            <Route path='login' element={<Login/>} />
-            <Route path='register' element={<Register users={users} setUsers={setUsers}/>} />
+            <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />
+            <Route path='register' element={<Register users={users} setUsers={setUsers} />} />
             <Route path='profile' element={<div className='profile'>"ProfilePage"</div>} />
             <Route path='addNew' element={<div className='addNew'>"AddNewPage"</div>} />
             <Route path='addPictures' element={<div className='addPictures'>"AddPictures"</div>} />
@@ -61,13 +63,15 @@ function App() {
             <Route path='help' element={<div className='helpPage'>"Help"</div>} />
             <Route path='generalTerms' element={<GeneralTerms/>} />
           </Routes>
-        </BrowserRouter>
-      </div>
 
-      <footer className='footer'>
-          <FooterCategoriesLinks/>
-          <FooterHelpLinks/>
-      </footer>
+        </div>
+
+
+        <footer className='footer'>
+          <FooterCategoriesLinks />
+          <FooterHelpLinks />
+        </footer>
+      </BrowserRouter>
     </div>
   );
 }

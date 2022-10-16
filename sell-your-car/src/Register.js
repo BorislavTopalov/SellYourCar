@@ -29,20 +29,18 @@ const Register = (props) => {
 
 
     function handleRegister(e) {
+        console.log(e);
         e.preventDefault();
         const [email, password] = e.target;
 
         if(!(props.users.some(user => user.email === email.value))){
             props.setUsers((prev) => [...prev, {email: email.value, password: password.value}]);
-            setError2(true);
-            window.location.pathname = "/login";
+            setError2(false);
+            // window.location.pathname = "/login";
             e.target.reset();
         } else {
             setError2(true);
         }
-        
-        
-        console.log("submit");
     }
 
 

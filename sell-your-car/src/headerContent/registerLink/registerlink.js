@@ -1,9 +1,10 @@
 import "./registerLink.css";
+import { Link } from "react-router-dom";
 
 export default function Registerlink() {
 
     return (
-        <a className="registerBtn" href="/register">Нова регистрация</a>
+        <Link className="registerBtn" to="/register">Нова регистрация</Link>
     )
 
 }

@@ -1,4 +1,5 @@
 import "./footerCategoriesLinks.css";
+import { Link } from "react-router-dom";
 
 export default function FooterCategoriesLinks () {
 
@@ -9,17 +10,17 @@ export default function FooterCategoriesLinks () {
             <div className="footerContentUp">
                 <span>Основни категории: </span>
                 <div>
-                    <a className="footerLink" href="/home">Автомобили и джипове</a>
-                    <a className="footerLink" href="/home">Бусове</a>
-                    <a className="footerLink" href="/home">Камиони</a>
-                    <a className="footerLink" href="/home">Мотоциклети</a>
-                    <a className="footerLink" href="/home">Селскостопански</a>
-                    <a className="footerLink" href="/home">Индустриални</a>
-                    <a className="footerLink" href="/home">Кари</a>
-                    <a className="footerLink" href="/home">Каравини</a>
-                    <a className="footerLink" href="/home">Яхти и лодки</a>
-                    <a className="footerLink" href="/home">Ремаркета</a>
-                    <a className="footerLink" href="/home">Велосипеди</a>
+                    <Link className="footerLink" to="/home">Автомобили и джипове</Link>
+                    <Link className="footerLink" to="/home">Бусове</Link>
+                    <Link className="footerLink" to="/home">Камиони</Link>
+                    <Link className="footerLink" to="/home">Мотоциклети</Link>
+                    <Link className="footerLink" to="/home">Селскостопански</Link>
+                    <Link className="footerLink" to="/home">Индустриални</Link>
+                    <Link className="footerLink" to="/home">Кари</Link>
+                    <Link className="footerLink" to="/home">Каравини</Link>
+                    <Link className="footerLink" to="/home">Яхти и лодки</Link>
+                    <Link className="footerLink" to="/home">Ремаркета</Link>
+                    <Link className="footerLink" to="/home">Велосипеди</Link>
                 </div>
             </div>
         </div>
