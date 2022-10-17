@@ -17,7 +17,6 @@ import Logout from './Logout';
 import GeneralTerms from './generalTerms/generalTerms';
 import CategoryIcons from './homeContent/homeTopIcons/categoryIcons';
 import HomeSearchTable from './homeContent/homeContentMiddle/homeSearchTable';
-import DropDownOptions from './homeContent/homeContentMiddle/dropDownOptions';
 import AdvertisementTariffs from './advertisementTariffs/advertisementTariffs';
 import Help from './help/help';
 
@@ -63,7 +62,6 @@ function App() {
               <>
                 <CategoryIcons />
                 <HomeSearchTable />
-                <DropDownOptions/>
               </>
             } />
             <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />

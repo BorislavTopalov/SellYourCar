@@ -1,6 +1,23 @@
+import { useState, useEffect } from "react";
 import "./homeSearchTable.css"
+import Select from "./Select"
 
 export default function HomeSearchTable(props) {
+
+    const [make, setMake] = useState(categorieOptions[0].make);
+    const [model, setModel] = useState(categorieOptions[0].make[0].model)
+
+    function handleMainCategory(e) {
+        setMake(categorieOptions.find((el) => el.value === e.target.value).make);
+    }
+
+    useEffect(() => {
+        setModel(make[0].model);
+    }, [make])
+
+    function handleMakeCategory(e) {
+        setModel(make.find((el) => el.value === e.target.value).model);
+    }
 
     const categorieOptions = [
         {
@@ -27,7 +44,39 @@ export default function HomeSearchTable(props) {
                 }
             ]
         },
-        { value: "Бусове", label: "Бусове" },
+        {
+            value: "Бусове", label: "Бусове",
+            make: [
+                {
+                    value: "Mercedes",
+                    label: "Mercedes",
+                    model: [
+                        {
+                            value: "V-class",
+                            label: "V-class"
+                        },
+                        {
+                            value: "100",
+                            label: "100"
+                        }
+                    ]
+                },
+                {
+                    value: "Mazda",
+                    label: "Mazda",
+                    model: [
+                        {
+                            value: "Bongo",
+                            label: "Bongo"
+                        },
+                        {
+                            value: "E",
+                            label: "E"
+                        }
+                    ]
+                }
+            ]
+        },
         { value: "Камиони", label: "Камиони" },
         { value: "Мотоциклети", label: "Мотоциклети" },
         { value: "Селскостопански", label: "Селскостопански" },
@@ -38,6 +87,19 @@ export default function HomeSearchTable(props) {
         { value: "Части и аксесоари", label: "Части и аксесоари" }
     ];
 
+    
+
+    function handleMainCategory(e) {
+        setMake(categorieOptions.find((el) => el.value === e.target.value).make);
+    }
+
+    useEffect(() => {
+        setModel(make[0].model);
+    }, [make])
+
+    function handleMakeCategory(e) {
+        setModel(make.find((el) => el.value === e.target.value).model);
+    }
 
     return (
 
@@ -52,13 +114,21 @@ export default function HomeSearchTable(props) {
                     <p>
                         <strong>Основна Категория</strong>
                     </p>
-                    <select name={props.name} id={props.id}>
-                        {categorieOptions.map(e => {
-                            <option value={e.value}>
-                                {e.label}
-                            </option>
-                        })}
-                    </select>
+                    <Select onChange={handleMainCategory} name="Основна категория" id="Овновна категория" options={categorieOptions} />
+                </div>
+
+                <div className="makeCategories">
+                    <p>
+                        <strong>Марка</strong>
+                    </p>
+                    <Select onChange={handleMakeCategory} name="Марка" id="Марка" options={make} />
+                </div>
+
+                <div className="modelCategories">
+                    <p>
+                        <strong>Модел</strong>
+                    </p>
+                    <Select name="Модел" id="Модел" options={model} />
                 </div>
             </span>
 
