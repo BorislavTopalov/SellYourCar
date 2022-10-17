@@ -1,3 +1,5 @@
+import "./generalTerms.css";
+
 export default function GeneralTerms() {
 
     return (

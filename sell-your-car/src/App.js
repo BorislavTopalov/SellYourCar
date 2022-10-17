@@ -17,6 +17,9 @@ import Logout from './Logout';
 import GeneralTerms from './generalTerms/generalTerms';
 import CategoryIcons from './homeContent/homeTopIcons/categoryIcons';
 import HomeSearchTable from './homeContent/homeContentMiddle/homeSearchTable';
+import DropDownOptions from './homeContent/homeContentMiddle/dropDownOptions';
+import AdvertisementTariffs from './advertisementTariffs/advertisementTariffs';
+import Help from './help/help';
 
 
 function App() {
@@ -60,6 +63,7 @@ function App() {
               <>
                 <CategoryIcons />
                 <HomeSearchTable />
+                <DropDownOptions/>
               </>
             } />
             <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />
@@ -73,8 +77,8 @@ function App() {
             <Route path='allResults' element={<div className='allResults'>"AllResults"</div>} />
             <Route path='showTheChosenAd' element={<div className='showTheChosenAd'>"ShowTheChosenAd"</div>} />
             <Route path='contacts' element={<div className='contacts'>"Contacts"</div>} />
-            <Route path='advertisement' element={<div className='advertisement'>"Аdvertisement"</div>} />
-            <Route path='help' element={<div className='helpPage'>"Help"</div>} />
+            <Route path='advertisement' element={<AdvertisementTariffs/>} />
+            <Route path='help' element={<Help/>} />
             <Route path='generalTerms' element={<GeneralTerms />} />
           </Routes>
 

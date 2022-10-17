@@ -60,6 +60,14 @@ a {
     border-top: 2px solid #dddddd;
     border-left: 2px solid #dddddd;
     border-right: 2px solid #dddddd;
+    padding: 0 50px;
+}
+.registerButton {
+    padding: 0 50px;
+}
+
+.nonBlacked {
+    padding: 0 50px;
 }
 
 .disabled {
@@ -73,3 +81,7 @@ a {
     border: 1px solid red;
     padding: 2px 0px;
 }
+/* 
+.strongLogin {
+    padding: 50px;
+} */

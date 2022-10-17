@@ -54,8 +54,8 @@ const Login = (props) => {
     return (
         <div className="login-register">
             <div className="link-wrapper">
-                <Link to="/login" className={style ? "blacked" : null}><strong>Вход</strong></Link>
-                <Link to="/register"><strong>Регистрация</strong></Link>
+                <Link to="/login" className={style ? "blacked" : "nonBlacked"}><strong className="strongLogin">Вход</strong></Link>
+                <Link to="/register" className="registerButton"><strong className="strongLogin">Регистрация</strong></Link>
             </div>
             <div className="form-wrapper">
                 <LoginForm onSubmit={handleLogin} onInputE={emailInput} onInputP={passInput} error={error} disabled={disabled}/>
