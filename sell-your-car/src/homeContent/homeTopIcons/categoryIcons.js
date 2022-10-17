@@ -7,7 +7,7 @@ export default function CategoryIcons () {
 
     return (
 
-        <div className="headerContentTop">
+        <span className="homeContentTop">
             <FaCarSide className="homeIconsTop"/>
             <FaBusAlt className="homeIconsTop"/>
             <FaTruck className="homeIconsTop"/>
@@ -18,6 +18,6 @@ export default function CategoryIcons () {
             <GiSailboat className="homeIconsTop"/>
             <GiMoneyStack className="homeIconsTop"/>
             <FaWrench className="homeIconsTop"/>
-        </div>
+        </span>
     )
 }

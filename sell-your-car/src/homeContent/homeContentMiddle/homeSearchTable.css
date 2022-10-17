@@ -1,0 +1,10 @@
+.mainCategories {
+    border: #0099ff 1px solid;
+    border-top: #0099ff 3px solid;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.categoriesOutlineTable {
+    display: flex;
+}

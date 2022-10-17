@@ -16,6 +16,7 @@ import FooterHelpLinks from './footerContent/footerContentMiddle/footerContactsC
 import Logout from './Logout';
 import GeneralTerms from './generalTerms/generalTerms';
 import CategoryIcons from './homeContent/homeTopIcons/categoryIcons';
+import HomeSearchTable from './homeContent/homeContentMiddle/homeSearchTable';
 
 
 function App() {
@@ -36,12 +37,12 @@ function App() {
             <div>
               <LogoLink />
             </div>
-            {activeUser ? 
+            {activeUser ?
               <div>
                 <div>{activeUser.email}</div>
-                <Logout setActiveUser={setActiveUser}/>
+                <Logout setActiveUser={setActiveUser} />
               </div>
-               :
+              :
               <div>
                 <LoginLink />  | <Registerlink />
               </div>}
@@ -55,7 +56,12 @@ function App() {
         <div className='pageContent'>
 
           <Routes>
-            <Route path='*' element={<CategoryIcons/>} />
+            <Route path='*' element={
+              <>
+                <CategoryIcons />
+                <HomeSearchTable />
+              </>
+            } />
             <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />
             <Route path='register' element={<Register users={users} setUsers={setUsers} />} />
             <Route path='profile' element={<div className='profile'>"ProfilePage"</div>} />
@@ -69,7 +75,7 @@ function App() {
             <Route path='contacts' element={<div className='contacts'>"Contacts"</div>} />
             <Route path='advertisement' element={<div className='advertisement'>"Аdvertisement"</div>} />
             <Route path='help' element={<div className='helpPage'>"Help"</div>} />
-            <Route path='generalTerms' element={<GeneralTerms/>} />
+            <Route path='generalTerms' element={<GeneralTerms />} />
           </Routes>
 
         </div>
