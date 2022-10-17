@@ -25,29 +25,32 @@ export default function HomeSearchTable(props) {
         <div className="homeSearchTable">
             <span className="categoriesOutlineTable">
                 <strong>
-                    Търсене в
+                    Търсене в <span options={handleMainCategory} />
                 </strong>
             </span>
             <span className="homeSearchTable">
                 <div className="mainCategories">
-                    <p>
-                        <strong>Основна Категория</strong>
-                    </p>
-                    <Select onChange={handleMainCategory} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
-                </div>
+                    <div>
+                        <p>
+                            <strong>Основна Категория</strong>
+                        </p>
+                        <Select onChange={handleMainCategory} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                    </div>
+                    <div className="makeAndModelHome">
+                        <div className="makeSelectHome">
+                            <p>
+                                <strong>Марка</strong>
+                            </p>
+                            <Select onChange={handleMakeCategory} name="Марка" id="Марка" options={make} />
+                        </div>
+                        <div className="modelSelectHome">
+                            <p>
+                                <strong>Модел</strong>
+                            </p>
+                            <Select name="Модел" id="Модел" options={model} />
+                        </div>
+                    </div>
 
-                <div className="makeCategories">
-                    <p>
-                        <strong>Марка</strong>
-                    </p>
-                    <Select onChange={handleMakeCategory} name="Марка" id="Марка" options={make} />
-                </div>
-
-                <div className="modelCategories">
-                    <p>
-                        <strong>Модел</strong>
-                    </p>
-                    <Select name="Модел" id="Модел" options={model} />
                 </div>
             </span>
 

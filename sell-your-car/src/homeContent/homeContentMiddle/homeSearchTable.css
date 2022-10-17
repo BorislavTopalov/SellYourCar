@@ -8,3 +8,8 @@
 .categoriesOutlineTable {
     display: flex;
 }
+
+.makeAndModelHome {
+    display: flex;
+    justify-content: space-between;
+}
