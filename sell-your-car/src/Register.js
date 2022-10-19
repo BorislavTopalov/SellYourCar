@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import "./LoginRegister.css";
 import RegisterForm from "./RegisterForm";
 
@@ -9,6 +9,8 @@ const Register = (props) => {
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
     const [checkPass, setCheckPass] = useState("");
+    const navigate = useNavigate();
+
 
     const [error, setError] = useState(false);
     const [error2, setError2] = useState(false);
@@ -36,7 +38,7 @@ const Register = (props) => {
         if(!(props.users.some(user => user.email === email.value))){
             props.setUsers((prev) => [...prev, {email: email.value, password: password.value}]);
             setError2(false);
-            window.location.pathname = "/login";
+            navigate("/login");
             e.target.reset();
         } else {
             setError2(true);

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./LoginRegister.css";
 import { useEffect, useState } from "react";
 import LoginForm from "./LoginForm";
@@ -8,6 +8,7 @@ const Login = (props) => {
     const [pass, setPass] = useState("");
     const [error, setError] = useState(false);
     const [disabled, setDisabled] = useState(true);
+    const navigate = useNavigate();
 
 
     const [style, setStyle] = useState(null);
@@ -28,7 +29,8 @@ const Login = (props) => {
         if(props.users.some((user) => user.email === email.value && user.password === password.value)){
             props.setActiveUser(props.users.find((user) => user.email === email.value && user.password === password.value));
             setError(false);
-            window.location.pathname = "/home";
+            navigate("/home");
+        
             e.target.reset();
         } else {
             setError(true);

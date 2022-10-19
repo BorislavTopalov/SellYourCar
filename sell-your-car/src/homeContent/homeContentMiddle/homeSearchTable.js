@@ -25,7 +25,7 @@ export default function HomeSearchTable(props) {
         <div className="homeSearchTable">
             <span className="categoriesOutlineTable">
                 <strong>
-                    Търсене в <span options={handleMainCategory} />
+                    Търсене в 
                 </strong>
             </span>
             <span className="homeSearchTable">
