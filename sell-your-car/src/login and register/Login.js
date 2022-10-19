@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginRegister.css";
 import { useEffect, useState } from "react";
-import LoginForm from "./LoginForm";
+import LoginForm from ".././components/LoginForm";
 
 const Login = (props) => {
     const [email, setEmail] = useState("");
