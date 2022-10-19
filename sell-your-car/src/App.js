@@ -64,6 +64,10 @@ function App() {
                 <HomeSearchTable />
               </>
             } />
+            <Route path='/' element={<>
+              <CategoryIcons />
+              <HomeSearchTable />
+            </>} />
             <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />
             <Route path='register' element={<Register users={users} setUsers={setUsers} />} />
             <Route path='profile' element={<div className='profile'>"ProfilePage"</div>} />
@@ -75,14 +79,13 @@ function App() {
             <Route path='allResults' element={<div className='allResults'>"AllResults"</div>} />
             <Route path='showTheChosenAd' element={<div className='showTheChosenAd'>"ShowTheChosenAd"</div>} />
             <Route path='contacts' element={<div className='contacts'>"Contacts"</div>} />
-            <Route path='advertisement' element={<AdvertisementTariffs/>} />
-            <Route path='help' element={<Help/>} />
+            <Route path='advertisement' element={<AdvertisementTariffs />} />
+            <Route path='help' element={<Help />} />
             <Route path='generalTerms' element={<GeneralTerms />} />
             <Route path='*' element={<div>404</div>} />
           </Routes>
 
         </div>
-
 
         <footer className='footer'>
           <FooterCategoriesLinks />

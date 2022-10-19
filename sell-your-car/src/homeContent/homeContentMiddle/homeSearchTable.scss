@@ -39,31 +39,49 @@ p {
 
 .makeAndModelHome {
     display: flex;
-    margin: 20px 30px;
+    margin: 10px 15px 10px 30px;
 }
 
 .regionAndTown {
     display: flex;
-    margin: 20px 30px 0 0;
+    margin: 10px 30px 10px 15px;
+}
+
+.secondRowHomeTable {
+    display: flex;
 }
 
 .priceAndYear {
     display: flex;
-    margin: 20px 30px;
+    margin: 10px 15px 10px 30px;
 }
 
-.engineAndTransmission {
+.sortAdHome{
+    margin: 10px 30px 10px 15px;
+    
+    select {
+    width: 310px;
+    }
+}
+
+.thirdRowHomeTable {
     display: flex;
-    margin: 20px 30px;
+    align-items: center;
+   
+
+    .engineAndTransmission {
+        margin: 10px 15px 10px 30px;
+        display: flex;
+    }
+
+    button {
+        width: 310px;
+        margin: 10px 30px 10px 15px;
+    }
 }
 
 .firstRowHomeTable {
     display: flex;
-}
-
-.SearchBtnHomeTable {
-    display: grid;
-    margin: 20px 30px 0;
 }
 
 .detailSearchLink {
