@@ -1,10 +1,15 @@
 export default function RegionAndTownOptions() {
 
     const regionAndTownOptions = [
+        { value: "Всички", label: "Всички", town: [] },
         {
             value: "Бургас",
             label: "Бургас",
             town: [
+                {
+                    value: "Всички",
+                    label: "Всички"
+                },
                 {
                     value: "гр.Бургас",
                     label: "гр.Бургас"
@@ -29,6 +34,10 @@ export default function RegionAndTownOptions() {
             label: "Варна",
             town: [
                 {
+                    value: "Всички",
+                    label: "Всички"
+                },
+                {
                     value: "гр.Варна",
                     label: "гр.Варна"
                 },
@@ -52,6 +61,10 @@ export default function RegionAndTownOptions() {
             label: "Пловдив",
             town: [
                 {
+                    value: "Всички",
+                    label: "Всички"
+                },
+                {
                     value: "гр.Пловдив",
                     label: "гр.Пловдив"
                 },
@@ -74,6 +87,10 @@ export default function RegionAndTownOptions() {
             value: "София",
             label: "София",
             town: [
+                {
+                    value: "Всички",
+                    label: "Всички"
+                },
                 {
                     value: "гр.Банкя",
                     label: "гр.Банкя"

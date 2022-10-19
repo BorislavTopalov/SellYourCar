@@ -6,7 +6,7 @@ import RegionAndTownOptions from "./regionAndTownOptions";
 import YearOptions from "./yearOptions";
 import EngineOptions from "./engineOptions";
 import TransmissionOptions from "./transmissionOptions";
-import  Button from "react-bootstrap/Button";
+import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 export default function HomeSearchTable(props) {
@@ -32,7 +32,7 @@ export default function HomeSearchTable(props) {
         setTown(RegionAndTownOptions().regionAndTownOptions.find((el) => el.value === e.target.value).town);
     }
 
-    function handleInputPrice (e) {
+    function handleInputPrice(e) {
         setPrice(Number(e.target.value));
     }
 
@@ -44,54 +44,57 @@ export default function HomeSearchTable(props) {
                     Търсене в
                 </strong>
             </span>
-            <span className="homeSearchTable">
-                <div className="mainCategories">
-                    <div>
+            
+                <div className="mainSearchHome">
+                    <div className="mainCategories">
                         <p>
                             <strong>Основна Категория</strong>
                         </p>
                         <Select onChange={handleMainCategory} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
                     </div>
-                    <div className="makeAndModelHome">
-                        <div className="makeSelectHome">
-                            <p>
-                                <strong>Марка</strong>
-                            </p>
-                            <Select onChange={handleMakeCategory} name="Марка" id="Марка" options={make} />
+                    <div className="firstRowHomeTable">
+                        <div className="makeAndModelHome">
+                            <div className="makeSelectHome">
+                                <p>
+                                    <strong>Марка</strong>
+                                </p>
+                                <Select onChange={handleMakeCategory} name="Марка" id="Марка" options={make} />
+                            </div>
+                            <div className="modelSelectHome">
+                                <p>
+                                    <strong>Модел</strong>
+                                </p>
+                                <Select name="Модел" id="Модел" options={model} />
+                            </div>
                         </div>
-                        <div className="modelSelectHome">
-                            <p>
-                                <strong>Модел</strong>
-                            </p>
-                            <Select name="Модел" id="Модел" options={model} />
+                        <div className="regionAndTown">
+                            <div className="regionSelectHome">
+                                <p>
+                                    <strong>Регион</strong>
+                                </p>
+                                <Select onChange={handleChangeRegion} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
+                            </div>
+                            <div className="townSelectHome">
+                                <p>
+                                    <strong>Населено място</strong>
+                                </p>
+                                <Select name="Населено място" id="Населено място" options={town} />
+                            </div>
                         </div>
                     </div>
-                    <div className="regionAndTown">
-                        <div className="regionSelectHome">
-                            <p>
-                                <strong>Регион</strong>
-                            </p>
-                            <Select onChange={handleChangeRegion} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
-                        </div>
-                        <div className="townSelectHome">
-                            <p>
-                                <strong>Населено място</strong>
-                            </p>
-                            <Select name="Населено място" id="Населено място" options={town}/>
-                        </div>
-                    </div>
+
                     <div className="priceAndYear">
                         <div className="priceInputHome">
                             <p>
                                 <strong>Максимална цена</strong>
                             </p>
-                            <input type="text" onInput={handleInputPrice}/>
+                            <input className="inputPriceHome" type="text" onInput={handleInputPrice} />
                         </div>
                         <div className="yearSelectHome">
                             <p>
                                 <strong>Година</strong>
                             </p>
-                            <Select name="Година" id="Година" options={YearOptions().year}/>
+                            <Select name="Година" id="Година" options={YearOptions().year} />
                         </div>
                     </div>
                     <div className="engineAndTransmission">
@@ -99,18 +102,19 @@ export default function HomeSearchTable(props) {
                             <p>
                                 <strong>Двигател</strong>
                             </p>
-                            <Select name="Двигател" id="Двигател" options={EngineOptions().engine}/> 
+                            <Select name="Двигател" id="Двигател" options={EngineOptions().engine} />
                         </div>
                         <div className="transmissionSelectHome">
                             <p>
                                 <strong>Скоростна кутия</strong>
                             </p>
-                            <Select name="Скоростна кутия" id="Скоростна кутия" options={TransmissionOptions().transmission}/>
+                            <Select name="Скоростна кутия" id="Скоростна кутия" options={TransmissionOptions().transmission} />
                         </div>
                     </div>
-                    <Link to="/allResults"><button><strong>Търси</strong></button></Link>
+                    <Link className="SearchBtnHomeTable" to="/allResults"><button><strong>Търси</strong></button></Link>
+                    <Link className="detailSearchLink" to="/detailSearching">Подробно търсене</Link>
                 </div>
-            </span>
+        
 
         </div>
     )
