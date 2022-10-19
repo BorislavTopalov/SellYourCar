@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import "./homeSearchTable.scss"
-import Select from "./Select"
-import CategoryOptions from "./categoryOptions";
-import RegionAndTownOptions from "./regionAndTownOptions";
-import YearOptions from "./yearOptions";
-import EngineOptions from "./engineOptions";
-import TransmissionOptions from "./transmissionOptions";
+import Select from "../../components/Select"
 import { Link } from "react-router-dom";
-import SortOptions from "./sortOptions";
+import SortOptions from "../../data/sortOptions"
+import RegionAndTownOptions from "../../data/regionAndTownOptions"
+import CategoryOptions from "../../data/categoryOptions";
+import YearOptions from "../../data/yearOptions";
+import TransmissionOptions from "../../data/transmissionOptions"
+import EngineOptions from "../../data/engineOptions"
 
 export default function HomeSearchTable(props) {
 

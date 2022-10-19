@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate} from "react-router-dom";
 import "./LoginRegister.css";
-import RegisterForm from "./RegisterForm";
+import RegisterForm from ".././components/RegisterForm";
 
 const Register = (props) => {
     
