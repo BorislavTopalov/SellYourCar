@@ -5,12 +5,12 @@ export default function CategoryOptions() {
             value: "Автомобили и Джипове",
             label: "Автомобили и Джипове",
             make: [
-                { value: "", label: "", model: [] },
+                { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
                 {
                     value: "Audi",
                     label: "Audi",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "RS E-Tron GT ", label: "RS E-Tron GT " },
                         { value: "RS3", label: "RS3" },
                         { value: "RS4", label: "RS4" },
@@ -24,7 +24,7 @@ export default function CategoryOptions() {
                     value: "BMW",
                     label: "BMW",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "M1", label: "M1" },
                         { value: "M3", label: "M3" },
                         { value: "M4", label: "M4" },
@@ -38,7 +38,7 @@ export default function CategoryOptions() {
                     value: "Mercedes-Benz",
                     label: "Mercedes-Benz",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "A 45 AMG", label: "A 45 AMG" },
                         { value: "C 63 AMG", label: "C 63 AMG" },
                         { value: "E 65 AMG", label: "E 65 AMG" },
@@ -53,12 +53,12 @@ export default function CategoryOptions() {
         {
             value: "Бусове", label: "Бусове",
             make: [
-                { value: "", label: "", model: [] },
+                { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
                 {
                     value: "Mercedes",
                     label: "Mercedes",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "V-class", label: "V-class" },
                         { value: "Vito", label: "Vito" }
                     ]
@@ -67,7 +67,7 @@ export default function CategoryOptions() {
                     value: "VW",
                     label: "VW",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Transporter", label: "Transporter" },
                         { value: "T2", label: "T2" }
                     ]
@@ -77,12 +77,12 @@ export default function CategoryOptions() {
         {
             value: "Камиони", label: "Камиони",
             make: [
-                { value: "", label: "", model: [] },
+                { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
                 {
                     value: "Mercedes",
                     label: "Mercedes",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Unimog", label: "Unimog" },
                         { value: "Actros", label: "Actros" }
                     ]
@@ -91,7 +91,7 @@ export default function CategoryOptions() {
                     value: "Volvo",
                     label: "Volvo",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "F 10", label: "F 10" },
                         { value: "F 12", label: "F 12" }
                     ]
@@ -101,12 +101,12 @@ export default function CategoryOptions() {
         {
             value: "Мотоциклети", label: "Мотоциклети",
             make: [
-                { value: "", label: "", model: [] },
+                { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
                 {
                     value: "Ducati",
                     label: "Ducati",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Diavel", label: "Diavel" },
                         { value: "Panigale", label: "Panigale" }
                     ]
@@ -115,7 +115,7 @@ export default function CategoryOptions() {
                     value: "BMW",
                     label: "BMW",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "HP", label: "HP" },
                         { value: "R", label: "R" }
                     ]
@@ -125,12 +125,12 @@ export default function CategoryOptions() {
         {
             value: "Селскостопански", label: "Селскостопански",
             make: [
-                { value: "", label: "", model: [] },
+                { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
                 {
                     value: "Трактор",
                     label: "Трактор",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "CASE II", label: "CASE II" },
                         { value: "Challenger", label: "Challenger" }
                     ]
@@ -139,7 +139,7 @@ export default function CategoryOptions() {
                     value: "Комбайн",
                     label: "Комбайн",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Lamborghini", label: "Lamborghini" },
                         { value: "Mercedes-Benz", label: "Mercedes-Benz" }
                     ]
@@ -149,12 +149,12 @@ export default function CategoryOptions() {
         {
             value: "Велосипеди", label: "Велосипеди",
             make: [
-                { value: "", label: "", model: [] },
+                { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
                 {
                     value: "BMX",
                     label: "BMX",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Cadillac Bikes", label: "Cadillac Bikes" },
                         { value: "Diamond Bikes", label: "Diamond Bikes" }
                     ]
@@ -163,7 +163,7 @@ export default function CategoryOptions() {
                     value: "Планински",
                     label: "Планински",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Brookline Mashineworks", label: "Brookline Mashineworks" },
                         { value: "Specialized", label: "Specialized" }
                     ]
@@ -173,12 +173,12 @@ export default function CategoryOptions() {
         {
             value: "Каравани", label: "Каравани",
             make: [
-                { value: "", label: "", model: [] },
+                { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
                 {
                     value: "Каравана",
                     label: "Каравана",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Bavaria Camp", label: "Bavaria Camp" },
                         { value: "Westfallia", label: "Westfallia" }
                     ]
@@ -187,7 +187,7 @@ export default function CategoryOptions() {
                     value: "Кемпер",
                     label: "Кемпер",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Monaco", label: "Monaco" },
                         { value: "Rockwood", label: "Rockwood" }
                     ]
@@ -197,12 +197,12 @@ export default function CategoryOptions() {
         {
             value: "Яхти и лодки", label: "Яхти и лодки",
             make: [
-                { value: "", label: "", model: [] },
+                { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
                 {
                     value: "Джет",
                     label: "Джет",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Bomradier Sea Doo", label: "Bomradier Sea Doo" },
                         { value: "Williams", label: "Williams" }
                     ]
@@ -211,7 +211,7 @@ export default function CategoryOptions() {
                     value: "Моторна яхта",
                     label: "Моторна яхта",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Lamborghini", label: "Lamborghini" },
                         { value: "Ferrari", label: "Ferrari" }
                     ]
@@ -221,12 +221,12 @@ export default function CategoryOptions() {
         {
             value: "Продавам", label: "Продавам",
             make: [
-                { value: "", label: "", model: [] },
+                { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
                 {
                     value: "Генерация",
                     label: "Генерация",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Acrapovich", label: "Acrapovich" },
                         { value: "Supersprint", label: "Supersprint" }
                     ]
@@ -235,7 +235,7 @@ export default function CategoryOptions() {
                     value: "Оптичен тунинг",
                     label: "Оптичен тунинг",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "M-Power", label: "M-Power" },
                         { value: "RS", label: "RS" },
                         { value: "AMG", label: "AMG" },
@@ -246,12 +246,12 @@ export default function CategoryOptions() {
         {
             value: "Части и аксесоари", label: "Части и аксесоари",
             make: [
-                { value: "", label: "", model: [] },
+                { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
                 {
                     value: "Автомобили",
                     label: "Автомобили",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Двигател", label: "Двигател" },
                         { value: "Трансмисия", label: "Трансмисия" }
                     ]
@@ -260,7 +260,7 @@ export default function CategoryOptions() {
                     value: "Джипове",
                     label: "Джипове",
                     model: [
-                        { value: "", label: "" },
+                        { value: "Всички", label: "Всички" },
                         { value: "Двигател", label: "Двигател" },
                         { value: "Трансмисия", label: "Трансмисия" }
                     ]

@@ -58,7 +58,7 @@ function App() {
         <div className='pageContent'>
 
           <Routes>
-            <Route path='*' element={
+            <Route path='home' element={
               <>
                 <CategoryIcons />
                 <HomeSearchTable />
@@ -78,6 +78,7 @@ function App() {
             <Route path='advertisement' element={<AdvertisementTariffs/>} />
             <Route path='help' element={<Help/>} />
             <Route path='generalTerms' element={<GeneralTerms />} />
+            <Route path='*' element={<div>404</div>} />
           </Routes>
 
         </div>
