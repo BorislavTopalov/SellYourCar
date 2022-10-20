@@ -6,9 +6,14 @@
 
 .footerLink {
     font-size: 12px;
+    height: 30px;
     text-decoration: underline;
     color: #999999;
-    margin: 0 3px;
+    background-color: white;
+    margin: 4px;
+}
+.footerLink:hover{
+    color: #0099ff;
 }
 
 .footerContentUp {

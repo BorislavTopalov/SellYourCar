@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import "./homeSearchTable.scss"
 import Select from "../../components/Select"
 import { Link } from "react-router-dom";
@@ -8,42 +7,16 @@ import CategoryOptions from "../../data/categoryOptions";
 import YearOptions from "../../data/yearOptions";
 import TransmissionOptions from "../../data/transmissionOptions"
 import EngineOptions from "../../data/engineOptions"
-import FooterCategoriesLinks from "../../footerContent/footerContentUp/footerCategoriesLinks";
+
 
 export default function HomeSearchTable(props) {
-
-    const [make, setMake] = useState(CategoryOptions().categorieOptions[0].make);
-    const [model, setModel] = useState(CategoryOptions().categorieOptions[0].make[0].model);
-    const [town, setTown] = useState(RegionAndTownOptions().regionAndTownOptions[0].town);
-    let [mainCategory, setMainCategory] = useState(CategoryOptions().categorieOptions[0].value);
-
-    function handleMainCategory(e) {
-        setMake(CategoryOptions().categorieOptions.find((el) => el.value === e.target.value).make);
-        mainCategory = setMainCategory(cat => cat = e.target.value);
-    }
-   
-    useEffect(() => {
-        setModel(make[0].model);
-    }, [make])
-
-    function handleMakeCategory(e) {
-        setModel(make.find((el) => el.value === e.target.value).model);
-    }
-
-    function handleChangeRegion(e) {
-        setTown(RegionAndTownOptions().regionAndTownOptions.find((el) => el.value === e.target.value).town);
-    }
-
-    function handleInputPrice(e) {
-        Number(e.target.value);
-    }
 
     return (
 
         <div className="homeSearchTable">
             <span className="categoriesOutlineTable">
                 <strong>
-                    Търсене в <span>{mainCategory}</span>
+                    Търсене в <span>{props.mainCategory}</span>
                 </strong>
             </span>
 
@@ -52,7 +25,7 @@ export default function HomeSearchTable(props) {
                     <p>
                         <strong>Основна Категория</strong>
                     </p>
-                    <Select onChange={handleMainCategory} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                    <Select selectedOption={props.selectedOption} onChange={props.handleMain} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
                 </div>
                 <div className="firstRowHomeTable">
                     <div className="makeAndModelHome">
@@ -60,13 +33,13 @@ export default function HomeSearchTable(props) {
                             <p>
                                 <strong>Марка</strong>
                             </p>
-                            <Select onChange={handleMakeCategory} name="Марка" id="Марка" options={make} />
+                            <Select onChange={props.handleMake} name="Марка" id="Марка" options={props.make} />
                         </div>
                         <div className="modelSelectHome">
                             <p>
                                 <strong>Модел</strong>
                             </p>
-                            <Select name="Модел" id="Модел" options={model} />
+                            <Select name="Модел" id="Модел" options={props.model} />
                         </div>
                     </div>
                     <div className="regionAndTown">
@@ -74,13 +47,13 @@ export default function HomeSearchTable(props) {
                             <p>
                                 <strong>Регион</strong>
                             </p>
-                            <Select onChange={handleChangeRegion} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
+                            <Select onChange={props.handleRegion} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
                         </div>
                         <div className="townSelectHome">
                             <p>
                                 <strong>Населено място</strong>
                             </p>
-                            <Select name="Населено място" id="Населено място" options={town} />
+                            <Select name="Населено място" id="Населено място" options={props.town} />
                         </div>
                     </div>
                 </div>
@@ -90,7 +63,7 @@ export default function HomeSearchTable(props) {
                             <p>
                                 <strong>Максимална цена</strong>
                             </p>
-                            <input className="inputPriceHome" type="text" onInput={handleInputPrice} />
+                            <input className="inputPriceHome" type="text" onInput={props.handlePrice} />
                         </div>
                         <div className="yearSelectHome">
                             <p>

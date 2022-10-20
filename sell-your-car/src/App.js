@@ -19,12 +19,43 @@ import HomeSearchTable from './homeContent/homeContentMiddle/homeSearchTable';
 import AdvertisementTariffs from './advertisementTariffs/advertisementTariffs';
 import Help from './help/help';
 import DetailedSearch from './detailedSearch/DetailedSearch';
+import CategoryOptions from './data/categoryOptions';
+import RegionAndTownOptions from './data/regionAndTownOptions';
 
 
 function App() {
 
   const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || []);
   const [activeUser, setActiveUser] = useState(JSON.parse(localStorage.getItem('activeUser')) || null);
+  const [selectedOption, setSelectedOption] = useState(CategoryOptions().categorieOptions[0]);
+  const [make, setMake] = useState(CategoryOptions().categorieOptions[0].make);
+  const [model, setModel] = useState(CategoryOptions().categorieOptions[0].make[0].model);
+  const [town, setTown] = useState(RegionAndTownOptions().regionAndTownOptions[0].town);
+  const [mainCategory, setMainCategory] = useState(CategoryOptions().categorieOptions[0].value);
+
+  function handleMainCategory(e) {
+    setMake(CategoryOptions().categorieOptions.find((el) => el.value === e.target.value).make);
+    setMainCategory(e.target.value);
+  }
+  useEffect(() => {
+    setSelectedOption(mainCategory);
+  }, [mainCategory])
+
+  useEffect(() => {
+    setModel(make[0].model);
+  }, [make])
+
+  function handleMakeCategory(e) {
+    setModel(make.find((el) => el.value === e.target.value).model);
+  }
+
+  function handleChangeRegion(e) {
+    setTown(RegionAndTownOptions().regionAndTownOptions.find((el) => el.value === e.target.value).town);
+  }
+
+  function handleInputPrice(e) {
+    Number(e.target.value);
+  }
 
   useEffect(() => {
     localStorage.setItem('activeUser', JSON.stringify(activeUser));
@@ -61,12 +92,32 @@ function App() {
             <Route path='home' element={
               <>
                 <CategoryIcons />
-                <HomeSearchTable />
+                <HomeSearchTable
+                  handleMain={handleMainCategory}
+                  handleMake={handleMakeCategory}
+                  handleRegion={handleChangeRegion}
+                  handlePrice={handleInputPrice}
+                  make={make}
+                  model={model}
+                  town={town}
+                  mainCategory={mainCategory}
+                  selectedOption={selectedOption}
+                />
               </>
             } />
             <Route path='/' element={<>
               <CategoryIcons />
-              <HomeSearchTable />
+              <HomeSearchTable
+                handleMain={handleMainCategory}
+                handleMake={handleMakeCategory}
+                handleRegion={handleChangeRegion}
+                handlePrice={handleInputPrice}
+                make={make}
+                model={model}
+                town={town}
+                mainCategory={mainCategory}
+                selectedOption={selectedOption}
+              />
             </>} />
             <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />
             <Route path='register' element={<Register users={users} setUsers={setUsers} />} />
@@ -75,7 +126,18 @@ function App() {
             <Route path='addPictures' element={<div className='addPictures'>"AddPictures"</div>} />
             <Route path='publication' element={<div className='publication'>"Publication"</div>} />
             <Route path='showingNewAd' element={<div className='showingTheNew'>"ShowingTheNewAd"</div>} />
-            <Route path='detailSearching' element={<DetailedSearch/>} />
+            <Route path='detailSearching' element={
+              <DetailedSearch
+                handleMain={handleMainCategory}
+                handleMake={handleMakeCategory}
+                handleRegion={handleChangeRegion}
+                handlePrice={handleInputPrice}
+                make={make}
+                model={model}
+                town={town}
+                mainCategory={mainCategory}
+                selectedOption={selectedOption}
+              />} />
             <Route path='allResults' element={<div className='allResults'>"AllResults"</div>} />
             <Route path='showTheChosenAd' element={<div className='showTheChosenAd'>"ShowTheChosenAd"</div>} />
             <Route path='contacts' element={<div className='contacts'>"Contacts"</div>} />
@@ -88,7 +150,7 @@ function App() {
         </div>
 
         <footer className='footer'>
-          <FooterCategoriesLinks />
+          <FooterCategoriesLinks onClick={handleMainCategory} />
           <FooterHelpLinks />
         </footer>
       </BrowserRouter>
