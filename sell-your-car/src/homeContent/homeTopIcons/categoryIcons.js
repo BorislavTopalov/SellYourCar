@@ -1,4 +1,4 @@
-import "./categoryIcons.css";
+import "./categoryIcons.scss";
 import IconsShow from "../../data/iconsHomePage/icons";
 
 export default function CategoryIcons(props) {

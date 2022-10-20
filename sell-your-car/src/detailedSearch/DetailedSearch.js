@@ -86,7 +86,7 @@ const DetailedSearch = () => {
                     <Select name="Модел" id="Модел" options={model} />
                 </div>
                 <div className="searchTableComponent">
-                    <p><strong>Година на производство</strong></p>
+                    <p><strong>Година</strong></p>
                     <Select name="Година" id="Година1" options={YearOptions().year} />
                     <Select name="Година" id="Година2" options={YearOptions().year} />
                 </div>
