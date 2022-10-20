@@ -8,7 +8,6 @@ import CategoryOptions from "../../data/categoryOptions";
 import YearOptions from "../../data/yearOptions";
 import TransmissionOptions from "../../data/transmissionOptions"
 import EngineOptions from "../../data/engineOptions"
-import FooterCategoriesLinks from "../../footerContent/footerContentUp/footerCategoriesLinks";
 
 export default function HomeSearchTable(props) {
 
@@ -19,7 +18,7 @@ export default function HomeSearchTable(props) {
 
     function handleMainCategory(e) {
         setMake(CategoryOptions().categorieOptions.find((el) => el.value === e.target.value).make);
-        mainCategory = setMainCategory(cat => cat = e.target.value);
+        setMainCategory(e.target.value);
     }
    
     useEffect(() => {

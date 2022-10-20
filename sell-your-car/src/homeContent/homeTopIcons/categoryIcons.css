@@ -1,7 +1,10 @@
 .homeIconsTop {
-    width: 70px;
-    height: 25px;
-    color: #0099ff
+    margin: 0 9px;
+}
+
+.homeIconsTop :hover {
+    border-radius: 50%;
+    border-color: #0099ff;
 }
 
 .homeContentTop {
