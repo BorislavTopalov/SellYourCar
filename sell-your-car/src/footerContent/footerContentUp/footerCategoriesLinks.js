@@ -1,9 +1,7 @@
 import "./footerCategoriesLinks.css";
-import { Link } from "react-router-dom";
 import FooterLinks from "../../data/footerLinks";
-import CategoryOptions from "../../data/categoryOptions";
 
-export default function FooterCategoriesLinks() {
+export default function FooterCategoriesLinks(props) {
 
     return (
 
@@ -14,9 +12,7 @@ export default function FooterCategoriesLinks() {
                 <div>
 
                     {FooterLinks().footerLinks.map((link, i) => {
-                        return <Link className="footerLink" key={i} value={link} to={CategoryOptions().categorieOptions[i].value}>
-                            {link}
-                        </Link>
+                        return <button onClick={props.onClick} className="footerLink" key={i} value={link}>{link}</button>
                     })}
 
                 </div>
