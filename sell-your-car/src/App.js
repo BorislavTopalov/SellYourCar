@@ -19,12 +19,9 @@ import HomeSearchTable from './homeContent/homeContentMiddle/homeSearchTable';
 import AdvertisementTariffs from './advertisementTariffs/advertisementTariffs';
 import Help from './help/help';
 import DetailedSearch from './detailedSearch/DetailedSearch';
-<<<<<<< HEAD
-import DetailsChoosing from './addNewAd/detailsChoosing/detailsChoosing';
-=======
 import CategoryOptions from './data/categoryOptions';
 import RegionAndTownOptions from './data/regionAndTownOptions';
->>>>>>> 1e9b4dbd2eb36f7fc2c11b011e0b13f5b79ca4f6
+import DetailsChoosing from './addNewAd/detailsChoosing/detailsChoosing';
 
 
 function App() {
@@ -126,7 +123,18 @@ function App() {
             <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />
             <Route path='register' element={<Register users={users} setUsers={setUsers} />} />
             <Route path='profile' element={<div className='profile'>"ProfilePage"</div>} />
-            <Route path='addNew' element={<DetailsChoosing/>} />
+            <Route path='addNew' element={
+              <DetailsChoosing
+                handleMain={handleMainCategory}
+                handleMake={handleMakeCategory}
+                handleRegion={handleChangeRegion}
+                handlePrice={handleInputPrice}
+                make={make}
+                model={model}
+                town={town}
+                mainCategory={mainCategory}
+                selectedOption={selectedOption}
+              />} />
             <Route path='addPictures' element={<div className='addPictures'>"AddPictures"</div>} />
             <Route path='publication' element={<div className='publication'>"Publication"</div>} />
             <Route path='showingNewAd' element={<div className='showingTheNew'>"ShowingTheNewAd"</div>} />
