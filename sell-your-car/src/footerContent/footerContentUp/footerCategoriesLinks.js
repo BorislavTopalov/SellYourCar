@@ -1,7 +1,9 @@
 import "./footerCategoriesLinks.css";
 import { Link } from "react-router-dom";
+import FooterLinks from "../../data/footerLinks";
+import CategoryOptions from "../../data/categoryOptions";
 
-export default function FooterCategoriesLinks () {
+export default function FooterCategoriesLinks() {
 
     return (
 
@@ -10,17 +12,13 @@ export default function FooterCategoriesLinks () {
             <div className="footerContentUp">
                 <span>Основни категории: </span>
                 <div>
-                    <Link className="footerLink" to="/home">Автомобили и джипове</Link>
-                    <Link className="footerLink" to="/home">Бусове</Link>
-                    <Link className="footerLink" to="/home">Камиони</Link>
-                    <Link className="footerLink" to="/home">Мотоциклети</Link>
-                    <Link className="footerLink" to="/home">Селскостопански</Link>
-                    <Link className="footerLink" to="/home">Индустриални</Link>
-                    <Link className="footerLink" to="/home">Кари</Link>
-                    <Link className="footerLink" to="/home">Каравини</Link>
-                    <Link className="footerLink" to="/home">Яхти и лодки</Link>
-                    <Link className="footerLink" to="/home">Ремаркета</Link>
-                    <Link className="footerLink" to="/home">Велосипеди</Link>
+
+                    {FooterLinks().footerLinks.map((link, i) => {
+                        return <Link className="footerLink" key={i} value={link} to={CategoryOptions().categorieOptions[i].value}>
+                            {link}
+                        </Link>
+                    })}
+
                 </div>
             </div>
         </div>

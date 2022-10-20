@@ -8,17 +8,20 @@ import CategoryOptions from "../../data/categoryOptions";
 import YearOptions from "../../data/yearOptions";
 import TransmissionOptions from "../../data/transmissionOptions"
 import EngineOptions from "../../data/engineOptions"
+import FooterCategoriesLinks from "../../footerContent/footerContentUp/footerCategoriesLinks";
 
 export default function HomeSearchTable(props) {
 
     const [make, setMake] = useState(CategoryOptions().categorieOptions[0].make);
     const [model, setModel] = useState(CategoryOptions().categorieOptions[0].make[0].model);
     const [town, setTown] = useState(RegionAndTownOptions().regionAndTownOptions[0].town);
+    let [mainCategory, setMainCategory] = useState(CategoryOptions().categorieOptions[0].value);
 
     function handleMainCategory(e) {
         setMake(CategoryOptions().categorieOptions.find((el) => el.value === e.target.value).make);
+        mainCategory = setMainCategory(cat => cat = e.target.value);
     }
-
+   
     useEffect(() => {
         setModel(make[0].model);
     }, [make])
@@ -40,7 +43,7 @@ export default function HomeSearchTable(props) {
         <div className="homeSearchTable">
             <span className="categoriesOutlineTable">
                 <strong>
-                    Търсене в
+                    Търсене в <span>{mainCategory}</span>
                 </strong>
             </span>
 
