@@ -3,6 +3,9 @@
     border-top: #0099ff 3px solid;
     margin: 10px 0;
     display: inline-block;
+    select {
+        min-width: 150px;
+    }
 }
 
 .categoriesOutlineTable {
@@ -13,9 +16,9 @@
     margin: 20px 30px;
 }
 
-select {
-    min-width: 150px;
-}
+// select {
+//     min-width: 150px;
+// }
 
 p {
     margin-bottom: 0;

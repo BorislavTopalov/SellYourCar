@@ -18,6 +18,7 @@ import CategoryIcons from './homeContent/homeTopIcons/categoryIcons';
 import HomeSearchTable from './homeContent/homeContentMiddle/homeSearchTable';
 import AdvertisementTariffs from './advertisementTariffs/advertisementTariffs';
 import Help from './help/help';
+import DetailedSearch from './detailedSearch/DetailedSearch';
 
 
 function App() {
@@ -74,7 +75,7 @@ function App() {
             <Route path='addPictures' element={<div className='addPictures'>"AddPictures"</div>} />
             <Route path='publication' element={<div className='publication'>"Publication"</div>} />
             <Route path='showingNewAd' element={<div className='showingTheNew'>"ShowingTheNewAd"</div>} />
-            <Route path='detailSearching' element={<div className='detailSearch'>"DetailSearching"</div>} />
+            <Route path='detailSearching' element={<DetailedSearch/>} />
             <Route path='allResults' element={<div className='allResults'>"AllResults"</div>} />
             <Route path='showTheChosenAd' element={<div className='showTheChosenAd'>"ShowTheChosenAd"</div>} />
             <Route path='contacts' element={<div className='contacts'>"Contacts"</div>} />
