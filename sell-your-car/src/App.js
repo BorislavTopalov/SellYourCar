@@ -22,6 +22,7 @@ import DetailedSearch from './detailedSearch/DetailedSearch';
 import CategoryOptions from './data/categoryOptions';
 import RegionAndTownOptions from './data/regionAndTownOptions';
 import DetailsChoosing from './addNewAd/detailsChoosing/detailsChoosing';
+import AddPhotoNewAd from './addNewAd/addPhoto/addPhotoNewAd';
 
 
 function App() {
@@ -37,6 +38,12 @@ function App() {
   function handleMainCategory(e) {
     setMake(CategoryOptions().categorieOptions.find((el) => el.value === e.target.value).make);
     setMainCategory(e.target.value);
+    console.log(e.target.name);
+  }
+  function handleIconCategory(e) {
+    setMake(CategoryOptions().categorieOptions.find((el) => el.value === e.target.name).make);
+    setMainCategory(e.target.name);
+    console.log(e.target.name);
   }
   useEffect(() => {
     setSelectedOption(mainCategory);
@@ -92,7 +99,7 @@ function App() {
           <Routes>
             <Route path='home' element={
               <>
-                <CategoryIcons />
+                <CategoryIcons onClick={handleIconCategory} />
                 <HomeSearchTable
                   handleMain={handleMainCategory}
                   handleMake={handleMakeCategory}
@@ -107,7 +114,7 @@ function App() {
               </>
             } />
             <Route path='/' element={<>
-              <CategoryIcons />
+              <CategoryIcons onClick={handleIconCategory} />
               <HomeSearchTable
                 handleMain={handleMainCategory}
                 handleMake={handleMakeCategory}
@@ -135,7 +142,7 @@ function App() {
                 mainCategory={mainCategory}
                 selectedOption={selectedOption}
               />} />
-            <Route path='addPictures' element={<div className='addPictures'>"AddPictures"</div>} />
+            <Route path='addPictures' element={<AddPhotoNewAd/>} />
             <Route path='publication' element={<div className='publication'>"Publication"</div>} />
             <Route path='showingNewAd' element={<div className='showingTheNew'>"ShowingTheNewAd"</div>} />
             <Route path='detailSearching' element={

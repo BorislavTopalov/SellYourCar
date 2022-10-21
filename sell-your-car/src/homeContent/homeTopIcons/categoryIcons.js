@@ -7,8 +7,8 @@ export default function CategoryIcons(props) {
 
         <div className="homeContentTop">
 
-            {IconsShow().iconsArr.map((icon, index) => {
-                return <img src={icon} alt={index} key={index} className="homeIconsTop" /> 
+            {IconsShow().iconsArr.map((icon) => {
+                return <img src={icon.img} onClick={props.onClick} key={icon.value} name={icon.value} className="homeIconsTop" />
             })}
 
         </div>

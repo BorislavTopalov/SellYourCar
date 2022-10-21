@@ -12,9 +12,17 @@ import toolsLogo from "../../data/iconsHomePage/icons/tools.png";
 export default function IconsShow() {
 
     const iconsArr = [
-        carsLogo, busLogo, truckLogo, motoLogo, tracktorLogo,
-        bicycleLogo, caravanLogo, boatLogo, sellsLogo, toolsLogo
+        { img: carsLogo, value: "Автомобили и Джипове" },
+        { img: busLogo, value: "Бусове" },
+        { img: truckLogo, value: "Камиони" },
+        { img: motoLogo, value: "Мотоциклети" },
+        { img: tracktorLogo, value: "Селскостопански" },
+        { img: bicycleLogo, value: "Велосипеди" },
+        { img: caravanLogo, value: "Каравани" },
+        { img: boatLogo, value: "Яхти и лодки" },
+        { img: sellsLogo, value: "Продавам" },
+        { img: toolsLogo, value: "Части и аксесоари" }
     ];
 
-    return ({iconsArr});
+    return ({ iconsArr });
 }
