@@ -1,5 +1,4 @@
-// import Button from 'react-bootstrap/Button';
-import "./editAdBtn.css";
+import "./editAdBtn.scss";
 import { Link } from 'react-router-dom';
 
 export default function EditAd(props) {

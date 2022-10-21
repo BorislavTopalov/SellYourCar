@@ -1,0 +1,24 @@
+.underLineUserSettings {
+    width: 100%;
+    height: 3px;
+    background: #0099ff;
+}
+
+.inputsPassChange {
+    display: flex;
+    margin: 20px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.inputEmailChange {
+    display: flex;
+    margin: 20px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.deleteProfilBtn {
+    background: red;
+    margin: 20px 10px;
+}

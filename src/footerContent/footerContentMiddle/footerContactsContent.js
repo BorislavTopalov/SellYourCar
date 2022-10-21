@@ -1,4 +1,4 @@
-import "./footerMiddleContent.css";
+import "./footerMiddleContent.scss";
 import { Link } from "react-router-dom";
 
 export default function FooterHelpLinks() {

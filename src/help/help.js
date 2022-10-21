@@ -1,4 +1,4 @@
-import "./help.css";
+import "./help.scss";
 
 export default function Help() {
 

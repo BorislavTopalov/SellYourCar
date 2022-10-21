@@ -1,4 +1,4 @@
-import "./footerCategoriesLinks.css";
+import "./footerCategoriesLinks.scss";
 import FooterLinks from "../../data/footerLinks";
 
 export default function FooterCategoriesLinks(props) {

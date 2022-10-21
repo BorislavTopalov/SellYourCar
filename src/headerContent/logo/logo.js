@@ -1,5 +1,5 @@
 import logo from "../../headerContent/logo/logo.png";
-import "./logoPng.css";
+import "./logoPng.scss";
 import { Link } from "react-router-dom";
 
 export default function LogoLink() {

@@ -1,5 +1,5 @@
 import Table from 'react-bootstrap/Table';
-import "./advertismentTariffs.css"
+import "./advertismentTariffs.scss"
 
 function AdvertisementTariffs() {
     return (

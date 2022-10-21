@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import "./addNewAd.css";
+import "./addNewAd.scss";
 
 export default function AddNewAd(props) {
 

@@ -23,7 +23,10 @@ import CategoryOptions from './data/categoryOptions';
 import RegionAndTownOptions from './data/regionAndTownOptions';
 import DetailsChoosing from './addNewAd/detailsChoosing/detailsChoosing';
 import AddPhotoNewAd from './addNewAd/addPhoto/addPhotoNewAd';
-import ProfilePage from './profilPage/profilePageContent';
+import ProfilePage from './profilPage/profilPageWithActiveAds/profilePageContent';
+import InactiveAdsPage from './profilPage/inactiveAdsPage/inactiveAdsPage';
+import SettingsPage from './profilPage/settignsPage/settingsPage';
+import FavroriteAdsPage from './profilPage/favoriteAdsPage/favoriteAdsPage';
 
 
 function App() {
@@ -130,8 +133,10 @@ function App() {
             </>} />
             <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />
             <Route path='register' element={<Register users={users} setUsers={setUsers} />} />
-            <Route path='/profile' element={<ProfilePage />} />
-            <Route path='inactive-ads' element={<div className='InactivePageAd'>Inactive ads</div>} />
+            <Route path='profile' element={<ProfilePage />} />
+            <Route path='inactive-ads' element={<InactiveAdsPage />} />
+            <Route path='favorite-ads' element={<FavroriteAdsPage />} />
+            <Route path='settings' element={<SettingsPage />} />
             <Route path='addNew' element={
               <DetailsChoosing
                 handleMain={handleMainCategory}
@@ -144,8 +149,8 @@ function App() {
                 mainCategory={mainCategory}
                 selectedOption={selectedOption}
               />} />
-            <Route path='addPictures' element={<AddPhotoNewAd mainCategory={mainCategory} />} />
-            <Route path='detailSearching' element={
+            <Route path='add-pictures' element={<AddPhotoNewAd mainCategory={mainCategory} />} />
+            <Route path='detail-searching' element={
               <DetailedSearch
                 handleMain={handleMainCategory}
                 handleMake={handleMakeCategory}
@@ -157,12 +162,12 @@ function App() {
                 mainCategory={mainCategory}
                 selectedOption={selectedOption}
               />} />
-            <Route path='allResults' element={<div className='allResults'>"AllResults"</div>} />
-            <Route path='showTheChosenAd' element={<div className='showTheChosenAd'>"ShowTheChosenAd"</div>} />
+            <Route path='all-results' element={<div className='allResults'>"AllResults"</div>} />
+            <Route path='show-the-chosenAd' element={<div className='showTheChosenAd'>"ShowTheChosenAd"</div>} />
             <Route path='contacts' element={<div className='contacts'>"Contacts"</div>} />
             <Route path='advertisement' element={<AdvertisementTariffs />} />
             <Route path='help' element={<Help />} />
-            <Route path='generalTerms' element={<GeneralTerms />} />
+            <Route path='general-terms' element={<GeneralTerms />} />
             <Route path='*' element={<div>404</div>} />
           </Routes>
 

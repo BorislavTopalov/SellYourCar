@@ -55,23 +55,34 @@ a {
     color: #0099ff;
 }
 
-.blacked {
-    color: black;
-    border-top: 2px solid #dddddd;
-    border-left: 2px solid #dddddd;
-    border-right: 2px solid #dddddd;
-    padding: 0 50px;
-}
-.registerButton {
-    padding: 0 50px;
-}
-
-.nonBlacked {
-    padding: 0 50px;
-}
+// .blacked {
+//     color: black;
+//     border-top: 2px solid #dddddd;
+//     border-left: 2px solid #dddddd;
+//     border-right: 2px solid #dddddd;
+//     // padding: 0 50px;
+//     // margin: 10px 70px;
+// }
+// .registerButton {
+//     padding: 0 50px;
+// }
 
 .disabled {
     pointer-events: none;
+}
+
+.registerButton {
+    border-top: 2px solid #dddddd;
+    border-left: 2px solid #dddddd;
+    border-right: 2px solid #dddddd;
+    padding: 10px 20px;
+}  
+
+.loginButton {
+    border-top: 2px solid #dddddd;
+    border-left: 2px solid #dddddd;
+    border-right: 2px solid #dddddd;
+    padding: 10px 53px;
 }
 
 .errors {
@@ -81,7 +92,7 @@ a {
     border: 1px solid red;
     padding: 2px 0px;
 }
-/* 
-.strongLogin {
-    padding: 50px;
-} */
+
+// .strongLogin {
+//     margin: 10px 70px;
+// } 

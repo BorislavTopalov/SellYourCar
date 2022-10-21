@@ -1,4 +1,4 @@
-import "./generalTerms.css";
+import "./generalTerms.scss";
 
 export default function GeneralTerms() {
 
