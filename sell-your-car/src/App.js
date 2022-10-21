@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LogoLink from './headerContent/logo/logo';
 import LoginLink from './headerContent/loginLink/loginLink';
@@ -23,12 +23,13 @@ import CategoryOptions from './data/categoryOptions';
 import RegionAndTownOptions from './data/regionAndTownOptions';
 import DetailsChoosing from './addNewAd/detailsChoosing/detailsChoosing';
 import AddPhotoNewAd from './addNewAd/addPhoto/addPhotoNewAd';
+import ProfilePage from './profilPage/profilePageContent';
 
 
 function App() {
 
-  const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || []);
-  const [activeUser, setActiveUser] = useState(JSON.parse(localStorage.getItem('activeUser')) || null);
+  const [users, setUsers] = useState(JSON.parse(localStorage.getItem('mobile-users')) || []);
+  const [activeUser, setActiveUser] = useState(JSON.parse(localStorage.getItem('mobile-active-user')) || null);
   const [selectedOption, setSelectedOption] = useState(CategoryOptions().categorieOptions[0]);
   const [make, setMake] = useState(CategoryOptions().categorieOptions[0].make);
   const [model, setModel] = useState(CategoryOptions().categorieOptions[0].make[0].model);
@@ -66,8 +67,8 @@ function App() {
   }
 
   useEffect(() => {
-    localStorage.setItem('activeUser', JSON.stringify(activeUser));
-    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('mobile-active-user', JSON.stringify(activeUser));
+    localStorage.setItem('mobile-users', JSON.stringify(users));
   }, [users, activeUser])
 
   return (
@@ -129,7 +130,8 @@ function App() {
             </>} />
             <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />
             <Route path='register' element={<Register users={users} setUsers={setUsers} />} />
-            <Route path='profile' element={<div className='profile'>"ProfilePage"</div>} />
+            <Route path='/profile' element={<ProfilePage />} />
+            <Route path='inactive-ads' element={<div className='InactivePageAd'>Inactive ads</div>} />
             <Route path='addNew' element={
               <DetailsChoosing
                 handleMain={handleMainCategory}
@@ -142,9 +144,7 @@ function App() {
                 mainCategory={mainCategory}
                 selectedOption={selectedOption}
               />} />
-            <Route path='addPictures' element={<AddPhotoNewAd/>} />
-            <Route path='publication' element={<div className='publication'>"Publication"</div>} />
-            <Route path='showingNewAd' element={<div className='showingTheNew'>"ShowingTheNewAd"</div>} />
+            <Route path='addPictures' element={<AddPhotoNewAd mainCategory={mainCategory} />} />
             <Route path='detailSearching' element={
               <DetailedSearch
                 handleMain={handleMainCategory}

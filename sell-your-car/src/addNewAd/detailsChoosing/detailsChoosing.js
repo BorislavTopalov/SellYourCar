@@ -5,7 +5,7 @@ import CategoryOptions from "../../data/categoryOptions";
 import YearOptions from "../../data/yearOptions";
 import TransmissionOptions from "../../data/transmissionOptions"
 import EngineOptions from "../../data/engineOptions"
-import "./detailsChoosing.scss"
+import "./detailsChoosing.scss";
 import EuroStandartOptions from "../../data/euroStandartOptions";
 import ColourOptions from "../../data/colourOptions";
 import Checkbox from "../../components/Checkbox";
@@ -21,7 +21,7 @@ import VehicleCategories from "../../data/vehicleCategories";
 export default function DetailsChoosing(props) {
 
     return (
-        <div>
+        <div className="newAddContainer">
             <span className="categoriesOutlineAddNew">
                 <strong>
                     Въвеждане на описанието за <span>{props.mainCategory}</span>
@@ -175,7 +175,7 @@ export default function DetailsChoosing(props) {
                         </div>
                     </div>
                     <div className="publicBtnAddNew">
-                        <Link to="/addPictures"><button className="publicNewAd"><strong>Публикуване</strong></button></Link>
+                        <Link to="/addPictures"><button className="publicNewAd"><strong>Продължи</strong></button></Link>
                         <p className="nextStepInfo">*На следаващата стъпка ще можете да добавите снимки и видео</p>
                     </div>
                 </div>
