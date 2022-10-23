@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginRegister.scss";
 import RegisterForm from "../../components/RegisterForm";
+import { useSelector, useDispatch } from "react-redux";
+import { register } from "../../redux/users";
 
-const Register = (props) => {
+const Register = () => {
 
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
@@ -14,13 +16,15 @@ const Register = (props) => {
     const [error2, setError2] = useState(false);
     const [disabled, setDisabled] = useState(true);
 
+    const users = useSelector(state => state.users);
+    const dispatch = useDispatch();
+
     function handleRegister(e) {
-        console.log(e);
         e.preventDefault();
         const [email, password] = e.target;
 
-        if (!(props.users.some(user => user.email === email.value))) {
-            props.setUsers((prev) => [...prev, { email: email.value, password: password.value }]);
+        if (!(users.some(user => user.email === email.value))) {
+            dispatch(register({ email: email.value, password: password.value,  }));
             setError2(false);
             navigate("/login");
             e.target.reset();

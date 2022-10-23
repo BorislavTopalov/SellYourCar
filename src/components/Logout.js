@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/activeUser";
 
-const Logout = (props) => {
+const Logout = () => {
+    const dispatch = useDispatch();
 
     function handleLogout(){
-        props.setActiveUser(null);
+        dispatch(logout());
     }
 
     return (

@@ -16,31 +16,44 @@ import SpecialOptions from "../../../data/specialOptions";
 import ExteriorOptions from "../../../data/exteriorOptions";
 import InteriorOptions from "../../../data/interiorOptions";
 import VehicleCategories from "../../../data/vehicleCategories";
+import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../redux/options";
+import { useDispatch, useSelector } from "react-redux";
 
+export default function DetailsChoosing() {
 
-export default function DetailsChoosing(props) {
+    const options = useSelector(state => state.options);
+    const dispatch = useDispatch();
+    function func1(e) {
+        dispatch(handleMainCategory(e.target.value))
+    }
+    function func2(e) {
+        dispatch(handleChangeRegion(e.target.value))
+    }
+    function func3(e) {
+        dispatch(handleMakeCategory(e.target.value))
+    }
 
     return (
         <div className="newAddContainer">
             <span className="categoriesOutlineAddNew">
                 <strong>
-                    Въвеждане на описанието за <span>{props.mainCategory}</span>
+                    Въвеждане на описанието за <span>{options.mainCategory}</span>
                 </strong>
             </span>
             <div className="AddNewAdTable">
                 <div className="firstRowAddNew">
                     <p><strong>Основна категория</strong></p>
-                    <Select selectedOption={props.selectedOption} onChange={props.handleMain} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                    <Select selectedOption={options.selectedOption} onChange={func1} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
                 </div>
                 <div className="secondRowAddNew">
                     <div className="makeAndModelAddNew">
                         <div className="makeAddNew">
                             <p><strong>Марка</strong></p>
-                            <Select onChange={props.handleMake} name="Марка" id="Марка" options={props.make} />
+                            <Select onChange={func3} name="Марка" id="Марка" options={options.make} />
                         </div>
                         <div className="modelAddNew">
                             <p><strong>Модел</strong></p>
-                            <Select name="Модел" id="Модел" options={props.model} />
+                            <Select name="Модел" id="Модел" options={options.model} />
                         </div>
                     </div>
                     <div className="modifyAndEngineAddNew">
@@ -117,13 +130,13 @@ export default function DetailsChoosing(props) {
                         <p>
                             <strong>Регион</strong>
                         </p>
-                        <Select className="regionSelectAddNew" onChange={props.handleRegion} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
+                        <Select className="regionSelectAddNew" onChange={func2} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
                     </div>
                     <div className="townAddNew">
                         <p>
                             <strong>Населено място</strong>
                         </p>
-                        <Select className="townSelectAddNew" name="Населено място" id="Населено място" options={props.town} />
+                        <Select className="townSelectAddNew" name="Населено място" id="Населено място" options={options.town} />
                     </div>
                     <div className="colorAddNew">
                         <p>

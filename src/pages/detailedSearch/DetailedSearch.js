@@ -2,7 +2,6 @@ import Select from "../../components/Select";
 import { Link } from "react-router-dom";
 import SortOptions from "../../data/sortOptions";
 import RegionAndTownOptions from "../../data/regionAndTownOptions";
-// import RegionAndTownOptions from "../../../data/regionAndTownOptions";
 import CategoryOptions from "../../data/categoryOptions";
 import YearOptions from "../../data/yearOptions";
 import TransmissionOptions from "../../data/transmissionOptions"
@@ -18,24 +17,37 @@ import SecurityOptions from "../../data/securityOptions";
 import SpecialOptions from "../../data/specialOptions";
 import ExteriorOptions from "../../data/exteriorOptions";
 import InteriorOptions from "../../data/interiorOptions";
+import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../redux/options";
+import {useDispatch, useSelector} from "react-redux";
 
+const DetailedSearch = () => {
 
-const DetailedSearch = (props) => {
+    const options = useSelector(state => state.options);
+    const dispatch = useDispatch();
+    function func1(e){
+        dispatch(handleMainCategory(e.target.value))
+    }
+    function func2(e){
+        dispatch(handleChangeRegion(e.target.value))
+    }
+    function func3(e){
+        dispatch(handleMakeCategory(e.target.value))
+    }
 
     return (
         <div className="searchTable">
             <div className="firstRow">
                 <p><strong>Основна категория</strong></p>
-                <Select selectedOption={props.selectedOption} onChange={props.handleMain} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                <Select selectedOption={options.selectedOption} onChange={func1} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
             </div>
             <div className="secondRow">
                 <div className="searchTableComponent">
                     <p><strong>Марка</strong></p>
-                    <Select onChange={props.handleMake} name="Марка" id="Марка" options={props.make} />
+                    <Select onChange={func3} name="Марка" id="Марка" options={options.make} />
                 </div>
                 <div className="searchTableComponent">
                     <p><strong>Модел</strong></p>
-                    <Select name="Модел" id="Модел" options={props.model} />
+                    <Select name="Модел" id="Модел" options={options.model} />
                 </div>
                 <div className="searchTableComponent">
                     <p><strong>Състояние</strong></p>
@@ -54,22 +66,22 @@ const DetailedSearch = (props) => {
             <div className="thirdRow">
                 <div className="searchTableComponent">
                     <p><strong>Марка</strong></p>
-                    <Select onChange={props.handleMake} name="Марка" id="Марка" options={props.make} />
+                    <Select onChange={func3} name="Марка" id="Марка" options={options.make} />
                 </div>
                 <div className="searchTableComponent">
                     <p><strong>Модел</strong></p>
-                    <Select name="Модел" id="Модел" options={props.model} />
+                    <Select name="Модел" id="Модел" options={options.model} />
                 </div>
             </div>
 
             <div className="forthRow">
                 <div className="searchTableComponent">
                     <p><strong>Марка</strong></p>
-                    <Select onChange={props.handleMake} name="Марка" id="Марка" options={props.make} />
+                    <Select onChange={func3} name="Марка" id="Марка" options={options.make} />
                 </div>
                 <div className="searchTableComponent">
                     <p><strong>Модел</strong></p>
-                    <Select name="Модел" id="Модел" options={props.model} />
+                    <Select name="Модел" id="Модел" options={options.model} />
                 </div>
                 <div className="searchTableComponent">
                     <p><strong>Година</strong></p>
@@ -140,13 +152,13 @@ const DetailedSearch = (props) => {
                     <p>
                         <strong>Регион</strong>
                     </p>
-                    <Select onChange={props.handleRegion} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
+                    <Select onChange={func2} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
                 </div>
                 <div className="searchTableComponent">
                     <p>
                         <strong>Населено място</strong>
                     </p>
-                    <Select name="Населено място" id="Населено място" options={props.town} />
+                    <Select name="Населено място" id="Населено място" options={options.town} />
                 </div>
             </div>
             <div className="checkBoxes">

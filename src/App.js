@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonGroupLink from './headerContent/buttonsGroupLinks/buttonsGroupLinks';
 import Login from './pages/login and register/Login'
 import Register from "./pages/login and register/Register";
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import FooterCategoriesLinks from './footerContent/footerContentUp/footerCategoriesLinks';
 import FooterHelpLinks from './footerContent/footerContentMiddle/footerContactsContent';
 import Logout from './components/Logout';
@@ -19,55 +19,24 @@ import HomeSearchTable from './pages/homeContent/homeContentMiddle/homeSearchTab
 import AdvertisementTariffs from './pages/advertisementTariffs/advertisementTariffs';
 import Help from './pages/help/help';
 import DetailedSearch from './pages/detailedSearch/DetailedSearch';
-import CategoryOptions from './data/categoryOptions';
-import RegionAndTownOptions from './data/regionAndTownOptions';
 import DetailsChoosing from './pages/addNewAd/detailsChoosing/detailsChoosing';
 import AddPhotoNewAd from './pages/addNewAd/addPhoto/addPhotoNewAd';
 import ProfilePage from './pages/profilPage/profilPageWithActiveAds/profilePageContent';
 import InactiveAdsPage from './pages/profilPage/inactiveAdsPage/inactiveAdsPage';
 import SettingsPage from './pages/profilPage/settignsPage/settingsPage';
 import FavroriteAdsPage from './pages/profilPage/favoriteAdsPage/favoriteAdsPage';
-
-
+import { useSelector, useDispatch } from "react-redux";
+import { chnageSelectedOption } from "./redux/options";
 function App() {
 
-  const [users, setUsers] = useState(JSON.parse(localStorage.getItem('mobile-users')) || []);
-  const [activeUser, setActiveUser] = useState(JSON.parse(localStorage.getItem('mobile-active-user')) || null);
-  const [selectedOption, setSelectedOption] = useState(CategoryOptions().categorieOptions[0]);
-  const [make, setMake] = useState(CategoryOptions().categorieOptions[0].make);
-  const [model, setModel] = useState(CategoryOptions().categorieOptions[0].make[0].model);
-  const [town, setTown] = useState(RegionAndTownOptions().regionAndTownOptions[0].town);
-  const [mainCategory, setMainCategory] = useState(CategoryOptions().categorieOptions[0].value);
-
-  function handleMainCategory(e) {
-    setMake(CategoryOptions().categorieOptions.find((el) => el.value === e.target.value).make);
-    setMainCategory(e.target.value);
-    console.log(e.target.name);
-  }
-  function handleIconCategory(e) {
-    setMake(CategoryOptions().categorieOptions.find((el) => el.value === e.target.name).make);
-    setMainCategory(e.target.name);
-    console.log(e.target.name);
-  }
-  useEffect(() => {
-    setSelectedOption(mainCategory);
-  }, [mainCategory])
+  const users = useSelector(state => state.users);
+  const activeUser = useSelector(state => state.activeUser);
+  const options = useSelector(state => state.options);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setModel(make[0].model);
-  }, [make])
-
-  function handleMakeCategory(e) {
-    setModel(make.find((el) => el.value === e.target.value).model);
-  }
-
-  function handleChangeRegion(e) {
-    setTown(RegionAndTownOptions().regionAndTownOptions.find((el) => el.value === e.target.value).town);
-  }
-
-  function handleInputPrice(e) {
-    Number(e.target.value);
-  }
+    dispatch(chnageSelectedOption(options.mainCategory))
+  }, [options.mainCategory, dispatch])
 
   useEffect(() => {
     localStorage.setItem('mobile-active-user', JSON.stringify(activeUser));
@@ -82,86 +51,44 @@ function App() {
             <div>
               <LogoLink />
             </div>
-            {activeUser ?
+            {activeUser.email ?
               <div>
                 <div>{activeUser.email}</div>
-                <Logout setActiveUser={setActiveUser} />
+                <Logout />
               </div>
               :
               <div>
                 <LoginLink />  | <Registerlink />
               </div>}
             <div className='headerButtons'>
-              <EditAd activeUser={activeUser} />
-              <AddNewAd activeUser={activeUser} />
+              <EditAd />
+              <AddNewAd />
             </div>
           </div>
-          <ButtonGroupLink activeUser={activeUser} />
+          <ButtonGroupLink />
         </header>
         <div className='pageContent'>
 
           <Routes>
             <Route path='home' element={
               <>
-                <CategoryIcons onClick={handleIconCategory} />
-                <HomeSearchTable
-                  handleMain={handleMainCategory}
-                  handleMake={handleMakeCategory}
-                  handleRegion={handleChangeRegion}
-                  handlePrice={handleInputPrice}
-                  make={make}
-                  model={model}
-                  town={town}
-                  mainCategory={mainCategory}
-                  selectedOption={selectedOption}
-                />
+                <CategoryIcons />
+                <HomeSearchTable />
               </>
             } />
             <Route path='/' element={<>
-              <CategoryIcons onClick={handleIconCategory} />
-              <HomeSearchTable
-                handleMain={handleMainCategory}
-                handleMake={handleMakeCategory}
-                handleRegion={handleChangeRegion}
-                handlePrice={handleInputPrice}
-                make={make}
-                model={model}
-                town={town}
-                mainCategory={mainCategory}
-                selectedOption={selectedOption}
-              />
+              <CategoryIcons />
+              <HomeSearchTable />
             </>} />
-            <Route path='login' element={<Login users={users} activeUser={activeUser} setActiveUser={setActiveUser} />} />
-            <Route path='register' element={<Register users={users} setUsers={setUsers} />} />
+            <Route path='login' element={<Login />} />
+            <Route path='register' element={<Register />} />
             <Route path='profile' element={<ProfilePage />} />
             <Route path='inactive-ads' element={<InactiveAdsPage />} />
             <Route path='favorite-ads' element={<FavroriteAdsPage />} />
             <Route path='settings' element={<SettingsPage />} />
-            <Route path='add-new' element={
-              <DetailsChoosing
-                handleMain={handleMainCategory}
-                handleMake={handleMakeCategory}
-                handleRegion={handleChangeRegion}
-                handlePrice={handleInputPrice}
-                make={make}
-                model={model}
-                town={town}
-                mainCategory={mainCategory}
-                selectedOption={selectedOption}
-              />} />
-            <Route path='add-pictures' element={<AddPhotoNewAd mainCategory={mainCategory} />} />
-            <Route path='detail-searching' element={
-              <DetailedSearch
-                handleMain={handleMainCategory}
-                handleMake={handleMakeCategory}
-                handleRegion={handleChangeRegion}
-                handlePrice={handleInputPrice}
-                make={make}
-                model={model}
-                town={town}
-                mainCategory={mainCategory}
-                selectedOption={selectedOption}
-              />} />
+            <Route path='add-new' element={<DetailsChoosing />} />
+            <Route path='add-pictures' element={<AddPhotoNewAd />} />
+            <Route path='detail-searching' element={<DetailedSearch />} />
             <Route path='all-results' element={<div className='allResults'>"AllResults"</div>} />
             <Route path='show-the-chosenAd' element={<div className='showTheChosenAd'>"ShowTheChosenAd"</div>} />
             <Route path='contacts' element={<div className='contacts'>"Contacts"</div>} />
@@ -174,7 +101,7 @@ function App() {
         </div>
 
         <footer className='footer'>
-          <FooterCategoriesLinks onClick={handleMainCategory} />
+          <FooterCategoriesLinks />
           <FooterHelpLinks />
         </footer>
       </BrowserRouter>

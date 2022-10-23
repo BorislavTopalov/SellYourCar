@@ -3,14 +3,16 @@ import "./buttonsGroupLinks.scss";
 import { NavLink } from "react-router-dom";
 import logoRent from "../buttonsGroupLinks/logoRent.png";
 import "./logoRent.scss";
+import { useSelector } from "react-redux";
 
-export default function ButtonGroupLink(props) {
+export default function ButtonGroupLink() {
 
+    const activeUser = useSelector(state => state.activeUser);
     return (
         <div className="headerContentDown">
             <div>
                 <NavLink to="/home"><Button>Начало</Button></NavLink>
-                <NavLink to={props.activeUser ? "/add-new" : "/login"}><Button>Публикуване</Button></NavLink>
+                <NavLink to={activeUser.email ? "/add-new" : "/login"}><Button>Публикуване</Button></NavLink>
                 <NavLink to="/detail-searching"><Button>Търсене</Button></NavLink>
                 <Button className="newsBtn" href="https://fakti.bg/">Новини</Button>
                 <Button className="rentACarBtn" href='https://toprentacar.bg/'>
@@ -22,7 +24,7 @@ export default function ButtonGroupLink(props) {
             </div>
 
             <div>
-                <NavLink to={props.activeUser ? "/profile" : "/login"}><Button >Моите обяви</Button></NavLink>
+                <NavLink to={activeUser.email ? "/profile" : "/login"}><Button >Моите обяви</Button></NavLink>
 
             </div>
             <div className="bottomLine"></div>

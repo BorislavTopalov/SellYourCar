@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import "./addPhotoNewAd.scss";
+import { useSelector } from "react-redux";
 
-export default function AddPhotoNewAd(props) {
+export default function AddPhotoNewAd() {
+
+    const options = useSelector(state => state.options);
 
     return (
 
@@ -9,7 +12,7 @@ export default function AddPhotoNewAd(props) {
 
             <span className="categoriesOutlineAddNew">
                 <strong>
-                    Добавяне на снимки за <span>{props.mainCategory}</span>
+                    Добавяне на снимки за <span>{options.mainCategory}</span>
                 </strong>
             </span>
             <div className="messageForPhotoAdd">
