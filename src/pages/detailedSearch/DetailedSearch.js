@@ -1,22 +1,23 @@
-import Select from "../components/Select";
+import Select from "../../components/Select";
 import { Link } from "react-router-dom";
-import SortOptions from "../data/sortOptions";
-import RegionAndTownOptions from "../data/regionAndTownOptions"
-import CategoryOptions from "../data/categoryOptions";
-import YearOptions from "../data/yearOptions";
-import TransmissionOptions from "../data/transmissionOptions"
-import EngineOptions from "../data/engineOptions"
+import SortOptions from "../../data/sortOptions";
+import RegionAndTownOptions from "../../data/regionAndTownOptions";
+// import RegionAndTownOptions from "../../../data/regionAndTownOptions";
+import CategoryOptions from "../../data/categoryOptions";
+import YearOptions from "../../data/yearOptions";
+import TransmissionOptions from "../../data/transmissionOptions"
+import EngineOptions from "../../data/engineOptions"
 import "./detailedSearch.scss"
-import EuroStandartOptions from "../data/euroStandartOptions";
-import MaxMileageOptions from "../data/maxMileageOptions";
-import ColourOptions from "../data/colourOptions";
-import Checkbox from "../components/Checkbox";
-import SafetyOptions from "../data/safetyOptions";
-import comfortOptions from "../data/comfortOptions";
-import SecurityOptions from "../data/securityOptions";
-import SpecialOptions from "../data/specialOptions";
-import ExteriorOptions from "../data/exteriorOptions";
-import InteriorOptions from "../data/interiorOptions";
+import EuroStandartOptions from "../../data/euroStandartOptions";
+import MaxMileageOptions from "../../data/maxMileageOptions";
+import ColourOptions from "../../data/colourOptions";
+import Checkbox from "../../components/Checkbox";
+import SafetyOptions from "../../data/safetyOptions";
+import comfortOptions from "../../data/comfortOptions";
+import SecurityOptions from "../../data/securityOptions";
+import SpecialOptions from "../../data/specialOptions";
+import ExteriorOptions from "../../data/exteriorOptions";
+import InteriorOptions from "../../data/interiorOptions";
 
 
 const DetailedSearch = (props) => {

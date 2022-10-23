@@ -1,12 +1,13 @@
 import "./homeSearchTable.scss"
-import Select from "../../components/Select"
+import Select from "../../../components/Select"
 import { Link } from "react-router-dom";
-import SortOptions from "../../data/sortOptions"
-import RegionAndTownOptions from "../../data/regionAndTownOptions"
-import CategoryOptions from "../../data/categoryOptions";
-import YearOptions from "../../data/yearOptions";
-import TransmissionOptions from "../../data/transmissionOptions"
-import EngineOptions from "../../data/engineOptions"
+// import SortOptions from "../../data/sortOptions"
+import SortOptions from "../../../data/sortOptions"
+import RegionAndTownOptions from "../../../data/regionAndTownOptions"
+import CategoryOptions from "../../../data/categoryOptions";
+import YearOptions from "../../../data/yearOptions";
+import TransmissionOptions from "../../../data/transmissionOptions"
+import EngineOptions from "../../../data/engineOptions"
 
 
 export default function HomeSearchTable(props) {
@@ -94,10 +95,10 @@ export default function HomeSearchTable(props) {
                             <Select name="Скоростна кутия" id="Скоростна кутия" options={TransmissionOptions().transmission} />
                         </div>
                     </div>
-                    <Link className="SearchBtnHomeTable" to="/allResults"><button><strong>Търси</strong></button></Link>
+                    <Link className="SearchBtnHomeTable" to="/all-results"><button><strong>Търси</strong></button></Link>
 
                 </div>
-                <Link className="detailSearchLink" to="/detailSearching">Подробно търсене</Link>
+                <Link className="detailSearchLink" to="/detail-searching">Подробно търсене</Link>
             </div>
 
 

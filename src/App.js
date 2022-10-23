@@ -7,26 +7,26 @@ import EditAd from './headerContent/editAd/editAdBtn';
 import AddNewAd from './headerContent/addNewAd/addNewAd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonGroupLink from './headerContent/buttonsGroupLinks/buttonsGroupLinks';
-import Login from './login and register/Login';
-import Register from "./login and register/Register";
+import Login from './pages/login and register/Login'
+import Register from "./pages/login and register/Register";
 import { useState, useEffect } from 'react';
 import FooterCategoriesLinks from './footerContent/footerContentUp/footerCategoriesLinks';
 import FooterHelpLinks from './footerContent/footerContentMiddle/footerContactsContent';
-import Logout from './logout/Logout';
-import GeneralTerms from './generalTerms/generalTerms';
-import CategoryIcons from './homeContent/homeTopIcons/categoryIcons';
-import HomeSearchTable from './homeContent/homeContentMiddle/homeSearchTable';
-import AdvertisementTariffs from './advertisementTariffs/advertisementTariffs';
-import Help from './help/help';
-import DetailedSearch from './detailedSearch/DetailedSearch';
+import Logout from './components/Logout';
+import GeneralTerms from './pages/generalTerms/generalTerms';
+import CategoryIcons from './pages/homeContent/homeTopIcons/categoryIcons';
+import HomeSearchTable from './pages/homeContent/homeContentMiddle/homeSearchTable';
+import AdvertisementTariffs from './pages/advertisementTariffs/advertisementTariffs';
+import Help from './pages/help/help';
+import DetailedSearch from './pages/detailedSearch/DetailedSearch';
 import CategoryOptions from './data/categoryOptions';
 import RegionAndTownOptions from './data/regionAndTownOptions';
-import DetailsChoosing from './addNewAd/detailsChoosing/detailsChoosing';
-import AddPhotoNewAd from './addNewAd/addPhoto/addPhotoNewAd';
-import ProfilePage from './profilPage/profilPageWithActiveAds/profilePageContent';
-import InactiveAdsPage from './profilPage/inactiveAdsPage/inactiveAdsPage';
-import SettingsPage from './profilPage/settignsPage/settingsPage';
-import FavroriteAdsPage from './profilPage/favoriteAdsPage/favoriteAdsPage';
+import DetailsChoosing from './pages/addNewAd/detailsChoosing/detailsChoosing';
+import AddPhotoNewAd from './pages/addNewAd/addPhoto/addPhotoNewAd';
+import ProfilePage from './pages/profilPage/profilPageWithActiveAds/profilePageContent';
+import InactiveAdsPage from './pages/profilPage/inactiveAdsPage/inactiveAdsPage';
+import SettingsPage from './pages/profilPage/settignsPage/settingsPage';
+import FavroriteAdsPage from './pages/profilPage/favoriteAdsPage/favoriteAdsPage';
 
 
 function App() {
@@ -137,7 +137,7 @@ function App() {
             <Route path='inactive-ads' element={<InactiveAdsPage />} />
             <Route path='favorite-ads' element={<FavroriteAdsPage />} />
             <Route path='settings' element={<SettingsPage />} />
-            <Route path='addNew' element={
+            <Route path='add-new' element={
               <DetailsChoosing
                 handleMain={handleMainCategory}
                 handleMake={handleMakeCategory}

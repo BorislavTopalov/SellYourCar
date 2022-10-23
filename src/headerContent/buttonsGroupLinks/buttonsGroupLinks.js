@@ -10,8 +10,8 @@ export default function ButtonGroupLink(props) {
         <div className="headerContentDown">
             <div>
                 <NavLink to="/home"><Button>Начало</Button></NavLink>
-                <NavLink to={props.activeUser ? "/addNew" : "/login"}><Button>Публикуване</Button></NavLink>
-                <NavLink to="/detailSearching"><Button>Търсене</Button></NavLink>
+                <NavLink to={props.activeUser ? "/add-new" : "/login"}><Button>Публикуване</Button></NavLink>
+                <NavLink to="/detail-searching"><Button>Търсене</Button></NavLink>
                 <Button className="newsBtn" href="https://fakti.bg/">Новини</Button>
                 <Button className="rentACarBtn" href='https://toprentacar.bg/'>
                     <img className="logoRent" src={logoRent} alt="logo" />

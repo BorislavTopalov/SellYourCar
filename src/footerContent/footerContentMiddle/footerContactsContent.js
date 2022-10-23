@@ -9,7 +9,7 @@ export default function FooterHelpLinks() {
             <div >
                 <Link className="footerHelpLinks" to="/contacts">
                     ЗА КОНТАКТИ
-                </Link> | <Link className="footerHelpLinks" to="/allResults">
+                </Link> | <Link className="footerHelpLinks" to="/all-results">
                     ОБЯВИ
                 </Link> | <Link className="footerHelpLinks" to="https://fakti.bg/">
                     НОВИНИ
@@ -17,7 +17,7 @@ export default function FooterHelpLinks() {
                     ЗА РЕКЛАМА
                 </Link> | <Link className="footerHelpLinks" to="/help">
                     ПОМОЩ
-                </Link> | <Link className="footerHelpLinks" to="/generalTerms">
+                </Link> | <Link className="footerHelpLinks" to="/general-terms">
                     ОБЩИ УСЛОВИЯ
                 </Link> | <Link className="footerHelpLinks" to="/register">
                     РЕГИСТРАЦИЯ

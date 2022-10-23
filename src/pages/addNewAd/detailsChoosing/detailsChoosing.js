@@ -1,21 +1,21 @@
-import Select from "../../components/Select";
+import Select from '../../../components/Select';
 import { Link } from "react-router-dom";
-import RegionAndTownOptions from "../../data/regionAndTownOptions"
-import CategoryOptions from "../../data/categoryOptions";
-import YearOptions from "../../data/yearOptions";
-import TransmissionOptions from "../../data/transmissionOptions"
-import EngineOptions from "../../data/engineOptions"
+import RegionAndTownOptions from '../../../data/regionAndTownOptions';
+import CategoryOptions from "../../../data/categoryOptions";
+import YearOptions from "../../../data/yearOptions";
+import TransmissionOptions from "../../../data/transmissionOptions"
+import EngineOptions from "../../../data/engineOptions"
 import "./detailsChoosing.scss";
-import EuroStandartOptions from "../../data/euroStandartOptions";
-import ColourOptions from "../../data/colourOptions";
-import Checkbox from "../../components/Checkbox";
-import SafetyOptions from "../../data/safetyOptions";
-import comfortOptions from "../../data/comfortOptions";
-import SecurityOptions from "../../data/securityOptions";
-import SpecialOptions from "../../data/specialOptions";
-import ExteriorOptions from "../../data/exteriorOptions";
-import InteriorOptions from "../../data/interiorOptions";
-import VehicleCategories from "../../data/vehicleCategories";
+import EuroStandartOptions from "../../../data/euroStandartOptions";
+import ColourOptions from "../../../data/colourOptions";
+import Checkbox from "../../../components/Checkbox";
+import SafetyOptions from "../../../data/safetyOptions";
+import comfortOptions from "../../../data/comfortOptions";
+import SecurityOptions from "../../../data/securityOptions";
+import SpecialOptions from "../../../data/specialOptions";
+import ExteriorOptions from "../../../data/exteriorOptions";
+import InteriorOptions from "../../../data/interiorOptions";
+import VehicleCategories from "../../../data/vehicleCategories";
 
 
 export default function DetailsChoosing(props) {
@@ -175,7 +175,7 @@ export default function DetailsChoosing(props) {
                         </div>
                     </div>
                     <div className="publicBtnAddNew">
-                        <Link to="/addPictures"><button className="publicNewAd"><strong>Продължи</strong></button></Link>
+                        <Link to="/add-pictures"><button className="publicNewAd"><strong>Продължи</strong></button></Link>
                         <p className="nextStepInfo">*На следаващата стъпка ще можете да добавите снимки и видео</p>
                     </div>
                 </div>
