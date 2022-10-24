@@ -2,20 +2,25 @@ import { Link, useNavigate } from "react-router-dom";
 import "./LoginRegister.scss";
 import { useEffect, useState } from "react";
 import LoginForm from "../../components/LoginForm";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../../redux/activeUser"
 
-const Login = (props) => {
+const Login = () => {
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
     const [error, setError] = useState(false);
     const [disabled, setDisabled] = useState(true);
     const navigate = useNavigate();
 
+    const users = useSelector(state => state.users);
+    const dispatch = useDispatch();
+
     function handleLogin(e) {
         e.preventDefault();
         const [email, password] = e.target;
 
-        if (props.users.some((user) => user.email === email.value && user.password === password.value)) {
-            props.setActiveUser(props.users.find((user) => user.email === email.value && user.password === password.value));
+        if (users.some((user) => user.email === email.value && user.password === password.value)) {
+            dispatch(login((users.find((user) => user.email === email.value && user.password === password.value))));
             setError(false);
             navigate("/home");
 

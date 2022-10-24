@@ -1,23 +1,35 @@
 import "./homeSearchTable.scss"
 import Select from "../../../components/Select"
 import { Link } from "react-router-dom";
-// import SortOptions from "../../data/sortOptions"
 import SortOptions from "../../../data/sortOptions"
 import RegionAndTownOptions from "../../../data/regionAndTownOptions"
 import CategoryOptions from "../../../data/categoryOptions";
 import YearOptions from "../../../data/yearOptions";
 import TransmissionOptions from "../../../data/transmissionOptions"
 import EngineOptions from "../../../data/engineOptions"
-
+import { useDispatch, useSelector } from "react-redux";
+import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../redux/options";
 
 export default function HomeSearchTable(props) {
+
+    const options = useSelector(state => state.options);
+    const dispatch = useDispatch();
+    function func1(e){
+        dispatch(handleMainCategory(e.target.value))
+    }
+    function func2(e){
+        dispatch(handleChangeRegion(e.target.value))
+    }
+    function func3(e){
+        dispatch(handleMakeCategory(e.target.value))
+    }
 
     return (
 
         <div className="homeSearchTable">
             <span className="categoriesOutlineTable">
                 <strong>
-                    Търсене в <span>{props.mainCategory}</span>
+                    Търсене в <span>{options.mainCategory}</span>
                 </strong>
             </span>
 
@@ -26,7 +38,7 @@ export default function HomeSearchTable(props) {
                     <p>
                         <strong>Основна Категория</strong>
                     </p>
-                    <Select selectedOption={props.selectedOption} onChange={props.handleMain} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                    <Select selectedOption={options.selectedOption} onChange={func1} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
                 </div>
                 <div className="firstRowHomeTable">
                     <div className="makeAndModelHome">
@@ -34,13 +46,13 @@ export default function HomeSearchTable(props) {
                             <p>
                                 <strong>Марка</strong>
                             </p>
-                            <Select onChange={props.handleMake} name="Марка" id="Марка" options={props.make} />
+                            <Select onChange={func3} name="Марка" id="Марка" options={options.make} />
                         </div>
                         <div className="modelSelectHome">
                             <p>
                                 <strong>Модел</strong>
                             </p>
-                            <Select name="Модел" id="Модел" options={props.model} />
+                            <Select name="Модел" id="Модел" options={options.model} />
                         </div>
                     </div>
                     <div className="regionAndTown">
@@ -48,13 +60,13 @@ export default function HomeSearchTable(props) {
                             <p>
                                 <strong>Регион</strong>
                             </p>
-                            <Select onChange={props.handleRegion} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
+                            <Select onChange={func2} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
                         </div>
                         <div className="townSelectHome">
                             <p>
                                 <strong>Населено място</strong>
                             </p>
-                            <Select name="Населено място" id="Населено място" options={props.town} />
+                            <Select name="Населено място" id="Населено място" options={options.town} />
                         </div>
                     </div>
                 </div>

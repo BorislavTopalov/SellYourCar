@@ -1,10 +1,12 @@
 import "./editAdBtn.scss";
 import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
+export default function EditAd() {
 
-export default function EditAd(props) {
-
+    const activeUser = useSelector(state => state.activeUser);
+    
     return (
-        <Link to={props.activeUser ? "/profile" : "/login"}>
+        <Link to={activeUser.email ? "/profile" : "/login"}>
             <button className="editButton" ><strong>РЕДАКЦИЯ НА ОБЯВА</strong></button>
         </Link>
     )
