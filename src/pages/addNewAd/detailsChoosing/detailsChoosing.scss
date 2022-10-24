@@ -3,7 +3,7 @@
 }
 
 .firstRowAddNew {
-    margin-left: 10px;
+    margin: 10px 0 0 10px;
 }
 
 .mainCatAdd {
@@ -14,6 +14,25 @@
     display: flex;
 }
 
+.makeAndModelAddNew {
+    display: flex;
+    align-items: center;
+}
+
+.makeAddNew {
+    margin: 20px 10px;
+}
+
+.modifyAndEngineAddNew {
+    display: flex;
+    align-items: center;
+}
+
+.powerAndEuroAddNew {
+    display: flex;
+    align-items: center;
+}
+
 .modifyAddNew {
     margin: 20px 10px 20px 20px;
 }
@@ -21,10 +40,6 @@
 .modifyInputAddNew {
     width: 150px;
     height: 25px;
-}
-
-.makeAddNew {
-    margin: 20px 10px;
 }
 
 .conditionVehicleAddNew {
@@ -133,20 +148,6 @@
     width: 100%;
 }
 
-.makeAndModelAddNew {
-    display: flex;
-    align-items: center;
-}
-
-.modifyAndEngineAddNew {
-    display: flex;
-    align-items: center;
-}
-
-.powerAndEuroAddNew {
-    display: flex;
-    align-items: center;
-}
 
 
 .AddNewAdTable {
@@ -173,16 +174,49 @@
 
 
 .checkBoxes {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 30px 10px;
-    gap: 15px;
+    display: grid;
+    width: 100%;
+    margin: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "f f1 f2"
+        "s s1 s2";
+}
+
+.firstColumn {
+    grid-area: f;
+    width: 100%;
+}
+
+.secondColumn {
+    grid-area: f1;
+    width: 100%;
+}
+
+.thirdColumn {
+    grid-area: f2;
+    width: 100%;
+}
+
+.forthColumn {
+    grid-area: s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.fifthColumn {
+    grid-area: s1;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.sixthColumn {
+    grid-area: s2;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .checkboxForm {
     display: flex;
     flex-direction: column;
-
-
 }

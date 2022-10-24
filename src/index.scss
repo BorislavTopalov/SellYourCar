@@ -12,3 +12,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "SourceSansPro-Regular";
+  src: local("SourceSansPro-Regular"),
+    url("./fonts/SourceSansPro-Regular.ttf") format("truetype");
+  font-weight: 400;
+}

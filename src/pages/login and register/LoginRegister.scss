@@ -50,22 +50,8 @@ input {
 a {
     font-size: 18px;
     text-decoration: none;
-    /* width: 195px; */
-    /* height: 50px; */
     color: #0099ff;
 }
-
-// .blacked {
-//     color: black;
-//     border-top: 2px solid #dddddd;
-//     border-left: 2px solid #dddddd;
-//     border-right: 2px solid #dddddd;
-//     // padding: 0 50px;
-//     // margin: 10px 70px;
-// }
-// .registerButton {
-//     padding: 0 50px;
-// }
 
 .disabled {
     pointer-events: none;
@@ -93,6 +79,6 @@ a {
     padding: 2px 0px;
 }
 
-// .strongLogin {
-//     margin: 10px 70px;
-// } 
+.errorContainer {
+    visibility: hidden;
+}

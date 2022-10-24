@@ -1,38 +1,5 @@
-.firstRow {
-    margin-left: 10px;
-
-    select {
-        width: 250px;
-    }
-}
-
-.secondRow {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.forthRow {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.thirdRow {
-    display: flex;
-    gap: 10px;
-    padding-left: 10px;
-}
-
-.fifthRow {
-    display: flex;
-    // justify-content: space-evenly;
-    align-items: center;
-    gap: 10px;
-    margin-left: 10px;
-}
-
-.sixthRow {
-    display: flex;
-    justify-content: space-evenly;
+.detailedSearchContainer {
+    margin-top: 20px;
 }
 
 .searchTable {
@@ -43,23 +10,47 @@
     width: 100%;
 
     select {
-        min-width: 150px;
+        width: 148px;
     }
 }
 
-.searchBtnDetailedSearch {
-    width: 310px;
-    margin: 10px 30px 10px 15px;
+.firstRow {
+    margin: 10px;
+
+    select {
+        width: 250px;
+    }
 }
 
-.searchTableComponent {
-    padding: 7px 0px;
+.secondRow {
+    display: flex;
+    align-items: center;
 }
 
-.searchTableComponentSpecia2 {
-    width: 330px;
-    padding: 7px 0px;
+.forthRow {
+    display: flex;
+    align-items: center;
+}
 
+.fifthRow {
+    display: flex;
+}
+
+.sixthRow {
+    display: flex;
+}
+
+.makeAndModelDetailSearch {
+    display: flex;
+    align-items: center;
+}
+
+.makeDetailSearch {
+    margin: 10px 10px;
+}
+
+.conditionVehicleDeatiledSearch {
+    margin: 10px 20px;
 }
 
 .conditionLabel {
@@ -71,30 +62,136 @@
     margin: 5px;
 }
 
-.inputsInSearch {
-    max-width: 150px;
-    max-height: 25px;
+.searchBtnDetailedSearch {
+    width: 330px;
+    margin: 10px 10px;
 }
 
-.searchTableComponentFlex {
+.yearDetailedSearch {
+    display: flex;
+    align-items: center;
+}
+
+.yearFromDetailedSearch {
+    margin: 10px 10px 10px 20px;
+}
+
+.sortDetailedSearch {
+    margin-left: 20px;
+}
+
+.priceDeatiledSearch {
     display: flex;
 }
 
-#selectInSearch {
-    max-width: 60px;
+.priceInputFrom {
+    margin: 10px;
 }
 
-.searchTableComponentPrice {
-    input {
-        width: 103px;
-    }
+.priceInputTo {
+    margin: 10px 0;
+}
+
+.inputPriceFrom {
+    height: 25px;
+    width: 110px;
+}
+
+.inputPriceTo {
+    height: 25px;
+    width: 110px;
+}
+
+#curencySelectDetailedSearch {
+    width: 65px;
+    margin-left: 10px;
+}
+
+.powerFrom {
+    height: 25px;
+    width: 148px;
+    margin-right: 10px;
+}
+
+.powerTo {
+    height: 25px;
+    width: 148px;
+}
+
+.powerDetailedSearch {
+    display: flex;
+    margin: 10px 20px;
+}
+
+.euroDetailedSearch {
+    margin: 10px 0;
+}
+
+.engineDetailedSearch {
+    margin: 10px;
+}
+
+.transmissionDetailedSearch {
+    margin: 10px 20px 10px 0;
+}
+
+.distanceDetailedSearch {
+    margin: 10px 0;
+}
+
+.colorDetailedSearch {
+    margin: 10px 20px 10px 10px;
+}
+
+.regionDetailedSearch {
+    margin: 10px 0;
+}
+
+.townDetailedSearch {
+    margin: 10px 20px 10px 10px;
 }
 
 .checkBoxes {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 30px 10px;
-    gap: 15px;
+    display: grid;
+    width: 100%;
+    margin: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "f f1 f2"
+        "s s1 s2";
+}
+
+.firstColumn {
+    grid-area: f;
+    width: 100%;
+}
+
+.secondColumn {
+    grid-area: f1;
+    width: 100%;
+}
+
+.thirdColumn {
+    grid-area: f2;
+    width: 100%;
+}
+
+.forthColumn {
+    grid-area: s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.fifthColumn {
+    grid-area: s1;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.sixthColumn {
+    grid-area: s2;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .checkboxForm {
