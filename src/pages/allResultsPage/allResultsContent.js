@@ -1,17 +1,17 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Card from "../../../components/card";
-import DefaultAds from "../../../data/defaultAds";
-import { addToFavourites } from "../../../redux/activeUser";
-import "./homeContentDown.scss";
+import Card from "../../components/Card";
+import DefaultAds from "../../data/defaultAds";
+import { addToFavourites } from "../../redux/activeUser";
+import "./allResultsContent.scss";
 
-export default function ShowtheNewestAds () {
+export default function ShowtheNewestAds() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
     const addToFav = () => {
-        dispatch(addToFavourites(<Card/>))
+        dispatch(addToFavourites(<Card />))
     }
 
     const moreDetails = () => {
@@ -20,10 +20,8 @@ export default function ShowtheNewestAds () {
 
     return (
         <span>
-             {DefaultAds().defaultCarsAndJeeps.map((item,i) => {
-                return <div>
-                    <Card 
-                    key={i}
+            {DefaultAds().defaultCarsAndJeeps.map(
+                item => <Card
                     src={item.image}
                     make={item.make}
                     model={item.model}
@@ -42,10 +40,11 @@ export default function ShowtheNewestAds () {
                     town={item.town}
                     onClick={addToFav}
                     moreDetails={moreDetails}
-                    />
-                    </div>
-             })}
+                    key={item.millage}
+                />
+
+            )}
         </span>
-       
+
     )
 }

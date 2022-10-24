@@ -3,16 +3,16 @@ export default function Card(props) {
     return (
 
         <span className="cardContainer">
-            <div className="imgCardHomePage">
+            <div className="imgCardAllResultPage">
                 <img src={props.src} alt="" className="cardImg" />
-                <div className="buttonsCardHomePage">
+                <div className="buttonsCardAllResultPage">
                     <span><button className="btnCardAddToFav" onClick={props.onClick}>Добави в бележника</button></span>
                     <span><button className="btnCardGoToMoreInfo" onClick={props.moreDetails}>Повече детайли</button></span>
                 </div>
             </div>
-            <div className="infoCardHomePage">
-                <div className="mainInfoCardHomePage">
-                    <div className="makeAndModelCardHomePage">
+            <div className="infoCardAllResultPage">
+                <div className="mainInfoCardAllResultPage">
+                    <div className="makeAndModelCardAllResultPage">
                         <span className="cardMake"><strong>{props.make}</strong></span>
                         <span className="cardModel"><strong>{props.model}</strong></span>
                     </div>
@@ -20,11 +20,11 @@ export default function Card(props) {
                     <span><strong>{props.price} {props.currency}</strong></span>
                 </div>
 
-                <div className="moreInfoCardHomePage">
+                <div className="moreInfoCardAllResultPage">
                     Дата на произв. - {props.date}г., Пробег - {props.millage}км., Цвят - {props.color},
                     {props.euro} ! {props.moreInfo}.
                     Осебености : {props.vehicleCategory}, {props.safetyOptions}, {props.interiorOptions}.
-                    <div className="regionCardHomePage">
+                    <div className="regionCardAllResultPage">
                         Регион : {props.region}, {props.town}.
                     </div>
 

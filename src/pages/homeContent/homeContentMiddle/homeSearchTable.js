@@ -10,7 +10,7 @@ import EngineOptions from "../../../data/engineOptions"
 import { useDispatch, useSelector } from "react-redux";
 import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../redux/options";
 import baner from "../../homeContent/homeContentMiddle/lambo1copy.jpg"
-import ShowtheNewestAds from "../homeContentDown/homeContentDown";
+import SmallCardsHomePage from "../smallCardsHomePage/smallCardsHomePage";
 
 export default function HomeSearchTable(props) {
 
@@ -115,7 +115,7 @@ export default function HomeSearchTable(props) {
                         </div>
                         <Link className="detailSearchLink" to="/detail-searching">Подробно търсене</Link>
                     </span>
-                    <ShowtheNewestAds />
+                  <SmallCardsHomePage/> 
                 </div>
 
                 <img src={baner} alt="baner" className="labmoHomePage" />

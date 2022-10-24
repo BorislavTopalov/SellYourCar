@@ -10,11 +10,11 @@
     font-size: 15px;
 }
 
-.infoCardHomePage {
+.infoCardAllResultPage {
     margin-left: 10px;
 }
 
-.mainInfoCardHomePage {
+.mainInfoCardAllResultPage {
     display: flex;
     justify-content: space-around;
     margin: 10px 0;
@@ -24,7 +24,7 @@
     margin-right: 5px;
 }
 
-.buttonsCardHomePage {
+.buttonsCardAllResultPage {
     display: flex;
 }
 
@@ -50,4 +50,9 @@
 	outline: inherit;
     text-decoration: underline;
     font-size: 12px;
+}
+
+.imgCardAllResultPage {
+    display: flex;
+    flex-direction: column;
 }
