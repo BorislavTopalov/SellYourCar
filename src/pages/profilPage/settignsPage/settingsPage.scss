@@ -9,6 +9,7 @@
     margin: 20px 10px;
     flex-direction: column;
     align-items: flex-start;
+    gap: 5px;
 }
 
 .inputEmailChange {
@@ -16,9 +17,24 @@
     margin: 20px 10px;
     flex-direction: column;
     align-items: flex-start;
+    gap: 5px;
 }
 
 .deleteProfilBtn {
     background: red;
     margin: 20px 10px;
+}
+
+.errorContainer {
+    height: 20px;
+    margin-bottom: 8px;
+}
+
+.errors {
+    color: red;
+    background-color: rgb(253, 198, 198);
+    border-radius: 5px;
+    border: 1px solid red;
+    padding: 2px 0px;
+    text-align: center;
 }

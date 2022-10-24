@@ -1,7 +1,95 @@
 import "./settingsPage.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { changeEmailA, changePassword, deleteAcc } from "../../../redux/activeUser";
+import { changeEmailU, changePass, deleteUser } from "../../../redux/users";
 
 export default function SettingsPage() {
+
+    const users = useSelector(state => state.users);
+    const activeUser = useSelector(state => state.activeUser);
+    const dispatch = useDispatch();
+
+    const [email, setEmail] = useState(" ");
+    const [pass, setPass] = useState("");
+    const [checkPass, setCheckPass] = useState("");
+    const [disabledE, setDisabledE] = useState(true);
+    const [disabledP, setDisabledP] = useState(true);
+    const [error, setError] = useState(false);
+    const [error2, setError2] = useState(false);
+    const [error3, setError3] = useState(false);
+    const navigate = useNavigate();
+
+    function emailInput(e) {
+        setEmail(e.target.value);
+        setError(false);
+    }
+    function passInput(e) {
+        setPass(e.target.value);
+        setError2(false);
+    }
+    function checkPassInput(e) {
+        setCheckPass(e.target.value);
+    }
+
+    function handleChangePass() {
+        if (activeUser.password !== pass) {
+            dispatch(changePassword({ password: pass }));
+            dispatch(changePass({
+                index: users.findIndex(user => user.email === activeUser.email),
+                password: pass,
+            }))
+            setEmail(" ");
+            setPass("");
+            setCheckPass("");
+            navigate("/profile");
+        } else {
+            setError2(true);
+        }
+    }
+    function handleChangeEmail() {
+        if (!users.some(user => user.email === email)) {
+            dispatch(changeEmailA({ email: email }));
+            dispatch(changeEmailU({
+                index: users.findIndex(user => user.password === activeUser.password),
+                email: email,
+            }))
+            setEmail(" ");
+            setPass("");
+            setCheckPass("");
+            navigate("/profile");
+        } else {
+            setError(true);
+        }
+
+    }
+    function deleteAcount() {
+        dispatch(deleteAcc());
+        dispatch(deleteUser({ index: users.findIndex(user => user.email === activeUser.email) }))
+        navigate("/login");
+    }
+    useEffect(() => {
+        if (email.trim()) {
+            setDisabledE(false);
+        } else {
+            setDisabledE(true);
+        }
+    }, [email])
+    useEffect(() => {
+        if (pass && checkPass) {
+            if (pass === checkPass) {
+                setDisabledP(false);
+                setError3(false);
+            } else {
+                setDisabledP(true);
+                setError3(true);
+            }
+        } else {
+            setDisabledP(true);
+            setError3(false);
+        }
+    }, [pass, checkPass])
 
     return (
 
@@ -18,7 +106,11 @@ export default function SettingsPage() {
                 <div className="underLineUserSettings"></div>
                 <div className="inputEmailChange">
                     <label htmlFor="email"> Промяна на E-mail</label>
-                    <input type="text" name="email" />
+                    <input value={email} onChange={emailInput} type="text" name="email" />
+                    <div className="errorContainer">
+                        {error && <p className="errors">Вече същеструва потребител с този E-mail</p>}
+                    </div>
+                    <button className={disabledE ? "disabled" : null} onClick={handleChangeEmail}>Смени E-mail</button>
                 </div>
             </div>
             <div>
@@ -26,15 +118,20 @@ export default function SettingsPage() {
                 <div className="underLineUserSettings"></div>
                 <div className="inputsPassChange">
                     <label htmlFor="newPass">Нова парола</label>
-                    <input type="text" name="newPass" />
+                    <input value={pass} onChange={passInput} type="password" name="newPass" />
                     <label htmlFor="newPass">Повтори парола</label>
-                    <input type="text" name="newPass" />
+                    <input value={checkPass} onChange={checkPassInput} type="password" name="newPass" />
+                    <div className="errorContainer">
+                        {error3 && <p className="errors">Паролите не съвпадат</p>}
+                        {error2 && <p className="errors">Новата парола трябва да е различна от старата</p>}
+                    </div>
+                    <button className={disabledP ? "disabled" : null} onClick={handleChangePass}>Смени паролата</button>
                 </div>
 
             </div>
             <div>
                 <div className="underLineUserSettings"></div>
-                <Link to="/home"><button className="deleteProfilBtn"><strong>Изтриване на профил</strong></button></Link>
+                <button onClick={deleteAcount} className="deleteProfilBtn"><strong>Изтриване на профил</strong></button>
             </div>
         </div>
     )

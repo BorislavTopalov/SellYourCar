@@ -62,7 +62,7 @@ a {
     border-left: 2px solid #dddddd;
     border-right: 2px solid #dddddd;
     padding: 10px 20px;
-}  
+}
 
 .loginButton {
     border-top: 2px solid #dddddd;
@@ -77,8 +77,9 @@ a {
     border-radius: 5px;
     border: 1px solid red;
     padding: 2px 0px;
+    text-align: center;
 }
 
 .errorContainer {
-    visibility: hidden;
+    height: 20px;
 }
