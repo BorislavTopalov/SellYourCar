@@ -24,7 +24,7 @@ const Register = () => {
         const [email, password] = e.target;
 
         if (!(users.some(user => user.email === email.value))) {
-            dispatch(register({ email: email.value, password: password.value,  }));
+            dispatch(register({ email: email.value, password: password.value, favourites: [], active: [], inactive: [] }));
             setError2(false);
             navigate("/login");
             e.target.reset();

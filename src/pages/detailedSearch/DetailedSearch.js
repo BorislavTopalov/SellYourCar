@@ -18,20 +18,24 @@ import SpecialOptions from "../../data/specialOptions";
 import ExteriorOptions from "../../data/exteriorOptions";
 import InteriorOptions from "../../data/interiorOptions";
 import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../redux/options";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const DetailedSearch = () => {
 
     const options = useSelector(state => state.options);
     const dispatch = useDispatch();
-    function func1(e){
+    function func1(e) {
         dispatch(handleMainCategory(e.target.value))
     }
-    function func2(e){
+    function func2(e) {
         dispatch(handleChangeRegion(e.target.value))
     }
-    function func3(e){
+    function func3(e) {
         dispatch(handleMakeCategory(e.target.value))
+    }
+
+    function handleChange(e) {
+        console.log(e.target.value);
     }
 
     return (
@@ -188,7 +192,7 @@ const DetailedSearch = () => {
                 <div className="checkBoxes">
                     <div className="firstColumn">
                         <p><strong>Безопасност</strong></p>
-                        <Checkbox options={SafetyOptions().safetyOptions} />
+                        <Checkbox onChange={handleChange} options={SafetyOptions().safetyOptions} />
                     </div>
                     <div className="secondColumn">
                         <p><strong>Комфорт</strong></p>
