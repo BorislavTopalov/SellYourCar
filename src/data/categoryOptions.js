@@ -11,6 +11,7 @@ export default function CategoryOptions() {
                     label: "Audi",
                     model: [
                         { value: "Всички", label: "Всички" },
+                        { value: "A3", label: "A3" },
                         { value: "RS E-Tron GT ", label: "RS E-Tron GT " },
                         { value: "RS3", label: "RS3" },
                         { value: "RS4", label: "RS4" },

@@ -26,7 +26,8 @@ import InactiveAdsPage from './pages/profilPage/inactiveAdsPage/inactiveAdsPage'
 import SettingsPage from './pages/profilPage/settignsPage/settingsPage';
 import FavroriteAdsPage from './pages/profilPage/favoriteAdsPage/favoriteAdsPage';
 import { useSelector, useDispatch } from "react-redux";
-import { chnageSelectedOption } from "./redux/options";
+import { changeSelectedOption } from "./redux/options";
+
 function App() {
 
   const users = useSelector(state => state.users);
@@ -35,7 +36,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(chnageSelectedOption(options.mainCategory))
+    dispatch(changeSelectedOption(options.mainCategory))
   }, [options.mainCategory, dispatch])
 
   useEffect(() => {

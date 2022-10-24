@@ -2,7 +2,9 @@
     border: #0099ff 1px solid;
     border-top: #0099ff 3px solid;
     margin: 10px 0;
+    height: 100%;
     display: inline-block;
+
     select {
         min-width: 150px;
     }
@@ -15,10 +17,6 @@
 .mainCategories {
     margin: 20px 30px;
 }
-
-// select {
-//     min-width: 150px;
-// }
 
 p {
     margin-bottom: 0;
@@ -59,18 +57,18 @@ p {
     margin: 10px 15px 10px 30px;
 }
 
-.sortAdHome{
+.sortAdHome {
     margin: 10px 30px 10px 15px;
-    
+
     select {
-    width: 310px;
+        width: 310px;
     }
 }
 
 .thirdRowHomeTable {
     display: flex;
     align-items: center;
-   
+
 
     .engineAndTransmission {
         margin: 10px 15px 10px 30px;
@@ -100,4 +98,17 @@ p {
 .inputPriceHome {
     height: 25px;
     width: 150px;
+}
+
+.labmoHomePage {
+    margin: 10px 0 10px 10px;
+}
+
+.homePageContent {
+    display: flex;
+}
+
+.homeSearchTableAndNewestAds {
+    display: flex;
+    flex-direction: column;
 }

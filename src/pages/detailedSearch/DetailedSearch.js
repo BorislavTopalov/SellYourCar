@@ -9,7 +9,7 @@ import EngineOptions from "../../data/engineOptions"
 import "./detailedSearch.scss"
 import EuroStandartOptions from "../../data/euroStandartOptions";
 import MaxMileageOptions from "../../data/maxMileageOptions";
-import ColourOptions from "../../data/colourOptions";
+import ColorOptions from "../../data/colorOptions";
 import Checkbox from "../../components/Checkbox";
 import SafetyOptions from "../../data/safetyOptions";
 import comfortOptions from "../../data/comfortOptions";
@@ -17,7 +17,7 @@ import SecurityOptions from "../../data/securityOptions";
 import SpecialOptions from "../../data/specialOptions";
 import ExteriorOptions from "../../data/exteriorOptions";
 import InteriorOptions from "../../data/interiorOptions";
-import options, { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../redux/options";
+import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../redux/options";
 import {useDispatch, useSelector} from "react-redux";
 
 const DetailedSearch = () => {
@@ -68,7 +68,7 @@ const DetailedSearch = () => {
                         <label className="conditionLabel" htmlFor="vehicle3">За части</label>
                     </div>
 
-                    <Link to="/allResults"><button className="searchBtnDetailedSearch"><strong>Търси</strong></button></Link>
+                    <Link to="/all-results"><button className="searchBtnDetailedSearch"><strong>Търси</strong></button></Link>
 
                 </div>
 
@@ -122,7 +122,7 @@ const DetailedSearch = () => {
                             <p><strong>До</strong></p>
                             <input className="inputPriceTo" type="text" id="to" />
                             <select id="curencySelectDetailedSearch">
-                                <option value="BGN">BGN</option>
+                                <option value="BGN">лв.</option>
                                 <option value="EUR">EUR</option>
                                 <option value="USD">USD</option>
                             </select>
@@ -170,7 +170,7 @@ const DetailedSearch = () => {
                         <p>
                             <strong>Цвят</strong>
                         </p>
-                        <Select name="Цвят" id="Цвят" options={ColourOptions().colours} />
+                        <Select name="Цвят" id="Цвят" options={ColorOptions().colors} />
                     </div>
                     <div className="regionDetailedSearch">
                         <p>
@@ -182,7 +182,7 @@ const DetailedSearch = () => {
                         <p>
                             <strong>Населено място</strong>
                         </p>
-                        <Select name="Населено място" id="Населено място" options={props.town} />
+                        <Select name="Населено място" id="Населено място" options={options.town} />
                     </div>
                 </div>
                 <div className="checkBoxes">

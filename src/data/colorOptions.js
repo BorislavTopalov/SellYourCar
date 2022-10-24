@@ -1,6 +1,6 @@
-export default function ColourOptions() {
+export default function ColorOptions() {
 
-    const colours = [
+    const colors = [
         { value: "Всички цветове", label: "Всички цветове" },
         { value: "Син", label: "Син" },
         { value: "Червен ", label: "Червен" },
@@ -12,5 +12,5 @@ export default function ColourOptions() {
         { value: "Жълт", label: "Жълт" }
     ];
 
-    return ({ colours });
+    return ({ colors });
 }

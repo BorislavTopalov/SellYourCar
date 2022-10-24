@@ -7,7 +7,7 @@ import TransmissionOptions from "../../../data/transmissionOptions"
 import EngineOptions from "../../../data/engineOptions"
 import "./detailsChoosing.scss";
 import EuroStandartOptions from "../../../data/euroStandartOptions";
-import ColourOptions from "../../../data/colourOptions";
+import ColorOptions from "../../../data/colorOptions";
 import Checkbox from "../../../components/Checkbox";
 import SafetyOptions from "../../../data/safetyOptions";
 import comfortOptions from "../../../data/comfortOptions";
@@ -109,7 +109,7 @@ export default function DetailsChoosing() {
                         <p><strong>Цена</strong></p>
                         <input className="priceInputAddNew" type="text" />
                         <select className="currencySelectAddNew" id="selectInSearch">
-                            <option value="BGN">BGN</option>
+                            <option value="BGN">лв.</option>
                             <option value="EUR">EUR</option>
                             <option value="USD">USD</option>
                         </select>
@@ -142,7 +142,7 @@ export default function DetailsChoosing() {
                         <p>
                             <strong>Цвят</strong>
                         </p>
-                        <Select className="colorSelectAddNew" name="Цвят" id="Цвят" options={ColourOptions().colours} />
+                        <Select className="colorSelectAddNew" name="Цвят" id="Цвят" options={ColorOptions().colors} />
                     </div>
                 </div>
                 <div className="checkBoxes">

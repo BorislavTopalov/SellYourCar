@@ -1,0 +1,53 @@
+.cardImg {
+    width: 150px;
+}
+
+.cardContainer {
+    display: flex;
+    align-items: flex-start;
+    border-top: 2px solid #0099ff;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.infoCardHomePage {
+    margin-left: 10px;
+}
+
+.mainInfoCardHomePage {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.cardMake {
+    margin-right: 5px;
+}
+
+.buttonsCardHomePage {
+    display: flex;
+}
+
+.btnCardAddToFav {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.btnCardGoToMoreInfo {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    text-decoration: underline;
+    font-size: 12px;
+}

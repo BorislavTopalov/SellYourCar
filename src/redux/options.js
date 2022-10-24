@@ -24,14 +24,14 @@ export const optionsSlice = createSlice({
         handleChangeRegion: (state, {payload}) => {
             state.town = RegionAndTownOptions().regionAndTownOptions.find((el) => el.value === payload).town;
         },
-        chnageSelectedOption: (state, {payload}) => {
+        changeSelectedOption: (state, {payload}) => {
             state.selectedOption = payload;
         }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { handleMainCategory, handleMakeCategory, handleChangeRegion, chnageSelectedOption } = optionsSlice.actions
+export const { handleMainCategory, handleMakeCategory, handleChangeRegion, changeSelectedOption } = optionsSlice.actions
 
 export default optionsSlice.reducer
 
