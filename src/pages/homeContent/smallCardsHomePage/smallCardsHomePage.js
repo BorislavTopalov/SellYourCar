@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import SmallCard from "../../../components/SmallCards";
 import DefaultAds from "../../../data/defaultAds";
 import "./smallCardsHomePage.scss";
@@ -5,13 +6,19 @@ import "./smallCardsHomePage.scss";
 export default function SmallCardsHomePage() {
 
     let newestAds = DefaultAds().defaultCarsAndJeeps.slice(0, 6);
+    let navigate = useNavigate();
+
+    const goToChosenAd = () => {
+        navigate("/show-the-chosenAd");
+    }
 
     return (
-        <span>
+        <span className="allSmallCardsContainer">
             {
                 newestAds.map(
                     (item, index) => <SmallCard
                         src={item.image}
+                        onClick={goToChosenAd}
                         make={item.make}
                         model={item.model}
                         price={item.price}
@@ -19,7 +26,7 @@ export default function SmallCardsHomePage() {
                         millage={item.millage}
                         region={item.region}
                         key={index}
-                        id={index}
+                        id={item.model}
                     />
                 )
             }

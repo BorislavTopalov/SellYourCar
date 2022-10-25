@@ -1,16 +1,14 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Card from "../../components/Card";
-import DefaultAds from "../../data/defaultAds";
-import { addToFavourites, removeFromFavourites } from "../../redux/activeUser";
-import "./allResultsContent.scss";
-import { changeFavourites } from "../../redux/users";
-import { useEffect } from "react";
+import Card from "../../../components/Card";
+import { addToFavourites, removeFromFavourites } from "../../../redux/activeUser";
+import { changeFavourites } from "../../../redux/users";
 
-export default function ShowAllAds() {
+export default function ShowFavAds() {
 
-    const users = useSelector(state => state.users)
     const activeUser = useSelector(state => state.activeUser);
+    const users = useSelector(state => state.users)
     const favArr = activeUser.favourites;
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -22,22 +20,21 @@ export default function ShowAllAds() {
             favourites: activeUser.favourites,
         }))
     }, [activeUser])
-
+    
     function isLiked(e) {
         if (favArr.find(ad => ad.id === e.id)) {
             return true
         }
         return false
     }
-
     const moreDetails = () => {
         navigate("/show-the-chosenAd");
     }
 
     return (
-        <span>
-            {DefaultAds().defaultCarsAndJeeps.map(
-                item => <Card
+        <div>
+            {
+                favArr.map(item => <Card
                     src={item.image}
                     make={item.make}
                     model={item.model}
@@ -60,16 +57,17 @@ export default function ShowAllAds() {
                     }}
                     onClick2={() => {
                         dispatch(removeFromFavourites(item));
-
+                       
                     }}
                     moreDetails={moreDetails}
                     key={item.id}
                     isLiked={isLiked(item)}
-                    isThereActiveU={activeUser.email}
+                    isThereActiveU = {activeUser.email}
                 />
 
-            )}
-        </span>
+                )
+            }
+        </div>
 
     )
 }

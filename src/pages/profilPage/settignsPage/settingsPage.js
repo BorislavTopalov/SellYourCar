@@ -22,15 +22,15 @@ export default function SettingsPage() {
     const navigate = useNavigate();
 
     function emailInput(e) {
-        setEmail(e.target.value);
+        setEmail(e.target.value.trim());
         setError(false);
     }
     function passInput(e) {
-        setPass(e.target.value);
+        setPass(e.target.value.trim());
         setError2(false);
     }
     function checkPassInput(e) {
-        setCheckPass(e.target.value);
+        setCheckPass(e.target.value.trim());
     }
 
     function handleChangePass() {

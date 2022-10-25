@@ -19,12 +19,17 @@ export const usersSlice = createSlice({
       if (payload.index >= 0) {
         state.splice(payload.index, 1);
       }
-
-    }
+    },
+    changeFavourites: (state, { payload }) => {
+      if(payload.index >=0){
+        state[payload.index].favourites = payload.favourites;
+      }
+      
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { register, changePass, changeEmailU, deleteUser } = usersSlice.actions
+export const { register, changePass, changeEmailU, deleteUser, changeFavourites } = usersSlice.actions
 
 export default usersSlice.reducer

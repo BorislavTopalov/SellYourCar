@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import activeUser, { activeUserSlice } from "../../../redux/activeUser";
+import ShowAllAds from "../../allResultsPage/allResultsContent";
 import "./favoriteAdsPage.scss";
+import ShowFavAds from "./showFavAds";
 
-export default function FavroriteAdsPage () {
+export default function FavoriteAdsPage () {
 
     return (
 
@@ -18,7 +21,7 @@ export default function FavroriteAdsPage () {
                 <p className="favoriteAdsText"><strong>Управление на обявите във Вашия бележник</strong></p>
                 <div className="underLineFavoritePage"></div>
             </div>
-            <div></div>
+            <div>{<ShowFavAds/>}</div>
             <div className="underLineFavoritePage"></div>
 
         </div>

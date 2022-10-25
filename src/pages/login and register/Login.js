@@ -19,8 +19,8 @@ const Login = () => {
         e.preventDefault();
         const [email, password] = e.target;
 
-        if (users.some((user) => user.email === email.value && user.password === password.value)) {
-            dispatch(login((users.find((user) => user.email === email.value && user.password === password.value))));
+        if (users.some((user) => user.email === email.value.trim() && user.password === password.value.trim())) {
+            dispatch(login((users.find((user) => user.email === email.value.trim() && user.password === password.value.trim()))));
             setError(false);
             navigate("/home");
 
@@ -32,10 +32,10 @@ const Login = () => {
     }
 
     function emailInput(e) {
-        setEmail(e.target.value);
+        setEmail(e.target.value.trim());
     }
     function passInput(e) {
-        setPass(e.target.value);
+        setPass(e.target.value.trim());
     }
     useEffect(() => {
         if (email && pass) {

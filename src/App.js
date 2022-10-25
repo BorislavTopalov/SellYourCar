@@ -27,7 +27,8 @@ import SettingsPage from './pages/profilPage/settignsPage/settingsPage';
 import FavroriteAdsPage from './pages/profilPage/favoriteAdsPage/favoriteAdsPage';
 import { useSelector, useDispatch } from "react-redux";
 import { changeSelectedOption } from "./redux/options";
-import ShowtheNewestAds from './pages/allResultsPage/allResultsContent';
+import ShowAllAds from './pages/allResultsPage/allResultsContent';
+import Contacts from './pages/contacts/contacts';
 
 function App() {
 
@@ -91,9 +92,9 @@ function App() {
             <Route path='add-new' element={<DetailsChoosing />} />
             <Route path='add-pictures' element={<AddPhotoNewAd />} />
             <Route path='detail-searching' element={<DetailedSearch />} />
-            <Route path='all-results' element={ <ShowtheNewestAds />} />
+            <Route path='all-results' element={ <ShowAllAds />} />
             <Route path='show-the-chosenAd' element={<div className='showTheChosenAd'>"ShowTheChosenAd"</div>} />
-            <Route path='contacts' element={<div className='contacts'>"Contacts"</div>} />
+            <Route path='contacts' element={<Contacts/>} />
             <Route path='advertisement' element={<AdvertisementTariffs />} />
             <Route path='help' element={<Help />} />
             <Route path='general-terms' element={<GeneralTerms />} />

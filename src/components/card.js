@@ -6,7 +6,9 @@ export default function Card(props) {
             <div className="imgCardAllResultPage">
                 <img src={props.src} alt="" className="cardImg" />
                 <div className="buttonsCardAllResultPage">
-                    <span><button className="btnCardAddToFav" onClick={props.onClick}>Добави в бележника</button></span>
+                    {props.isThereActiveU && (props.isLiked ?
+                        <span><button className="btnCardRemoveFromFav" onClick={props.onClick2}>Премахни от бележника</button></span> :
+                        <span><button className="btnCardAddToFav" onClick={props.onClick}>Добави в бележника</button></span>)}
                     <span><button className="btnCardGoToMoreInfo" onClick={props.moreDetails}>Повече детайли</button></span>
                 </div>
             </div>

@@ -24,7 +24,7 @@ const Register = () => {
         const [email, password] = e.target;
 
         if (!(users.some(user => user.email === email.value))) {
-            dispatch(register({ email: email.value, password: password.value, favourites: [], active: [], inactive: [] }));
+            dispatch(register({ email: email.value.trim(), password: password.value.trim(), favourites: [], active: [], inactive: [] }));
             setError2(false);
             navigate("/login");
             e.target.reset();
@@ -34,14 +34,15 @@ const Register = () => {
     }
 
     function emailInput(e) {
-        setEmail(e.target.value);
+        console.log(e.target.value.trim());
+        setEmail(e.target.value.trim());
         setError2(false);
     }
     function passInput(e) {
-        setPass(e.target.value);
+        setPass(e.target.value.trim());
     }
     function checkPassInput(e) {
-        setCheckPass(e.target.value);
+        setCheckPass(e.target.value.trim());
     }
 
     useEffect(() => {

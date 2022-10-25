@@ -17,7 +17,9 @@ export default function DefaultAds() {
             safetyOptions: "Антиблокираща система",
             interiorOptions: "Кожен салон", 
             region: "София",
-            town: "Нови Искър"
+            town: "Нови Искър",
+            isLiked: false,
+            id: 1
         },
         {
             image: "https://17457b87357a3c132a36-65a4e27ddcfba494e5d9d65eec1738bb.ssl.cf3.rackcdn.com/2019/08/2D1A95666_min.jpg",
@@ -35,7 +37,9 @@ export default function DefaultAds() {
             safetyOptions: "Антиблокираща система",
             interiorOptions: "Кожен салон", 
             region: "София",
-            town: "гр.София"
+            town: "гр.София",
+            isLiked: false,
+            id:2
         },
         {
             image: "http://service21-tuning.com/wp-content/uploads/2018/05/Audi-A3-8L.jpg",
@@ -53,7 +57,9 @@ export default function DefaultAds() {
             safetyOptions: "Антиблокираща система",
             interiorOptions: "Кожен салон", 
             region: "София",
-            town: "гр.София"
+            town: "гр.София",
+            isLiked: false,
+            id: 3
         },{
             image: "https://www.motortrend.com/uploads/sites/5/2020/04/2020-BMW-M8-Competition-Coupe-29.jpg?fit=around%7C875:492",
             make: "BMW",
@@ -70,42 +76,48 @@ export default function DefaultAds() {
             safetyOptions: "Антиблокираща система",
             interiorOptions: "Кожен салон", 
             region: "София",
-            town: "Нови Искър"
+            town: "Нови Искър",
+            isLiked: false,
+            id: 4
         },
         {
-            image: "http://service21-tuning.com/wp-content/uploads/2018/05/Audi-A3-8L.jpg",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaQEBgTIcOSx7reTt7_Yo__IYWwpukUCO29ih4pdqz&s",
             make: "Audi",
-            model: "А3",
+            model: "R8",
             engine: "Бензинов",
-            price: 5100,
+            price: 135100,
             currency : "лв.",
-            date: "2001",
-            millage: "1407000",
-            color: "Сив",
-            euro: "Евро 4",
-            moreInfo: "Перфектен автомобил. Реални километри. Един собственик в Германия. Заслужава си да се види. Без коментар на цената!",
-            vehicleCategory: "Бегачки",
-            safetyOptions: "Антиблокираща система",
-            interiorOptions: "Кожен салон", 
-            region: "София",
-            town: "гр.София"
-        },{
-            image: "https://www.motortrend.com/uploads/sites/5/2020/04/2020-BMW-M8-Competition-Coupe-29.jpg?fit=around%7C875:492",
-            make: "BMW",
-            model: "M8",
-            engine: "Бензинов",
-            price: 200000,
-            currency : "лв.",
-            date: "2021",
-            millage: "18000",
-            color: "Зелен",
+            date: "2018",
+            millage: "7000",
+            color: "Бял",
             euro: "Евро 6",
             moreInfo: "Перфектен автомобил. Реални километри. Един собственик в Германия. Заслужава си да се види. Без коментар на цената!",
             vehicleCategory: "Супер спорт",
             safetyOptions: "Антиблокираща система",
             interiorOptions: "Кожен салон", 
             region: "София",
-            town: "Нови Искър"
+            town: "гр.София",
+            isLiked: false,
+            id: 5
+        },{
+            image: "https://cdna.artstation.com/p/assets/images/images/014/296/316/large/jonatas-franzen-bmw-m3-gtr-2005-hero-2.jpg?1543376937",
+            make: "BMW",
+            model: "M3",
+            engine: "Бензинов",
+            price: 99000,
+            currency : "лв.",
+            date: "2001",
+            millage: "118000",
+            color: "Син",
+            euro: "Евро 6",
+            moreInfo: "Перфектен автомобил. Реални километри. Един собственик в Германия. Заслужава си да се види. Без коментар на цената!",
+            vehicleCategory: "Бегачки",
+            safetyOptions: "Антиблокираща система",
+            interiorOptions: "Кожен салон", 
+            region: "София",
+            town: "Нови Искър",
+            isLiked: false,
+            id: 6
         }
     ];
 

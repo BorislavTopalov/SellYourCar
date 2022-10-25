@@ -1,21 +1,39 @@
 .imgSmallCard {
     width: 150px;
+    cursor: pointer;
+}
+
+.smallCardsContainer #A3{
+    display: flex;
+    width: 50%;
+    margin: 10px;
+    grid-area: i;
+}
+
+.allSmallCardsContainer {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "i i"
+        "i i"
+        "i i";
 }
 
 .smallCardsContainer {
-    display: grid;
-    width: 100%;
-    margin: 10px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-        "i1 i2 "
-        "i3 i4 "
-        "i5 i6 ";
-
-
+    display: flex;
+    margin: 10px ;
+    align-items: center;
+    border-right: 2px solid #0099ff;
+    border-bottom: 2px solid #0099ff;
 }
 
-// #1 {
-//     grid-area: i1;
-//     width: 100%;
-// }
+.smallCardInfo {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.makeSmallCard {
+    margin-right: 5px;
+}
