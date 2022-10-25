@@ -2,17 +2,16 @@ export default function Card(props) {
 
     return (
 
-        <span className="cardContainer">
+        <span className="cardContainer" >
             <div className="imgCardAllResultPage">
-                <img src={props.src} alt="" className="cardImg" />
+                <img src={props.src} alt="" className="cardImg" onClick={props.goToAd}/>
                 <div className="buttonsCardAllResultPage">
                     {props.isThereActiveU && (props.isLiked ?
                         <span><button className="btnCardRemoveFromFav" onClick={props.onClick2}>Премахни от бележника</button></span> :
                         <span><button className="btnCardAddToFav" onClick={props.onClick}>Добави в бележника</button></span>)}
-                    <span><button className="btnCardGoToMoreInfo" onClick={props.moreDetails}>Повече детайли</button></span>
                 </div>
             </div>
-            <div className="infoCardAllResultPage">
+            <div className="infoCardAllResultPage" onClick={props.goToAd}>
                 <div className="mainInfoCardAllResultPage">
                     <div className="makeAndModelCardAllResultPage">
                         <span className="cardMake"><strong>{props.make}</strong></span>

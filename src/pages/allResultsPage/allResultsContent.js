@@ -21,7 +21,7 @@ export default function ShowAllAds() {
             index: users.findIndex(user => user.email === activeUser.email),
             favourites: activeUser.favourites,
         }))
-    }, [activeUser])
+    }, [activeUser, dispatch, users])
 
     function isLiked(e) {
         if (favArr.find(ad => ad.id === e.id)) {
@@ -30,7 +30,7 @@ export default function ShowAllAds() {
         return false
     }
 
-    const moreDetails = () => {
+    const goToAd = () => {
         navigate("/show-the-chosenAd");
     }
 
@@ -38,6 +38,7 @@ export default function ShowAllAds() {
         <span>
             {DefaultAds().defaultCarsAndJeeps.map(
                 item => <Card
+                    goToAd={goToAd}
                     src={item.image}
                     make={item.make}
                     model={item.model}
@@ -62,7 +63,6 @@ export default function ShowAllAds() {
                         dispatch(removeFromFavourites(item));
 
                     }}
-                    moreDetails={moreDetails}
                     key={item.id}
                     isLiked={isLiked(item)}
                     isThereActiveU={activeUser.email}

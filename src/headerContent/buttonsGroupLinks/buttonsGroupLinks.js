@@ -19,8 +19,8 @@ export default function ButtonGroupLink() {
                     <img className="logoRent" src={logoRent} alt="logo" />
                     Rent-a-Car
                 </Button>
-                <NavLink to="/profile"><Button >Средни цени</Button></NavLink>
-                <NavLink to="/profile"><Button>Дилъри</Button></NavLink>
+                <Button >Средни цени</Button>
+                <Button>Дилъри</Button>
             </div>
 
             <div>

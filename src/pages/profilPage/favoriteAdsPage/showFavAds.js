@@ -19,15 +19,15 @@ export default function ShowFavAds() {
             index: users.findIndex(user => user.email === activeUser.email),
             favourites: activeUser.favourites,
         }))
-    }, [activeUser])
-    
+    }, [activeUser, dispatch, users])
+
     function isLiked(e) {
         if (favArr.find(ad => ad.id === e.id)) {
             return true
         }
         return false
     }
-    const moreDetails = () => {
+    const goToAd = () => {
         navigate("/show-the-chosenAd");
     }
 
@@ -35,6 +35,7 @@ export default function ShowFavAds() {
         <div>
             {
                 favArr.map(item => <Card
+                    goToAd={goToAd}
                     src={item.image}
                     make={item.make}
                     model={item.model}
@@ -57,12 +58,11 @@ export default function ShowFavAds() {
                     }}
                     onClick2={() => {
                         dispatch(removeFromFavourites(item));
-                       
+
                     }}
-                    moreDetails={moreDetails}
                     key={item.id}
                     isLiked={isLiked(item)}
-                    isThereActiveU = {activeUser.email}
+                    isThereActiveU={activeUser.email}
                 />
 
                 )

@@ -1,9 +1,9 @@
-export default function SmallCard (props) {
+export default function SmallCard(props) {
 
     return (
 
-        <div className="smallCardsContainer">
-            <img className="imgSmallCard" onClick={props.onClick} src={props.src} alt="" />
+        <div className="smallCardsContainer" onClick={props.onClick}>
+            <img className="imgSmallCard" src={props.src} alt="" />
             <div className="smallCardInfo">
                 <div className="makeAndModelSmallCard">
                     <span className="makeSmallCard"><strong>{props.make}</strong></span>

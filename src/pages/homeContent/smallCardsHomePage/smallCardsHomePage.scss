@@ -1,6 +1,5 @@
 .imgSmallCard {
-    width: 150px;
-    cursor: pointer;
+    width: 150px;   
 }
 
 .smallCardsContainer #A3{
@@ -26,6 +25,7 @@
     align-items: center;
     border-right: 2px solid #0099ff;
     border-bottom: 2px solid #0099ff;
+    cursor: pointer;
 }
 
 .smallCardInfo {

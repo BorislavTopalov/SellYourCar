@@ -8,6 +8,7 @@
     border-top: 2px solid #0099ff;
     margin: 10px 0;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .infoCardAllResultPage {
@@ -30,41 +31,31 @@
 
 .btnCardAddToFav {
     background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
     text-decoration: underline;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .btnCardRemoveFromFav {
     background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
     text-decoration: underline;
-    font-size: 12px;
+    font-size: 13px;
 }
 
-.btnCardGoToMoreInfo {
-    background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-    text-decoration: underline;
-    font-size: 12px;
-}
 
 .imgCardAllResultPage {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
