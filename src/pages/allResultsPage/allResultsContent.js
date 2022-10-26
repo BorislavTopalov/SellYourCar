@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Card from "../../components/card";
 import { addToFavourites, removeFromFavourites } from "../../redux/activeUser";
 import "./allResultsContent.scss";
@@ -30,15 +30,19 @@ export default function ShowAllAds() {
         return false
     }
 
-    const goToAd = () => {
-        navigate("/show-the-chosenAd");
-    }
+
 
     return (
         <span>
-            {filterredAds.filterredAds.map(
-                item => <Card
-                    goToAd={goToAd}
+             <div className="linksAllResults">
+                <Link to="/detail-searching" className="newSearch">Ново търсене</Link>
+                <Link to="/home" className="backToHome">Начало</Link>
+            </div>
+            {filterredAds.filterredAds.map(item =>
+                <Card
+                    goToAd={() => {
+                        navigate(`/all-results/${item.id}`);
+                    }}
                     src={item.image}
                     make={item.make}
                     model={item.model}

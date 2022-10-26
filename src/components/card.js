@@ -1,10 +1,12 @@
+
 export default function Card(props) {
+
 
     return (
 
         <span className="cardContainer" >
             <div className="imgCardAllResultPage">
-                <img src={props.src} alt="" className="cardImg" onClick={props.goToAd}/>
+                <img src={props.src} alt="" className="cardImg" onClick={props.goToAd} />
                 <div className="buttonsCardAllResultPage">
                     {props.isThereActiveU && (props.isLiked ?
                         <span><button className="btnCardRemoveFromFav" onClick={props.onClick2}>Премахни от бележника</button></span> :
@@ -20,19 +22,15 @@ export default function Card(props) {
                     <span className="cardEngine">{props.engine}</span>
                     <span><strong>{props.price} {props.currency}</strong></span>
                 </div>
-
                 <div className="moreInfoCardAllResultPage">
                     Дата на произв. - {props.date}г., Пробег - {props.millage}км., Цвят - {props.color},
                     {props.euro} ! {props.moreInfo}.
-                    Осебености : {props.vehicleCategory}, {props.safetyOptions}, {props.interiorOptions}.
+                    Осoбености : {props.vehicleCategory}, {props.safetyOptions}, {props.interiorOptions}.
                     <div className="regionCardAllResultPage">
                         Регион : {props.region}, {props.town}.
                     </div>
-
                 </div>
             </div>
-
-
         </span>
     )
 }

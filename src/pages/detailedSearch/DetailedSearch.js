@@ -18,7 +18,7 @@ import SpecialOptions from "../../data/specialOptions";
 import ExteriorOptions from "../../data/exteriorOptions";
 import InteriorOptions from "../../data/interiorOptions";
 import { useDispatch, useSelector } from "react-redux";
-import { addFilter, reset } from "../../redux/filters";
+import { addFilter, reset, addExtra } from "../../redux/filters";
 import { filter } from "../../redux/filterredAds";
 import { useEffect, useState } from "react";
 
@@ -62,6 +62,10 @@ const DetailedSearch = () => {
         }))
     }
 
+    function addExtras(e){
+        dispatch(addExtra(e.target.value))
+    }
+
     useEffect(() => {
         dispatch(filter(filters))
     }, [filters, dispatch])
@@ -75,10 +79,28 @@ const DetailedSearch = () => {
             </span>
             <div className="searchTable">
                 <div className="firstRow">
-                    <p><strong>Основна категория</strong></p>
-                    <Select selectedOption={selectedOption} onChange={e => { func1(e); addFilters(e) }} name="mainCategory" id="mainCategory" options={CategoryOptions().categorieOptions} />
+                    <div className="selectorMainCategory">
+                        <p><strong>Основна категория</strong></p>
+                        <Select selectedOption={selectedOption} onChange={e => { func1(e); addFilters(e) }} name="mainCategory" id="mainCategory" options={CategoryOptions().categorieOptions} />
+                    </div>
+
+                    <div className="checkBoxesAndButton">
+
+                        <div className="conditionVehicleDeatiledSearch">
+                            <p><strong>Състояние</strong></p>
+                            <input className="conditionCheckbox" type="checkbox" id="condition1" name="condition1" value="new" />
+                            <label className="conditionLabel" htmlFor="vehicle1">Ново</label>
+                            <input className="conditionCheckbox" type="checkbox" id="condition2" name="condition2" value="used" />
+                            <label className="conditionLabel" htmlFor="vehicle2">Употребяван</label>
+                            <input className="conditionCheckbox" type="checkbox" id="condition3" name="condition3" value="parts" />
+                            <label className="conditionLabel" htmlFor="vehicle3">За части</label>
+                        </div>
+
+                        <Link to="/all-results"><button className="searchBtnDetailedSearch"><strong>Търси</strong></button></Link>
+
+                    </div>
                 </div>
-                <div className="secondRow">
+                <div className="forthRow">
                     <div className="makeAndModelDetailSearch">
                         <div className="makeDetailSearch">
                             <p><strong>Марка</strong></p>
@@ -87,45 +109,6 @@ const DetailedSearch = () => {
                         <div className="ModelDetailSearch">
                             <p><strong>Модел</strong></p>
                             <Select onChange={addFilters} name="model" id="model" options={model} />
-                        </div>
-                    </div>
-
-                    <div className="conditionVehicleDeatiledSearch">
-                        <p><strong>Състояние</strong></p>
-                        <input className="conditionCheckbox" type="checkbox" id="condition1" name="condition1" value="new" />
-                        <label className="conditionLabel" htmlFor="vehicle1">Ново</label>
-                        <input className="conditionCheckbox" type="checkbox" id="condition2" name="condition2" value="used" />
-                        <label className="conditionLabel" htmlFor="vehicle2">Употребяван</label>
-                        <input className="conditionCheckbox" type="checkbox" id="condition3" name="condition3" value="parts" />
-                        <label className="conditionLabel" htmlFor="vehicle3">За части</label>
-                    </div>
-
-                    <Link to="/all-results"><button className="searchBtnDetailedSearch"><strong>Търси</strong></button></Link>
-
-                </div>
-
-                <div className="thirdRow">
-                    <div className="makeAndModelDetailSearch">
-                        <div className="makeDetailSearch">
-                            <p><strong>Марка</strong></p>
-                            <Select onChange={func3} name="make" id="make" options={make} />
-                        </div>
-                        <div className="ModelDetailSearch">
-                            <p><strong>Модел</strong></p>
-                            <Select name="model" id="model" options={model} />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="forthRow">
-                    <div className="makeAndModelDetailSearch">
-                        <div className="makeDetailSearch">
-                            <p><strong>Марка</strong></p>
-                            <Select onChange={func3} name="make" id="make" options={make} />
-                        </div>
-                        <div className="ModelDetailSearch">
-                            <p><strong>Модел</strong></p>
-                            <Select name="model" id="model" options={model} />
                         </div>
                     </div>
                     <div className="yearDetailedSearch">
@@ -190,7 +173,7 @@ const DetailedSearch = () => {
                         <p>
                             <strong>Скоростна кутия</strong>
                         </p>
-                        <Select name="Скоростна кутия" id="Скоростна кутия" options={TransmissionOptions().transmission} />
+                        <Select onChange={addFilters} name="transmission" id="Скоростна кутия" options={TransmissionOptions().transmission} />
                     </div>
                     <div className="distanceDetailedSearch">
                         <p>
@@ -220,27 +203,27 @@ const DetailedSearch = () => {
                 <div className="checkBoxes">
                     <div className="firstColumn">
                         <p><strong>Безопасност</strong></p>
-                        <Checkbox options={SafetyOptions().safetyOptions} />
+                        <Checkbox onChange={addExtras} name="extras" options={SafetyOptions().safetyOptions} />
                     </div>
                     <div className="secondColumn">
                         <p><strong>Комфорт</strong></p>
-                        <Checkbox options={comfortOptions().comfortOptions} />
+                        <Checkbox onChange={addExtras} name="extras" options={comfortOptions().comfortOptions} />
                     </div>
                     <div className="thirdColumn">
                         <p><strong>Защита</strong></p>
-                        <Checkbox options={SecurityOptions().securityOptions} />
+                        <Checkbox onChange={addExtras} name="extras" options={SecurityOptions().securityOptions} />
                     </div>
                     <div className="forthColumn">
                         <p><strong>Специални</strong></p>
-                        <Checkbox options={SpecialOptions().specialOptions} />
+                        <Checkbox onChange={addExtras} name="extras" options={SpecialOptions().specialOptions} />
                     </div>
                     <div className="fifthColumn">
                         <p><strong>Екстериор</strong></p>
-                        <Checkbox options={ExteriorOptions().exteriorOptions} />
+                        <Checkbox onChange={addExtras} name="extras" options={ExteriorOptions().exteriorOptions} />
                     </div>
                     <div className="sixthColumn">
                         <p><strong>Интериор</strong></p>
-                        <Checkbox options={InteriorOptions().interiorOptions} />
+                        <Checkbox onChange={addExtras} name="extras" options={InteriorOptions().interiorOptions} />
                     </div>
                 </div>
             </div>

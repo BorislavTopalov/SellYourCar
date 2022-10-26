@@ -9,12 +9,13 @@ import TransmissionOptions from "../../../data/transmissionOptions"
 import EngineOptions from "../../../data/engineOptions"
 import { useDispatch, useSelector } from "react-redux";
 import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../redux/options";
-import baner from "../../homeContent/homeContentMiddle/lambo1copy.jpg"
+import baner from "../../homeContent/homeSearchTable/lambo1copy.jpg"
 import SmallCardsHomePage from "../smallCardsHomePage/smallCardsHomePage";
 import { reset } from "../../../redux/filters";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { filter } from "../../../redux/filterredAds";
+import { addFilter } from "../../../redux/filters";
 
 export default function HomeSearchTable(props) {
 
@@ -37,9 +38,17 @@ export default function HomeSearchTable(props) {
         dispatch(reset());
       }
     }, [location.pathname, dispatch]);
+    
+    function addFilters(e) {
+        dispatch(addFilter({
+            name: e.target.name,
+            value: e.target.value
+        }))
+    }
+
     useEffect(() => {
         dispatch(filter(filters))
-    }, [filters, dispatch])
+    }, [filters, dispatch]);
 
     return (
 
@@ -56,7 +65,7 @@ export default function HomeSearchTable(props) {
                             <p>
                                 <strong>Основна Категория</strong>
                             </p>
-                            <Select selectedOption={options.mainCategory} onChange={func1} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                            <Select selectedOption={options.mainCategory} onChange={e => { func1(e); addFilters(e) }} name="mainCategory" id="Овновна категория" options={CategoryOptions().categorieOptions} />
                         </div>
                         <div className="firstRowHomeTable">
                             <div className="makeAndModelHome">
@@ -64,13 +73,13 @@ export default function HomeSearchTable(props) {
                                     <p>
                                         <strong>Марка</strong>
                                     </p>
-                                    <Select onChange={func3} name="Марка" id="Марка" options={options.make} />
+                                    <Select onChange={e => { func3(e); addFilters(e) }} name="make" id="Марка" options={options.make} />
                                 </div>
                                 <div className="modelSelectHome">
                                     <p>
                                         <strong>Модел</strong>
                                     </p>
-                                    <Select name="Модел" id="Модел" options={options.model} />
+                                    <Select onChange={addFilters} name="model" id="Модел" options={options.model} />
                                 </div>
                             </div>
                             <div className="regionAndTown">
@@ -78,13 +87,13 @@ export default function HomeSearchTable(props) {
                                     <p>
                                         <strong>Регион</strong>
                                     </p>
-                                    <Select onChange={func2} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
+                                    <Select onChange={e => { func2(e); addFilters(e) }} name="region" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
                                 </div>
                                 <div className="townSelectHome">
                                     <p>
                                         <strong>Населено място</strong>
                                     </p>
-                                    <Select name="Населено място" id="Населено място" options={options.town} />
+                                    <Select onChange={addFilters} name="town" id="Населено място" options={options.town} />
                                 </div>
                             </div>
                         </div>
@@ -94,13 +103,13 @@ export default function HomeSearchTable(props) {
                                     <p>
                                         <strong>Максимална цена</strong>
                                     </p>
-                                    <input className="inputPriceHome" type="text" onInput={props.handlePrice} />
+                                    <input onChange={addFilters} className="inputPriceHome" name="priceTo" type="text" onInput={props.handlePrice} />
                                 </div>
                                 <div className="yearSelectHome">
                                     <p>
                                         <strong>Година</strong>
                                     </p>
-                                    <Select name="Година" id="Година" options={YearOptions().year} />
+                                    <Select onChange={addFilters} name="yearFrom" id="Година" options={YearOptions().year} />
                                 </div>
                             </div>
                             <div className="sortAdHome">
@@ -116,13 +125,13 @@ export default function HomeSearchTable(props) {
                                     <p>
                                         <strong>Двигател</strong>
                                     </p>
-                                    <Select name="Двигател" id="Двигател" options={EngineOptions().engine} />
+                                    <Select onChange={addFilters} name="engine" id="Двигател" options={EngineOptions().engine} />
                                 </div>
                                 <div className="transmissionSelectHome">
                                     <p>
                                         <strong>Скоростна кутия</strong>
                                     </p>
-                                    <Select name="Скоростна кутия" id="Скоростна кутия" options={TransmissionOptions().transmission} />
+                                    <Select onChange={addFilters} name="transmission" id="Скоростна кутия" options={TransmissionOptions().transmission} />
                                 </div>
                             </div>
                             <Link className="SearchBtnHomeTable" to="/all-results"><button><strong>Търси</strong></button></Link>

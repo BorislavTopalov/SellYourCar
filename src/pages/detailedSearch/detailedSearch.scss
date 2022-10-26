@@ -22,7 +22,12 @@
     }
 }
 
-.secondRow {
+.selectorMainCategory {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkBoxesAndButton {
     display: flex;
     align-items: center;
 }

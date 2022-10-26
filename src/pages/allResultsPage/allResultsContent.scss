@@ -6,9 +6,28 @@
     display: flex;
     align-items: flex-start;
     border-top: 2px solid #0099ff;
-    margin: 10px 0;
+    margin-bottom: 10px;
     font-size: 15px;
     cursor: pointer;
+    height: 150px;
+}
+
+.linksAllResults {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+
+.newSearch {
+    font-size: 15px;
+    color: black;
+    text-decoration: underline;
+}
+
+.backToHome {
+    font-size: 15px;
+    color: black;
+    text-decoration: underline;
 }
 
 .infoCardAllResultPage {

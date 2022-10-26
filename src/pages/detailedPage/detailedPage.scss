@@ -1,0 +1,123 @@
+.detailedCardContainer {
+    border: 2px solid #0099ff;
+    margin-bottom: 10px;
+    padding: 10px;
+
+}
+
+.backToResults{
+    font-size: 13px;
+    color: black;
+    text-decoration: underline;
+    padding-top: 3px;
+    margin: 0 50px 0 10px
+} 
+
+.btnDetailCardRemoveFromFav{
+    background: none;
+    color: inherit;
+    border: none;
+    padding-bottom: 20px;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    text-decoration: underline;
+    font-size: 13px;
+}
+
+.btnDetailCardAddToFav{
+    background: none;
+    color: inherit;
+    border: none;
+    padding-bottom: 20px;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    text-decoration: underline;
+    font-size: 13px;
+}
+
+.mainImage {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.autodataLink {
+    font-size: 15px;
+    color: black;
+    text-decoration: underline;
+}
+
+.buttonsDetailedPage {
+    display: flex;
+    margin-top: 5px;
+    height: 30px;
+}
+
+.makeAndModelAndPrice {
+    display: flex;
+    justify-content: space-around;
+}
+
+.makeAndModel {
+    display: flex;
+}
+
+.makeDetailedCard {
+    font-size: 24px;
+    margin-right: 10px;
+    border-bottom: 1px solid black;
+}
+
+.modelDetailedCard {
+    font-size: 24px;
+    border-bottom: 1px solid black;
+}
+
+.priceDetailedCard {
+    font-size: 24px;
+    border-bottom: 1px solid black;
+}
+
+.dataDetailCard {
+    display: flex;
+    flex-direction: row;
+    width: 270px;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.moreInfoDetailedCard {
+    border: 1px solid;
+    height: 100%;
+}
+
+.contactSeller {
+    display: flex;
+    border: 2px solid;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.extrasAndInfo {
+    display: flex;
+}
+
+.extras {
+    width: 50%;
+}
+
+.moreInfoContainer {
+    width: 50%;
+}
+
+.moreInfoAndContactSeller {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between
+}
+
+.moreInfo{
+    height: 50%;
+}

@@ -10,12 +10,12 @@ import ButtonGroupLink from './headerContent/buttonsGroupLinks/buttonsGroupLinks
 import Login from './pages/login and register/Login'
 import Register from "./pages/login and register/Register";
 import { useEffect } from 'react';
-import FooterCategoriesLinks from './footerContent/footerContentUp/footerCategoriesLinks';
-import FooterHelpLinks from './footerContent/footerContentMiddle/footerContactsContent';
+import FooterCategoriesLinks from './footerContent/footerLinksCategory/footerCategoriesLinks';
+import FooterHelpLinks from './footerContent/footerContacts/footerContactsContent';
 import Logout from './components/Logout';
 import GeneralTerms from './pages/generalTerms/generalTerms';
-import CategoryIcons from './pages/homeContent/homeTopIcons/categoryIcons';
-import HomeSearchTable from './pages/homeContent/homeContentMiddle/homeSearchTable';
+import CategoryIcons from './pages/homeContent/homeIconsCategory/categoryIcons';
+import HomeSearchTable from './pages/homeContent/homeSearchTable/homeSearchTable';
 import AdvertisementTariffs from './pages/advertisementTariffs/advertisementTariffs';
 import Help from './pages/help/help';
 import DetailedSearch from './pages/detailedSearch/DetailedSearch';
@@ -29,6 +29,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeSelectedOption } from "./redux/options";
 import ShowAllAds from './pages/allResultsPage/allResultsContent';
 import Contacts from './pages/contacts/contacts';
+import DetailedPage from './pages/detailedPage/detailedPage';
 
 function App() {
 
@@ -93,7 +94,7 @@ function App() {
             <Route path='add-pictures' element={<AddPhotoNewAd />} />
             <Route path='detail-searching' element={<DetailedSearch />} />
             <Route path='all-results' element={<ShowAllAds />} />
-            <Route path='show-the-chosenAd' element={<div className='showTheChosenAd'>"ShowTheChosenAd"</div>} />
+            <Route path="all-results/:id" element={<DetailedPage />} />           
             <Route path='contacts' element={<Contacts />} />
             <Route path='advertisement' element={<AdvertisementTariffs />} />
             <Route path='help' element={<Help />} />

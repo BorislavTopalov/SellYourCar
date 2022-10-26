@@ -20,13 +20,16 @@ const filterredAdsSlice = createSlice({
                 (ad.currency === payload.currency) &&
                 (payload.euroStandart === "Всички" ? true : ad.euro === payload.euroStandart) &&
                 (payload.color === "Всички цветове" ? true : ad.color === payload.color) &&
-                // (payload.powerFrom ? ad.power >= payload.powerFrom : true) &&
-                // (payload.powerTo ? ad.power <= payload.powerTo : true) 
+                (payload.powerFrom ? ad.power >= payload.powerFrom : true) &&
+                (payload.powerTo ? ad.power <= payload.powerTo : true) &&
                 (payload.maxMillage === "Без значение" ? true : payload.maxMillage >= ad.millage) &&
                 (payload.region === "Всички" ? true : ad.region === payload.region) &&
                 (payload.town === "Всички" ? true : ad.town === payload.town) &&
-                (payload.engine === "Всички" ? true : ad.engine === payload.engine)
-            )
+                (payload.engine === "Всички" ? true : ad.engine === payload.engine) &&
+                (payload.transmission === "Всички" ? true : ad.transmission === payload.transmission) &&
+                (ad.mainCategory === payload.mainCategory) 
+                // (payload.extras.length > 0 ? payload.extras.sort().join(',') === ad.extras.sort().join(',') : asd)
+            );
         }
     }
 })
