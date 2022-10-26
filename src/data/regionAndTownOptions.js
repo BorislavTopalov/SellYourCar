@@ -1,7 +1,17 @@
 export default function RegionAndTownOptions() {
 
     const regionAndTownOptions = [
-        { value: "Всички", label: "Всички", town: [] },
+        {
+            value: "Всички",
+            label: "Всички",
+            town: [
+                {
+                    value: "Всички",
+                    label: "Всички"
+                }
+            ]
+
+        },
         {
             value: "Бургас",
             label: "Бургас",

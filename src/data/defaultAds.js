@@ -1,6 +1,6 @@
 export default function DefaultAds() {
 
-    const defaultCarsAndJeeps = [
+    const defaultAds = [
         {
             image: "https://special.bg/wp-content/uploads/2020/12/1-5.jpg",
             make: "Mercedes-Benz",
@@ -9,7 +9,7 @@ export default function DefaultAds() {
             price: 255100,
             currency : "EUR",
             date: "2020",
-            millage: "10000",
+            millage: 10000,
             color: "Черен",
             euro: "Евро 6",
             moreInfo: "Перфектен автомобил. Реални километри. Един собственик в Германия. Заслужава си да се види. Без коментар на цената!",
@@ -17,7 +17,7 @@ export default function DefaultAds() {
             safetyOptions: "Антиблокираща система",
             interiorOptions: "Кожен салон", 
             region: "София",
-            town: "Нови Искър",
+            town: "гр.Нови Искър",
             isLiked: false,
             id: 1
         },
@@ -29,7 +29,7 @@ export default function DefaultAds() {
             price: 145100,
             currency : "лв.",
             date: "2019",
-            millage: "40000",
+            millage: 40000,
             color: "Син",
             euro: "Евро 6",
             moreInfo: "Перфектен автомобил. Реални километри. Един собственик в Германия. Заслужава си да се види. Без коментар на цената!",
@@ -44,12 +44,12 @@ export default function DefaultAds() {
         {
             image: "http://service21-tuning.com/wp-content/uploads/2018/05/Audi-A3-8L.jpg",
             make: "Audi",
-            model: "А3",
+            model: "A3",
             engine: "Бензинов",
             price: 5100,
             currency : "лв.",
             date: "2001",
-            millage: "140000",
+            millage: 140000,
             color: "Сив",
             euro: "Евро 4",
             moreInfo: "Перфектен автомобил. Реални километри. Един собственик в Германия. Заслужава си да се види. Без коментар на цената!",
@@ -68,7 +68,7 @@ export default function DefaultAds() {
             price: 200000,
             currency : "лв.",
             date: "2021",
-            millage: "14000",
+            millage: 14000,
             color: "Зелен",
             euro: "Евро 6",
             moreInfo: "Перфектен автомобил. Реални километри. Един собственик в Германия. Заслужава си да се види. Без коментар на цената!",
@@ -76,7 +76,7 @@ export default function DefaultAds() {
             safetyOptions: "Антиблокираща система",
             interiorOptions: "Кожен салон", 
             region: "София",
-            town: "Нови Искър",
+            town: "гр.Нови Искър",
             isLiked: false,
             id: 4
         },
@@ -88,7 +88,7 @@ export default function DefaultAds() {
             price: 135100,
             currency : "лв.",
             date: "2018",
-            millage: "7000",
+            millage: 7000,
             color: "Бял",
             euro: "Евро 6",
             moreInfo: "Перфектен автомобил. Реални километри. Един собственик в Германия. Заслужава си да се види. Без коментар на цената!",
@@ -107,7 +107,7 @@ export default function DefaultAds() {
             price: 99000,
             currency : "лв.",
             date: "2001",
-            millage: "118000",
+            millage: 118000,
             color: "Син",
             euro: "Евро 6",
             moreInfo: "Перфектен автомобил. Реални километри. Един собственик в Германия. Заслужава си да се види. Без коментар на цената!",
@@ -115,11 +115,11 @@ export default function DefaultAds() {
             safetyOptions: "Антиблокираща система",
             interiorOptions: "Кожен салон", 
             region: "София",
-            town: "Нови Искър",
+            town: "гр.Нови Искър",
             isLiked: false,
             id: 6
         }
     ];
 
-    return ({defaultCarsAndJeeps});
+    return ({defaultAds});
 }

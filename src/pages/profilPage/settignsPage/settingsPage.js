@@ -106,7 +106,7 @@ export default function SettingsPage() {
                 <div className="underLineUserSettings"></div>
                 <div className="inputEmailChange">
                     <label htmlFor="email"> Промяна на E-mail</label>
-                    <input value={email} onChange={emailInput} type="text" name="email" />
+                    <input value={email} onChange={emailInput} type="email" name="email" />
                     <div className="errorContainer">
                         {error && <p className="errors">Вече същеструва потребител с този E-mail</p>}
                     </div>

@@ -1,5 +1,5 @@
 import Select from "../../components/Select";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SortOptions from "../../data/sortOptions";
 import RegionAndTownOptions from "../../data/regionAndTownOptions";
 import CategoryOptions from "../../data/categoryOptions";
@@ -17,48 +17,76 @@ import SecurityOptions from "../../data/securityOptions";
 import SpecialOptions from "../../data/specialOptions";
 import ExteriorOptions from "../../data/exteriorOptions";
 import InteriorOptions from "../../data/interiorOptions";
-import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../redux/options";
 import { useDispatch, useSelector } from "react-redux";
+import { addFilter, reset } from "../../redux/filters";
+import { filter } from "../../redux/filterredAds";
+import { useEffect, useState } from "react";
 
 const DetailedSearch = () => {
 
-    const options = useSelector(state => state.options);
+    const filters = useSelector(state => state.filters);
     const dispatch = useDispatch();
+    const [mainCategory, setMainCategory] = useState(CategoryOptions().categorieOptions[0].value);
+    const [make, setMake] = useState(CategoryOptions().categorieOptions[0].make);
+    const [model, setModel] = useState(CategoryOptions().categorieOptions[0].make[0].model);
+    const [town, setTown] = useState(RegionAndTownOptions().regionAndTownOptions[0].town);
+    const [selectedOption, setSelectedOption] = useState(CategoryOptions().categorieOptions[0])
+
+    let location = useLocation();
+
+    useEffect(() => {
+        if (location.pathname !== "/all-results") {
+            dispatch(reset());
+        }
+    }, [location.pathname, dispatch]);
+
     function func1(e) {
-        dispatch(handleMainCategory(e.target.value))
+        setMake(CategoryOptions().categorieOptions.find((el) => el.value === e.target.value).make);
+        setMainCategory(e.target.value)
     }
     function func2(e) {
-        dispatch(handleChangeRegion(e.target.value))
+        setTown(RegionAndTownOptions().regionAndTownOptions.find((el) => el.value === e.target.value).town);
     }
     function func3(e) {
-        dispatch(handleMakeCategory(e.target.value))
+        setModel(make.find((el) => el.value === e.target.value).model);
+    }
+    useEffect(() => {
+        setSelectedOption(mainCategory);
+        setMake(make);
+    }, [mainCategory, make])
+
+    function addFilters(e) {
+        dispatch(addFilter({
+            name: e.target.name,
+            value: e.target.value
+        }))
     }
 
-    function handleChange(e) {
-        console.log(e.target.value);
-    }
+    useEffect(() => {
+        dispatch(filter(filters))
+    }, [filters, dispatch])
 
     return (
         <div className="detailedSearchContainer">
             <span className="categoriesOutlineAddNew">
                 <strong>
-                    Въвеждане на описанието за <span>{options.mainCategory}</span>
+                    Въвеждане на описанието за <span>{mainCategory}</span>
                 </strong>
             </span>
             <div className="searchTable">
                 <div className="firstRow">
                     <p><strong>Основна категория</strong></p>
-                    <Select selectedOption={options.selectedOption} onChange={func1} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                    <Select selectedOption={selectedOption} onChange={e => { func1(e); addFilters(e) }} name="mainCategory" id="mainCategory" options={CategoryOptions().categorieOptions} />
                 </div>
                 <div className="secondRow">
                     <div className="makeAndModelDetailSearch">
                         <div className="makeDetailSearch">
                             <p><strong>Марка</strong></p>
-                            <Select onChange={func3} name="make" id="make" options={options.make} />
+                            <Select onChange={e => { func3(e); addFilters(e) }} name="make" id="make" options={make} />
                         </div>
                         <div className="ModelDetailSearch">
                             <p><strong>Модел</strong></p>
-                            <Select name="model" id="model" options={options.model} />
+                            <Select onChange={addFilters} name="model" id="model" options={model} />
                         </div>
                     </div>
 
@@ -80,11 +108,11 @@ const DetailedSearch = () => {
                     <div className="makeAndModelDetailSearch">
                         <div className="makeDetailSearch">
                             <p><strong>Марка</strong></p>
-                            <Select onChange={func3} name="make" id="make" options={options.make} />
+                            <Select onChange={func3} name="make" id="make" options={make} />
                         </div>
                         <div className="ModelDetailSearch">
                             <p><strong>Модел</strong></p>
-                            <Select name="model" id="model" options={options.model} />
+                            <Select name="model" id="model" options={model} />
                         </div>
                     </div>
                 </div>
@@ -93,21 +121,21 @@ const DetailedSearch = () => {
                     <div className="makeAndModelDetailSearch">
                         <div className="makeDetailSearch">
                             <p><strong>Марка</strong></p>
-                            <Select onChange={func3} name="make" id="make" options={options.make} />
+                            <Select onChange={func3} name="make" id="make" options={make} />
                         </div>
                         <div className="ModelDetailSearch">
                             <p><strong>Модел</strong></p>
-                            <Select name="model" id="model" options={options.model} />
+                            <Select name="model" id="model" options={model} />
                         </div>
                     </div>
                     <div className="yearDetailedSearch">
                         <div className="yearFromDetailedSearch">
                             <p><strong>Година от</strong></p>
-                            <Select name="YearFrom" id="yearFrom" options={YearOptions().year} />
+                            <Select onChange={addFilters} name="yearFrom" id="yearFrom" options={YearOptions().year} />
                         </div>
                         <div className="yearToDetailedSearch">
                             <p><strong>До</strong></p>
-                            <Select name="yearTo" id="yearTo" options={YearOptions().year} />
+                            <Select onChange={addFilters} name="yearTo" id="yearTo" options={YearOptions().year} />
                         </div>
                     </div>
                     <div className="sortDetailedSearch">
@@ -120,13 +148,13 @@ const DetailedSearch = () => {
                     <div className="priceDeatiledSearch">
                         <div className="priceInputFrom">
                             <p><strong>Цена от</strong></p>
-                            <input className="inputPriceFrom" type="text" id="from" />
+                            <input onChange={addFilters} name="priceFrom" className="inputPriceFrom" type="number" id="from" />
                         </div>
                         <div className="priceInputTo">
                             <p><strong>До</strong></p>
-                            <input className="inputPriceTo" type="text" id="to" />
-                            <select id="curencySelectDetailedSearch">
-                                <option value="BGN">лв.</option>
+                            <input onChange={addFilters} name="priceTo" className="inputPriceTo" type="number" id="to" />
+                            <select onChange={addFilters} name="currency" id="curencySelectDetailedSearch">
+                                <option value="лв.">лв.</option>
                                 <option value="EUR">EUR</option>
                                 <option value="USD">USD</option>
                             </select>
@@ -138,16 +166,16 @@ const DetailedSearch = () => {
                     <div className="powerDetailedSearch">
                         <div>
                             <p><strong>Мощност от</strong></p>
-                            <input className="powerFrom" type="text" />
+                            <input onChange={addFilters} name="powerFrom" className="powerFrom" type="number" />
                         </div>
                         <div>
                             <p><strong>До</strong></p>
-                            <input className="powerTo" type="text" />
+                            <input onChange={addFilters} name="powerTo" className="powerTo" type="number" />
                         </div>
                     </div>
                     <div className="euroDetailedSearch">
                         <p><strong>Евростандарт</strong></p>
-                        <Select name="Евростандарт" id="Евростандарт" options={EuroStandartOptions().euroStandart} />
+                        <Select onChange={addFilters} name="euroStandart" id="euroStandart" options={EuroStandartOptions().euroStandart} />
                     </div>
                 </div>
 
@@ -156,7 +184,7 @@ const DetailedSearch = () => {
                         <p>
                             <strong>Тип двигател</strong>
                         </p>
-                        <Select name="Двигател" id="Двигател" options={EngineOptions().engine} />
+                        <Select onChange={addFilters} name="engine" id="Двигател" options={EngineOptions().engine} />
                     </div>
                     <div className="transmissionDetailedSearch">
                         <p>
@@ -168,31 +196,31 @@ const DetailedSearch = () => {
                         <p>
                             <strong>Макс. пробег в км.</strong>
                         </p>
-                        <Select name="Макс пробег" id="Макс пробег" options={MaxMileageOptions().maxMileage} />
+                        <Select onChange={addFilters} name="maxMillage" id="Макс пробег" options={MaxMileageOptions().maxMileage} />
                     </div>
                     <div className="colorDetailedSearch">
                         <p>
                             <strong>Цвят</strong>
                         </p>
-                        <Select name="Цвят" id="Цвят" options={ColorOptions().colors} />
+                        <Select onChange={addFilters} name="color" id="color" options={ColorOptions().colors} />
                     </div>
                     <div className="regionDetailedSearch">
                         <p>
                             <strong>Регион</strong>
                         </p>
-                        <Select onChange={func2} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
+                        <Select onChange={e => { func2(e); addFilters(e) }} name="region" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
                     </div>
                     <div className="townDetailedSearch">
                         <p>
                             <strong>Населено място</strong>
                         </p>
-                        <Select name="Населено място" id="Населено място" options={options.town} />
+                        <Select onChange={addFilters} name="town" id="Населено място" options={town} />
                     </div>
                 </div>
                 <div className="checkBoxes">
                     <div className="firstColumn">
                         <p><strong>Безопасност</strong></p>
-                        <Checkbox onChange={handleChange} options={SafetyOptions().safetyOptions} />
+                        <Checkbox options={SafetyOptions().safetyOptions} />
                     </div>
                     <div className="secondColumn">
                         <p><strong>Комфорт</strong></p>

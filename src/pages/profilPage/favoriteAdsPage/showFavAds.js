@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Card from "../../../components/Card";
+import Card from "../../../components/card";
 import { addToFavourites, removeFromFavourites } from "../../../redux/activeUser";
 import { changeFavourites } from "../../../redux/users";
 

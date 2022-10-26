@@ -5,7 +5,7 @@ import "./smallCardsHomePage.scss";
 
 export default function SmallCardsHomePage() {
 
-    let newestAds = DefaultAds().defaultCarsAndJeeps.slice(0, 6);
+    let newestAds = DefaultAds().defaultAds.slice(0, 6);
     let navigate = useNavigate();
 
     const goToChosenAd = () => {

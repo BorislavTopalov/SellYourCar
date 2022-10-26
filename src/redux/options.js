@@ -3,7 +3,7 @@ import CategoryOptions from '../data/categoryOptions';
 import RegionAndTownOptions from '../data/regionAndTownOptions';
 
 const initialState = {
-    selectedOption: CategoryOptions().categorieOptions[0],
+    selectedMain: CategoryOptions().categorieOptions[0],
     make: CategoryOptions().categorieOptions[0].make,
     model: CategoryOptions().categorieOptions[0].make[0].model,
     town: RegionAndTownOptions().regionAndTownOptions[0].town,
@@ -25,7 +25,7 @@ export const optionsSlice = createSlice({
             state.town = RegionAndTownOptions().regionAndTownOptions.find((el) => el.value === payload).town;
         },
         changeSelectedOption: (state, {payload}) => {
-            state.selectedOption = payload;
+            state.selectedMain = payload;
         }
     },
 })

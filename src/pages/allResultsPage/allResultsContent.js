@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Card from "../../components/Card";
-import DefaultAds from "../../data/defaultAds";
+import Card from "../../components/card";
 import { addToFavourites, removeFromFavourites } from "../../redux/activeUser";
 import "./allResultsContent.scss";
 import { changeFavourites } from "../../redux/users";
@@ -9,7 +8,8 @@ import { useEffect } from "react";
 
 export default function ShowAllAds() {
 
-    const users = useSelector(state => state.users)
+    const filterredAds = useSelector(state => state.filterredAds);
+    const users = useSelector(state => state.users);
     const activeUser = useSelector(state => state.activeUser);
     const favArr = activeUser.favourites;
     const dispatch = useDispatch();
@@ -36,7 +36,7 @@ export default function ShowAllAds() {
 
     return (
         <span>
-            {DefaultAds().defaultCarsAndJeeps.map(
+            {filterredAds.filterredAds.map(
                 item => <Card
                     goToAd={goToAd}
                     src={item.image}

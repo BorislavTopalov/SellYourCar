@@ -11,9 +11,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../redux/options";
 import baner from "../../homeContent/homeContentMiddle/lambo1copy.jpg"
 import SmallCardsHomePage from "../smallCardsHomePage/smallCardsHomePage";
+import { reset } from "../../../redux/filters";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { filter } from "../../../redux/filterredAds";
 
 export default function HomeSearchTable(props) {
 
+    const filters = useSelector(state => state.filters);
     const options = useSelector(state => state.options);
     const dispatch = useDispatch();
     function func1(e) {
@@ -25,6 +30,16 @@ export default function HomeSearchTable(props) {
     function func3(e) {
         dispatch(handleMakeCategory(e.target.value))
     }
+
+    let location = useLocation();
+    useEffect(() => {
+      if(location.pathname !== "/all-results"){
+        dispatch(reset());
+      }
+    }, [location.pathname, dispatch]);
+    useEffect(() => {
+        dispatch(filter(filters))
+    }, [filters, dispatch])
 
     return (
 
@@ -41,7 +56,7 @@ export default function HomeSearchTable(props) {
                             <p>
                                 <strong>Основна Категория</strong>
                             </p>
-                            <Select selectedOption={options.selectedOption} onChange={func1} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                            <Select selectedOption={options.mainCategory} onChange={func1} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
                         </div>
                         <div className="firstRowHomeTable">
                             <div className="makeAndModelHome">

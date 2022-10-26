@@ -92,9 +92,9 @@ function App() {
             <Route path='add-new' element={<DetailsChoosing />} />
             <Route path='add-pictures' element={<AddPhotoNewAd />} />
             <Route path='detail-searching' element={<DetailedSearch />} />
-            <Route path='all-results' element={ <ShowAllAds />} />
+            <Route path='all-results' element={<ShowAllAds />} />
             <Route path='show-the-chosenAd' element={<div className='showTheChosenAd'>"ShowTheChosenAd"</div>} />
-            <Route path='contacts' element={<Contacts/>} />
+            <Route path='contacts' element={<Contacts />} />
             <Route path='advertisement' element={<AdvertisementTariffs />} />
             <Route path='help' element={<Help />} />
             <Route path='general-terms' element={<GeneralTerms />} />
