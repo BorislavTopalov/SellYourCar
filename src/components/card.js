@@ -1,5 +1,8 @@
+import { useParams } from "react-router-dom";
+
 export default function Card(props) {
 
+    
     return (
 
         <span className="cardContainer" >

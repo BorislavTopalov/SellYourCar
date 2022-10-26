@@ -9,7 +9,7 @@ import TransmissionOptions from "../../../data/transmissionOptions"
 import EngineOptions from "../../../data/engineOptions"
 import { useDispatch, useSelector } from "react-redux";
 import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../redux/options";
-import baner from "../../homeContent/homeContentMiddle/lambo1copy.jpg"
+import baner from "../../homeContent/homeSearchTable/lambo1copy.jpg"
 import SmallCardsHomePage from "../smallCardsHomePage/smallCardsHomePage";
 
 export default function HomeSearchTable(props) {

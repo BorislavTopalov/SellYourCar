@@ -30,15 +30,15 @@ export default function ShowAllAds() {
         return false
     }
 
-    const goToAd = () => {
-        navigate("/show-the-chosenAd");
-    }
+
 
     return (
         <span>
-            {DefaultAds().defaultCarsAndJeeps.map(
-                item => <Card
-                    goToAd={goToAd}
+            {DefaultAds().defaultCarsAndJeeps.map(item =>
+                <Card
+                    goToAd={() => {
+                        navigate(`/all-results/${item.id}`);
+                    }}
                     src={item.image}
                     make={item.make}
                     model={item.model}

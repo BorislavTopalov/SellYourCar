@@ -1,0 +1,99 @@
+.detailedCardContainer {
+    border: 2px solid #0099ff;
+    margin: 10px 0;
+    padding: 5px;
+
+}
+
+.mainImage {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.autodataLink {
+    font-size: 15px;
+    color: black;
+    text-decoration: underline;
+}
+
+.makeAndModelAndPrice {
+    display: flex;
+    justify-content: space-around;
+}
+
+.makeAndModel {
+    display: flex;
+}
+.makeDetailedCard {
+    font-size: 24px;
+    margin-right: 10px;
+    border-bottom: 1px solid black;
+}
+
+.modelDetailedCard{
+    font-size: 24px;
+    border-bottom: 1px solid black;
+}
+
+.priceDetailedCard {
+    font-size: 24px;
+    border-bottom: 1px solid black;
+}
+
+.dataDetailCard {
+    display: flex;
+    flex-direction: row;
+    width: 270px;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.moreExtrasAndSafety {
+    display: grid;
+    width: 100%;
+    margin: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "i1 i2 i3"
+        "i4 i5 i6";
+}
+
+.safety {
+    grid-area: i1;
+    width: 100%;
+}
+
+.comfort {
+    grid-area: i2;
+    width: 100%;
+}
+
+.security {
+    grid-area: i3;
+    width: 100%;
+}
+
+.exterior {
+    grid-area: i4;
+    width: 100%;
+}
+
+.interior {
+    grid-area: i5;
+    width: 100%;
+}
+
+.special {
+    grid-area: i6;
+    width: 100%;
+}
+
+.moreInfoDetailedCard {
+    border: 1px solid;
+}
+
+
+
+.moreInfoAndContactSeller {
+    display: flex;
+}

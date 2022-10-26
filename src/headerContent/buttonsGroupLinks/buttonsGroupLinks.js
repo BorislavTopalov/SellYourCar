@@ -14,8 +14,8 @@ export default function ButtonGroupLink() {
                 <NavLink to="/home"><Button>Начало</Button></NavLink>
                 <NavLink to={activeUser.email ? "/add-new" : "/login"}><Button>Публикуване</Button></NavLink>
                 <NavLink to="/detail-searching"><Button>Търсене</Button></NavLink>
-                <Button className="newsBtn" href="https://fakti.bg/">Новини</Button>
-                <Button className="rentACarBtn" href='https://toprentacar.bg/'>
+                <Button className="newsBtn" href="https://fakti.bg/" target="_blank">Новини</Button>
+                <Button className="rentACarBtn" href='https://toprentacar.bg/' target="_blank">
                     <img className="logoRent" src={logoRent} alt="logo" />
                     Rent-a-Car
                 </Button>
