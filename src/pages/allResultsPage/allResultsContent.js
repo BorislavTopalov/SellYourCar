@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Card from "../../components/Card";
 import DefaultAds from "../../data/defaultAds";
 import { addToFavourites, removeFromFavourites } from "../../redux/activeUser";
@@ -34,6 +34,10 @@ export default function ShowAllAds() {
 
     return (
         <span>
+             <div className="linksAllResults">
+                <Link to="/detail-searching" className="newSearch">Ново търсене</Link>
+                <Link to="/home" className="backToHome">Начало</Link>
+            </div>
             {DefaultAds().defaultCarsAndJeeps.map(item =>
                 <Card
                     goToAd={() => {

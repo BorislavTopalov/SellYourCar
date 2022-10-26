@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function FooterCategoriesLinks(props) {
 
     const dispatch = useDispatch();
-    function func1(e){
+    function func1(e) {
         dispatch(handleMainCategory(e.target.value))
     }
 
@@ -20,7 +20,7 @@ export default function FooterCategoriesLinks(props) {
                 <div>
 
                     {FooterLinks().footerLinks.map((link, i) => {
-                        return <Link key={i}><button onClick={func1} className="footerLink" key={i} value={link}>{link}</button></Link>
+                        return <Link to="/home" key={i}><button onClick={func1} className="footerLink" key={i} value={link}>{link}</button></Link>
                     })}
 
                 </div>

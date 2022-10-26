@@ -47,48 +47,26 @@ const DetailedSearch = () => {
             </span>
             <div className="searchTable">
                 <div className="firstRow">
-                    <p><strong>Основна категория</strong></p>
-                    <Select selectedOption={options.selectedOption} onChange={func1} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
-                </div>
-                <div className="secondRow">
-                    <div className="makeAndModelDetailSearch">
-                        <div className="makeDetailSearch">
-                            <p><strong>Марка</strong></p>
-                            <Select onChange={func3} name="make" id="make" options={options.make} />
-                        </div>
-                        <div className="ModelDetailSearch">
-                            <p><strong>Модел</strong></p>
-                            <Select name="model" id="model" options={options.model} />
-                        </div>
+                    <div className="selectorMainCategory">
+                        <p><strong>Основна категория</strong></p>
+                        <Select selectedOption={options.selectedOption} onChange={func1} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
                     </div>
+                    <div className="checkBoxesAndButton">
 
-                    <div className="conditionVehicleDeatiledSearch">
-                        <p><strong>Състояние</strong></p>
-                        <input className="conditionCheckbox" type="checkbox" id="condition1" name="condition1" value="new" />
-                        <label className="conditionLabel" htmlFor="vehicle1">Ново</label>
-                        <input className="conditionCheckbox" type="checkbox" id="condition2" name="condition2" value="used" />
-                        <label className="conditionLabel" htmlFor="vehicle2">Употребяван</label>
-                        <input className="conditionCheckbox" type="checkbox" id="condition3" name="condition3" value="parts" />
-                        <label className="conditionLabel" htmlFor="vehicle3">За части</label>
-                    </div>
-
-                    <Link to="/all-results"><button className="searchBtnDetailedSearch"><strong>Търси</strong></button></Link>
-
-                </div>
-
-                <div className="thirdRow">
-                    <div className="makeAndModelDetailSearch">
-                        <div className="makeDetailSearch">
-                            <p><strong>Марка</strong></p>
-                            <Select onChange={func3} name="make" id="make" options={options.make} />
+                        <div className="conditionVehicleDeatiledSearch">
+                            <p><strong>Състояние</strong></p>
+                            <input className="conditionCheckbox" type="checkbox" id="condition1" name="condition1" value="new" />
+                            <label className="conditionLabel" htmlFor="vehicle1">Ново</label>
+                            <input className="conditionCheckbox" type="checkbox" id="condition2" name="condition2" value="used" />
+                            <label className="conditionLabel" htmlFor="vehicle2">Употребяван</label>
+                            <input className="conditionCheckbox" type="checkbox" id="condition3" name="condition3" value="parts" />
+                            <label className="conditionLabel" htmlFor="vehicle3">За части</label>
                         </div>
-                        <div className="ModelDetailSearch">
-                            <p><strong>Модел</strong></p>
-                            <Select name="model" id="model" options={options.model} />
-                        </div>
+
+                        <Link to="/all-results"><button className="searchBtnDetailedSearch"><strong>Търси</strong></button></Link>
+
                     </div>
                 </div>
-
                 <div className="forthRow">
                     <div className="makeAndModelDetailSearch">
                         <div className="makeDetailSearch">

@@ -1,8 +1,40 @@
 .detailedCardContainer {
     border: 2px solid #0099ff;
-    margin: 10px 0;
-    padding: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
 
+}
+
+.backToResults{
+    font-size: 13px;
+    color: black;
+    text-decoration: underline;
+    padding-top: 3px;
+    margin: 0 50px 0 10px
+} 
+
+.btnDetailCardRemoveFromFav{
+    background: none;
+    color: inherit;
+    border: none;
+    padding-bottom: 20px;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    text-decoration: underline;
+    font-size: 13px;
+}
+
+.btnDetailCardAddToFav{
+    background: none;
+    color: inherit;
+    border: none;
+    padding-bottom: 20px;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    text-decoration: underline;
+    font-size: 13px;
 }
 
 .mainImage {
@@ -16,6 +48,12 @@
     text-decoration: underline;
 }
 
+.buttonsDetailedPage {
+    display: flex;
+    margin-top: 5px;
+    height: 30px;
+}
+
 .makeAndModelAndPrice {
     display: flex;
     justify-content: space-around;
@@ -24,13 +62,14 @@
 .makeAndModel {
     display: flex;
 }
+
 .makeDetailedCard {
     font-size: 24px;
     margin-right: 10px;
     border-bottom: 1px solid black;
 }
 
-.modelDetailedCard{
+.modelDetailedCard {
     font-size: 24px;
     border-bottom: 1px solid black;
 }
@@ -48,52 +87,37 @@
     margin: 10px 0;
 }
 
-.moreExtrasAndSafety {
-    display: grid;
-    width: 100%;
-    margin: 10px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
-        "i1 i2 i3"
-        "i4 i5 i6";
-}
-
-.safety {
-    grid-area: i1;
-    width: 100%;
-}
-
-.comfort {
-    grid-area: i2;
-    width: 100%;
-}
-
-.security {
-    grid-area: i3;
-    width: 100%;
-}
-
-.exterior {
-    grid-area: i4;
-    width: 100%;
-}
-
-.interior {
-    grid-area: i5;
-    width: 100%;
-}
-
-.special {
-    grid-area: i6;
-    width: 100%;
-}
-
 .moreInfoDetailedCard {
     border: 1px solid;
+    height: 100%;
 }
 
+.contactSeller {
+    display: flex;
+    border: 2px solid;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
+.extrasAndInfo {
+    display: flex;
+}
+
+.extras {
+    width: 50%;
+}
+
+.moreInfoContainer {
+    width: 50%;
+}
 
 .moreInfoAndContactSeller {
     display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between
+}
+
+.moreInfo{
+    height: 50%;
 }

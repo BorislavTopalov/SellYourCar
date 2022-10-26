@@ -1,75 +1,71 @@
-import { useParams } from "react-router-dom";
 import DetailedCard from "../../components/DetailedCard";
-import DefaultAds from "../../data/defaultAds";
 import "./detailedPage.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import DefaultAds from "../../data/defaultAds";
+import { addToFavourites, removeFromFavourites } from "../../redux/activeUser";
+import { changeFavourites } from "../../redux/users";
+import { useEffect } from "react";
 
 export default function DetailedPage() {
-    
-   let {id} = useParams();
+
+    let { id } = useParams();
+    const users = useSelector(state => state.users)
+    const activeUser = useSelector(state => state.activeUser);
+    const favArr = activeUser.favourites;
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+
+        dispatch(changeFavourites({
+            index: users.findIndex(user => user.email === activeUser.email),
+            favourites: activeUser.favourites,
+        }))
+    }, [activeUser, dispatch, users])
+
+    function isLiked(e) {
+        if (favArr.find(ad => ad.id === e.id)) {
+            return true
+        }
+        return false
+    }
 
     return (
 
         <div>
             {
                 DefaultAds().defaultCarsAndJeeps.filter(list => list.id === Number(id))
-                .map(item =>
-                    <DetailedCard
-                        autoData={item.autoData}
-                        src={item.image}
-                        make={item.make}
-                        model={item.model}
-                        price={item.price}
-                        date={item.date}
-                        engine={item.engine}
-                        power={item.power}
-                        euro={item.euro}
-                        transmission={item.transmission}
-                        vehicleCategory={item.vehicleCategory}
-                        millage={item.millage}
-                        color={item.color}
-                        gps={item.gps}
-                        stability={item.stability}
-                        adaptLight={item.adaptLight}
-                        abs={item.abs}
-                        tyrePresure={item.tyrePresure}
-                        parktronik={item.parktronik}
-                        brakeAsisst={item.brakeAsisst}
-                        startStop={item.startStop}
-                        bluetooth={item.bluetooth}
-                        usb={item.usb}
-                        airmatic={item.airmatic}
-                        keyless={item.keyless}
-                        bordComp={item.bordComp}
-                        heatingWheel={item.heatingWheel}
-                        armored={item.armored}
-                        forcedGlass={item.forcedGlass}
-                        centralLock={item.centralLock}
-                        offroad={item.offroad}
-                        alarm={item.alarm}
-                        insurance={item.insurance}
-                        winch={item.winch}
-                        towTruck={item.towTruck}
-                        led={item.led}
-                        panorama={item.panorama}
-                        spoilers={item.spoilers}
-                        heatWasher={item.heatWasher}
-                        xenon={item.xenon}
-                        roofWindow={item.roofWindow}
-                        velur={item.velur}
-                        rigthDirection={item.rigthDirection}
-                        leather={item.leather}
-                        taxi={item.taxi}
-                        specialCar={item.specialCar}
-                        hearse={item.hearse}
-                        ambulance={item.ambulance}
-                        schoolCar={item.schoolCar}
-                        refrigerator={item.refrigerator}
-                        n1={item.n1}
-                        moreInfo={item.moreInfo}
-                        contacts={item.contacts}
-                        key={item.id}
-                    />
-                )
+                    .map(item =>
+                        <DetailedCard
+                            autoData={item.autoData}
+                            src={item.image}
+                            make={item.make}
+                            model={item.model}
+                            price={item.price}
+                            date={item.date}
+                            engine={item.engine}
+                            power={item.power}
+                            euro={item.euro}
+                            transmission={item.transmission}
+                            vehicleCategory={item.vehicleCategory}
+                            millage={item.millage}
+                            color={item.color}
+                            extras={item.extras.map((extra, i) => <li key={i}>{extra}</li>)}
+                            moreInfo={item.moreInfo}
+                            contacts={item.contacts}
+                            onClick={() => {
+                                dispatch(addToFavourites(item));
+
+                            }}
+                            onClick2={() => {
+                                dispatch(removeFromFavourites(item));
+
+                            }}
+                            key={item.id}
+                            isLiked={isLiked(item)}
+                            isThereActiveU={activeUser.email}
+                        />
+                    )
             }
         </div>
     )
