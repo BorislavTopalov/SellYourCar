@@ -34,7 +34,6 @@ const Register = () => {
     }
 
     function emailInput(e) {
-        console.log(e.target.value.trim());
         setEmail(e.target.value.trim());
         setError2(false);
     }
@@ -54,8 +53,15 @@ const Register = () => {
                 setDisabled(true);
                 setError(true);
             }
+        } else if (pass && checkPass) {
+            if (pass === checkPass) {
+                setError(false);
+            } else {
+                setError(true);
+            }
         } else {
             setDisabled(true);
+            setError(false);
         }
     }, [email, pass, checkPass])
 

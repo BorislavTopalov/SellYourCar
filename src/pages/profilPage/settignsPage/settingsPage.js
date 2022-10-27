@@ -48,7 +48,8 @@ export default function SettingsPage() {
             setError2(true);
         }
     }
-    function handleChangeEmail() {
+    function handleChangeEmail(e) {
+        e.preventDefault();
         if (!users.some(user => user.email === email)) {
             dispatch(changeEmailA({ email: email }));
             dispatch(changeEmailU({
@@ -104,14 +105,14 @@ export default function SettingsPage() {
             <div>
                 <p><strong>Потребителски настройки</strong></p>
                 <div className="underLineUserSettings"></div>
-                <div className="inputEmailChange">
+                <form onSubmit={handleChangeEmail} className="inputEmailChange">
                     <label htmlFor="email"> Промяна на E-mail</label>
                     <input value={email} onChange={emailInput} type="email" name="email" />
                     <div className="errorContainer">
                         {error && <p className="errors">Вече същеструва потребител с този E-mail</p>}
                     </div>
-                    <button className={disabledE ? "disabled" : null} onClick={handleChangeEmail}>Смени E-mail</button>
-                </div>
+                    <button type="submit" className={disabledE ? "disabled" : null} >Смени E-mail</button>
+                </form>
             </div>
             <div>
                 <p><strong>Смяна на парола</strong></p>

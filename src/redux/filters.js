@@ -8,7 +8,7 @@ const initialState = {
     yearTo: "",
     priceFrom: "",
     priceTo: "",
-    currency: "лв.",
+    currency: "Всяка",
     euroStandart: "Всички",
     color: "Всички цветове",
     maxMillage: "Без значение",
@@ -16,8 +16,10 @@ const initialState = {
     town: "Всички",
     engine: "Всички",
     transmission: "Всички",
-    power: "",
-    extras: []
+    powerFrom: 0,
+    powerTo: 0,
+    extras: [],
+    sort: "Марка/Модел/Цена"
 }
 
 const filtersSlice = createSlice({
@@ -28,12 +30,12 @@ const filtersSlice = createSlice({
             state[`${payload.name}`] = payload.value;
         },
         addExtra(state, { payload }) {
-            if(state.extras.indexOf(payload) !== -1){
+            if (state.extras.indexOf(payload) !== -1) {
                 state.extras.splice(state.extras.indexOf(payload), 1);
             } else {
                 state.extras.push(payload)
             }
-            
+
         },
         reset(state) {
             state.mainCategory = "Автомобили и Джипове";
@@ -43,7 +45,7 @@ const filtersSlice = createSlice({
             state.yearTo = "";
             state.priceFrom = "";
             state.priceTo = "";
-            state.currency = "лв.";
+            state.currency = "Всяка";
             state.euroStandart = "Всички";
             state.color = "Всички цветове";
             state.maxMillage = "Без значение";
@@ -51,7 +53,9 @@ const filtersSlice = createSlice({
             state.town = "Всички";
             state.engine = "Всички";
             state.transmission = "Всички"
-            state.power = "";
+            state.powerFrom = 0;
+            state.powerTo = 0;
+            state.sort = "Марка/Модел/Цена";
         }
     },
 })
