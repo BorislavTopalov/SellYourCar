@@ -123,7 +123,7 @@ const DetailedSearch = () => {
                     </div>
                     <div className="sortDetailedSearch">
                         <p><strong>Сортиране според</strong></p>
-                        <Select name="sort" id="sort" options={SortOptions().sortOptions} />
+                        <Select onChange={addFilters} name="sort" id="sort" options={SortOptions().sortOptions} />
                     </div>
                 </div>
 
@@ -137,6 +137,7 @@ const DetailedSearch = () => {
                             <p><strong>До</strong></p>
                             <input onChange={addFilters} name="priceTo" className="inputPriceTo" type="number" id="to" />
                             <select onChange={addFilters} name="currency" id="curencySelectDetailedSearch">
+                                <option value="Всяка">Всяка</option>
                                 <option value="лв.">лв.</option>
                                 <option value="EUR">EUR</option>
                                 <option value="USD">USD</option>

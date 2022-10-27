@@ -116,7 +116,7 @@ export default function HomeSearchTable(props) {
                                 <p>
                                     <strong>Подреди резултатите според :</strong>
                                 </p>
-                                <Select name="Сортиране" id="Сортиране" options={SortOptions().sortOptions} />
+                                <Select onChange={addFilters} name="sort" id="Сортиране" options={SortOptions().sortOptions} />
                             </div>
                         </div>
                         <div className="thirdRowHomeTable">

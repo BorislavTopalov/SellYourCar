@@ -17,7 +17,7 @@ const filterredAdsSlice = createSlice({
                 (payload.yearTo ? ad.date <= payload.yearTo : true) &&
                 (payload.priceFrom ? ad.price >= payload.priceFrom : true) &&
                 (payload.priceTo ? ad.price <= payload.priceTo : true) &&
-                (ad.currency === payload.currency) &&
+                (payload.currency === "Всяка" ? true : ad.currency === payload.currency) &&
                 (payload.euroStandart === "Всички" ? true : ad.euro === payload.euroStandart) &&
                 (payload.color === "Всички цветове" ? true : ad.color === payload.color) &&
                 (payload.powerFrom ? ad.power >= payload.powerFrom : true) &&
@@ -27,9 +27,48 @@ const filterredAdsSlice = createSlice({
                 (payload.town === "Всички" ? true : ad.town === payload.town) &&
                 (payload.engine === "Всички" ? true : ad.engine === payload.engine) &&
                 (payload.transmission === "Всички" ? true : ad.transmission === payload.transmission) &&
-                (ad.mainCategory === payload.mainCategory) 
-                // (payload.extras.length > 0 ? payload.extras.sort().join(',') === ad.extras.sort().join(',') : asd)
-            );
+                (ad.mainCategory === payload.mainCategory) &&
+                (payload.extras.length > 0 ? payload.extras.every(el => ad.extras.includes(el)) : true)
+            ).sort((a, b) => {
+                if (a.make === b.make) {
+                    return (a.model < b.model) ? -1 : (a.model > b.model) ? 1 : 0;
+                } else {
+                    return (a.make < b.make) ? -1 : 1;
+                }
+            });
+            if (payload.sort === "Цена") {
+                state.filterredAds.sort((a, b) => {
+                    if (a.price > b.price) {
+                        return 1;
+                    }
+                    if (a.price < b.price) {
+                        return -1;
+                    }
+                    return 0;
+                })
+            }
+            if (payload.sort === "Година") {
+                state.filterredAds.sort((a, b) => {
+                    if (a.date < b.date) {
+                        return 1;
+                    }
+                    if (a.date > b.date) {
+                        return -1;
+                    }
+                    return 0;
+                })
+            }
+            if (payload.sort === "Пробег") {
+                state.filterredAds.sort((a, b) => {
+                    if (a.millage > b.millage) {
+                        return 1;
+                    }
+                    if (a.millage < b.millage) {
+                        return -1;
+                    }
+                    return 0;
+                })
+            }
         }
     }
 })
