@@ -172,7 +172,7 @@ export default function DetailsChoosing() {
                     </div>
                 </div>
                 <div className="sixthRow">
-                    <div className="moreInfo">
+                    <div className="moreInfoNewAd">
                         <p><strong>Допълнителна информация</strong></p>
                         <textarea name="moreInfo" id="" cols="30" rows="5"></textarea>
                     </div>

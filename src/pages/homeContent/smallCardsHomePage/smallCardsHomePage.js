@@ -13,7 +13,7 @@ export default function SmallCardsHomePage() {
             {
                 newestAds.map(
                     (item, index) => <SmallCard
-                        src={item.image}
+                        src={item.image[0]}
                         onClick={() => {
                             navigate(`/all-results/${item.id}`)
                         }}

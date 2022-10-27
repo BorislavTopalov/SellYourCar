@@ -43,7 +43,7 @@ export default function ShowAllAds() {
                     goToAd={() => {
                         navigate(`/all-results/${item.id}`);
                     }}
-                    src={item.image}
+                    src={item.image[0]}
                     make={item.make}
                     model={item.model}
                     engine={item.engine}

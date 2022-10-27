@@ -16,6 +16,9 @@
 
 .firstRow {
     margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     select {
         width: 250px;

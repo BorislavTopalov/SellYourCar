@@ -6,6 +6,7 @@ import DefaultAds from "../../data/defaultAds";
 import { addToFavourites, removeFromFavourites } from "../../redux/activeUser";
 import { changeFavourites } from "../../redux/users";
 import { useEffect } from "react";
+import { CarouselItem } from "react-bootstrap";
 
 export default function DetailedPage() {
 
@@ -38,7 +39,7 @@ export default function DetailedPage() {
                     .map(item =>
                         <DetailedCard
                             autoData={item.autoData}
-                            src={item.image}
+                            image={item.image.map(img => <CarouselItem key={img}><img src={img} className="mainImage" alt="" /></CarouselItem>)}
                             make={item.make}
                             model={item.model}
                             price={item.price}

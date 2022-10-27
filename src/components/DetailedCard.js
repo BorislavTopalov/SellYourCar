@@ -1,7 +1,7 @@
+import { Carousel, CarouselItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function DetailedCard(props) {
-
 
     return (
         <div>
@@ -19,7 +19,9 @@ export default function DetailedCard(props) {
                     <p className="makeDetailedCard"><strong>{props.make}</strong></p>
                     <p className="modelDetailedCard"><strong>{props.model}</strong></p>
                 </div>
-                <img className="mainImage" src={props.src} alt="" />
+                <Carousel interval={null}>
+                    {props.image}
+                </Carousel>
                 <div className="moreImages"></div>
                 <div className="allInfoDetailedCard">
                     <div className="makeAndModelAndPrice">

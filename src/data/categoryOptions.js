@@ -36,6 +36,31 @@ export default function CategoryOptions() {
                     ]
                 },
                 {
+                    value: "Citroen",
+                    label: "Citroen",
+                    model: [
+                        { value: "Всички", label: "Всички" },
+                        { value: "C1", label: "C1" },
+                        { value: "C-Crosser", label: "C-Crosser" },
+                        { value: "C3", label: "C3" },
+                        { value: "C5", label: "C5" },
+                        { value: "C6", label: "C6" },                       
+                    ]
+                },
+                {
+                    value: "Mazda",
+                    label: "Mazda",
+                    model: [
+                        { value: "Всички", label: "Всички" },
+                        { value: "3", label: "3" },
+                        { value: "6", label: "6" },
+                        { value: "MX3", label: "MX3" },
+                        { value: "MX5", label: "MX5" },
+                        { value: "CX3", label: "CX3" },
+                        { value: "Cx5", label: "CX5" },
+                    ]
+                },
+                {
                     value: "Mercedes-Benz",
                     label: "Mercedes-Benz",
                     model: [
@@ -48,7 +73,56 @@ export default function CategoryOptions() {
                         { value: "Maybach", label: "Maybach" },
                         { value: "G 65 AMG", label: "G 65 AMG" }
                     ]
-                }
+                },
+                {
+                    value: "Opel",
+                    label: "Opel",
+                    model: [
+                        { value: "Всички", label: "Всички" },
+                        { value: "Adam", label: "Adam" },
+                        { value: "Astra", label: "Astra" },
+                        { value: "Corsa", label: "Corsa" },
+                        { value: "Insignia", label: "Insignia" },
+                        { value: "Zafira", label: "Zafira" },                       
+                    ]
+                },
+                {
+                    value: "Peugeot",
+                    label: "Peugeot",
+                    model: [
+                        { value: "Всички", label: "Всички" },
+                        { value: "108", label: "108" },
+                        { value: "208", label: "208" },
+                        { value: "508", label: "508" },
+                        { value: "1009", label: "1009" },
+                        { value: "Bipper", label: "Bipper" },                       
+                    ]
+                },
+                {
+                    value: "Reanult",
+                    label: "Reanult",
+                    model: [
+                        { value: "Всички", label: "Всички" },
+                        { value: "Capture", label: "Capture" },
+                        { value: "Clio", label: "Clio" },
+                        { value: "Kangoo", label: "Kangoo" },
+                        { value: "Megane", label: "Megane" },
+                        { value: "Laguna", label: "Laguna" },                       
+                    ]
+                },
+                {
+                    value: "Toyota",
+                    label: "Toyota",
+                    model: [
+                        { value: "Всички", label: "Всички" },
+                        { value: "Aygo", label: "Aygo" },
+                        { value: "Corolla", label: "Corolla" },
+                        { value: "Avensis", label: "Avensis" },
+                        { value: "RAV4", label: "RAV4" },
+                        { value: "Land Cruiser", label: "Land Cruiser" },
+                        { value: "Sequoia", label: "Sequoia" },
+                    ]
+                },
             ]
         },
         {

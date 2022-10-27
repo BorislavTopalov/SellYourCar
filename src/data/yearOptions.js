@@ -9,6 +9,9 @@ export default function YearOptions() {
         { value: 2018, label: 2018 },
         { value: 2017, label: 2017 },
         { value: 2016, label: 2016 },
+        { value: 2004, label: 2004 },
+        { value: 2003, label: 2003 },
+        { value: 2002, label: 2002 },
         { value: 2001, label: 2001 }
     ];
 

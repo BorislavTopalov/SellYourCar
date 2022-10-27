@@ -11,7 +11,7 @@ export default function FooterHelpLinks() {
                     ЗА КОНТАКТИ
                 </Link> | <Link className="footerHelpLinks" to="/all-results">
                     ОБЯВИ
-                </Link> | <a className="footerHelpLinks" href="https://fakti.bg/" target="_blank">
+                </Link> | <a className="footerHelpLinks" href="https://fakti.bg/" target="_blank" rel="noreferrer">
                     НОВИНИ
                 </a> | <Link className="footerHelpLinks" to="/advertisement">
                     ЗА РЕКЛАМА
