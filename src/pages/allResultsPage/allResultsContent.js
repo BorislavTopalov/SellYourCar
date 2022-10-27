@@ -4,9 +4,10 @@ import Card from "../../components/card";
 import { addToFavourites, removeFromFavourites } from "../../redux/activeUser";
 import "./allResultsContent.scss";
 import { changeFavourites } from "../../redux/users";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import PaginationComp from "../../components/pagination";
 
-export default function ShowAllAds() {
+export default function ShowAllAds({ data }) {
 
     const filterredAds = useSelector(state => state.filterredAds);
     const users = useSelector(state => state.users);
@@ -30,15 +31,21 @@ export default function ShowAllAds() {
         return false
     }
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [recordsPerPage] = useState(10);
 
+    const indexOfLastRecord = currentPage * recordsPerPage;
+    const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+    const currentRecords = filterredAds.filterredAds.slice(indexOfFirstRecord, indexOfLastRecord);
+    const nPages = Math.ceil(filterredAds.filterredAds.length / recordsPerPage)
 
     return (
         <span>
-             <div className="linksAllResults">
+            <div className="linksAllResults">
                 <Link to="/detail-searching" className="newSearch">Ново търсене</Link>
                 <Link to="/home" className="backToHome">Начало</Link>
             </div>
-            {filterredAds.filterredAds.map(item =>
+            {currentRecords.map(item =>
                 <Card
                     goToAd={() => {
                         navigate(`/all-results/${item.id}`);
@@ -73,6 +80,11 @@ export default function ShowAllAds() {
                 />
 
             )}
+            <PaginationComp
+                nPages={nPages}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+            />
         </span>
 
     )

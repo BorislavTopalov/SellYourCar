@@ -27,16 +27,15 @@ export default function ShowFavAds() {
         }
         return false
     }
-    const goToAd = () => {
-        navigate("/show-the-chosenAd");
-    }
 
     return (
         <div>
             {
                 favArr.map(item => <Card
-                    goToAd={goToAd}
-                    src={item.image}
+                    goToAd={() => {
+                        navigate(`/all-results/${item.id}`);
+                    }}
+                    src={item.image[0]}
                     make={item.make}
                     model={item.model}
                     engine={item.engine}

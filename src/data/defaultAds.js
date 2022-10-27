@@ -2,6 +2,45 @@ export default function DefaultAds() {
 
     const defaultAds = [
         {
+            autoData: "https://autodata24.com/bmw/list",
+            image: [
+                "https://cdn3.focus.bg/autodata/i/citroen/c6/c6/large/6f0744a5667652478335533cd6a2283e.jpg",
+                "https://www.citroenorigins.co.uk/sites/default/files/c6_2005_6_2.jpg",
+                "https://preview.netcarshow.com/Citroen-C6-2006-1600-25.jpg"
+            ],
+            make: "Citroen",
+            model: "C6",
+            engine: "Бензинов",
+            price: 9000,
+            currency: "лв.",
+            date: "2003",
+            millage: 318000,
+            color: "Черен",
+            euro: "Евро 4",
+            moreInfo: "Перфектен автомобил. Реални километри. Един собственик в Германия. Заслужава си да се види. Без коментар на цената!",
+            vehicleCategory: "Бегачки",
+            region: "София",
+            town: "гр.Нови Искър",
+            power: 150,
+            transmission: "Ръчна",
+            extras:
+                [                  
+                    "Антиблокираща система",
+                    "Bluetooth handsfree система",
+                    "Адаптивно въздушно окачване",
+                    "Бордкомпютър",
+                    "Централно заключване",
+                    "Теглич",
+                    "Панорамен люк",
+                    "Кожен салон",
+                    "Каско",
+                ],
+            isLiked: false,
+            mainCategory: "Автомобили и Джипове",
+            contacts: "Борислав Топалов, тел. 0889352226, гр. София ",
+            id: 14
+        },
+        {
             autoData: "https://autodata24.com/mercedes-benz/list",
             image: [
                 "https://special.bg/wp-content/uploads/2020/12/1-5.jpg",
@@ -612,45 +651,7 @@ export default function DefaultAds() {
             contacts: "Борислав Топалов, тел. 0889352226, гр. София ",
             id: 13
         },
-        {
-            autoData: "https://autodata24.com/bmw/list",
-            image: [
-                "https://cdn3.focus.bg/autodata/i/citroen/c6/c6/large/6f0744a5667652478335533cd6a2283e.jpg",
-                "https://www.citroenorigins.co.uk/sites/default/files/c6_2005_6_2.jpg",
-                "https://preview.netcarshow.com/Citroen-C6-2006-1600-25.jpg"
-            ],
-            make: "Citroen",
-            model: "C6",
-            engine: "Бензинов",
-            price: 9000,
-            currency: "лв.",
-            date: "2003",
-            millage: 318000,
-            color: "Черен",
-            euro: "Евро 4",
-            moreInfo: "Перфектен автомобил. Реални километри. Един собственик в Германия. Заслужава си да се види. Без коментар на цената!",
-            vehicleCategory: "Бегачки",
-            region: "София",
-            town: "гр.Нови Искър",
-            power: 150,
-            transmission: "Ръчна",
-            extras:
-                [                  
-                    "Антиблокираща система",
-                    "Bluetooth handsfree система",
-                    "Адаптивно въздушно окачване",
-                    "Бордкомпютър",
-                    "Централно заключване",
-                    "Теглич",
-                    "Панорамен люк",
-                    "Кожен салон",
-                    "Каско",
-                ],
-            isLiked: false,
-            mainCategory: "Автомобили и Джипове",
-            contacts: "Борислав Топалов, тел. 0889352226, гр. София ",
-            id: 14
-        }
+        
     ];
 
     return ({ defaultAds });
