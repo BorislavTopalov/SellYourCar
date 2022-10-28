@@ -79,3 +79,14 @@
     flex-direction: column;
     align-items: center;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.active {
+    .page-link {
+        background-color: #0099ff;
+    }
+}

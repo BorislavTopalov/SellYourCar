@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { changeEmailA, changePassword, deleteAcc } from "../../../redux/activeUser";
 import { changeEmailU, changePass, deleteUser } from "../../../redux/users";
+import ConfirmBox from "../../../components/confirmBox";
 
 export default function SettingsPage() {
 
@@ -20,6 +21,7 @@ export default function SettingsPage() {
     const [error2, setError2] = useState(false);
     const [error3, setError3] = useState(false);
     const navigate = useNavigate();
+    const [confirmation, setConfirmation] = useState(false);
 
     function emailInput(e) {
         setEmail(e.target.value.trim());
@@ -63,13 +65,17 @@ export default function SettingsPage() {
         } else {
             setError(true);
         }
-
     }
     function deleteAcount() {
         dispatch(deleteAcc());
         dispatch(deleteUser({ index: users.findIndex(user => user.email === activeUser.email) }))
         navigate("/login");
     }
+
+    const handleClose = () => {
+        setConfirmation(false);
+    }
+
     useEffect(() => {
         if (email.trim()) {
             setDisabledE(false);
@@ -132,8 +138,13 @@ export default function SettingsPage() {
             </div>
             <div>
                 <div className="underLineUserSettings"></div>
-                <button onClick={deleteAcount} className="deleteProfilBtn"><strong>Изтриване на профил</strong></button>
+                <button onClick={() => setConfirmation(!confirmation)} className="deleteProfilBtn"><strong>Изтриване на профил</strong></button>
             </div>
+            <ConfirmBox
+                className={confirmation ? "visibleConfirm" : "nonVisibleConfirm"}
+                deleteAcount={deleteAcount}
+                handleClose={handleClose}
+            />
         </div>
     )
 }

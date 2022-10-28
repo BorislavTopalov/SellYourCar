@@ -42,3 +42,49 @@
     padding: 2px 0px;
     text-align: center;
 }
+
+.nonVisibleConfirm {
+    display: none;
+}
+
+.visibleConfirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.453);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.confirmBox {
+    position: absolute;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 20px;
+    color: #0099ff;
+    text-decoration: underline;
+
+    button {
+        background: #0099ff;
+        color: white;
+        padding-top: 0px;
+        font: inherit;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.buttonsConfirmBox {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 30px;
+}

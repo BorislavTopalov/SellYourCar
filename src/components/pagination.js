@@ -13,16 +13,18 @@ export default function PaginationComp({ nPages, currentPage, setCurrentPage }) 
     }
 
     return (
+        <div className='pagination'>
+            <Pagination>
+                <Pagination.Prev onClick={prevPage} />
+                {pageNumbers.map(pgNumber => (
+                    <Pagination.Item key={pgNumber}
+                        className={`page-item ${currentPage === pgNumber ? 'active' : ''} `} onClick={() => setCurrentPage(pgNumber)}>
+                        {pgNumber}
+                    </Pagination.Item>
+                ))}
+                <Pagination.Next onClick={nextPage} />
+            </Pagination>
+        </div>
 
-        <Pagination>
-            <Pagination.Prev onClick={prevPage} />
-            {pageNumbers.map(pgNumber => (
-                <Pagination.Item key={pgNumber}
-                    className={`page-item ${currentPage === pgNumber ? 'active' : ''} `} onClick={() => setCurrentPage(pgNumber)}>
-                    {pgNumber}
-                </Pagination.Item>
-            ))}
-            <Pagination.Next onClick={nextPage} />
-        </Pagination>
     )
 }
