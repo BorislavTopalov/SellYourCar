@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./LoginRegister.scss";
 import RegisterForm from "../../components/RegisterForm";
 import { useSelector, useDispatch } from "react-redux";
-import { register } from "../../redux/users";
+import { register } from "../../store/users";
 
 const Register = () => {
 
@@ -14,23 +14,30 @@ const Register = () => {
 
     const [error, setError] = useState(false);
     const [error2, setError2] = useState(false);
+    const [error3, setError3] = useState(false);
     const [disabled, setDisabled] = useState(true);
 
     const users = useSelector(state => state.users);
     const dispatch = useDispatch();
 
+    const regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
     function handleRegister(e) {
         e.preventDefault();
         const [email, password] = e.target;
-
-        if (!(users.some(user => user.email === email.value))) {
-            dispatch(register({ email: email.value.trim(), password: password.value.trim(), favourites: [], active: [], inactive: [] }));
-            setError2(false);
-            navigate("/login");
-            e.target.reset();
+        if (regex.test(password.value)) {
+            if (!(users.some(user => user.email === email.value))) {
+                dispatch(register({ email: email.value.trim(), password: password.value.trim(), favourites: [], active: [], inactive: [] }));
+                setError2(false);
+                navigate("/login");
+                e.target.reset();
+            } else {
+                setError2(true);
+                e.target.reset();
+            }
         } else {
-            setError2(true);
+            setError3(true);
         }
+
     }
 
     function emailInput(e) {
@@ -39,9 +46,11 @@ const Register = () => {
     }
     function passInput(e) {
         setPass(e.target.value.trim());
+        setError3(false);
     }
     function checkPassInput(e) {
         setCheckPass(e.target.value.trim());
+        setError3(false);
     }
 
     useEffect(() => {
@@ -71,7 +80,7 @@ const Register = () => {
                 <Link to="/login" className="loginButton"><strong>Вход</strong></Link>
             </div>
             <div className="form-wrapper">
-                <RegisterForm onSubmit={handleRegister} onInputE={emailInput} onInputP={passInput} onInputC={checkPassInput} error={error} error2={error2} disabled={disabled} />
+                <RegisterForm onSubmit={handleRegister} onInputE={emailInput} onInputP={passInput} onInputC={checkPassInput} onClick={() => setError3(false)} error={error} error2={error2} error3={error3} disabled={disabled} />
             </div>
         </div>
     );

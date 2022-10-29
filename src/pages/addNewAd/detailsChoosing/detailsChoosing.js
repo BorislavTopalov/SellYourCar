@@ -1,5 +1,5 @@
 import Select from '../../../components/Select';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RegionAndTownOptions from '../../../data/regionAndTownOptions';
 import CategoryOptions from "../../../data/categoryOptions";
 import YearOptions from "../../../data/yearOptions";
@@ -16,10 +16,12 @@ import SpecialOptions from "../../../data/specialOptions";
 import ExteriorOptions from "../../../data/exteriorOptions";
 import InteriorOptions from "../../../data/interiorOptions";
 import VehicleCategories from "../../../data/vehicleCategories";
-import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../redux/options";
+import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../store/options";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function DetailsChoosing() {
+
+    const navigate = useNavigate();
 
     const options = useSelector(state => state.options);
     const dispatch = useDispatch();
@@ -33,6 +35,11 @@ export default function DetailsChoosing() {
         dispatch(handleMakeCategory(e.target.value))
     }
 
+    function handleAddNew(e){
+        e.preventDefault();
+        navigate("/add-pictures");
+    }
+
     return (
         <div className="newAddContainer">
             <span className="categoriesOutlineAddNew">
@@ -40,20 +47,20 @@ export default function DetailsChoosing() {
                     Въвеждане на описанието за <span>{options.mainCategory}</span>
                 </strong>
             </span>
-            <div className="AddNewAdTable">
+            <form onSubmit={handleAddNew} className="AddNewAdTable">
                 <div className="firstRowAddNew">
-                    <p><strong>Основна категория</strong></p>
-                    <Select selectedOption={options.selectedOption} onChange={func1} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                    <p><strong>Основна категория *</strong></p>
+                    <Select required selectedOption={options.selectedOption} onChange={func1} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
                 </div>
                 <div className="secondRowAddNew">
                     <div className="makeAndModelAddNew">
                         <div className="makeAddNew">
-                            <p><strong>Марка</strong></p>
-                            <Select onChange={func3} name="Марка" id="Марка" options={options.make} />
+                            <p><strong>Марка *</strong></p>
+                            <Select required onChange={func3} name="Марка" id="Марка" options={options.make} />
                         </div>
                         <div className="modelAddNew">
-                            <p><strong>Модел</strong></p>
-                            <Select name="Модел" id="Модел" options={options.model} />
+                            <p><strong>Модел *</strong></p>
+                            <Select required name="Модел" id="Модел" options={options.model} />
                         </div>
                     </div>
                     <div className="modifyAndEngineAddNew">
@@ -63,9 +70,9 @@ export default function DetailsChoosing() {
                         </div>
                         <div className="engineAddNew">
                             <p>
-                                <strong>Тип двигател</strong>
+                                <strong>Тип двигател *</strong>
                             </p>
-                            <Select className="engineSelectAddNew" name="Двигател" id="Двигател" options={EngineOptions().engine} />
+                            <Select required className="engineSelectAddNew" name="Двигател" id="Двигател" options={EngineOptions().engine} />
                         </div>
                     </div>
 
@@ -94,9 +101,9 @@ export default function DetailsChoosing() {
                     </div>
                     <div className="transmissionAddNew">
                         <p>
-                            <strong>Скоростна кутия</strong>
+                            <strong>Скоростна кутия *</strong>
                         </p>
-                        <Select name="Скоростна кутия" id="Скоростна кутия" options={TransmissionOptions().transmission} />
+                        <Select required name="Скоростна кутия" id="Скоростна кутия" options={TransmissionOptions().transmission} />
                     </div>
                     <div className="vehicleCategoryAddNew">
                         <p><strong>Категория</strong></p>
@@ -106,21 +113,21 @@ export default function DetailsChoosing() {
 
                 <div className="fourthRowAddNew">
                     <div className="priceAddNew">
-                        <p><strong>Цена</strong></p>
-                        <input className="priceInputAddNew" type="text" />
-                        <select className="currencySelectAddNew" id="selectInSearch">
+                        <p><strong>Цена *</strong></p>
+                        <input required className="priceInputAddNew" type="text" />
+                        <select required className="currencySelectAddNew" id="selectInSearch">
                             <option value="BGN">лв.</option>
                             <option value="EUR">EUR</option>
                             <option value="USD">USD</option>
                         </select>
                     </div>
                     <div className="yearAddnew">
-                        <p><strong>Година</strong></p>
-                        <Select className="yearSelectAddnew" name="Година" id="Година" options={YearOptions().year} />
+                        <p><strong>Година *</strong></p>
+                        <Select required className="yearSelectAddnew" name="Година" id="Година" options={YearOptions().year} />
                     </div>
                     <div className="millageAddNew">
-                        <p><strong>Пробег</strong></p>
-                        <input className="inputMillageAddNew" type="text" />
+                        <p><strong>Пробег *</strong></p>
+                        <input required className="inputMillageAddNew" type="text" />
                         <label htmlFor="vehicleMillage">в километри</label>
                     </div>
                 </div>
@@ -128,15 +135,15 @@ export default function DetailsChoosing() {
                 <div className="fifthRowAddNew">
                     <div className="regionAddNew">
                         <p>
-                            <strong>Регион</strong>
+                            <strong>Регион *</strong>
                         </p>
-                        <Select className="regionSelectAddNew" onChange={func2} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
+                        <Select required className="regionSelectAddNew" onChange={func2} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
                     </div>
                     <div className="townAddNew">
                         <p>
-                            <strong>Населено място</strong>
+                            <strong>Населено място *</strong>
                         </p>
-                        <Select className="townSelectAddNew" name="Населено място" id="Населено място" options={options.town} />
+                        <Select required className="townSelectAddNew" name="Населено място" id="Населено място" options={options.town} />
                     </div>
                     <div className="colorAddNew">
                         <p>
@@ -180,19 +187,21 @@ export default function DetailsChoosing() {
                         <p><strong className="moreInfoText">Данни за връзка</strong></p>
                         <div className="phoneNewAd">
                             <label htmlFor="phone">Мобилен телефон :</label>
-                            <input className="phoneInput" type="text" />
+                            <input required className="phoneInput" type="number" />
                         </div>
                         <div className="emailNewAd">
                             <label htmlFor="email">Електронна поща :</label>
-                            <input className="phoneInput" type="text" />
+                            <input required className="phoneInput" type="email" />
                         </div>
                     </div>
                     <div className="publicBtnAddNew">
-                        <Link to="/add-pictures"><button className="publicNewAd"><strong>Продължи</strong></button></Link>
+                        {/* <Link to="/add-pictures"> */}
+                            <button type='submit' className="publicNewAd"><strong>Продължи</strong></button>
+                            {/* </Link> */}
                         <p className="nextStepInfo">*На следаващата стъпка ще можете да добавите снимки и видео</p>
                     </div>
                 </div>
-            </div>
+            </form>
 
         </div>
 

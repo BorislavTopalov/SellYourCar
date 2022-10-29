@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Card from "../../../components/card";
-import { addToFavourites, removeFromFavourites } from "../../../redux/activeUser";
-import { changeFavourites } from "../../../redux/users";
+import Card from "../../../components/Card";
+import { addToFavourites, removeFromFavourites } from "../../../store/activeUser";
+import { changeFavourites } from "../../../store/users";
 
 export default function ShowFavAds() {
 
@@ -30,7 +30,7 @@ export default function ShowFavAds() {
 
     return (
         <div>
-            {
+            {   favArr.length > 0 ?
                 favArr.map(item => <Card
                     goToAd={() => {
                         navigate(`/all-results/${item.id}`);
@@ -62,9 +62,9 @@ export default function ShowFavAds() {
                     key={item.id}
                     isLiked={isLiked(item)}
                     isThereActiveU={activeUser.email}
-                />
-
-                )
+                />)
+                :
+                <div className="noAds">Нямате обяви във Вашия бележник</div>
             }
         </div>
 

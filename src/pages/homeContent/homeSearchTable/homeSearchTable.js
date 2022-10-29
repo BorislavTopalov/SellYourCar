@@ -8,14 +8,14 @@ import YearOptions from "../../../data/yearOptions";
 import TransmissionOptions from "../../../data/transmissionOptions"
 import EngineOptions from "../../../data/engineOptions"
 import { useDispatch, useSelector } from "react-redux";
-import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../redux/options";
+import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../store/options";
 import baner from "../../homeContent/homeSearchTable/lambo1copy.jpg"
 import SmallCardsHomePage from "../smallCardsHomePage/smallCardsHomePage";
-import { reset } from "../../../redux/filters";
+import { reset } from "../../../store/filters";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { filter } from "../../../redux/filterredAds";
-import { addFilter } from "../../../redux/filters";
+import { filter } from "../../../store/filterredAds";
+import { addFilter } from "../../../store/filters";
 
 export default function HomeSearchTable(props) {
 

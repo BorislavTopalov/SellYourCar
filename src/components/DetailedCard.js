@@ -69,14 +69,12 @@ export default function DetailedCard(props) {
                     <div className="extrasAndInfo">
                         <span className="extras">
                             <p><strong>Екстри</strong></p>
-                            <div>
-                                {props.extras}
-                            </div>
+                            {props.extras}
                         </span>
                         <span className="moreInfoContainer">
                             <div className="moreInfoAndContactSeller" >
                                 <div className="moreInfo">
-                                    <p><strong>Допълнителна информация</strong></p>
+                                    <p className="moreInfoLabel" ><strong>Допълнителна информация</strong></p>
                                     <div className="moreInfoDetailedCard">{props.moreInfo}</div>
                                 </div>
                                 <div className="contactSeller" >

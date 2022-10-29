@@ -28,7 +28,7 @@ const filterredAdsSlice = createSlice({
                 (payload.engine === "Всички" ? true : ad.engine === payload.engine) &&
                 (payload.transmission === "Всички" ? true : ad.transmission === payload.transmission) &&
                 (ad.mainCategory === payload.mainCategory) &&
-                (payload.extras.length > 0 ? payload.extras.every(el => ad.extras.includes(el)) : true)
+                (payload.extras.length > 0 ? payload.extras.every(el => ad.extras.some(e => e.id == el)) : true)
             ).sort((a, b) => {
                 if (a.make === b.make) {
                     return (a.model < b.model) ? -1 : (a.model > b.model) ? 1 : 0;

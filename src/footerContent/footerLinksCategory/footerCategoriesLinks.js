@@ -1,6 +1,6 @@
 import "./footerCategoriesLinks.scss";
 import FooterLinks from "../../data/footerLinks";
-import { handleMainCategory } from "../../redux/options";
+import { handleMainCategory } from "../../store/options";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 

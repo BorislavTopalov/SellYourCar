@@ -18,8 +18,8 @@ import SpecialOptions from "../../data/specialOptions";
 import ExteriorOptions from "../../data/exteriorOptions";
 import InteriorOptions from "../../data/interiorOptions";
 import { useDispatch, useSelector } from "react-redux";
-import { addFilter, reset, addExtra } from "../../redux/filters";
-import { filter } from "../../redux/filterredAds";
+import { addFilter, reset, addExtra } from "../../store/filters";
+import { filter } from "../../store/filterredAds";
 import { useEffect, useState } from "react";
 
 const DetailedSearch = () => {
@@ -62,7 +62,7 @@ const DetailedSearch = () => {
         }))
     }
 
-    function addExtras(e){
+    function addExtras(e) {
         dispatch(addExtra(e.target.value))
     }
 

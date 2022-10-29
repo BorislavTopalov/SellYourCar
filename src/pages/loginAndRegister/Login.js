@@ -3,7 +3,7 @@ import "./LoginRegister.scss";
 import { useEffect, useState } from "react";
 import LoginForm from "../../components/LoginForm";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../../redux/activeUser"
+import { login } from "../../store/activeUser"
 
 const Login = () => {
     const [email, setEmail] = useState("");

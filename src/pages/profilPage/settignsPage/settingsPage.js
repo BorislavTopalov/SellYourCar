@@ -2,9 +2,9 @@ import "./settingsPage.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { changeEmailA, changePassword, deleteAcc } from "../../../redux/activeUser";
-import { changeEmailU, changePass, deleteUser } from "../../../redux/users";
-import ConfirmBox from "../../../components/confirmBox";
+import { changeEmailA, changePassword, deleteAcc } from "../../../store/activeUser";
+import { changeEmailU, changePass, deleteUser } from "../../../store/users";
+import ConfirmBox from "../../../components/ConfirmBox";
 
 export default function SettingsPage() {
 
@@ -20,6 +20,7 @@ export default function SettingsPage() {
     const [error, setError] = useState(false);
     const [error2, setError2] = useState(false);
     const [error3, setError3] = useState(false);
+    const [error4, setError4] = useState(false);
     const navigate = useNavigate();
     const [confirmation, setConfirmation] = useState(false);
 
@@ -35,17 +36,23 @@ export default function SettingsPage() {
         setCheckPass(e.target.value.trim());
     }
 
+    const regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
     function handleChangePass() {
         if (activeUser.password !== pass) {
-            dispatch(changePassword({ password: pass }));
-            dispatch(changePass({
-                index: users.findIndex(user => user.email === activeUser.email),
-                password: pass,
-            }))
-            setEmail(" ");
-            setPass("");
-            setCheckPass("");
-            navigate("/profile");
+            if (regex.test(pass)) {
+                dispatch(changePassword({ password: pass }));
+                dispatch(changePass({
+                    index: users.findIndex(user => user.email === activeUser.email),
+                    password: pass,
+                }))
+                setEmail(" ");
+                setPass("");
+                setCheckPass("");
+                navigate("/profile");
+            } else {
+                setError4(true)
+            }
+
         } else {
             setError2(true);
         }
@@ -145,6 +152,12 @@ export default function SettingsPage() {
                 deleteAcount={deleteAcount}
                 handleClose={handleClose}
             />
+            {error4 && <div className={error4 ? "visibleConfirm" : "nonVisibleConfirm"}>
+                <div className="errorDiv">
+                    <p className="errorsP">Паролата трябва да е между 6 и 16 знака и да съдържа поне една малка и една голяма буква, една цифра и един специален знак</p>
+                    <button onClick={() => setError4(false)} >Редактирай паролата</button>
+                </div>
+            </div>}
         </div>
     )
 }

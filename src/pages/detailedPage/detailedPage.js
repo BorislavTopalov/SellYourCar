@@ -3,8 +3,8 @@ import "./detailedPage.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import DefaultAds from "../../data/defaultAds";
-import { addToFavourites, removeFromFavourites } from "../../redux/activeUser";
-import { changeFavourites } from "../../redux/users";
+import { addToFavourites, removeFromFavourites } from "../../store/activeUser";
+import { changeFavourites } from "../../store/users";
 import { useEffect } from "react";
 import { CarouselItem } from "react-bootstrap";
 
@@ -51,7 +51,7 @@ export default function DetailedPage() {
                             vehicleCategory={item.vehicleCategory}
                             millage={item.millage}
                             color={item.color}
-                            extras={item.extras.map((extra, i) => <li key={i}>{extra}</li>)}
+                            extras={item.extras.map((extra, i) => <li key={i}>{extra.label}</li>)}
                             moreInfo={item.moreInfo}
                             contacts={item.contacts}
                             onClick={() => {

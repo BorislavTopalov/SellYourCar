@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import activeUser, { activeUserSlice } from "../../../redux/activeUser";
+import activeUser, { activeUserSlice } from "../../../store/activeUser";
 import ShowAllAds from "../../allResultsPage/allResultsContent";
 import "./favoriteAdsPage.scss";
 import ShowFavAds from "./showFavAds";

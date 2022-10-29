@@ -1,7 +1,7 @@
 import "./categoryIcons.scss";
 import IconsShow from "../../../data/iconsHomePage/icons";
 import { useDispatch } from "react-redux";
-import { handleMainCategory } from "../../../redux/options";
+import { handleMainCategory } from "../../../store/options";
 export default function CategoryIcons(props) {
 
     const dispatch = useDispatch();

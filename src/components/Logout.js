@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { logout } from "../redux/activeUser";
+import { logout } from "../store/activeUser";
 
 const Logout = () => {
     const dispatch = useDispatch();

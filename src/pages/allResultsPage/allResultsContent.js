@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import Card from "../../components/card";
-import { addToFavourites, removeFromFavourites } from "../../redux/activeUser";
+import Card from "../../components/Card";
+import { addToFavourites, removeFromFavourites } from "../../store/activeUser";
 import "./allResultsContent.scss";
-import { changeFavourites } from "../../redux/users";
+import { changeFavourites } from "../../store/users";
 import { useEffect, useState } from "react";
-import PaginationComp from "../../components/pagination";
+import PaginationComp from "../../components/Pagination";
 
 export default function ShowAllAds({ data }) {
 
@@ -45,7 +45,8 @@ export default function ShowAllAds({ data }) {
                 <Link to="/detail-searching" className="newSearch">Ново търсене</Link>
                 <Link to="/home" className="backToHome">Начало</Link>
             </div>
-            {currentRecords.map(item =>
+            { currentRecords.length > 0 ?
+                currentRecords.map(item =>
                 <Card
                     goToAd={() => {
                         navigate(`/all-results/${item.id}`);
@@ -77,9 +78,10 @@ export default function ShowAllAds({ data }) {
                     key={item.id}
                     isLiked={isLiked(item)}
                     isThereActiveU={activeUser.email}
-                />
-
-            )}
+                />)
+                :
+                <div className="noAds">Няма обяви отговарящи на избраните филтри</div>
+            }
             <PaginationComp
                 nPages={nPages}
                 currentPage={currentPage}

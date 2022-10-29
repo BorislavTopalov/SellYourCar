@@ -7,8 +7,8 @@ import EditAd from './headerContent/editAd/editAdBtn';
 import AddNewAd from './headerContent/addNewAd/addNewAd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonGroupLink from './headerContent/buttonsGroupLinks/buttonsGroupLinks';
-import Login from './pages/login and register/Login'
-import Register from "./pages/login and register/Register";
+import Login from './pages/loginAndRegister/Login'
+import Register from "./pages/loginAndRegister/Register";
 import { useEffect } from 'react';
 import FooterCategoriesLinks from './footerContent/footerLinksCategory/footerCategoriesLinks';
 import FooterHelpLinks from './footerContent/footerContacts/footerContactsContent';
@@ -26,7 +26,7 @@ import InactiveAdsPage from './pages/profilPage/inactiveAdsPage/inactiveAdsPage'
 import SettingsPage from './pages/profilPage/settignsPage/settingsPage';
 import FavroriteAdsPage from './pages/profilPage/favoriteAdsPage/favoriteAdsPage';
 import { useSelector, useDispatch } from "react-redux";
-import { changeSelectedOption } from "./redux/options";
+import { changeSelectedOption } from "./store/options";
 import ShowAllAds from './pages/allResultsPage/allResultsContent';
 import Contacts from './pages/contacts/contacts';
 import DetailedPage from './pages/detailedPage/detailedPage';

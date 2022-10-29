@@ -56,6 +56,7 @@ const filtersSlice = createSlice({
             state.powerFrom = 0;
             state.powerTo = 0;
             state.sort = "Марка/Модел/Цена";
+            state.extras = [];
         }
     },
 })
