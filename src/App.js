@@ -30,6 +30,7 @@ import { changeSelectedOption } from "./store/options";
 import ShowAllAds from './pages/allResultsPage/allResultsContent';
 import Contacts from './pages/contacts/contacts';
 import DetailedPage from './pages/detailedPage/detailedPage';
+import { addFilter } from './store/filters';
 
 function App() {
 
@@ -40,6 +41,10 @@ function App() {
 
   useEffect(() => {
     dispatch(changeSelectedOption(options.mainCategory))
+    dispatch(addFilter({
+      name: "mainCategory",
+      value: options.mainCategory
+  }))
   }, [options.mainCategory, dispatch])
 
   useEffect(() => {

@@ -25,10 +25,15 @@ export default function DetailedPage() {
     }, [activeUser, dispatch, users])
 
     function isLiked(e) {
-        if (favArr.find(ad => ad.id === e.id)) {
-            return true
+        if(favArr){
+            if (favArr.find(ad => ad.id === e.id)) {
+                return true
+            }
+            return false
+        } else{
+            return false
         }
-        return false
+        
     }
 
     return (
@@ -39,7 +44,7 @@ export default function DetailedPage() {
                     .map(item =>
                         <DetailedCard
                             autoData={item.autoData}
-                            image={item.image.map(img => <CarouselItem key={img}><img src={img} className="mainImage" alt="" /></CarouselItem>)}
+                            image={item.image.map(img => <CarouselItem key={img}><img src={img} className="mainImage" alt=""  loading="lazy"/></CarouselItem>)}
                             make={item.make}
                             model={item.model}
                             price={item.price}
