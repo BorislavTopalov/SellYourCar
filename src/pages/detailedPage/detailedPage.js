@@ -11,6 +11,7 @@ import { CarouselItem } from "react-bootstrap";
 export default function DetailedPage() {
 
     let { id } = useParams();
+    const filterredAds = useSelector(state => state.filterredAds);
     const users = useSelector(state => state.users)
     const activeUser = useSelector(state => state.activeUser);
     const favArr = activeUser.favourites;
@@ -37,7 +38,7 @@ export default function DetailedPage() {
 
         <div>
             {
-                DefaultAds().defaultAds.filter(list => list.id === Number(id))
+                filterredAds.filterredAds.filter(list => list.id === Number(id))
                     .map(item =>
                         <DetailedCard
                             autoData={item.autoData}

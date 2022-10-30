@@ -30,7 +30,7 @@ const newAdsSlice = createSlice({
             state[`${payload.name}`] = payload.value;
         },
         addExtraParameter(state, { payload }) {
-            if (state.extras.indexOf(payload) !== -1) {
+            if (state.extras.some(e => e.id === payload.id)) {
                 state.extras.splice(state.extras.indexOf(payload), 1);
             } else {
                 state.extras.push(payload)

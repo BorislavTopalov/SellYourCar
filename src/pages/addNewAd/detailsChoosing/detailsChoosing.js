@@ -21,7 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addExtraParameter, addParameter, resetParams } from '../../../store/addNewAd';
 import { addNewAd } from '../../../store/addedAds';
 import { useEffect } from 'react';
-import { addToFavourites } from '../../../store/activeUser';
+import { addNewActiveAd } from '../../../store/activeUser';
 
 export default function DetailsChoosing() {
 
@@ -43,7 +43,7 @@ export default function DetailsChoosing() {
     function handleAddNew(e) {
         e.preventDefault();
         dispatch(addNewAd(newAds))
-        dispatch(addToFavourites(newAds))
+        dispatch(addNewActiveAd(newAds))
         console.log(newAds);
         navigate("/add-pictures");
     }
@@ -55,7 +55,10 @@ export default function DetailsChoosing() {
         }))
     }
     function addExtraParams(e) {
-        dispatch(addExtraParameter(e.target.value))
+        dispatch(addExtraParameter({
+            id: e.target.value,
+            label: e.target.name
+        }))
     }
 
     useEffect(() => {
