@@ -30,10 +30,12 @@ import { changeSelectedOption } from "./store/options";
 import ShowAllAds from './pages/allResultsPage/allResultsContent';
 import Contacts from './pages/contacts/contacts';
 import DetailedPage from './pages/detailedPage/detailedPage';
-import DefaultAds from './data/defaultAds';
+import { addFilter } from './store/filters';
 
 function App() {
 
+  // const totalAds = useSelector(state => state.totalAds)
+  const addedAds = useSelector(state => state.addedAds);
   const users = useSelector(state => state.users);
   const activeUser = useSelector(state => state.activeUser);
   const options = useSelector(state => state.options);
@@ -41,12 +43,21 @@ function App() {
 
   useEffect(() => {
     dispatch(changeSelectedOption(options.mainCategory))
+    dispatch(addFilter({
+      name: "mainCategory",
+      value: options.mainCategory
+    }))
   }, [options.mainCategory, dispatch])
+  
+  // useEffect(() => {
+  //   dispatch(addNewAd(newAds))
+  // }, [newAds])
 
   useEffect(() => {
+    localStorage.setItem("mobile-added-ads", JSON.stringify(addedAds));
     localStorage.setItem('mobile-active-user', JSON.stringify(activeUser));
     localStorage.setItem('mobile-users', JSON.stringify(users));
-  }, [users, activeUser])
+  }, [users, activeUser, addedAds])
 
   return (
     <div className="App">
@@ -101,7 +112,7 @@ function App() {
             <Route path='add-pictures' element={<AddPhotoNewAd />} />
             <Route path='detail-searching' element={<DetailedSearch />} />
             <Route path='all-results' element={<ShowAllAds />} />
-            <Route path="all-results/:id" element={<DetailedPage />} />           
+            <Route path="all-results/:id" element={<DetailedPage />} />
             <Route path='contacts' element={<Contacts />} />
             <Route path='advertisement' element={<AdvertisementTariffs />} />
             <Route path='help' element={<Help />} />

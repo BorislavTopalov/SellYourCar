@@ -3,6 +3,7 @@ import IconsShow from "../../../data/iconsHomePage/icons";
 import { useDispatch } from "react-redux";
 import { handleMainCategory } from "../../../store/options";
 import { useNavigate, useParams } from "react-router-dom";
+import { addFilter } from "../../../store/filters";
 export default function CategoryIcons() {
 
     let {value} = useParams()
@@ -12,6 +13,13 @@ export default function CategoryIcons() {
     const dispatch = useDispatch();
     function func(e) {
         dispatch(handleMainCategory(e.target.name))
+    }
+    function addFilters(e) {
+        dispatch(addFilter({
+            name: "mainCategory",
+            value: e.target.name
+        }))
+        console.log(e.target.name);
     }
 
     return (

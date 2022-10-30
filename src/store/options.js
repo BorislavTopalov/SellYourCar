@@ -25,7 +25,7 @@ export const optionsSlice = createSlice({
             state.town = RegionAndTownOptions().regionAndTownOptions.find((el) => el.value === payload).town;
         },
         changeSelectedOption: (state, { payload }) => {
-            state.selectedMain = payload;
+            state.selectedMain = payload;              
         }
     },
 })

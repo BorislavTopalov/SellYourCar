@@ -41,7 +41,7 @@ export default function DetailedPage() {
                     .map(item =>
                         <DetailedCard
                             autoData={item.autoData}
-                            image={item.image.map(img => <CarouselItem key={img}><img src={img} className="mainImage" alt="" /></CarouselItem>)}
+                            image={item.image.map(img => <CarouselItem key={img}><img src={img} className="mainImage" alt=""  loading="lazy"/></CarouselItem>)}
                             make={item.make}
                             model={item.model}
                             price={item.price}
