@@ -8,12 +8,12 @@ export default function ProfilePage() {
     let activeAds = [];
     let navigate = useNavigate()
 
-    if(JSON.parse(localStorage.getItem('mobile-active-user')).email) {
+    if (JSON.parse(localStorage.getItem('mobile-active-user')).email) {
         activeAds = JSON.parse(localStorage.getItem('mobile-active-user')).active.slice();
-    }else {
-         return false
+    } else {
+        return false
     }
-   
+
 
     return (
         <div className="profilePageContent">
@@ -27,9 +27,15 @@ export default function ProfilePage() {
             <div>
                 <p>Списък и управление на публикуваните от вас обяви</p>
                 <p></p>
-                <div>
-                    {activeAds.map((item, id) => 
-                        <ActiveAdsCard
+
+            </div>
+            <div className="buttonsGroupProfilePage">
+                <NavLink to="/profile"><Button><strong>Активни обяви</strong></Button></NavLink>
+                <NavLink to="/inactive-ads"><Button><strong>Неактивни обяви</strong></Button></NavLink>
+            </div>
+            <div>
+                {activeAds.map((item) =>
+                    <ActiveAdsCard
                         goToAd={() => {
                             navigate(`/all-results/${item.id}`);
                         }}
@@ -57,18 +63,12 @@ export default function ProfilePage() {
                         //     dispatch(removeFromFavourites(item));
 
                         // }}
-                        key={id}
-                        // isLiked={isLiked(item)}
-                        // isThereActiveU={activeUser.email}
+                        key={item.id}
+                    // isLiked={isLiked(item)}
+                    // isThereActiveU={activeUser.email}
                     />
-                    )}
-                </div>
+                )}
             </div>
-            <div className="buttonsGroupProfilePage">
-                <NavLink to="/profile"><Button><strong>Активни обяви</strong></Button></NavLink>
-                <NavLink to="/inactive-ads"><Button><strong>Неактивни обяви</strong></Button></NavLink>
-            </div>
-
             <div className="lineUnderButtonsOfProfilPage"></div>
         </div>
     )
