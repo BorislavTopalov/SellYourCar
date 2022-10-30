@@ -1,6 +1,7 @@
 .homeIconsTop {
     margin: 0 10px;
     cursor: pointer;
+    opacity: .5;
 }
 
 .homeContentTop {
@@ -8,6 +9,8 @@
     margin: 10px 0;
 }
 
-.homeIconsTop:hover {
-    opacity: .5;
+.homeIconsActive {
+    opacity: 1;
+    margin: 0 10px;
+    cursor: pointer;
 }

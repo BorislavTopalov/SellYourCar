@@ -1,5 +1,5 @@
 import Select from '../../../components/Select';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import RegionAndTownOptions from '../../../data/regionAndTownOptions';
 import CategoryOptions from "../../../data/categoryOptions";
 import YearOptions from "../../../data/yearOptions";
@@ -18,11 +18,11 @@ import InteriorOptions from "../../../data/interiorOptions";
 import VehicleCategories from "../../../data/vehicleCategories";
 import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../store/options";
 import { useDispatch, useSelector } from "react-redux";
+import { addParameter } from '../../../store/addNewAd';
 
 export default function DetailsChoosing() {
 
     const navigate = useNavigate();
-
     const options = useSelector(state => state.options);
     const dispatch = useDispatch();
     function func1(e) {
@@ -35,9 +35,17 @@ export default function DetailsChoosing() {
         dispatch(handleMakeCategory(e.target.value))
     }
 
-    function handleAddNew(e){
+    function handleAddNew(e) {
         e.preventDefault();
+
         navigate("/add-pictures");
+    }
+
+    function addParams(e) {
+        dispatch(addParameter({
+            name: e.target.name,
+            value: e.target.value
+        }))
     }
 
     return (
@@ -50,17 +58,17 @@ export default function DetailsChoosing() {
             <form onSubmit={handleAddNew} className="AddNewAdTable">
                 <div className="firstRowAddNew">
                     <p><strong>Основна категория *</strong></p>
-                    <Select required selectedOption={options.selectedOption} onChange={func1} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                    <Select required selectedOption={options.selectedOption} onChange={e => { func1(e); addParams(e) }} name="Основна категория" id="Овновна категория" options={CategoryOptions().categorieOptions} />
                 </div>
                 <div className="secondRowAddNew">
                     <div className="makeAndModelAddNew">
                         <div className="makeAddNew">
                             <p><strong>Марка *</strong></p>
-                            <Select required onChange={func3} name="Марка" id="Марка" options={options.make} />
+                            <Select required onChange={e => { func3(e); addParams(e) }} name="Марка" id="Марка" options={options.make} />
                         </div>
                         <div className="modelAddNew">
                             <p><strong>Модел *</strong></p>
-                            <Select required name="Модел" id="Модел" options={options.model} />
+                            <Select required name="Модел" id="Модел" options={options.model} onChange={addParams} />
                         </div>
                     </div>
                     <div className="modifyAndEngineAddNew">
@@ -72,7 +80,7 @@ export default function DetailsChoosing() {
                             <p>
                                 <strong>Тип двигател *</strong>
                             </p>
-                            <Select required className="engineSelectAddNew" name="Двигател" id="Двигател" options={EngineOptions().engine} />
+                            <Select required className="engineSelectAddNew" name="Двигател" id="Двигател" onChange={addParams} options={EngineOptions().engine} />
                         </div>
                     </div>
 
@@ -96,26 +104,26 @@ export default function DetailsChoosing() {
                         </div>
                         <div className="euroAddNew">
                             <p><strong>Евростандарт</strong></p>
-                            <Select className="euroSelectAddNew" name="Евростандарт" id="Евростандарт" options={EuroStandartOptions().euroStandart} />
+                            <Select className="euroSelectAddNew" name="Евростандарт" id="Евростандарт" onChange={addParams} options={EuroStandartOptions().euroStandart} />
                         </div>
                     </div>
                     <div className="transmissionAddNew">
                         <p>
                             <strong>Скоростна кутия *</strong>
                         </p>
-                        <Select required name="Скоростна кутия" id="Скоростна кутия" options={TransmissionOptions().transmission} />
+                        <Select required name="Скоростна кутия" id="Скоростна кутия" onChange={addParams} options={TransmissionOptions().transmission} />
                     </div>
                     <div className="vehicleCategoryAddNew">
                         <p><strong>Категория</strong></p>
-                        <Select className="vahicleSelectCatAddNew" name="Категория" id="Ктегория" options={VehicleCategories().vehicleCategories} />
+                        <Select className="vahicleSelectCatAddNew" name="Категория" id="Ктегория" onChange={addParams} options={VehicleCategories().vehicleCategories} />
                     </div>
                 </div>
 
                 <div className="fourthRowAddNew">
                     <div className="priceAddNew">
                         <p><strong>Цена *</strong></p>
-                        <input required className="priceInputAddNew" type="text" />
-                        <select required className="currencySelectAddNew" id="selectInSearch">
+                        <input onInput={addParams} required className="priceInputAddNew" type="text" />
+                        <select onChange={addParams} required className="currencySelectAddNew" id="selectInSearch">
                             <option value="BGN">лв.</option>
                             <option value="EUR">EUR</option>
                             <option value="USD">USD</option>
@@ -123,11 +131,11 @@ export default function DetailsChoosing() {
                     </div>
                     <div className="yearAddnew">
                         <p><strong>Година *</strong></p>
-                        <Select required className="yearSelectAddnew" name="Година" id="Година" options={YearOptions().year} />
+                        <Select required className="yearSelectAddnew" name="Година" id="Година" onChange={addParams} options={YearOptions().year} />
                     </div>
                     <div className="millageAddNew">
                         <p><strong>Пробег *</strong></p>
-                        <input required className="inputMillageAddNew" type="text" />
+                        <input onInput={addParams} required className="inputMillageAddNew" type="text" />
                         <label htmlFor="vehicleMillage">в километри</label>
                     </div>
                 </div>
@@ -137,7 +145,7 @@ export default function DetailsChoosing() {
                         <p>
                             <strong>Регион *</strong>
                         </p>
-                        <Select required className="regionSelectAddNew" onChange={func2} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
+                        <Select required className="regionSelectAddNew" onChange={(e) => {func2(e); addParams(e)}} name="Регион" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
                     </div>
                     <div className="townAddNew">
                         <p>
@@ -149,7 +157,7 @@ export default function DetailsChoosing() {
                         <p>
                             <strong>Цвят</strong>
                         </p>
-                        <Select className="colorSelectAddNew" name="Цвят" id="Цвят" options={ColorOptions().colors} />
+                        <Select className="colorSelectAddNew" name="Цвят" id="Цвят" onChange={addParams} options={ColorOptions().colors} />
                     </div>
                 </div>
                 <div className="checkBoxes">
@@ -196,9 +204,10 @@ export default function DetailsChoosing() {
                     </div>
                     <div className="publicBtnAddNew">
                         {/* <Link to="/add-pictures"> */}
-                            <button type='submit' className="publicNewAd"><strong>Продължи</strong></button>
-                            {/* </Link> */}
-                        <p className="nextStepInfo">*На следаващата стъпка ще можете да добавите снимки и видео</p>
+                        <button type='submit' className="publicNewAd"><strong>Продължи</strong></button>
+                        {/* </Link> */}
+                        <p className="nextStepInfo">*Полетата със * са задължителни</p>
+                        <p className="nextStepInfo">*На следаващата стъпка ще можете да добавите снимки</p>
                     </div>
                 </div>
             </form>

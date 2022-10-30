@@ -34,11 +34,11 @@ export default function HomeSearchTable(props) {
 
     let location = useLocation();
     useEffect(() => {
-      if(location.pathname !== "/all-results"){
-        dispatch(reset());
-      }
+        if (location.pathname !== "/all-results") {
+            dispatch(reset());
+        }
     }, [location.pathname, dispatch]);
-    
+
     function addFilters(e) {
         dispatch(addFilter({
             name: e.target.name,
@@ -139,10 +139,12 @@ export default function HomeSearchTable(props) {
                         </div>
                         <Link className="detailSearchLink" to="/detail-searching">Подробно търсене</Link>
                     </span>
-                  <SmallCardsHomePage/> 
+                    <SmallCardsHomePage />
                 </div>
+                <div className="banerContainer">
+                    <img src={baner} alt="baner" className="labmoHomePage" />
 
-                <img src={baner} alt="baner" className="labmoHomePage" />
+                </div>
             </div>
 
 

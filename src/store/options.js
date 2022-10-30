@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 import CategoryOptions from '../data/categoryOptions';
 import RegionAndTownOptions from '../data/regionAndTownOptions';
 
