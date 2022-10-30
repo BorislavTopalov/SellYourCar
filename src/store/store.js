@@ -4,6 +4,7 @@ import usersReducer from "./users";
 import optionsReducer from "./options";
 import filtersReducer from './filters';
 import filterredAdsReducer from "./filterredAds";
+import newAdReducer  from './addNewAd';
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     users: usersReducer,
     options: optionsReducer,
     filters: filtersReducer,
-    filterredAds: filterredAdsReducer
+    filterredAds: filterredAdsReducer,
+    newAd: newAdReducer
   }
 })

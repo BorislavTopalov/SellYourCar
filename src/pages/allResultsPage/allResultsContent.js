@@ -27,13 +27,11 @@ export default function ShowAllAds({ data }) {
     function isLiked(e) {
         if (favArr) {
             if (favArr.find(ad => ad.id === e.id)) {
-                return true
+                return true;
             }
-            return false
-        } else {
-            return false
+            return false;
         }
-
+        return false;
     }
 
     const [currentPage, setCurrentPage] = useState(1);

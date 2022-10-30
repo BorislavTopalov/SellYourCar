@@ -28,7 +28,12 @@ export const activeUserSlice = createSlice({
         },
         removeFromFavourites: (state, action) => {
             if (JSON.parse(localStorage.getItem('mobile-active-user')).email) {
-                state.favourites.splice(state.favourites.findIndex((item) => item.id === action.payload.id),1);
+                state.favourites.splice(state.favourites.findIndex((item) => item.id === action.payload.id), 1);
+            }
+        },
+        addNewActiveAd: (state, action) => {
+            if (JSON.parse(localStorage.getItem('mobile-active-user')).email) {
+                state.active.unshift(action.payload);
             }
         },
         changePassword: (state, { payload }) => {
@@ -48,7 +53,7 @@ export const activeUserSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { login, logout, addToFavourites, removeFromFavourites, changePassword, changeEmailA, deleteAcc } = activeUserSlice.actions
+export const { login, logout, addToFavourites, removeFromFavourites, addNewActiveAd, changePassword, changeEmailA, deleteAcc } = activeUserSlice.actions
 
 export default activeUserSlice.reducer
 

@@ -25,17 +25,14 @@ export default function DetailedPage() {
     }, [activeUser, dispatch, users])
 
     function isLiked(e) {
-        if(favArr){
+        if (favArr) {
             if (favArr.find(ad => ad.id === e.id)) {
-                return true
+                return true;
             }
-            return false
-        } else{
-            return false
+            return false;
         }
-        
+        return false;
     }
-
     return (
 
         <div>
