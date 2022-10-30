@@ -1,6 +1,6 @@
 import "./homeSearchTable.scss"
 import Select from "../../../components/Select"
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import SortOptions from "../../../data/sortOptions"
 import RegionAndTownOptions from "../../../data/regionAndTownOptions"
 import CategoryOptions from "../../../data/categoryOptions";
@@ -12,13 +12,15 @@ import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../.
 import baner from "../../homeContent/homeSearchTable/lambo1copy.jpg"
 import SmallCardsHomePage from "../smallCardsHomePage/smallCardsHomePage";
 import { reset } from "../../../store/filters";
-import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { filter } from "../../../store/filterredAds";
 import { addFilter } from "../../../store/filters";
+import IconsShow from "../../../data/iconsHomePage/icons";
 
 export default function HomeSearchTable(props) {
 
+    let { value } = useParams();
+    let navigate = useNavigate()
     const filters = useSelector(state => state.filters);
     const options = useSelector(state => state.options);
     const dispatch = useDispatch();
@@ -62,10 +64,18 @@ export default function HomeSearchTable(props) {
                 <div className="homeSearchTableAndNewestAds">
                     <span className="mainSearchHome">
                         <div className="mainCategories">
-                            <p>
-                                <strong>Основна Категория</strong>
-                            </p>
-                            <Select selectedOption={options.mainCategory} onChange={e => { func1(e); addFilters(e) }} name="mainCategory" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                            <div>
+                                <p>
+                                    <strong>Основна Категория</strong>
+                                </p>
+                                <Select selectedOption={options.mainCategory} onChange={e => { func1(e); addFilters(e); navigate(`/home/${e.target.value}`) }}
+                                    name="mainCategory" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                            </div>
+                            <div>
+                                {IconsShow().iconsArr.filter(list => list.value === value)
+                                    .map((icon) => <img src={icon.img} alt="..." key={icon.value} className="iconSearchTable" name={icon.value} />)}
+                            </div>
+
                         </div>
                         <div className="firstRowHomeTable">
                             <div className="makeAndModelHome">

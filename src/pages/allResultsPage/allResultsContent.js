@@ -40,7 +40,7 @@ export default function ShowAllAds({ data }) {
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
     const currentRecords = filterredAds.filterredAds.slice(indexOfFirstRecord, indexOfLastRecord);
-    const nPages = Math.ceil(filterredAds.filterredAds.length / recordsPerPage)
+    const nPages = Math.ceil(filterredAds.filterredAds.length / recordsPerPage);
 
     return (
         <span>

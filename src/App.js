@@ -30,6 +30,7 @@ import { changeSelectedOption } from "./store/options";
 import ShowAllAds from './pages/allResultsPage/allResultsContent';
 import Contacts from './pages/contacts/contacts';
 import DetailedPage from './pages/detailedPage/detailedPage';
+import DefaultAds from './data/defaultAds';
 
 function App() {
 
@@ -74,7 +75,13 @@ function App() {
         <div className='pageContent'>
 
           <Routes>
-            <Route path='home' element={
+            <Route path="home" element={
+              <>
+                <CategoryIcons />
+                <HomeSearchTable />
+              </>
+            } />
+             <Route path="home/:value" element={
               <>
                 <CategoryIcons />
                 <HomeSearchTable />

@@ -20,7 +20,7 @@ export default function FooterCategoriesLinks(props) {
                 <div>
 
                     {FooterLinks().footerLinks.map((link, i) => {
-                        return <Link to="/home" key={i}><button onClick={func1} className="footerLink" key={i} value={link}>{link}</button></Link>
+                        return <Link to={`/home/${link}`} key={i}><button onClick={func1} className="footerLink" key={i} value={link}>{link}</button></Link>
                     })}
 
                 </div>

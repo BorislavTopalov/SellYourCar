@@ -222,30 +222,6 @@ export default function CategoryOptions() {
             ]
         },
         {
-            value: "Велосипеди", label: "Велосипеди",
-            make: [
-                { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
-                {
-                    value: "BMX",
-                    label: "BMX",
-                    model: [
-                        { value: "Всички", label: "Всички" },
-                        { value: "Cadillac Bikes", label: "Cadillac Bikes" },
-                        { value: "Diamond Bikes", label: "Diamond Bikes" }
-                    ]
-                },
-                {
-                    value: "Планински",
-                    label: "Планински",
-                    model: [
-                        { value: "Всички", label: "Всички" },
-                        { value: "Brookline Mashineworks", label: "Brookline Mashineworks" },
-                        { value: "Specialized", label: "Specialized" }
-                    ]
-                }
-            ]
-        },
-        {
             value: "Каравани", label: "Каравани",
             make: [
                 { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
@@ -318,30 +294,7 @@ export default function CategoryOptions() {
                 }
             ]
         },
-        {
-            value: "Части и аксесоари", label: "Части и аксесоари",
-            make: [
-                { value: "Всички", label: "Всички", model: [{ value: "Всички", label: "Всички" }] },
-                {
-                    value: "Автомобили",
-                    label: "Автомобили",
-                    model: [
-                        { value: "Всички", label: "Всички" },
-                        { value: "Двигател", label: "Двигател" },
-                        { value: "Трансмисия", label: "Трансмисия" }
-                    ]
-                },
-                {
-                    value: "Джипове",
-                    label: "Джипове",
-                    model: [
-                        { value: "Всички", label: "Всички" },
-                        { value: "Двигател", label: "Двигател" },
-                        { value: "Трансмисия", label: "Трансмисия" }
-                    ]
-                }
-            ]
-        }
+        
     ];
 
     return ({ categorieOptions });
