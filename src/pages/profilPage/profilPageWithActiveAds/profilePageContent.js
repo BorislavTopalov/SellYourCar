@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import ActiveAdsCard from "../../../components/ActiveAdsCard";
 import "./profilePageContent.scss";
@@ -6,6 +7,7 @@ import "./profilePageContent.scss";
 export default function ProfilePage() {
 
     let activeAds = [];
+    const activeUser = useSelector(state => state.activeUser)
     let navigate = useNavigate()
 
     if (JSON.parse(localStorage.getItem('mobile-active-user')).email) {
@@ -34,7 +36,7 @@ export default function ProfilePage() {
                 <NavLink to="/inactive-ads"><Button><strong>Неактивни обяви</strong></Button></NavLink>
             </div>
             <div>
-                {activeAds.map((item) =>
+                {activeUser.active.map((item) =>
                     <ActiveAdsCard
                         goToAd={() => {
                             navigate(`/all-results/${item.id}`);
@@ -64,8 +66,10 @@ export default function ProfilePage() {
 
                         // }}
                         key={item.id}
-                    // isLiked={isLiked(item)}
-                    // isThereActiveU={activeUser.email}
+                        // isLiked={isLiked(item)}
+                        isThereActiveU={activeUser.email}
+                        activeUser={activeUser}
+                        id={item.id}
                     />
                 )}
             </div>

@@ -42,6 +42,13 @@ export default function ShowAllAds({ data }) {
     const currentRecords = filterredAds.filterredAds.slice(indexOfFirstRecord, indexOfLastRecord);
     const nPages = Math.ceil(filterredAds.filterredAds.length / recordsPerPage);
 
+    // function moveToInactive(item){
+    //     dispatch(moveToInactive(item))
+    // }
+    // function moveToActive(item){
+    //     dispatch(moveToActive(item));
+    // }
+
     return (
         <span>
             <div className="linksAllResults">
@@ -78,9 +85,17 @@ export default function ShowAllAds({ data }) {
                             dispatch(removeFromFavourites(item));
 
                         }}
+                        // moveToInactive = {() =>{
+                        //     moveToInactive(item);
+                        // } }
+                        // moveToActive = {() =>{
+                        //     moveToActive(item)
+                        // } }
                         key={item.id ? item.id : item.price}
                         isLiked={isLiked(item)}
                         isThereActiveU={activeUser.email}
+                        activeUser={activeUser}
+                        id={item.id}
                     />)
                 :
                 <div className="noAds">Няма обяви отговарящи на избраните филтри</div>
