@@ -30,7 +30,6 @@ export const optionsSlice = createSlice({
     },
 })
 
-// Action creators are generated for each case reducer function
 export const { handleMainCategory, handleMakeCategory, handleChangeRegion, changeSelectedOption } = optionsSlice.actions
 
 export default optionsSlice.reducer

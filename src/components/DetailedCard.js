@@ -14,7 +14,7 @@ export default function DetailedCard(props) {
                 </div>
             </div>
             <div className="detailedCardContainer">
-                <a className="autodataLink" href={props.autoData} target="_blank">Техически характеристики и разход на гориво</a>
+                <a className="autodataLink" name="autoData" href={props.autoData} target="_blank">Техически характеристики и разход на гориво</a>
                 <div className="makeAndModel">
                     <p className="makeDetailedCard"><strong>{props.make}</strong></p>
                     <p className="modelDetailedCard"><strong>{props.model}</strong></p>

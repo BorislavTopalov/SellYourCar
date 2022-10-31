@@ -19,7 +19,7 @@ import HomeSearchTable from './pages/homeContent/homeSearchTable/homeSearchTable
 import AdvertisementTariffs from './pages/advertisementTariffs/advertisementTariffs';
 import Help from './pages/help/help';
 import DetailedSearch from './pages/detailedSearch/DetailedSearch';
-import DetailsChoosing from './pages/addNewAd/detailsChoosing/detailsChoosing';
+import DetailsChoosing from './pages/addNewAd/detailsChoosing';
 import ProfilePage from './pages/profilPage/profilPageWithActiveAds/profilePageContent';
 import InactiveAdsPage from './pages/profilPage/inactiveAdsPage/inactiveAdsPage';
 import SettingsPage from './pages/profilPage/settignsPage/settingsPage';

@@ -13,7 +13,6 @@ export const addedAdsSlice = createSlice({
     },
 })
 
-// Action creators are generated for each case reducer function
 export const { addNewAd } = addedAdsSlice.actions
 
 export default addedAdsSlice.reducer

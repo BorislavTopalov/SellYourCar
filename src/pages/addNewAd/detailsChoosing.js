@@ -1,28 +1,28 @@
-import Select from '../../../components/Select';
+import Select from '../../components/Select';
 import { useNavigate, useLocation } from "react-router-dom";
-import RegionAndTownOptions from '../../../data/regionAndTownOptions';
-import CategoryOptions from "../../../data/categoryOptions";
-import YearOptions from "../../../data/yearOptions";
-import TransmissionOptions from "../../../data/transmissionOptions"
-import EngineOptions from "../../../data/engineOptions"
+import RegionAndTownOptions from '../../data/regionAndTownOptions';
+import CategoryOptions from "../../data/categoryOptions";
+import YearOptions from "../../data/yearOptions";
+import TransmissionOptions from "../../data/transmissionOptions"
+import EngineOptions from "../../data/engineOptions"
 import "./detailsChoosing.scss";
-import EuroStandartOptions from "../../../data/euroStandartOptions";
-import ColorOptions from "../../../data/colorOptions";
-import Checkbox from "../../../components/Checkbox";
-import SafetyOptions from "../../../data/safetyOptions";
-import comfortOptions from "../../../data/comfortOptions";
-import SecurityOptions from "../../../data/securityOptions";
-import SpecialOptions from "../../../data/specialOptions";
-import ExteriorOptions from "../../../data/exteriorOptions";
-import InteriorOptions from "../../../data/interiorOptions";
-import VehicleCategories from "../../../data/vehicleCategories";
-import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../store/options";
+import EuroStandartOptions from "../../data/euroStandartOptions";
+import ColorOptions from "../../data/colorOptions";
+import Checkbox from "../../components/Checkbox";
+import SafetyOptions from "../../data/safetyOptions";
+import comfortOptions from "../../data/comfortOptions";
+import SecurityOptions from "../../data/securityOptions";
+import SpecialOptions from "../../data/specialOptions";
+import ExteriorOptions from "../../data/exteriorOptions";
+import InteriorOptions from "../../data/interiorOptions";
+import VehicleCategories from "../../data/vehicleCategories";
+import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../store/options";
 import { useDispatch, useSelector } from "react-redux";
-import { addExtraParameter, addImages, addParameter, resetParams } from '../../../store/addNewAd';
-import { addNewAd } from '../../../store/addedAds';
+import { addExtraParameter, addImages, addParameter, resetParams } from '../../store/addNewAd';
+import { addNewAd } from '../../store/addedAds';
 import { useEffect, useState } from 'react';
-import { addNewActiveAd } from '../../../store/activeUser';
-import DefaultAds from '../../../data/defaultAds';
+import { addNewActiveAd } from '../../store/activeUser';
+import DefaultAds from '../../data/defaultAds';
 
 export default function DetailsChoosing() {
 
@@ -102,7 +102,9 @@ export default function DetailsChoosing() {
     };
 
     function addPhoto(e) {
+        
         dispatch(addImages(pictures))
+        
     }
 
     return (
@@ -253,17 +255,13 @@ export default function DetailsChoosing() {
                 <div className="sixthRow">
                     <div className="moreInfoNewAd">
                         <p><strong>Допълнителна информация</strong></p>
-                        <textarea name="moreInfo" id="" cols="30" rows="5"></textarea>
+                        <textarea name="moreInfo" onInput={addParams} id="moreInfo" cols="30" rows="5"></textarea>
                     </div>
                     <div className="contactsNewAd">
                         <p><strong className="moreInfoText">Данни за връзка</strong></p>
                         <div className="phoneNewAd">
                             <label htmlFor="phone">Мобилен телефон :</label>
-                            <input required className="phoneInput" type="number" />
-                        </div>
-                        <div className="emailNewAd">
-                            <label htmlFor="email">Електронна поща :</label>
-                            <input required className="phoneInput" type="email" />
+                            <input required name="contacts" onInput={addParams} className="phoneInput" type="number" />
                         </div>
                     </div>
                 </div>
@@ -277,14 +275,12 @@ export default function DetailsChoosing() {
                         {pictures?.map(pic => (
                             <img className="newImageUpload" alt='' key={pic.url} src={pic.url} />
                         ))}
-                        <button onClick={addPhoto}>Добави снимките</button>
+                        <button type='button' onClick={addPhoto}>Добави снимките</button>
                     </div>
                 </div>
 
                 <div className="publicBtnAddNew">
-                    {/* <Link to="/add-pictures"> */}
                     <button type='submit' className="publicNewAd"><strong>Продължи</strong></button>
-                    {/* </Link> */}
                     <p className="nextStepInfo">*Полетата със * са задължителни</p>
                     <p className="nextStepInfo">*На следаващата стъпка ще можете да добавите снимки</p>
                 </div>

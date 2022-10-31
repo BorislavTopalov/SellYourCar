@@ -24,6 +24,7 @@ export default function HomeSearchTable(props) {
     const filters = useSelector(state => state.filters);
     const options = useSelector(state => state.options);
     const dispatch = useDispatch();
+    
     function func1(e) {
         dispatch(handleMainCategory(e.target.value))
     }

@@ -52,7 +52,6 @@ export const activeUserSlice = createSlice({
     },
 })
 
-// Action creators are generated for each case reducer function
 export const { login, logout, addToFavourites, removeFromFavourites, addNewActiveAd, changePassword, changeEmailA, deleteAcc } = activeUserSlice.actions
 
 export default activeUserSlice.reducer

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    // newAds: {
     mainCategory: "Автомобили и Джипове",
     make: "Всички",
     model: "Всички",
@@ -17,9 +16,11 @@ const initialState = {
     transmission: "Всички",
     power: 0,
     extras: [],
+    moreInfo: "",
+    autoData: "https://autodata24.com",
+    contacts: "",
     image: [],
     id: null
-    // },
 }
 
 const newAdsSlice = createSlice({
@@ -44,7 +45,6 @@ const newAdsSlice = createSlice({
                 payload.forEach(img => {
                     state.image.push(img.url)
                 })
-                console.log(payload);
             }
         },
         resetParams(state) {
@@ -63,6 +63,8 @@ const newAdsSlice = createSlice({
             state.transmission = "Всички"
             state.power = 0;
             state.extras = [];
+            state.moreInfo = "";
+            state.contacts = "";
             state.image = [];
             state.id = null;
         }
