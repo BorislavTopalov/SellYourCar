@@ -8,14 +8,13 @@ export default function ProfilePage() {
 
     let activeAds = [];
     const activeUser = useSelector(state => state.activeUser)
-    let navigate = useNavigate()
+    let navigate = useNavigate()    
 
     if (JSON.parse(localStorage.getItem('mobile-active-user')).email) {
         activeAds = JSON.parse(localStorage.getItem('mobile-active-user')).active.slice();
     } else {
         return false
-    }
-
+    }  
 
     return (
         <div className="profilePageContent">
@@ -36,7 +35,7 @@ export default function ProfilePage() {
                 <NavLink to="/inactive-ads"><Button><strong>Неактивни обяви</strong></Button></NavLink>
             </div>
             <div>
-                {activeUser.active.map((item) =>
+                {activeAds.map((item) =>
                     <ActiveAdsCard
                         goToAd={() => {
                             navigate(`/all-results/${item.id}`);
@@ -74,6 +73,7 @@ export default function ProfilePage() {
                 )}
             </div>
             <div className="lineUnderButtonsOfProfilPage"></div>
+        
         </div>
     )
 }

@@ -66,29 +66,30 @@ export default function RegionAndTownOptions() {
             ]
 
         },
+        
         {
-            value: "Пловдив",
-            label: "Пловдив",
+            value: "Смолян",
+            label: "Смолян",
             town: [
                 {
                     value: "Всички",
                     label: "Всички"
                 },
                 {
-                    value: "гр.Пловдив",
-                    label: "гр.Пловдив"
+                    value: "гр.Доспат",
+                    label: "гр.Доспат"
                 },
                 {
-                    value: "гр.Калофер",
-                    label: "гр.Калофер"
+                    value: "гр.Смолян",
+                    label: "гр.Смолян"
                 },
                 {
-                    value: "гр.Карлово",
-                    label: "гр.Карлово"
+                    value: "гр.Девин",
+                    label: "гр.Девин"
                 },
                 {
-                    value: "с.Васил Левски",
-                    label: "с.Васил Левски"
+                    value: "с.Смилян",
+                    label: "с.Смилян"
                 },
             ]
 

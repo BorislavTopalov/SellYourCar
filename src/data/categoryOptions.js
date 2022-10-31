@@ -44,7 +44,7 @@ export default function CategoryOptions() {
                         { value: "C-Crosser", label: "C-Crosser" },
                         { value: "C3", label: "C3" },
                         { value: "C5", label: "C5" },
-                        { value: "C6", label: "C6" },                       
+                        { value: "C6", label: "C6" },
                     ]
                 },
                 {
@@ -83,7 +83,7 @@ export default function CategoryOptions() {
                         { value: "Astra", label: "Astra" },
                         { value: "Corsa", label: "Corsa" },
                         { value: "Insignia", label: "Insignia" },
-                        { value: "Zafira", label: "Zafira" },                       
+                        { value: "Zafira", label: "Zafira" },
                     ]
                 },
                 {
@@ -95,7 +95,7 @@ export default function CategoryOptions() {
                         { value: "208", label: "208" },
                         { value: "508", label: "508" },
                         { value: "1009", label: "1009" },
-                        { value: "Bipper", label: "Bipper" },                       
+                        { value: "Bipper", label: "Bipper" },
                     ]
                 },
                 {
@@ -107,7 +107,7 @@ export default function CategoryOptions() {
                         { value: "Clio", label: "Clio" },
                         { value: "Kangoo", label: "Kangoo" },
                         { value: "Megane", label: "Megane" },
-                        { value: "Laguna", label: "Laguna" },                       
+                        { value: "Laguna", label: "Laguna" },
                     ]
                 },
                 {
@@ -146,6 +146,33 @@ export default function CategoryOptions() {
                         { value: "Transporter", label: "Transporter" },
                         { value: "T2", label: "T2" }
                     ]
+                },
+                {
+                    value: "Peugeot",
+                    label: "Peugeot",
+                    model: [
+                        { value: "Всички", label: "Всички" },
+                        { value: "Boxer", label: "Boxer" },
+                        { value: "Expert", label: "Expert" }
+                    ]
+                },
+                {
+                    value: "Citroen",
+                    label: "Citroen",
+                    model: [
+                        { value: "Всички", label: "Всички" },
+                        { value: "Jumper", label: "Jumper" },
+                        { value: "Jumpy", label: "Jumpy" }
+                    ]
+                },
+                {
+                    value: "Fiat",
+                    label: "Fiat",
+                    model: [
+                        { value: "Всички", label: "Всички" },
+                        { value: "Ducato", label: "Ducato" },
+                        { value: "Fiorino", label: "Fiorino" }
+                    ]
                 }
             ]
         },
@@ -168,7 +195,8 @@ export default function CategoryOptions() {
                     model: [
                         { value: "Всички", label: "Всички" },
                         { value: "F 10", label: "F 10" },
-                        { value: "F 12", label: "F 12" }
+                        { value: "F 12", label: "F 12" },
+                        { value: "FH", label: "FH" },
                     ]
                 }
             ]
@@ -183,6 +211,7 @@ export default function CategoryOptions() {
                     model: [
                         { value: "Всички", label: "Всички" },
                         { value: "Diavel", label: "Diavel" },
+                        { value: "Monster", label: "Monster" },
                         { value: "Panigale", label: "Panigale" }
                     ]
                 },
@@ -294,7 +323,7 @@ export default function CategoryOptions() {
                 }
             ]
         },
-        
+
     ];
 
     return ({ categorieOptions });
