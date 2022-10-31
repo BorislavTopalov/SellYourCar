@@ -62,6 +62,8 @@ export default function ShowFavAds() {
                     key={item.id}
                     isLiked={isLiked(item)}
                     isThereActiveU={activeUser.email}
+                    activeUser = {activeUser}
+                    id = {item.id}
                 />)
                 :
                 <div className="noAds">Нямате обяви във Вашия бележник</div>

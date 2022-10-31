@@ -68,6 +68,8 @@ export default function DetailedPage() {
                             key={item.id}
                             isLiked={isLiked(item)}
                             isThereActiveU={activeUser.email}
+                            activeUser = {activeUser}
+                            id = {item.id}
                         />
                     )
             }

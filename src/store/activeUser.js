@@ -36,6 +36,14 @@ export const activeUserSlice = createSlice({
                 state.active.unshift(action.payload);
             }
         },
+        moveToInactive: (state, {payload}) => {
+            state.active.splice(state.active.indexOf(payload), 1);
+            state.inactive.unshift(payload);
+        },
+        moveToActive: (state, {payload}) => {
+            state.inactive.splice(state.active.indexOf(payload), 1);
+            state.active.unshift(payload);
+        },
         changePassword: (state, { payload }) => {
             state.password = payload.password;
         },
