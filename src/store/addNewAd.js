@@ -36,7 +36,17 @@ const newAdsSlice = createSlice({
                 state.extras.push(payload)
             }
         },
-        resetParams(state){
+        addImages(state, { payload }) {
+            if (state.image.length > 5) {
+                state.image.splice(4, 1, payload)
+            } else {
+                payload.forEach(img => {
+                    state.image.push(img.url)
+                })
+                console.log(payload);
+            }
+        },
+        resetParams(state) {
             state.mainCategory = "Автомобили и Джипове";
             state.make = "Всички";
             state.model = "Всички";
@@ -57,5 +67,5 @@ const newAdsSlice = createSlice({
     }
 })
 
-export const { addParameter, addExtraParameter, resetParams } = newAdsSlice.actions;
+export const { addParameter, addExtraParameter, addImages, resetParams } = newAdsSlice.actions;
 export default newAdsSlice.reducer;

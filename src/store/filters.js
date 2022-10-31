@@ -12,6 +12,7 @@ const initialState = {
     euroStandart: "Всички",
     color: "Всички цветове",
     maxMillage: "Без значение",
+    vehicleCategory: "",
     region: "Всички",
     town: "Всички",
     engine: "Всички",
@@ -49,6 +50,7 @@ const filtersSlice = createSlice({
             state.euroStandart = "Всички";
             state.color = "Всички цветове";
             state.maxMillage = "Без значение";
+            state.vehicleCategory = "";
             state.region = "Всички";
             state.town = "Всички";
             state.engine = "Всички";

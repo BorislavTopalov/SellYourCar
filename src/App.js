@@ -1,17 +1,17 @@
 import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LogoLink from './headerContent/logo/logo';
-import LoginLink from './headerContent/loginLink/loginLink';
-import Registerlink from './headerContent/registerLink/registerlink';
-import EditAd from './headerContent/editAd/editAdBtn';
-import AddNewAd from './headerContent/addNewAd/addNewAd';
+import LogoLink from './components/headerContent/logo/logo';
+import LoginLink from './components/headerContent/loginLink/loginLink';
+import Registerlink from './components/headerContent/registerLink/registerlink';
+import EditAd from './components/headerContent/editAd/editAdBtn';
+import AddNewAd from './components/headerContent/addNewAd/addNewAd';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ButtonGroupLink from './headerContent/buttonsGroupLinks/buttonsGroupLinks';
+import ButtonGroupLink from './components/headerContent/buttonsGroupLinks/buttonsGroupLinks';
 import Login from './pages/loginAndRegister/Login'
 import Register from "./pages/loginAndRegister/Register";
 import { useEffect } from 'react';
-import FooterCategoriesLinks from './footerContent/footerLinksCategory/footerCategoriesLinks';
-import FooterHelpLinks from './footerContent/footerContacts/footerContactsContent';
+import FooterCategoriesLinks from './components/footerContent/footerLinksCategory/footerCategoriesLinks';
+import FooterHelpLinks from './components/footerContent/footerContacts/footerContactsContent';
 import Logout from './components/Logout';
 import GeneralTerms from './pages/generalTerms/generalTerms';
 import CategoryIcons from './pages/homeContent/homeIconsCategory/categoryIcons';
@@ -20,7 +20,6 @@ import AdvertisementTariffs from './pages/advertisementTariffs/advertisementTari
 import Help from './pages/help/help';
 import DetailedSearch from './pages/detailedSearch/DetailedSearch';
 import DetailsChoosing from './pages/addNewAd/detailsChoosing/detailsChoosing';
-import AddPhotoNewAd from './pages/addNewAd/addPhoto/addPhotoNewAd';
 import ProfilePage from './pages/profilPage/profilPageWithActiveAds/profilePageContent';
 import InactiveAdsPage from './pages/profilPage/inactiveAdsPage/inactiveAdsPage';
 import SettingsPage from './pages/profilPage/settignsPage/settingsPage';
@@ -109,7 +108,6 @@ function App() {
             <Route path='favorite-ads' element={<FavroriteAdsPage />} />
             <Route path='settings' element={<SettingsPage />} />
             <Route path='add-new' element={<DetailsChoosing />} />
-            <Route path='add-pictures' element={<AddPhotoNewAd />} />
             <Route path='detail-searching' element={<DetailedSearch />} />
             <Route path='all-results' element={<ShowAllAds />} />
             <Route path="all-results/:id" element={<DetailedPage />} />

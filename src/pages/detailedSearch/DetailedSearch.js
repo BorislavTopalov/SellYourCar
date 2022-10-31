@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFilter, reset, addExtra } from "../../store/filters";
 import { filter } from "../../store/filterredAds";
 import { useEffect, useState } from "react";
+import VehicleCategories from "../../data/vehicleCategories";
 
 const DetailedSearch = () => {
 
@@ -92,8 +93,6 @@ const DetailedSearch = () => {
                             <label className="conditionLabel" htmlFor="vehicle1">Ново</label>
                             <input className="conditionCheckbox" type="checkbox" id="condition2" name="condition2" value="used" />
                             <label className="conditionLabel" htmlFor="vehicle2">Употребяван</label>
-                            <input className="conditionCheckbox" type="checkbox" id="condition3" name="condition3" value="parts" />
-                            <label className="conditionLabel" htmlFor="vehicle3">За части</label>
                         </div>
 
                         <Link to="/all-results"><button className="searchBtnDetailedSearch"><strong>Търси</strong></button></Link>
@@ -160,6 +159,10 @@ const DetailedSearch = () => {
                     <div className="euroDetailedSearch">
                         <p><strong>Евростандарт</strong></p>
                         <Select onChange={addFilters} name="euroStandart" id="euroStandart" options={EuroStandartOptions().euroStandart} />
+                    </div>
+                    <div className="vehicleCategoryAddNew">
+                        <p><strong>Категория</strong></p>
+                        <Select className="vahicleSelectCatAddNew" name="vehicleCategory" id="Ктегория" onChange={addFilters} options={VehicleCategories().vehicleCategories} />
                     </div>
                 </div>
 

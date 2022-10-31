@@ -18,9 +18,9 @@ import InteriorOptions from "../../../data/interiorOptions";
 import VehicleCategories from "../../../data/vehicleCategories";
 import { handleChangeRegion, handleMainCategory, handleMakeCategory } from "../../../store/options";
 import { useDispatch, useSelector } from "react-redux";
-import { addExtraParameter, addParameter, resetParams } from '../../../store/addNewAd';
+import { addExtraParameter, addImages, addParameter, resetParams } from '../../../store/addNewAd';
 import { addNewAd } from '../../../store/addedAds';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { addNewActiveAd } from '../../../store/activeUser';
 import DefaultAds from '../../../data/defaultAds';
 
@@ -31,6 +31,8 @@ export default function DetailsChoosing() {
     const navigate = useNavigate();
     const options = useSelector(state => state.options);
     const dispatch = useDispatch();
+    const [pictures, setPictures] = useState([{ url: "" }]);
+
     function func1(e) {
         dispatch(handleMainCategory(e.target.value))
     }
@@ -46,7 +48,7 @@ export default function DetailsChoosing() {
         dispatch(addNewAd(newAds))
         dispatch(addNewActiveAd(newAds))
         console.log(newAds);
-        navigate("/add-pictures");
+        navigate("/profile");
     }
 
     function addParams(e) {
@@ -63,10 +65,30 @@ export default function DetailsChoosing() {
     }
 
     useEffect(() => {
-        if (location.pathname !== "/add-pictures") {
+        if (location.pathname !== "/profile") {
             dispatch(resetParams());
         }
     }, [location.pathname, dispatch]);
+
+
+    const tempArr = [];
+
+    const handleImageUpload = e => {
+
+        [...e.target.files].forEach(file => {
+            tempArr.push({
+
+                url: URL.createObjectURL(file)
+            });
+        });
+
+        setPictures(tempArr);
+
+    };
+    console.log(pictures);
+    const addNewImages = (e) => {
+        dispatch(addImages(pictures))
+    }
 
     return (
         <div className="newAddContainer">
@@ -78,7 +100,7 @@ export default function DetailsChoosing() {
             <form onSubmit={(e) => {
                 dispatch(addParameter({
                     name: "id",
-                    value: (JSON.parse(localStorage.getItem('mobile-added-ads')) ?
+                    value: (JSON.parse(localStorage.getItem('mobile-added-ads')).length > 0 ?
                         [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...DefaultAds().defaultAds] :
                         DefaultAds().defaultAds).length + 1
                 }));
@@ -118,8 +140,6 @@ export default function DetailsChoosing() {
                         <label className="conditionLabelAddNew" htmlFor="vehicle1">Ново</label>
                         <input className="conditionCheckboxAddNew" type="checkbox" id="condition2" name="condition2" value="used" />
                         <label className="conditionLabelAddNew" htmlFor="vehicle2">Употребяван</label>
-                        <input className="conditionCheckboxAddNew" type="checkbox" id="condition3" name="condition3" value="parts" />
-                        <label className="conditionLabelAddNew" htmlFor="vehicle3">За части</label>
                     </div>
                 </div>
                 <div className="thirdRowAddNew">
@@ -230,13 +250,27 @@ export default function DetailsChoosing() {
                             <input required className="phoneInput" type="email" />
                         </div>
                     </div>
-                    <div className="publicBtnAddNew">
-                        {/* <Link to="/add-pictures"> */}
-                        <button type='submit' className="publicNewAd"><strong>Продължи</strong></button>
-                        {/* </Link> */}
-                        <p className="nextStepInfo">*Полетата със * са задължителни</p>
-                        <p className="nextStepInfo">*На следаващата стъпка ще можете да добавите снимки</p>
+                </div>
+                <div className='addPhotoContainer'>
+                    <p><strong>Добавяне на снимки</strong></p>
+                    <div className="addNewPhotoInNewAd">
+                        <input type="file" multiple
+                            onChange={handleImageUpload}
+                            accept="image/*"
+                        />
+                        {pictures?.map(pic => (
+                            <img className="newImageUpload" key={pic.url} src={pic.url} />
+                        ))}
+
                     </div>
+                </div>
+
+                <div className="publicBtnAddNew">
+                    {/* <Link to="/add-pictures"> */}
+                    <button type='submit' className="publicNewAd"><strong>Продължи</strong></button>
+                    {/* </Link> */}
+                    <p className="nextStepInfo">*Полетата със * са задължителни</p>
+                    <p className="nextStepInfo">*На следаващата стъпка ще можете да добавите снимки</p>
                 </div>
             </form>
 

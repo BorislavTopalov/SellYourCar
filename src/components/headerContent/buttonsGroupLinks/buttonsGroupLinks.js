@@ -4,9 +4,9 @@ import { NavLink, useLocation } from "react-router-dom";
 import logoRent from "../buttonsGroupLinks/logoRent.png";
 import "./logoRent.scss";
 import { useDispatch, useSelector } from "react-redux";
-import CategoryOptions from "../../data/categoryOptions";
+import CategoryOptions from "../../../data/categoryOptions";
 import { useEffect } from "react";
-import { reset } from "../../store/filters";
+import { reset } from "../../../store/filters";
 
 export default function ButtonGroupLink() {
 
@@ -15,7 +15,7 @@ export default function ButtonGroupLink() {
     let dispatch = useDispatch();
 
     useEffect(() => {
-        if (location.pathname === `/home/${CategoryOptions().categorieOptions[0].value}`) {
+        if (location.pathname !== `/home/${CategoryOptions().categorieOptions[0].value}`) {
             dispatch(reset());
         }
     }, [location.pathname, dispatch]);

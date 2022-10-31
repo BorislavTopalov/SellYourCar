@@ -6,13 +6,10 @@ export default function FooterLinks() {
         "Камиони",
         "Мотоциклети",
         "Селскостопански",
-        "Велосипеди",
         "Каравани",
         "Яхти и лодки",
         "Продавам",
-        "Части и аксесоари"
-        
     ];
 
-    return ({footerLinks});
+    return ({ footerLinks });
 }

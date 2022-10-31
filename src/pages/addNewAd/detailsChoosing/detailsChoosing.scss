@@ -141,7 +141,14 @@
 }
 
 .publicBtnAddNew {
-    margin: 105px 20px 0;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    button {
+        width: 300px;
+    }
 }
 
 .publicNewAd {
@@ -219,4 +226,24 @@
 .checkboxForm {
     display: flex;
     flex-direction: column;
+}
+
+.addPhotoNewAdContent {
+    margin-top: 20px;
+}
+
+.addNewPhotoInNewAd {
+    border: #0099ff 1px solid;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.newImageUpload {
+    width: 50px;
+}
+
+.addPhotoContainer {
+    margin: 10px;
 }
