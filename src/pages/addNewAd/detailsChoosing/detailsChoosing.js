@@ -22,6 +22,7 @@ import { addExtraParameter, addParameter, resetParams } from '../../../store/add
 import { addNewAd } from '../../../store/addedAds';
 import { useEffect } from 'react';
 import { addToFavourites } from '../../../store/activeUser';
+import DefaultAds from '../../../data/defaultAds';
 
 export default function DetailsChoosing() {
 
@@ -42,6 +43,7 @@ export default function DetailsChoosing() {
 
     function handleAddNew(e) {
         e.preventDefault();
+
         dispatch(addNewAd(newAds))
         dispatch(addToFavourites(newAds))
         console.log(newAds);
@@ -55,7 +57,10 @@ export default function DetailsChoosing() {
         }))
     }
     function addExtraParams(e) {
-        dispatch(addExtraParameter(e.target.value))
+        dispatch(addExtraParameter({
+            id: e.target.value,
+            label: e.target.name
+        }))
     }
 
     useEffect(() => {
@@ -71,7 +76,15 @@ export default function DetailsChoosing() {
                     Въвеждане на описанието за <span>{options.mainCategory}</span>
                 </strong>
             </span>
-            <form onSubmit={handleAddNew} className="AddNewAdTable">
+            <form onSubmit={(e) => {
+                dispatch(addParameter({
+                    name: "id",
+                    value: (JSON.parse(localStorage.getItem('mobile-added-ads')) ?
+                        [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...DefaultAds().defaultAds] :
+                        DefaultAds().defaultAds).length + 1
+                }));
+                handleAddNew(e) 
+            }} className="AddNewAdTable">
                 <div className="firstRowAddNew">
                     <p><strong>Основна категория *</strong></p>
                     <Select required selectedOption={options.selectedOption} onChange={e => { func1(e); addParams(e) }} name="mainCategory" id="Овновна категория" options={CategoryOptions().categorieOptions} />
@@ -139,7 +152,7 @@ export default function DetailsChoosing() {
                     <div className="priceAddNew">
                         <p><strong>Цена *</strong></p>
                         <input name='price' onInput={addParams} required className="priceInputAddNew" type="number" />
-                        <select onChange={addParams} required className="currencySelectAddNew" id="selectInSearch">
+                        <select onChange={addParams} name="currency" required className="currencySelectAddNew" id="selectInSearch">
                             <option value="BGN">лв.</option>
                             <option value="EUR">EUR</option>
                             <option value="USD">USD</option>
@@ -161,7 +174,7 @@ export default function DetailsChoosing() {
                         <p>
                             <strong>Регион *</strong>
                         </p>
-                        <Select required className="regionSelectAddNew" onChange={(e) => {func2(e); addParams(e)}} name="region" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
+                        <Select required className="regionSelectAddNew" onChange={(e) => { func2(e); addParams(e) }} name="region" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
                     </div>
                     <div className="townAddNew">
                         <p>
