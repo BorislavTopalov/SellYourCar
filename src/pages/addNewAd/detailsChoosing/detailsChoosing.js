@@ -52,7 +52,7 @@ export default function DetailsChoosing() {
             console.log(newAds);
             navigate("/profile");
             dispatch(resetParams());
-        } else{
+        } else {
             console.log("ne trqbva da dobavq");
         }
     }, [newAds.id])
@@ -88,7 +88,7 @@ export default function DetailsChoosing() {
 
     const tempArr = [];
 
-    const handleImageUpload = e => {
+    function handleImageUpload(e) {
 
         [...e.target.files].forEach(file => {
             tempArr.push({
@@ -100,8 +100,8 @@ export default function DetailsChoosing() {
         setPictures(tempArr);
 
     };
-    console.log(pictures);
-    const addNewImages = (e) => {
+
+    function addPhoto(e) {
         dispatch(addImages(pictures))
     }
 
@@ -275,9 +275,9 @@ export default function DetailsChoosing() {
                             accept="image/*"
                         />
                         {pictures?.map(pic => (
-                            <img className="newImageUpload" key={pic.url} src={pic.url} />
+                            <img className="newImageUpload" alt='' key={pic.url} src={pic.url} />
                         ))}
-
+                        <button onClick={addPhoto}>Добави снимките</button>
                     </div>
                 </div>
 
