@@ -1,14 +1,25 @@
 import Button from "react-bootstrap/Button";
 import "./buttonsGroupLinks.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import logoRent from "../buttonsGroupLinks/logoRent.png";
 import "./logoRent.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CategoryOptions from "../../data/categoryOptions";
+import { useEffect } from "react";
+import { reset } from "../../store/filters";
 
 export default function ButtonGroupLink() {
 
     const activeUser = useSelector(state => state.activeUser);
+    let location = useLocation();
+    let dispatch = useDispatch();
+
+    useEffect(() => {
+        if (location.pathname === `/home/${CategoryOptions().categorieOptions[0].value}`) {
+            dispatch(reset());
+        }
+    }, [location.pathname, dispatch]);
+
     return (
         <div className="headerContentDown">
             <div>

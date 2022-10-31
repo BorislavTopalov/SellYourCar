@@ -49,7 +49,7 @@ export default function ShowAllAds({ data }) {
                 <Link to="/home" className="backToHome">Начало</Link>
             </div>
             {currentRecords.length > 0 ?
-                currentRecords.map(item =>
+                currentRecords.map((item) =>
                     <Card
                         goToAd={() => {
                             navigate(`/all-results/${item.id}`);
@@ -78,7 +78,7 @@ export default function ShowAllAds({ data }) {
                             dispatch(removeFromFavourites(item));
 
                         }}
-                        key={item.id}
+                        key={item.id ? item.id : item.price}
                         isLiked={isLiked(item)}
                         isThereActiveU={activeUser.email}
                     />)

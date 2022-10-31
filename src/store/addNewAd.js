@@ -18,7 +18,7 @@ const initialState = {
     power: 0,
     extras: [],
     image: [],
-    // id: 0
+    id: null
     // },
 }
 
@@ -54,6 +54,7 @@ const newAdsSlice = createSlice({
             state.power = 0;
             state.extras = [];
             state.image = [];
+            state.id = null;
         }
     }
 })

@@ -21,7 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addExtraParameter, addParameter, resetParams } from '../../../store/addNewAd';
 import { addNewAd } from '../../../store/addedAds';
 import { useEffect } from 'react';
-import { addToFavourites } from '../../../store/activeUser';
+import { addNewActiveAd } from '../../../store/activeUser';
 import DefaultAds from '../../../data/defaultAds';
 
 export default function DetailsChoosing() {
@@ -41,14 +41,28 @@ export default function DetailsChoosing() {
         dispatch(handleMakeCategory(e.target.value))
     }
 
-    function handleAddNew(e) {
-        e.preventDefault();
 
-        dispatch(addNewAd(newAds))
-        dispatch(addToFavourites(newAds))
-        console.log(newAds);
-        navigate("/add-pictures");
-    }
+    useEffect(() => {
+        if (newAds.id) {
+            dispatch(addNewAd(newAds))
+            dispatch(addNewActiveAd(newAds))
+            console.log("dobavi se slednata obqva:");
+            console.log(newAds);
+            navigate("/add-pictures");
+            dispatch(resetParams());
+        } else{
+            console.log("ne trqbva da dobavq");
+        }
+    }, [newAds.id])
+
+
+    // function handleAddNew(e) {
+    //     e.preventDefault();
+    //     dispatch(addNewAd(newAds))
+    //     dispatch(addNewActiveAd(newAds))
+    //     console.log(newAds);
+    //     navigate("/add-pictures");
+    // }
 
     function addParams(e) {
         dispatch(addParameter({
@@ -77,13 +91,14 @@ export default function DetailsChoosing() {
                 </strong>
             </span>
             <form onSubmit={(e) => {
+                e.preventDefault();
                 dispatch(addParameter({
                     name: "id",
-                    value: (JSON.parse(localStorage.getItem('mobile-added-ads')) ?
-                        [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...DefaultAds().defaultAds] :
+                    value: (JSON.parse(localStorage.getItem('mobile-added-ads')).length > 0 ?
+                        [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...(DefaultAds().defaultAds)] :
                         DefaultAds().defaultAds).length + 1
                 }));
-                handleAddNew(e) 
+                // handleAddNew(e)
             }} className="AddNewAdTable">
                 <div className="firstRowAddNew">
                     <p><strong>Основна категория *</strong></p>

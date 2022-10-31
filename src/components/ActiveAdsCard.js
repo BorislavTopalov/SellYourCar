@@ -1,5 +1,4 @@
-export default function Card(props) {
-
+export default function ActiveAdsCard(props) {
 
     return (
 
@@ -8,8 +7,8 @@ export default function Card(props) {
                 <img src={props.src} alt="" className="cardImg" onClick={props.goToAd} />
                 <div className="buttonsCardAllResultPage">
                     {props.isThereActiveU && (props.isLiked ?
-                        <span><button className="btnCardRemoveFromFav" onClick={props.onClick2}>Премахни от бележника</button></span> :
-                        <span><button className="btnCardAddToFav" onClick={props.onClick}>Добави в бележника</button></span>)}
+                        <span><button className="btnCardRemoveFromFav" onClick={props.onClick2}>Активирай</button></span> :
+                        <span><button className="btnCardAddToFav" onClick={props.onClick}>Деактивирай</button></span>)}
                 </div>
             </div>
             <div className="infoCardAllResultPage" onClick={props.goToAd}>
