@@ -17,7 +17,8 @@ const initialState = {
     transmission: "Всички",
     power: 0,
     extras: [],
-    image: []
+    image: [],
+    id: null
     // },
 }
 
@@ -63,6 +64,7 @@ const newAdsSlice = createSlice({
             state.power = 0;
             state.extras = [];
             state.image = [];
+            state.id = null;
         }
     }
 })

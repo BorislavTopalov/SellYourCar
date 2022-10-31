@@ -43,13 +43,28 @@ export default function DetailsChoosing() {
         dispatch(handleMakeCategory(e.target.value))
     }
 
-    function handleAddNew(e) {
-        e.preventDefault();
-        dispatch(addNewAd(newAds))
-        dispatch(addNewActiveAd(newAds))
-        console.log(newAds);
-        navigate("/profile");
-    }
+
+    useEffect(() => {
+        if (newAds.id) {
+            dispatch(addNewAd(newAds))
+            dispatch(addNewActiveAd(newAds))
+            console.log("dobavi se slednata obqva:");
+            console.log(newAds);
+            navigate("/profile");
+            dispatch(resetParams());
+        } else{
+            console.log("ne trqbva da dobavq");
+        }
+    }, [newAds.id])
+
+
+    // function handleAddNew(e) {
+    //     e.preventDefault();
+    //     dispatch(addNewAd(newAds))
+    //     dispatch(addNewActiveAd(newAds))
+    //     console.log(newAds);
+    //     navigate("/add-pictures");
+    // }
 
     function addParams(e) {
         dispatch(addParameter({
@@ -98,13 +113,14 @@ export default function DetailsChoosing() {
                 </strong>
             </span>
             <form onSubmit={(e) => {
+                e.preventDefault();
                 dispatch(addParameter({
                     name: "id",
                     value: (JSON.parse(localStorage.getItem('mobile-added-ads')).length > 0 ?
-                        [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...DefaultAds().defaultAds] :
+                        [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...(DefaultAds().defaultAds)] :
                         DefaultAds().defaultAds).length + 1
                 }));
-                handleAddNew(e)
+                // handleAddNew(e)
             }} className="AddNewAdTable">
                 <div className="firstRowAddNew">
                     <p><strong>Основна категория *</strong></p>
@@ -171,7 +187,7 @@ export default function DetailsChoosing() {
                     <div className="priceAddNew">
                         <p><strong>Цена *</strong></p>
                         <input name='price' onInput={addParams} required className="priceInputAddNew" type="number" />
-                        <select name="currency" onChange={addParams} required className="currencySelectAddNew" id="selectInSearch">
+                        <select onChange={addParams} name="currency" required className="currencySelectAddNew" id="selectInSearch">
                             <option value="BGN">лв.</option>
                             <option value="EUR">EUR</option>
                             <option value="USD">USD</option>
