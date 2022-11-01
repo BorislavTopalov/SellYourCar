@@ -11,14 +11,23 @@ export default function DetailedCard(props) {
             <div className="buttonsDetailedPage">
                 <Link to="/all-results" className="backToResults">Назад към резултатите</Link>
                 <div className="buttonsCardAllResultPage">
-                    {props.isThereActiveU && props.activeUser.active.some(e => e.id == props.id) ?
+                {props.isThereActiveU ? 
+                     props.activeUser.active.some(e => e.id === props.id) ?
+                         <div></div> :
+                         props.activeUser.inactive.some(e => e.id === props.id) ?
+                         <div></div> :
+                             (props.isLiked ?
+                                 <span><button className="btnDetailCardRemoveFromFav" onClick={props.onClick2}>Премахни от бележника</button></span> :
+                                 <span><button className="btnDetailCardAddToFav" onClick={props.onClick}>Добави в бележника</button></span>) :
+                                null}
+                    {/* {props.isThereActiveU && props.activeUser.active.some(e => e.id == props.id) ?
                         <span><button className="btnDetailCardRemoveFromFav">Премести в неактивни</button></span> :
                         props.activeUser.inactive.some(e => e.id == props.id) ?
                         <span><button className="btnDetailCardRemoveFromFav">Премести в активни</button></span> :
                             (props.isLiked ?
                                 <span><button className="btnDetailCardRemoveFromFav" onClick={props.onClick2}>Премахни от бележника</button></span> :
                                 <span><button className="btnDetailCardAddToFav" onClick={props.onClick}>Добави в бележника</button></span>)}
-                    <button className="btnDetailCardRemoveFromFav">Редактирай</button>
+                    <button className="btnDetailCardRemoveFromFav">Редактирай</button> */}
                 </div>
             </div>
             <div className="detailedCardContainer">

@@ -28,7 +28,7 @@ const filtersSlice = createSlice({
     initialState,
     reducers: {
         addFilter(state, { payload }) {
-            state[`${payload.name}`] = payload.value;
+            state[payload.name] = payload.value;
         },
         addExtra(state, { payload }) {
             if (state.extras.indexOf(payload) !== -1) {

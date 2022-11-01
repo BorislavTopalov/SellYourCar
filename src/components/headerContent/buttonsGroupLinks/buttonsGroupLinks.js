@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CategoryOptions from "../../../data/categoryOptions";
 import { useEffect } from "react";
 import { reset } from "../../../store/filters";
+import { changeSelectedOption } from "../../../store/options";
 
 export default function ButtonGroupLink() {
 
@@ -15,8 +16,9 @@ export default function ButtonGroupLink() {
     let dispatch = useDispatch();
 
     useEffect(() => {
-        if (location.pathname !== `/home/${CategoryOptions().categorieOptions[0].value}`) {
+        if (location.pathname === `/home/${CategoryOptions().categorieOptions[0].value}`) {
             dispatch(reset());
+            dispatch(changeSelectedOption(CategoryOptions().categorieOptions[0].value))
         }
     }, [location.pathname, dispatch]);
 

@@ -23,13 +23,18 @@ export const usersSlice = createSlice({
     changeFavourites: (state, { payload }) => {
       if(payload.index >=0){
         state[payload.index].favourites = payload.favourites;
-      }
-      
+      }      
     },
+    changeMyAds: (state, { payload }) => {
+      if(payload.index >=0){
+        state[payload.index].active = payload.active;
+        state[payload.index].inactive = payload.inactive;
+      }      
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { register, changePass, changeEmailU, deleteUser, changeFavourites } = usersSlice.actions
+export const { register, changePass, changeEmailU, deleteUser, changeFavourites, changeMyAds } = usersSlice.actions
 
 export default usersSlice.reducer

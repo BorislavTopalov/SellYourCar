@@ -7,12 +7,16 @@ export const addedAdsSlice = createSlice({
     name: 'addedAds',
     initialState,
     reducers: {
-        addNewAd(state, { payload }) {
-            state.unshift(payload)
+        addNewAd(state, action) {
+            console.log(action);
+            state.unshift(action.payload)
+        },
+        removeFromAdded(state, { payload }){
+            state.splice(state.indexOf(payload), 1);
         }
     },
 })
 
-export const { addNewAd } = addedAdsSlice.actions
+export const { addNewAd, removeFromAdded } = addedAdsSlice.actions
 
 export default addedAdsSlice.reducer

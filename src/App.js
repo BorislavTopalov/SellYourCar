@@ -30,6 +30,7 @@ import ShowAllAds from './pages/allResultsPage/allResultsContent';
 import Contacts from './pages/contacts/contacts';
 import DetailedPage from './pages/detailedPage/detailedPage';
 import { addFilter } from './store/filters';
+import {changeMyAds} from "./store/users";
 
 function App() {
 
@@ -51,6 +52,15 @@ function App() {
   // useEffect(() => {
   //   dispatch(addNewAd(newAds))
   // }, [newAds])
+
+  useEffect(() => {
+
+    dispatch(changeMyAds({
+        index: users.findIndex(user => user.email === activeUser.email),
+        active: activeUser.active,
+        inactive: activeUser.inactive
+    }))
+}, [activeUser, dispatch, users])
 
   useEffect(() => {
     localStorage.setItem("mobile-added-ads", JSON.stringify(addedAds));
@@ -76,7 +86,7 @@ function App() {
                 <LoginLink />  | <Registerlink />
               </div>}
             <div className='headerButtons'>
-              <EditAd />
+              {/* <EditAd /> */}
               <AddNewAd />
             </div>
           </div>

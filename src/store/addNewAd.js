@@ -43,7 +43,7 @@ const newAdsSlice = createSlice({
                 state.image.splice(4, 1, payload)
             } else {
                 payload.forEach(img => {
-                    state.image.push(img.url)
+                    state.image.push(img)
                 })
             }
         },

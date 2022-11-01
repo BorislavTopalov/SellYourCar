@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import Card from "../../components/Card";
-import { addToFavourites, removeFromFavourites } from "../../store/activeUser";
+import { addToFavourites, removeFromFavourites, moveToInactive, moveToActive } from "../../store/activeUser";
 import "./allResultsContent.scss";
 import { changeFavourites } from "../../store/users";
 import { useEffect, useState } from "react";
 import PaginationComp from "../../components/Pagination";
+import { addNewAd, removeFromAdded } from "../../store/addedAds";
 
 export default function ShowAllAds({ data }) {
 
@@ -42,12 +43,15 @@ export default function ShowAllAds({ data }) {
     const currentRecords = filterredAds.filterredAds.slice(indexOfFirstRecord, indexOfLastRecord);
     const nPages = Math.ceil(filterredAds.filterredAds.length / recordsPerPage);
 
-    // function moveToInactive(item){
-    //     dispatch(moveToInactive(item))
-    // }
-    // function moveToActive(item){
-    //     dispatch(moveToActive(item));
-    // }
+    function deactivateAd(item) {
+        dispatch(moveToInactive(item.id))
+        dispatch(removeFromAdded(item));
+      
+    }
+    function activateAd(item) {
+        dispatch(moveToActive(item.id));
+        dispatch(addNewAd(item));
+    }
 
     return (
         <span>
@@ -85,12 +89,12 @@ export default function ShowAllAds({ data }) {
                             dispatch(removeFromFavourites(item));
 
                         }}
-                        // moveToInactive = {() =>{
-                        //     moveToInactive(item);
-                        // } }
-                        // moveToActive = {() =>{
-                        //     moveToActive(item)
-                        // } }
+                        deactivationAd={() => {
+                           deactivateAd(item);
+                        }}
+                        activationAd={() => {
+                            activateAd(item)
+                        }}
                         key={item.id ? item.id : item.price}
                         isLiked={isLiked(item)}
                         isThereActiveU={activeUser.email}
