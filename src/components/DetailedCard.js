@@ -1,37 +1,26 @@
-import { Carousel, CarouselItem } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function DetailedCard(props) {
-
-    const activeUser = useSelector(state => state.activeUser);
 
     return (
         <div>
             <div className="buttonsDetailedPage">
                 <Link to="/all-results" className="backToResults">Назад към резултатите</Link>
                 <div className="buttonsCardAllResultPage">
-                {props.isThereActiveU ? 
-                     props.activeUser.active.some(e => e.id === props.id) ?
-                         <div></div> :
-                         props.activeUser.inactive.some(e => e.id === props.id) ?
-                         <div></div> :
-                             (props.isLiked ?
-                                 <span><button className="btnDetailCardRemoveFromFav" onClick={props.onClick2}>Премахни от бележника</button></span> :
-                                 <span><button className="btnDetailCardAddToFav" onClick={props.onClick}>Добави в бележника</button></span>) :
-                                null}
-                    {/* {props.isThereActiveU && props.activeUser.active.some(e => e.id == props.id) ?
-                        <span><button className="btnDetailCardRemoveFromFav">Премести в неактивни</button></span> :
-                        props.activeUser.inactive.some(e => e.id == props.id) ?
-                        <span><button className="btnDetailCardRemoveFromFav">Премести в активни</button></span> :
-                            (props.isLiked ?
-                                <span><button className="btnDetailCardRemoveFromFav" onClick={props.onClick2}>Премахни от бележника</button></span> :
-                                <span><button className="btnDetailCardAddToFav" onClick={props.onClick}>Добави в бележника</button></span>)}
-                    <button className="btnDetailCardRemoveFromFav">Редактирай</button> */}
+                    {props.isThereActiveU ?
+                        props.activeUser.active.some(e => e.id === props.id) ?
+                            <div></div> :
+                            props.activeUser.inactive.some(e => e.id === props.id) ?
+                                <div></div> :
+                                (props.isLiked ?
+                                    <span><button className="btnDetailCardRemoveFromFav" onClick={props.onClick2}>Премахни от бележника</button></span> :
+                                    <span><button className="btnDetailCardAddToFav" onClick={props.onClick}>Добави в бележника</button></span>) :
+                        null}
                 </div>
             </div>
             <div className="detailedCardContainer">
-                <a className="autodataLink" name="autoData" href={props.autoData} target="_blank">Техически характеристики и разход на гориво</a>
+                <a className="autodataLink" name="autoData" href={props.autoData} target="_blank" rel="noreferrer">Техически характеристики и разход на гориво</a>
                 <div className="makeAndModel">
                     <p className="makeDetailedCard"><strong>{props.make}</strong></p>
                     <p className="modelDetailedCard"><strong>{props.model}</strong></p>
@@ -39,7 +28,6 @@ export default function DetailedCard(props) {
                 <Carousel interval={null}>
                     {props.image}
                 </Carousel>
-                <div className="moreImages"></div>
                 <div className="allInfoDetailedCard">
                     <div className="makeAndModelAndPrice">
                         <div className="makeAndModel">

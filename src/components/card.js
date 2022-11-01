@@ -5,17 +5,19 @@ export default function Card(props) {
 
         <span className="cardContainer" >
             <div className="imgCardAllResultPage">
-                <img src={props.src} alt="" className="cardImg" onClick={props.goToAd} />
+                <div className="cardImgContainer">
+                    <img src={props.src} alt="" className="cardImg" onClick={props.goToAd} />
+                </div>
                 <div className="buttonsCardAllResultPage">
-                    {props.isThereActiveU ? 
-                     props.activeUser.active.some(e => e.id === props.id) ?
-                         <div></div> :
-                         props.activeUser.inactive.some(e => e.id === props.id) ?
-                         <div></div> :
-                             (props.isLiked ?
-                                 <span><button className="btnCardRemoveFromFav" onClick={props.onClick2}>Премахни от бележника</button></span> :
-                                 <span><button className="btnCardAddToFav" onClick={props.onClick}>Добави в бележника</button></span>) :
-                                null}
+                    {props.isThereActiveU ?
+                        props.activeUser.active.some(e => e.id === props.id) ?
+                            <div></div> :
+                            props.activeUser.inactive.some(e => e.id === props.id) ?
+                                <div></div> :
+                                (props.isLiked ?
+                                    <span><button className="btnCardRemoveFromFav" onClick={props.onClick2}>Премахни от бележника</button></span> :
+                                    <span><button className="btnCardAddToFav" onClick={props.onClick}>Добави в бележника</button></span>) :
+                        null}
                 </div>
             </div>
             <div className="infoCardAllResultPage" onClick={props.goToAd}>

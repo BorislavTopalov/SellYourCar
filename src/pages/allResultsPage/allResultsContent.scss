@@ -1,6 +1,10 @@
-.cardImg {
+.cardImgContainer {
     width: 150px;
     height: 90px;
+}
+
+.cardImg {
+    width: 100%;
 }
 
 .cardContainer {
@@ -60,6 +64,7 @@
     outline: inherit;
     text-decoration: underline;
     font-size: 13px;
+    margin-top: 15px;
 }
 
 .btnCardRemoveFromFav {
@@ -78,7 +83,6 @@
 .imgCardAllResultPage {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .pagination {

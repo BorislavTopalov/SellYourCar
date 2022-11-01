@@ -4,13 +4,15 @@ export default function ActiveAdsCard(props) {
 
         <span className="cardContainer" >
             <div className="imgCardAllResultPage">
-                <img src={props.src} alt="" className="cardImg" onClick={props.goToAd} />
+                <div className="cardImgContainer">
+                    <img src={props.src} alt="" className="cardImg" onClick={props.goToAd} />
+                </div>
                 <div className="buttonsCardAllResultPage">
-                    {props.isThereActiveU && props.activeUser.active.some(e => e.id == props.id) ?
+                    {props.isThereActiveU && props.activeUser.active.some(e => e.id === props.id) ?
                         <span><button onClick={props.deactivationAd} className="btnDetailCardRemoveFromFav">Премести в неактивни</button></span> :
-                        props.activeUser.inactive.some(e => e.id == props.id) &&
-                            <span><button onClick={props.activationAd} className="btnDetailCardRemoveFromFav">Премести в активни</button></span>}
-                           
+                        props.activeUser.inactive.some(e => e.id === props.id) &&
+                        <span><button onClick={props.activationAd} className="btnMyActiveAds">Премести в активни</button>
+                            <button onClick={props.deleteAd} className="btnMyActiveAds">Изтрий обявата</button></span>}
                 </div>
             </div>
             <div className="infoCardAllResultPage" onClick={props.goToAd}>
