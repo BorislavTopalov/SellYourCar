@@ -100,7 +100,7 @@ export default function DetailsChoosing() {
         dispatch(addImages(pictures))
 
     }
-    
+
     return (
         <div className="newAddContainer">
             <span className="categoriesOutlineAddNew">
@@ -115,8 +115,8 @@ export default function DetailsChoosing() {
                     dispatch(addParameter({
                         name: "id",
                         value: (JSON.parse(localStorage.getItem('mobile-added-ads')).length > 0 ?
-                            [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...(DefaultAds().defaultAds)] :
-                            DefaultAds().defaultAds).length + 1
+                        (JSON.parse(localStorage.getItem('mobile-added-ads')).reduce((a,b) => Math.max(a.id, b.id))).id + 1 :
+                        DefaultAds().defaultAds).length + 1
                     }));
                     dispatch(addParameter({
                         name: "isActive",

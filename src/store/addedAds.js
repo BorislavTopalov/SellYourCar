@@ -14,11 +14,14 @@ export const addedAdsSlice = createSlice({
             state[state.findIndex(e => e.id === payload.id)].isActive = false;
         },
         activate(state, { payload }) {
-            state[state.findIndex(e => e.id === payload.id)].isActive = true;
+            state[state.findIndex(e => e.id == payload.id)].isActive = true;
+        },
+        deleteAdFromAdded(state, { payload }) {
+            state.splice(state.findIndex(e => e.id == payload.id), 1);
         }
     },
 })
 
-export const { addNewAd, deactivate, activate } = addedAdsSlice.actions
+export const { addNewAd, deactivate, activate, deleteAdFromAdded } = addedAdsSlice.actions
 
 export default addedAdsSlice.reducer
