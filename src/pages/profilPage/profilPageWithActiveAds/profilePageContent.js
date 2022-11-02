@@ -4,27 +4,27 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import ActiveAdsCard from "../../../components/ActiveAdsCard";
 import "./profilePageContent.scss";
 import { moveToActive, moveToInactive } from "../../../store/activeUser";
-import { removeFromAdded, addNewAd } from "../../../store/addedAds";
+import { activate, deactivate } from "../../../store/addedAds";
 
 export default function ProfilePage() {
 
-    let activeAds = [];
+    // let activeAds = [];
     const activeUser = useSelector(state => state.activeUser)
     let navigate = useNavigate() 
     let dispatch = useDispatch()   
 
-    if (JSON.parse(localStorage.getItem('mobile-active-user')).email) {
-        activeAds = JSON.parse(localStorage.getItem('mobile-active-user')).active.slice();
-    } else {
-        return false
-    }  
+    // if (JSON.parse(localStorage.getItem('mobile-active-user')).email) {
+    //     activeAds = JSON.parse(localStorage.getItem('mobile-active-user')).active.slice();
+    // } else {
+    //     return false
+    // }  
     function deactivateAd(item) {
         dispatch(moveToInactive(item.id));
-        dispatch(removeFromAdded(item));
+        dispatch(deactivate(item));
     }
     function activateAd(item) {
         dispatch(moveToActive(item.id));
-        dispatch(addNewAd(item));
+        dispatch(activate(item));
     }
 
     return (

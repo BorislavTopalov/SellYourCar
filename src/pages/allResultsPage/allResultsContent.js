@@ -6,9 +6,9 @@ import "./allResultsContent.scss";
 import { changeFavourites } from "../../store/users";
 import { useEffect, useState } from "react";
 import PaginationComp from "../../components/Pagination";
-import { addNewAd, removeFromAdded } from "../../store/addedAds";
+import { activate, deactivate } from "../../store/addedAds";
 
-export default function ShowAllAds({ data }) {
+export default function ShowAllAds() {
 
     const filterredAds = useSelector(state => state.filterredAds);
     const users = useSelector(state => state.users);
@@ -45,12 +45,12 @@ export default function ShowAllAds({ data }) {
 
     function deactivateAd(item) {
         dispatch(moveToInactive(item.id))
-        dispatch(removeFromAdded(item));
+        dispatch(deactivate(item));
       
     }
     function activateAd(item) {
         dispatch(moveToActive(item.id));
-        dispatch(addNewAd(item));
+        dispatch(activate(item));
     }
 
     return (

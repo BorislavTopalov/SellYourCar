@@ -117,6 +117,10 @@ export default function DetailsChoosing() {
                         [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...(DefaultAds().defaultAds)] :
                         DefaultAds().defaultAds).length + 1
                 }));
+                dispatch(addParameter({
+                    name: "isActive",
+                    value: true
+                }))
             }} className="AddNewAdTable">
                 <div className="firstRowAddNew">
                     <p><strong>Основна категория *</strong></p>

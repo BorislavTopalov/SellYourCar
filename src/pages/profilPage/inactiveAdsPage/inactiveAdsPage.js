@@ -4,7 +4,7 @@ import "./inactiveAdsPage.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { moveToActive, moveToInactive } from "../../../store/activeUser";
 import ActiveAdsCard from "../../../components/ActiveAdsCard";
-import {addNewAd, removeFromAdded} from "../../../store/addedAds";
+import { activate, deactivate} from "../../../store/addedAds";
 
 export default function InactiveAdsPage() {
 
@@ -14,13 +14,13 @@ export default function InactiveAdsPage() {
  
     function deactivateAd(item) {
         dispatch(moveToInactive(item.id))
-        dispatch(removeFromAdded(item));
+        dispatch(deactivate(item));
    
     }
     function activateAd(item) {
         console.log(item);
         dispatch(moveToActive(item.id));
-        dispatch(addNewAd(item));
+        dispatch(activate(item));
     }
 
     return (
