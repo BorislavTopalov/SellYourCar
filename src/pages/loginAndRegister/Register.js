@@ -20,7 +20,7 @@ const Register = () => {
     const users = useSelector(state => state.users);
     const dispatch = useDispatch();
 
-    const regex = /^(?=.*[0-9])(?=.*[!@#$%^&*.])[a-zA-Z0-9!@#$%^&*.]{6,16}$/;
+    const regex = /^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[!@#$%^&*]).{6,16}$/;
     function handleRegister(e) {
         e.preventDefault();
         const [email, password] = e.target;

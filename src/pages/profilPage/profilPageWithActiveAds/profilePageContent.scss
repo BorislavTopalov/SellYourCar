@@ -41,9 +41,38 @@
     overflow: hidden;
     display: flex;
     justify-content: flex-start;
+
 }
 
 .textProfilWithoutAds {
     margin: 20px 0;
 }
 
+.cardContentProfilPage {
+    display: flex;
+}
+
+.cardContainerProfilPage {
+    align-items: flex-start;
+    border-top: 2px solid #0099ff;
+    margin-bottom: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    height: 180px;
+
+}
+
+.buttonsCardProfilPage {
+    border-bottom: 1px solid #0099ff;
+    height: 30px;
+    button {
+        background: none;
+        color: inherit;
+        border: none;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        text-decoration: underline;
+        font-size: 15px;
+    }
+}

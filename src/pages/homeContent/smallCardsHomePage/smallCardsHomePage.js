@@ -5,9 +5,10 @@ import "./smallCardsHomePage.scss";
 
 export default function SmallCardsHomePage() {
 
-    let allAds =  [...(JSON.parse(localStorage.getItem('mobile-added-ads'))).filter(e => e.isActive === true), 
-    ...DefaultAds().defaultAds];
-    let newestAds = allAds.slice(0,6);
+    let allAds = JSON.parse(localStorage.getItem('mobile-added-ads')) ?
+        [...(JSON.parse(localStorage.getItem('mobile-added-ads'))).filter(e => e.isActive === true), ...DefaultAds().defaultAds] :
+        [...DefaultAds().defaultAds];
+    let newestAds = allAds.slice(0, 6);
     let navigate = useNavigate();
 
     return (

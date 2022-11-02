@@ -1,6 +1,5 @@
 .cardImgContainer {
     width: 150px;
-    height: 90px;
 }
 
 .cardImg {
@@ -8,13 +7,13 @@
 }
 
 .cardContainer {
-    display: flex;
+    display: block;
     align-items: flex-start;
     border-top: 2px solid #0099ff;
     margin-bottom: 10px;
     font-size: 15px;
     cursor: pointer;
-    height: 150px;
+    min-height: 180px;
 }
 
 .linksAllResults {
@@ -51,7 +50,11 @@
 }
 
 .buttonsCardAllResultPage {
-    display: flex;
+    border-bottom: 1px solid #0099ff;
+    button {
+        height: 30px;
+        margin-left: 10px;
+    }
 }
 
 .btnCardAddToFav {
@@ -64,7 +67,6 @@
     outline: inherit;
     text-decoration: underline;
     font-size: 13px;
-    margin-top: 15px;
 }
 
 .btnCardRemoveFromFav {
@@ -100,4 +102,8 @@
     text-align: center;
     margin: 20px;
     font-size: large;
+}
+
+.cardContentAllResult {
+    display: flex;
 }
