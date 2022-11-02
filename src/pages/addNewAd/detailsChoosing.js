@@ -115,8 +115,11 @@ export default function DetailsChoosing() {
                     dispatch(addParameter({
                         name: "id",
                         value: (JSON.parse(localStorage.getItem('mobile-added-ads')).length > 0 ?
-                        (JSON.parse(localStorage.getItem('mobile-added-ads')).reduce((a,b) => Math.max(a.id, b.id))).id + 1 :
-                        DefaultAds().defaultAds).length + 1
+                            ((JSON.parse(localStorage.getItem('mobile-added-ads')).length === 1 ?
+                                JSON.parse(localStorage.getItem('mobile-added-ads'))[0].id + 1 :
+                                Math.max(...JSON.parse(localStorage.getItem("mobile-added-ads")).map(e => e.id)) + 1)) :
+                            (DefaultAds().defaultAds).length + 1)
+
                     }));
                     dispatch(addParameter({
                         name: "isActive",
