@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import Card from "../../components/Card";
-import { addToFavourites, removeFromFavourites, moveToInactive, moveToActive } from "../../store/activeUser";
+import { addToFavourites, removeFromFavourites, moveAdToInactive, moveAdToActive } from "../../store/activeUser";
 import "./allResultsContent.scss";
 import { changeFavourites } from "../../store/users";
 import { useEffect, useState } from "react";
 import PaginationComp from "../../components/Pagination";
-import { addNewAd, removeFromAdded } from "../../store/addedAds";
+import { addNewAd, removeAdFromAdded } from "../../store/addedAds";
 
 export default function ShowAllAds({ data }) {
 
@@ -44,12 +44,12 @@ export default function ShowAllAds({ data }) {
     const nPages = Math.ceil(filterredAds.filterredAds.length / recordsPerPage);
 
     function deactivateAd(item) {
-        dispatch(moveToInactive(item.id))
-        dispatch(removeFromAdded(item));
+        dispatch(moveAdToInactive(item.id))
+        dispatch(removeAdFromAdded(item));
       
     }
     function activateAd(item) {
-        dispatch(moveToActive(item.id));
+        dispatch(moveAdToActive(item.id));
         dispatch(addNewAd(item));
     }
 

@@ -36,16 +36,19 @@ export const activeUserSlice = createSlice({
                 state.active.unshift(action.payload);
             }
         },
-        moveToInactive: (state, action) => {
+        moveAdToInactive: (state, action) => {
             let index = state.active.findIndex((e) => e.id === action.payload);
             state.inactive.unshift(state.active[index]);
             state.active.splice(index, 1);
          
         },
-        moveToActive: (state, action) => {
+        moveAdToActive: (state, action) => {
             let index = state.inactive.findIndex((e) => e.id === action.payload);
             state.active.unshift(state.inactive[index]);
             state.inactive.splice(index, 1);
+            
+        },
+        deleteAd : (state ,action) => {
             
         },
         changePassword: (state, { payload }) => {
@@ -65,7 +68,7 @@ export const activeUserSlice = createSlice({
 })
 
 export const { login, logout, addToFavourites, removeFromFavourites, addNewActiveAd,
-    changePassword, changeEmailA, deleteAcc, moveToActive, moveToInactive } = activeUserSlice.actions
+    changePassword, changeEmailA, deleteAcc, moveAdToActive, moveAdToInactive } = activeUserSlice.actions
 
 export default activeUserSlice.reducer
 

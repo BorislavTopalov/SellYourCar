@@ -22,7 +22,8 @@ import { addExtraParameter, addImages, addParameter, resetParams } from '../../s
 import { addNewAd } from '../../store/addedAds';
 import { useEffect, useState } from 'react';
 import { addNewActiveAd } from '../../store/activeUser';
-import DefaultAds from '../../data/defaultAds';
+import { Form } from 'react-bootstrap';
+import { useRef } from 'react';
 
 export default function DetailsChoosing() {
 
@@ -48,12 +49,10 @@ export default function DetailsChoosing() {
         if (newAds.id) {
             dispatch(addNewAd(newAds))
             dispatch(addNewActiveAd(newAds))
-            console.log("dobavi se slednata obqva:");
-            console.log(newAds);
             navigate("/profile");
             dispatch(resetParams());
         } else {
-            console.log("ne trqbva da dobavq");
+           
         }
     }, [newAds.id, dispatch, navigate, newAds])
 
@@ -102,6 +101,16 @@ export default function DetailsChoosing() {
 
     }
 
+    const firstFormElem = useRef();
+    const secondForm = useRef();
+
+    function submitForms() {
+        firstFormElem.current.submit();
+        secondForm.current.submit();
+       
+    }
+
+
     return (
         <div className="newAddContainer">
             <span className="categoriesOutlineAddNew">
@@ -109,117 +118,112 @@ export default function DetailsChoosing() {
                     Въвеждане на описанието за <span>{options.mainCategory}</span>
                 </strong>
             </span>
-            <form onSubmit={(e) => {
-                e.preventDefault();
-                dispatch(addParameter({
-                    name: "id",
-                    value: (JSON.parse(localStorage.getItem('mobile-added-ads')).length > 0 ?
-                        [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...(DefaultAds().defaultAds)] :
-                        DefaultAds().defaultAds).length + 1
-                }));
-            }} className="AddNewAdTable">
-                <div className="firstRowAddNew">
-                    <p><strong>Основна категория *</strong></p>
-                    <Select required selectedOption={options.selectedOption} onChange={e => { func1(e); addParams(e) }} name="mainCategory" id="Овновна категория" options={CategoryOptions().categorieOptions} />
-                </div>
-                <div className="secondRowAddNew">
-                    <div className="makeAndModelAddNew">
-                        <div className="makeAddNew">
-                            <p><strong>Марка *</strong></p>
-                            <Select required onChange={e => { func3(e); addParams(e) }} name="make" id="Марка" options={options.make} />
-                        </div>
-                        <div className="modelAddNew">
-                            <p><strong>Модел *</strong></p>
-                            <Select required name="model" id="Модел" options={options.model} onChange={addParams} />
-                        </div>
+            <div className="AddNewAdTable">
+                <Form ref={firstFormElem} onSubmit={(e) => {e.preventDefault(); console.log("neshto1");}}>
+                    <div className="firstRowAddNew">
+                        <p><strong>Основна категория *</strong></p>
+                        <Select required selectedOption={options.selectedOption} onChange={e => { func1(e); addParams(e) }} name="mainCategory" id="Овновна категория" options={CategoryOptions().categorieOptions} />
                     </div>
-                    <div className="modifyAndEngineAddNew">
-                        <div className="modifyAddNew">
-                            <p><strong className="modifyStrongAddNew">Модификация</strong></p>
-                            <input className="modifyInputAddNew" type="text" />
-                        </div>
-                        <div className="engineAddNew">
-                            <p>
-                                <strong>Тип двигател *</strong>
-                            </p>
-                            <Select required className="engineSelectAddNew" name="engine" id="Двигател" onChange={addParams} options={EngineOptions().engine} />
-                        </div>
-                    </div>
-
-                    <div className="conditionVehicleAddNew">
-                        <p><strong>Състояние</strong></p>
-                        <input className="conditionCheckboxAddNew" type="checkbox" id="condition1" name="condition1" value="new" />
-                        <label className="conditionLabelAddNew" htmlFor="vehicle1">Ново</label>
-                        <input className="conditionCheckboxAddNew" type="checkbox" id="condition2" name="condition2" value="used" />
-                        <label className="conditionLabelAddNew" htmlFor="vehicle2">Употребяван</label>
-                    </div>
-                </div>
-                <div className="thirdRowAddNew">
-                    <div className="powerAndEuroAddNew">
-                        <div className="powerAddNew">
-                            <div>
-                                <p><strong>Мощност [к.с.] *</strong></p>
-                                <input required onChange={addParams} name='power' className="powerInputAddNew" type="number" />
+                    <div className="secondRowAddNew">
+                        <div className="makeAndModelAddNew">
+                            <div className="makeAddNew">
+                                <p><strong>Марка *</strong></p>
+                                <Select required onChange={e => { func3(e); addParams(e) }} name="make" id="Марка" options={options.make} />
+                            </div>
+                            <div className="modelAddNew">
+                                <p><strong>Модел *</strong></p>
+                                <Select required name="model" id="Модел" options={options.model} onChange={addParams} />
                             </div>
                         </div>
-                        <div className="euroAddNew">
-                            <p><strong>Евростандарт *</strong></p>
-                            <Select required className="euroSelectAddNew" name="euroStandart" id="Евростандарт" onChange={addParams} options={EuroStandartOptions().euroStandart} />
+                        <div className="modifyAndEngineAddNew">
+                            <div className="modifyAddNew">
+                                <p><strong className="modifyStrongAddNew">Модификация</strong></p>
+                                <input className="modifyInputAddNew" type="text" />
+                            </div>
+                            <div className="engineAddNew">
+                                <p>
+                                    <strong>Тип двигател *</strong>
+                                </p>
+                                <Select required className="engineSelectAddNew" name="engine" id="Двигател" onChange={addParams} options={EngineOptions().engine} />
+                            </div>
+                        </div>
+
+                        <div className="conditionVehicleAddNew">
+                            <p><strong>Състояние</strong></p>
+                            <input className="conditionCheckboxAddNew" type="checkbox" id="condition1" name="condition1" value="new" />
+                            <label className="conditionLabelAddNew" htmlFor="vehicle1">Ново</label>
+                            <input className="conditionCheckboxAddNew" type="checkbox" id="condition2" name="condition2" value="used" />
+                            <label className="conditionLabelAddNew" htmlFor="vehicle2">Употребяван</label>
                         </div>
                     </div>
-                    <div className="transmissionAddNew">
-                        <p>
-                            <strong>Скоростна кутия *</strong>
-                        </p>
-                        <Select required name="transmission" id="Скоростна кутия" onChange={addParams} options={TransmissionOptions().transmission} />
+                    <div className="thirdRowAddNew">
+                        <div className="powerAndEuroAddNew">
+                            <div className="powerAddNew">
+                                <div>
+                                    <p><strong>Мощност [к.с.] *</strong></p>
+                                    <input required onChange={addParams} name='power' className="powerInputAddNew" type="number" />
+                                </div>
+                            </div>
+                            <div className="euroAddNew">
+                                <p><strong>Евростандарт *</strong></p>
+                                <Select required className="euroSelectAddNew" name="euroStandart" id="Евростандарт" onChange={addParams} options={EuroStandartOptions().euroStandart} />
+                            </div>
+                        </div>
+                        <div className="transmissionAddNew">
+                            <p>
+                                <strong>Скоростна кутия *</strong>
+                            </p>
+                            <Select required name="transmission" id="Скоростна кутия" onChange={addParams} options={TransmissionOptions().transmission} />
+                        </div>
+                        <div className="vehicleCategoryAddNew">
+                            <p><strong>Категория</strong></p>
+                            <Select className="vahicleSelectCatAddNew" name="vehicleCategory" id="Ктегория" onChange={addParams} options={VehicleCategories().vehicleCategories} />
+                        </div>
                     </div>
-                    <div className="vehicleCategoryAddNew">
-                        <p><strong>Категория</strong></p>
-                        <Select className="vahicleSelectCatAddNew" name="vehicleCategory" id="Ктегория" onChange={addParams} options={VehicleCategories().vehicleCategories} />
-                    </div>
-                </div>
 
-                <div className="fourthRowAddNew">
-                    <div className="priceAddNew">
-                        <p><strong>Цена *</strong></p>
-                        <input name='price' onInput={addParams} required className="priceInputAddNew" type="number" />
-                        <select onChange={addParams} name="currency" required className="currencySelectAddNew" id="selectInSearch">
-                            <option value="BGN">лв.</option>
-                            <option value="EUR">EUR</option>
-                            <option value="USD">USD</option>
-                        </select>
+                    <div className="fourthRowAddNew">
+                        <div className="priceAddNew">
+                            <p><strong>Цена *</strong></p>
+                            <input name='price' onInput={addParams} required className="priceInputAddNew" type="number" />
+                            <select onChange={addParams} name="currency" required className="currencySelectAddNew" id="selectInSearch">
+                                <option value="BGN">лв.</option>
+                                <option value="EUR">EUR</option>
+                                <option value="USD">USD</option>
+                            </select>
+                        </div>
+                        <div className="yearAddnew">
+                            <p><strong>Година *</strong></p>
+                            <Select required className="yearSelectAddnew" name="date" id="Година" onChange={addParams} options={YearOptions().year} />
+                        </div>
+                        <div className="millageAddNew">
+                            <p><strong>Пробег *</strong></p>
+                            <input name='millage' onInput={addParams} required className="inputMillageAddNew" type="number" />
+                            <label htmlFor="vehicleMillage">в километри</label>
+                        </div>
                     </div>
-                    <div className="yearAddnew">
-                        <p><strong>Година *</strong></p>
-                        <Select required className="yearSelectAddnew" name="date" id="Година" onChange={addParams} options={YearOptions().year} />
-                    </div>
-                    <div className="millageAddNew">
-                        <p><strong>Пробег *</strong></p>
-                        <input name='millage' onInput={addParams} required className="inputMillageAddNew" type="number" />
-                        <label htmlFor="vehicleMillage">в километри</label>
-                    </div>
-                </div>
 
-                <div className="fifthRowAddNew">
-                    <div className="regionAddNew">
-                        <p>
-                            <strong>Регион *</strong>
-                        </p>
-                        <Select required className="regionSelectAddNew" onChange={(e) => { func2(e); addParams(e) }} name="region" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
+                    <div className="fifthRowAddNew">
+                        <div className="regionAddNew">
+                            <p>
+                                <strong>Регион *</strong>
+                            </p>
+                            <Select required className="regionSelectAddNew" onChange={(e) => { func2(e); addParams(e) }} name="region" id="Регион" options={RegionAndTownOptions().regionAndTownOptions} />
+                        </div>
+                        <div className="townAddNew">
+                            <p>
+                                <strong>Населено място *</strong>
+                            </p>
+                            <Select required className="townSelectAddNew" onChange={addParams} name="town" id="Населено място" options={options.town} />
+                        </div>
+                        <div className="colorAddNew">
+                            <p>
+                                <strong>Цвят *</strong>
+                            </p>
+                            <Select required className="colorSelectAddNew" name="color" id="Цвят" onChange={addParams} options={ColorOptions().colors} />
+                        </div>
                     </div>
-                    <div className="townAddNew">
-                        <p>
-                            <strong>Населено място *</strong>
-                        </p>
-                        <Select required className="townSelectAddNew" onChange={addParams} name="town" id="Населено място" options={options.town} />
-                    </div>
-                    <div className="colorAddNew">
-                        <p>
-                            <strong>Цвят *</strong>
-                        </p>
-                        <Select required className="colorSelectAddNew" name="color" id="Цвят" onChange={addParams} options={ColorOptions().colors} />
-                    </div>
-                </div>
+                </Form>
+
                 <div className="checkBoxes">
                     <div className="firstColumn">
                         <p><strong>Безопасност</strong></p>
@@ -246,39 +250,54 @@ export default function DetailsChoosing() {
                         <Checkbox onChange={addExtraParams} name="extras" options={InteriorOptions().interiorOptions} />
                     </div>
                 </div>
-                <div className="sixthRow">
-                    <div className="moreInfoNewAd">
-                        <p><strong>Допълнителна информация</strong></p>
-                        <textarea name="moreInfo" onInput={addParams} id="moreInfo" cols="30" rows="5"></textarea>
-                    </div>
-                    <div className="contactsNewAd">
-                        <p><strong className="moreInfoText">Данни за връзка</strong></p>
-                        <div className="phoneNewAd">
-                            <label htmlFor="phone">Мобилен телефон :</label>
-                            <input required name="contacts" onInput={addParams} className="phoneInput" type="number" />
+                <Form
+                    ref={secondForm}
+                    onSubmit={(e) => {e.preventDefault(); console.log("neshto2");}}
+                // dispatch(addParameter({
+                //     name: "id",
+                //     value: (JSON.parse(localStorage.getItem('mobile-added-ads')).length > 0 ?
+                //         [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...(DefaultAds().defaultAds)] :
+                //         DefaultAds().defaultAds).length + 1
+                // }));
+                >
+                    <div className="sixthRow">
+                        <div className="moreInfoNewAd">
+                            <p><strong>Допълнителна информация</strong></p>
+                            <textarea name="moreInfo" onInput={addParams} id="moreInfo" cols="30" rows="5"></textarea>
+                        </div>
+                        <div className="contactsNewAd">
+                            <p><strong className="moreInfoText">Данни за връзка</strong></p>
+                            <div className="phoneNewAd">
+                                <label htmlFor="phone">Мобилен телефон :</label>
+                                <input required name="contacts" onInput={addParams} className="phoneInput" type="number" />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className='addPhotoContainer'>
-                    <p><strong>Добавяне на снимки</strong></p>
-                    <div className="addNewPhotoInNewAd">
-                        <input type="file" multiple
-                            onChange={handleImageUpload}
-                            accept="image/*"
-                        />
-                        {pictures?.map(pic => (
-                            <img className="newImageUpload" alt='' key={pic} src={pic} />
-                        ))}
-                        <button type='button' onClick={addPhoto}>Добави снимките</button>
+                    <div className='addPhotoContainer'>
+                        <p><strong>Добавяне на снимки</strong></p>
+                        <div className="addNewPhotoInNewAd">
+                            <input type="file" multiple
+                                onChange={handleImageUpload}
+                                accept="image/*"
+                            />
+                            {pictures?.map(pic => (
+                                <img className="newImageUpload" alt='' key={pic} src={pic} />
+                            ))}
+                            <button type='button' onClick={addPhoto}>Добави снимките</button>
+                        </div>
                     </div>
-                </div>
-
+                </Form>
                 <div className="publicBtnAddNew">
-                    <button type='submit' className="publicNewAd"><strong>Продължи</strong></button>
+                    <button type='button' onClick={() =>  submitForms} className="publicNewAd"><strong>Публикувай</strong></button>
                     <p className="nextStepInfo">*Полетата със * са задължителни</p>
                     <p className="nextStepInfo">*На следаващата стъпка ще можете да добавите снимки</p>
                 </div>
-            </form>
+
+
+            </div>
+
+
+
 
         </div>
 

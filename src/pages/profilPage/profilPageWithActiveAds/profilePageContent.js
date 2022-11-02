@@ -3,27 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import ActiveAdsCard from "../../../components/ActiveAdsCard";
 import "./profilePageContent.scss";
-import { moveToActive, moveToInactive } from "../../../store/activeUser";
-import { removeFromAdded, addNewAd } from "../../../store/addedAds";
+import { moveAdToActive, moveAdToInactive } from "../../../store/activeUser";
+import { removeAdFromAdded, addNewAd } from "../../../store/addedAds";
 
 export default function ProfilePage() {
 
-    let activeAds = [];
     const activeUser = useSelector(state => state.activeUser)
     let navigate = useNavigate() 
     let dispatch = useDispatch()   
 
-    if (JSON.parse(localStorage.getItem('mobile-active-user')).email) {
-        activeAds = JSON.parse(localStorage.getItem('mobile-active-user')).active.slice();
-    } else {
-        return false
-    }  
     function deactivateAd(item) {
-        dispatch(moveToInactive(item.id));
-        dispatch(removeFromAdded(item));
+        dispatch(moveAdToInactive(item.id));
+        dispatch(removeAdFromAdded(item));
     }
     function activateAd(item) {
-        dispatch(moveToActive(item.id));
+        dispatch(moveAdToActive(item.id));
         dispatch(addNewAd(item));
     }
 
@@ -46,7 +40,8 @@ export default function ProfilePage() {
                 <NavLink to="/inactive-ads"><Button><strong>Неактивни обяви</strong></Button></NavLink>
             </div>
             <div>
-                {activeUser.active.map((item) =>
+                { activeUser.active.length > 0 ?
+                activeUser.active.map((item) =>
                     <ActiveAdsCard
                         goToAd={() => {
                             navigate(`/all-results/${item.id}`);
@@ -67,16 +62,7 @@ export default function ProfilePage() {
                         interiorOptions={item.interiorOptions}
                         region={item.region}
                         town={item.town}
-                        // onClick={() => {
-                        //     dispatch(addToFavourites(item));
-
-                        // }}
-                        // onClick2={() => {
-                        //     dispatch(removeFromFavourites(item));
-
-                        // }}
                         key={item.id}
-                        // isLiked={isLiked(item)}
                         deactivationAd = {() => {
                             deactivateAd(item)
                         }}
@@ -87,7 +73,9 @@ export default function ProfilePage() {
                         activeUser={activeUser}
                         id={item.id}
                     />
-                )}
+                ):
+                <div>Нямате активни обяви.</div>
+            }
             </div>
             <div className="lineUnderButtonsOfProfilPage"></div>
         

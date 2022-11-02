@@ -2,24 +2,25 @@ import { Button } from "react-bootstrap";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import "./inactiveAdsPage.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { moveToActive, moveToInactive } from "../../../store/activeUser";
+import { moveAdToActive, moveAdToInactive } from "../../../store/activeUser";
 import ActiveAdsCard from "../../../components/ActiveAdsCard";
-import {addNewAd, removeFromAdded} from "../../../store/addedAds";
+import {addNewAd, removeAdFromAdded} from "../../../store/addedAds";
 
 export default function InactiveAdsPage() {
 
     const activeUser = useSelector(state => state.activeUser)
     let navigate = useNavigate() 
-    let dispatch = useDispatch()   
+    let dispatch = useDispatch()  
+ 
  
     function deactivateAd(item) {
-        dispatch(moveToInactive(item.id))
-        dispatch(removeFromAdded(item));
+        dispatch(moveAdToInactive(item.id))
+        dispatch(removeAdFromAdded(item));
    
     }
     function activateAd(item) {
         console.log(item);
-        dispatch(moveToActive(item.id));
+        dispatch(moveAdToActive(item.id));
         dispatch(addNewAd(item));
     }
 
@@ -62,21 +63,12 @@ export default function InactiveAdsPage() {
                         interiorOptions={item.interiorOptions}
                         region={item.region}
                         town={item.town}
-                        // onClick={() => {
-                        //     dispatch(addToFavourites(item));
-
-                        // }}
-                        // onClick2={() => {
-                        //     dispatch(removeFromFavourites(item));
-
-                        // }}
                         key={item.id}
-                        // isLiked={isLiked(item)}
                         deactivationAd = {() => {
-                            deactivateAd(item)
+                            deactivateAd(item);
                         }}
                         activationAd = {() => {
-                            activateAd(item)
+                            activateAd(item);
                         }}
                         isThereActiveU={activeUser.email}
                         activeUser={activeUser}

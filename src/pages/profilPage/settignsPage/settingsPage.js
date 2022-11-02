@@ -149,7 +149,8 @@ export default function SettingsPage() {
             </div>
             <ConfirmBox
                 className={confirmation ? "visibleConfirm" : "nonVisibleConfirm"}
-                deleteAcount={deleteAcount}
+                textConfirm={"Сигурен ли си, че искаш да изтриеш профила си?"}
+                handleDelete={deleteAcount}
                 handleClose={handleClose}
             />
             {error4 && <div className={error4 ? "visibleConfirm" : "nonVisibleConfirm"}>

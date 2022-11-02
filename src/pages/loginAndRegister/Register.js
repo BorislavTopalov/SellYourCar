@@ -80,7 +80,8 @@ const Register = () => {
                 <Link to="/login" className="loginButton"><strong>Вход</strong></Link>
             </div>
             <div className="form-wrapper">
-                <RegisterForm onSubmit={handleRegister} onInputE={emailInput} onInputP={passInput} onInputC={checkPassInput} onClick={() => setError3(false)} error={error} error2={error2} error3={error3} disabled={disabled} />
+                <RegisterForm onSubmit={handleRegister} onInputE={emailInput} onInputP={passInput} onInputC={checkPassInput}
+                 onClick={() => setError3(false)} error={error} error2={error2} error3={error3} disabled={disabled} />
             </div>
         </div>
     );
