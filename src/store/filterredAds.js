@@ -22,7 +22,7 @@ const filterredAdsSlice = createSlice({
                     (payload.priceFrom ? ad.price >= payload.priceFrom : true) &&
                     (payload.priceTo ? ad.price <= payload.priceTo : true) &&
                     (payload.currency === "Всяка" ? true : ad.currency === payload.currency) &&
-                    (payload.euroStandart === "Всички" ? true : ad.euro === payload.euroStandart) &&
+                    (payload.euro === "Всички" ? true : ad.euro === payload.euro) &&
                     (payload.color === "Всички цветове" ? true : ad.color === payload.color) &&
                     (payload.powerFrom ? ad.power >= payload.powerFrom : true) &&
                     (payload.powerTo ? ad.power <= payload.powerTo : true) &&

@@ -181,7 +181,7 @@ export default function DetailsChoosing() {
                             </div>
                             <div className="euroAddNew">
                                 <p><strong>Евростандарт *</strong></p>
-                                <Select required className="euroSelectAddNew" name="euroStandart" id="Евростандарт" onChange={addParams} options={EuroStandartOptions().euroStandart} />
+                                <Select required className="euroSelectAddNew" name="euro" id="Евростандарт" onChange={addParams} options={EuroStandartOptions().euro} />
                             </div>
                         </div>
                         <div className="transmissionAddNew">

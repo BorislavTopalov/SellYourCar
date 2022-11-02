@@ -36,7 +36,7 @@ export default function SettingsPage() {
         setCheckPass(e.target.value.trim());
     }
 
-    const regex = /^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[!@#$%^&*]).{6,16}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
     function handleChangePass() {
         if (activeUser.password !== pass) {
             if (regex.test(pass)) {

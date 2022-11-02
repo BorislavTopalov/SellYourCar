@@ -9,7 +9,7 @@ const initialState = {
     priceFrom: "",
     priceTo: "",
     currency: "Всяка",
-    euroStandart: "Всички",
+    euro: "Всички",
     color: "Всички цветове",
     maxMillage: "Без значение",
     vehicleCategory: "",
@@ -47,7 +47,7 @@ const filtersSlice = createSlice({
             state.priceFrom = "";
             state.priceTo = "";
             state.currency = "Всяка";
-            state.euroStandart = "Всички";
+            state.euro = "Всички";
             state.color = "Всички цветове";
             state.maxMillage = "Без значение";
             state.vehicleCategory = "";

@@ -7,7 +7,7 @@ const initialState = {
     date: "",
     price: "",
     currency: "лв.",
-    euroStandart: "Всички",
+    euro: "Всички",
     color: "Всички цветове",
     millage: "Без значение",
     region: "Всички",
@@ -54,7 +54,7 @@ const newAdsSlice = createSlice({
             state.date = "";
             state.price = "";
             state.currency = "лв.";
-            state.euroStandart = "Всички";
+            state.euro = "Всички";
             state.color = "Всички цветове";
             state.millage = "Без значение";
             state.region = "Всички";

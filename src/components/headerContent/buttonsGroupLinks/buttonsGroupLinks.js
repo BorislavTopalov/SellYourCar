@@ -34,7 +34,6 @@ export default function ButtonGroupLink() {
                     <img className="logoRent" src={logoRent} alt="logo" />
                     Rent-a-Car
                 </Button>
-                {/* <Button >Средни цени</Button> */}
                 <Button className="dealers" href="https://avtokashti.za-tebe.com/" target="_blank" rel="noreferrer">Дилъри</Button>
             </div>
 
