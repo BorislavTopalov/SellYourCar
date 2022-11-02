@@ -117,14 +117,8 @@ export default function DetailsChoosing() {
                         value: (JSON.parse(localStorage.getItem('mobile-added-ads')).length > 0 ?
                             ((JSON.parse(localStorage.getItem('mobile-added-ads')).length === 1 ?
                                 JSON.parse(localStorage.getItem('mobile-added-ads'))[0].id + 1 :
-<<<<<<< HEAD
                                 Math.max(...JSON.parse(localStorage.getItem('mobile-added-ads')).map(e => e.id)) + 1)) :
                             (DefaultAds().defaultAds).length + 1)
-=======
-                                Math.max(...JSON.parse(localStorage.getItem("mobile-added-ads")).map(e => e.id)) + 1)) :
-                            (DefaultAds().defaultAds).length + 1)
-
->>>>>>> 51cd24630d1e0260a761f44511b25b71de0fe696
                     }));
                    
                     dispatch(addParameter({
