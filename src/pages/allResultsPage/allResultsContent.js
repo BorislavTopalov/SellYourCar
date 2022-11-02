@@ -44,12 +44,12 @@ export default function ShowAllAds() {
     const nPages = Math.ceil(filterredAds.filterredAds.length / recordsPerPage);
 
     function deactivateAd(item) {
-        dispatch(moveToInactive(item.id))
+        dispatch(moveAdToInactive(item.id))
         dispatch(deactivate(item));
       
     }
     function activateAd(item) {
-        dispatch(moveToActive(item.id));
+        dispatch(moveAdToActive(item.id));
         dispatch(activate(item));
     }
 

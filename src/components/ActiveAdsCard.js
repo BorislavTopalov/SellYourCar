@@ -9,9 +9,7 @@ export default function ActiveAdsCard(props) {
         setConfirmation(false);
     }
 
-    function deleteAd (){
-        console.log("deleted");
-    }
+    
 
     return (
 
@@ -25,12 +23,12 @@ export default function ActiveAdsCard(props) {
                         <span><button onClick={props.deactivationAd} className="btnDetailCardRemoveFromFav">Премести в неактивни</button></span> :
                         props.activeUser.inactive.some(e => e.id === props.id) &&
                         <span><button onClick={props.activationAd} className="btnMyActiveAds">Премести в активни</button>
-                            <button onClick={() => setConfirmation(!confirmation)} className="btnMyActiveAds">Изтрий обявата</button></span>}
+                            <button onClick={() => setConfirmation(true)} className="btnMyActiveAds">Изтрий обявата</button></span>}
                 </div>
                 <ConfirmBox
                     className={confirmation ? "visibleConfirm" : "nonVisibleConfirm"}
-                    textConfirm={"Сигурен ли си че искаш да изтриеш тази"}
-                    handleDelete={deleteAd}
+                    textConfirm={`Сигурен ли си че искаш да изтриеш "${props.make} ${props.model}" от втоите обяви`}
+                    handleDelete={() => {handleClose(); props.deleteAd();}}
                     handleClose={handleClose}
                 />
             </div>

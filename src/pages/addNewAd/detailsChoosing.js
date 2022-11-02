@@ -121,13 +121,13 @@ export default function DetailsChoosing() {
             <div className="AddNewAdTable">
                 <Form ref={firstFormElem} onSubmit={(e) => {e.preventDefault(); console.log("neshto1");}}>
                    
-                        {/* {/* <Select required selectedOption={options.selectedOption} onChange={e => { func1(e); addParams(e) }} name="mainCategory" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                        {/* <Select required selectedOption={options.selectedOption} onChange={e => { func1(e); addParams(e) }} name="mainCategory" id="Овновна категория" options={CategoryOptions().categorieOptions} />
             <form onSubmit={(e) => {
                 e.preventDefault();
                 dispatch(addParameter({
                     name: "id",
                     value: (JSON.parse(localStorage.getItem('mobile-added-ads')).length > 0 ?
-                        [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...(DefaultAds().defaultAds)] :
+                        (JSON.parse(localStorage.getItem('mobile-added-ads')).reduce((a,b) => Math.max(a.id, b.id))).id + 1 :
                         DefaultAds().defaultAds).length + 1
                 }));
                 dispatch(addParameter({
