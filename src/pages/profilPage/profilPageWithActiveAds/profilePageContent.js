@@ -9,8 +9,8 @@ import { activate, deactivate } from "../../../store/addedAds";
 export default function ProfilePage() {
 
     const activeUser = useSelector(state => state.activeUser)
-    let navigate = useNavigate() 
-    let dispatch = useDispatch()   
+    let navigate = useNavigate()
+    let dispatch = useDispatch()
 
     function deactivateAd(item) {
         dispatch(moveAdToInactive(item.id));
@@ -39,46 +39,47 @@ export default function ProfilePage() {
                 <NavLink to="/profile"><Button><strong>Активни обяви</strong></Button></NavLink>
                 <NavLink to="/inactive-ads"><Button><strong>Неактивни обяви</strong></Button></NavLink>
             </div>
+            <div className="lineUnderButtonsOfProfilPage"></div>
             <div>
-                { activeUser.active.length > 0 ?
-                activeUser.active.map((item) =>
-                    <ActiveAdsCard
-                        goToAd={() => {
-                            navigate(`/all-results/${item.id}`);
-                        }}
-                        src={item.image[0]}
-                        make={item.make}
-                        model={item.model}
-                        engine={item.engine}
-                        price={item.price}
-                        currency={item.currency}
-                        date={item.date}
-                        millage={item.millage}
-                        color={item.color}
-                        euro={item.euro}
-                        moreInfo={item.moreInfo}
-                        vehicleCategory={item.vehicleCategory}
-                        safetyOptions={item.safetyOptions}
-                        interiorOptions={item.interiorOptions}
-                        region={item.region}
-                        town={item.town}
-                        key={item.id}
-                        deactivationAd = {() => {
-                            deactivateAd(item)
-                        }}
-                        activationAd = {() => {
-                            activateAd(item)
-                        }}
-                        isThereActiveU={activeUser.email}
-                        activeUser={activeUser}
-                        id={item.id}
-                    />
-                ):
-                <div>Нямате активни обяви.</div>
-            }
+                {activeUser.active.length > 0 ?
+                    activeUser.active.map((item) =>
+                        <ActiveAdsCard
+                            goToAd={() => {
+                                navigate(`/all-results/${item.id}`);
+                            }}
+                            src={item.image[0]}
+                            make={item.make}
+                            model={item.model}
+                            engine={item.engine}
+                            price={item.price}
+                            currency={item.currency}
+                            date={item.date}
+                            millage={item.millage}
+                            color={item.color}
+                            euro={item.euro}
+                            moreInfo={item.moreInfo}
+                            vehicleCategory={item.vehicleCategory}
+                            safetyOptions={item.safetyOptions}
+                            interiorOptions={item.interiorOptions}
+                            region={item.region}
+                            town={item.town}
+                            key={item.id}
+                            deactivationAd={() => {
+                                deactivateAd(item)
+                            }}
+                            activationAd={() => {
+                                activateAd(item)
+                            }}
+                            isThereActiveU={activeUser.email}
+                            activeUser={activeUser}
+                            id={item.id}
+                        />
+                    ) :
+                    <div className="textProfilWithoutAds">Нямате активни обяви.</div>
+                }
             </div>
             <div className="lineUnderButtonsOfProfilPage"></div>
-        
+
         </div>
     )
 }

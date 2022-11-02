@@ -11,10 +11,10 @@ export const addedAdsSlice = createSlice({
             state.unshift(action.payload)
         },
         deactivate(state, { payload }) {
-            state[state.findIndex(e => e.id == payload.id)].isActive = false;
+            state[state.findIndex(e => e.id === payload.id)].isActive = false;
         },
         activate(state, { payload }) {
-            state[state.findIndex(e => e.id == payload.id)].isActive = true;
+            state[state.findIndex(e => e.id === payload.id)].isActive = true;
         }
     },
 })
