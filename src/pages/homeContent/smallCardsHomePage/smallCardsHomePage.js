@@ -5,10 +5,17 @@ import "./smallCardsHomePage.scss";
 
 export default function SmallCardsHomePage() {
 
+<<<<<<< HEAD
     let allAds = JSON.parse(localStorage.getItem('mobile-added-ads')) ?
         [...(JSON.parse(localStorage.getItem('mobile-added-ads'))).filter(e => e.isActive === true), ...DefaultAds().defaultAds] :
         [...DefaultAds().defaultAds];
     let newestAds = allAds.slice(0, 6);
+=======
+    let allAds = JSON.parse(localStorage.getItem('mobile-added-ads')) ? 
+    [...(JSON.parse(localStorage.getItem('mobile-added-ads'))).filter(e => e.isActive === true), ...DefaultAds().defaultAds] :
+    [...DefaultAds().defaultAds];
+    let newestAds = allAds.slice(0,6);
+>>>>>>> 51cd24630d1e0260a761f44511b25b71de0fe696
     let navigate = useNavigate();
 
     return (

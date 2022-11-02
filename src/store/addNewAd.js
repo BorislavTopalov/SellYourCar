@@ -29,7 +29,7 @@ const newAdsSlice = createSlice({
     initialState,
     reducers: {
         addParameter(state, { payload }) {
-            state[`${payload.name}`] = payload.value;
+            state[payload.name] = payload.value;
         },
         addExtraParameter(state, { payload }) {
             if (state.extras.some(e => e.id === payload.id)) {
