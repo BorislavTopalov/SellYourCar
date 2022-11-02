@@ -12,9 +12,9 @@ const filterredAdsSlice = createSlice({
     initialState,
     reducers: {
         filter(state, { payload }) {
-            state.filterredAds = (JSON.parse(localStorage.getItem('mobile-added-ads')) ?
-                [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...DefaultAds().defaultAds] :
-                DefaultAds().defaultAds).filter(ad =>
+            state.filterredAds = 
+                [...(JSON.parse(localStorage.getItem('mobile-added-ads'))).filter(e => e.isActive === true), 
+                ...DefaultAds().defaultAds].filter(ad =>
                     (payload.make === "Всички" ? true : ad.make === payload.make) &&
                     (payload.model === "Всички" ? true : ad.model === payload.model) &&
                     (payload.yearFrom ? ad.date >= payload.yearFrom : true) &&

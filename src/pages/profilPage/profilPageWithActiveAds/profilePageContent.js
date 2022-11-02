@@ -4,7 +4,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import ActiveAdsCard from "../../../components/ActiveAdsCard";
 import "./profilePageContent.scss";
 import { moveAdToActive, moveAdToInactive } from "../../../store/activeUser";
-import { removeAdFromAdded, addNewAd } from "../../../store/addedAds";
+import { activate, deactivate } from "../../../store/addedAds";
 
 export default function ProfilePage() {
 
@@ -14,11 +14,11 @@ export default function ProfilePage() {
 
     function deactivateAd(item) {
         dispatch(moveAdToInactive(item.id));
-        dispatch(removeAdFromAdded(item));
+        dispatch(deactivate(item));
     }
     function activateAd(item) {
         dispatch(moveAdToActive(item.id));
-        dispatch(addNewAd(item));
+        dispatch(activate(item));
     }
 
     return (

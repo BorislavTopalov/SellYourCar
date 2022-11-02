@@ -120,9 +120,35 @@ export default function DetailsChoosing() {
             </span>
             <div className="AddNewAdTable">
                 <Form ref={firstFormElem} onSubmit={(e) => {e.preventDefault(); console.log("neshto1");}}>
-                    <div className="firstRowAddNew">
-                        <p><strong>Основна категория *</strong></p>
-                        <Select required selectedOption={options.selectedOption} onChange={e => { func1(e); addParams(e) }} name="mainCategory" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                   
+                        {/* {/* <Select required selectedOption={options.selectedOption} onChange={e => { func1(e); addParams(e) }} name="mainCategory" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                dispatch(addParameter({
+                    name: "id",
+                    value: (JSON.parse(localStorage.getItem('mobile-added-ads')).length > 0 ?
+                        [...JSON.parse(localStorage.getItem('mobile-added-ads')), ...(DefaultAds().defaultAds)] :
+                        DefaultAds().defaultAds).length + 1
+                }));
+                dispatch(addParameter({
+                    name: "isActive",
+                    value: true
+                }))  }} */}
+            
+                <div className="firstRowAddNew">
+                    <p><strong>Основна категория *</strong></p>
+                    <Select required selectedOption={options.selectedOption} onChange={e => { func1(e); addParams(e) }} name="mainCategory" id="Овновна категория" options={CategoryOptions().categorieOptions} />
+                </div>
+                <div className="secondRowAddNew">
+                    <div className="makeAndModelAddNew">
+                        <div className="makeAddNew">
+                            <p><strong>Марка *</strong></p>
+                            <Select required onChange={e => { func3(e); addParams(e) }} name="make" id="Марка" options={options.make} />
+                        </div>
+                        <div className="modelAddNew">
+                            <p><strong>Модел *</strong></p>
+                            <Select required name="model" id="Модел" options={options.model} onChange={addParams} />
+                        </div>
                     </div>
                     <div className="secondRowAddNew">
                         <div className="makeAndModelAddNew">
@@ -221,6 +247,7 @@ export default function DetailsChoosing() {
                             </p>
                             <Select required className="colorSelectAddNew" name="color" id="Цвят" onChange={addParams} options={ColorOptions().colors} />
                         </div>
+                    </div>
                     </div>
                 </Form>
 
