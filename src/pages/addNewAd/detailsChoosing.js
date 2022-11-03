@@ -33,6 +33,7 @@ export default function DetailsChoosing() {
     const options = useSelector(state => state.options);
     const dispatch = useDispatch();
     const [pictures, setPictures] = useState([]);
+    const tempArr = [];
 
     function func1(e) {
         dispatch(handleMainCategory(e.target.value))
@@ -75,9 +76,6 @@ export default function DetailsChoosing() {
         }
     }, [location.pathname, dispatch]);
 
-
-    const tempArr = [];
-
     function handleImageUpload(e) {
 
         [...e.target.files].forEach(file => {
@@ -85,6 +83,10 @@ export default function DetailsChoosing() {
             reader.readAsDataURL(file);
             reader.onload = function () {
                 tempArr.push(reader.result)
+                if (tempArr.length > 5) {
+                    alert("You can choose only 5 pictures!");
+                    return;
+                }
             };
             reader.onerror = function (error) {
                 console.log('Error: ', error);
@@ -120,7 +122,7 @@ export default function DetailsChoosing() {
                                 Math.max(...JSON.parse(localStorage.getItem('mobile-added-ads')).map(e => e.id)) + 1)) :
                             (DefaultAds().defaultAds).length + 1)
                     }));
-                   
+
                     dispatch(addParameter({
                         name: "isActive",
                         value: true
@@ -290,7 +292,11 @@ export default function DetailsChoosing() {
                             {pictures?.map(pic => (
                                 <img className="newImageUpload" alt='' key={pic} src={pic} />
                             ))}
-                            <button type='button' onClick={addPhoto}>Добави снимките</button>
+                            <div className='buttonAddPhoto' >
+                                <button type='button' onClick={addPhoto}>Добави снимките</button>
+                                <p>Можеш да избереш максимум 5 снимки</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>

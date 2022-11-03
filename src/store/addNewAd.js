@@ -39,13 +39,10 @@ const newAdsSlice = createSlice({
             }
         },
         addImages(state, { payload }) {
-            if (state.image.length > 5) {
-                state.image.splice(4, 1, payload)
-            } else {
-                payload.forEach(img => {
-                    state.image.push(img)
-                })
-            }
+            payload.forEach(img => {
+                state.image.push(img);
+            })
+
         },
         resetParams(state) {
             state.mainCategory = "Автомобили и Джипове";
