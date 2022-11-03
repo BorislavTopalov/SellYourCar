@@ -7,7 +7,7 @@ export default function DetailedCard(props) {
         <div>
             <div className="buttonsDetailedPage">
                 <Link to="/all-results" className="backToResults">Назад към резултатите</Link>
-                <div className="buttonsCardAllResultPage">
+                <div className="buttonsDetialedCard">
                     {props.isThereActiveU ?
                         props.activeUser.active.some(e => e.id === props.id) ?
                             <div></div> :
