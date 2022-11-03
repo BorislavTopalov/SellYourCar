@@ -42,12 +42,6 @@ export default function HomeSearchTable(props) {
         }
     }, [location.pathname, dispatch]);
 
-    // useEffect(() => {
-    //     if (location.pathname !== `/home/${CategoryOptions().categorieOptions[0].value}`) {
-    //         dispatch(reset());
-    //     }
-    // }, [location.pathname, dispatch]);
-
     function addFilters(e) {
         dispatch(addFilter({
             name: e.target.name,

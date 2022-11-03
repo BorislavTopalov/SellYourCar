@@ -1,6 +1,6 @@
 export default function EuroStandartOptions() {
 
-    const euroStandart = [
+    const euro = [
         { value: "Всички", label: "Всички", id: 1 },
         { value: "Евро 1", label: "Евро 1", id: 2 },
         { value: "Евро 2", label: "Евро 2", id: 3 },
@@ -10,5 +10,5 @@ export default function EuroStandartOptions() {
         { value: "Евро 6", label: "Евро 6", id: 7 },
     ];
 
-    return ({ euroStandart });
+    return ({ euro });
 }

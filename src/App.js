@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LogoLink from './components/headerContent/logo/logo';
 import LoginLink from './components/headerContent/loginLink/loginLink';
 import Registerlink from './components/headerContent/registerLink/registerlink';
-import EditAd from './components/headerContent/editAd/editAdBtn';
 import AddNewAd from './components/headerContent/addNewAd/addNewAd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonGroupLink from './components/headerContent/buttonsGroupLinks/buttonsGroupLinks';
@@ -34,7 +33,6 @@ import {changeMyAds} from "./store/users";
 
 function App() {
 
-  // const totalAds = useSelector(state => state.totalAds)
   const addedAds = useSelector(state => state.addedAds);
   const users = useSelector(state => state.users);
   const activeUser = useSelector(state => state.activeUser);
@@ -49,10 +47,6 @@ function App() {
     }))
   }, [options.mainCategory, dispatch])
   
-  // useEffect(() => {
-  //   dispatch(addNewAd(newAds))
-  // }, [newAds])
-
   useEffect(() => {
 
     dispatch(changeMyAds({
@@ -86,7 +80,6 @@ function App() {
                 <LoginLink />  | <Registerlink />
               </div>}
             <div className='headerButtons'>
-              {/* <EditAd /> */}
               <AddNewAd />
             </div>
           </div>

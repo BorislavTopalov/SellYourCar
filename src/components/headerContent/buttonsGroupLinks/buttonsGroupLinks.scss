@@ -5,6 +5,15 @@
     overflow: hidden;
     display: flex;
     justify-content: space-between;
+    button {
+        min-width: 100px;
+    }
+    .dealers {
+        min-width: 100px;
+    }
+    .newsBtn {
+        min-width: 100px;
+    }
 }
 
 .btn-primary {

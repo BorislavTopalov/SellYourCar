@@ -2,7 +2,6 @@ import DetailedCard from "../../components/DetailedCard";
 import "./detailedPage.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import DefaultAds from "../../data/defaultAds";
 import { addToFavourites, removeFromFavourites } from "../../store/activeUser";
 import { changeFavourites } from "../../store/users";
 import { useEffect } from "react";

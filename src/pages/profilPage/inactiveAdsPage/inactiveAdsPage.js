@@ -20,7 +20,6 @@ export default function InactiveAdsPage() {
 
     }
     function activateAd(item) {
-        console.log(item);
         dispatch(moveAdToActive(item.id));
         dispatch(activate(item));
     }

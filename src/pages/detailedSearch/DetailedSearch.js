@@ -158,7 +158,7 @@ const DetailedSearch = () => {
                     </div>
                     <div className="euroDetailedSearch">
                         <p><strong>Евростандарт</strong></p>
-                        <Select onChange={addFilters} name="euroStandart" id="euroStandart" options={EuroStandartOptions().euroStandart} />
+                        <Select onChange={addFilters} name="euro" id="euro" options={EuroStandartOptions().euro} />
                     </div>
                     <div className="vehicleCategoryAddNew">
                         <p><strong>Категория</strong></p>
