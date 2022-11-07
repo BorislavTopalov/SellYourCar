@@ -178,7 +178,7 @@ export default function DetailsChoosing() {
                             <div className="powerAddNew">
                                 <div>
                                     <p><strong>Мощност [к.с.] *</strong></p>
-                                    <input required onChange={addParams} name='power' className="powerInputAddNew" type="number" />
+                                    <input required onChange={addParams} name='power' min="0" className="powerInputAddNew" type="number" />
                                 </div>
                             </div>
                             <div className="euroAddNew">
@@ -201,7 +201,7 @@ export default function DetailsChoosing() {
                     <div className="fourthRowAddNew">
                         <div className="priceAddNew">
                             <p><strong>Цена *</strong></p>
-                            <input name='price' onInput={addParams} required className="priceInputAddNew" type="number" />
+                            <input name='price' onInput={addParams} min="0" required className="priceInputAddNew" type="number" />
                             <select onChange={addParams} name="currency" required className="currencySelectAddNew" id="selectInSearch">
                                 <option value="BGN">лв.</option>
                                 <option value="EUR">EUR</option>
@@ -214,7 +214,7 @@ export default function DetailsChoosing() {
                         </div>
                         <div className="millageAddNew">
                             <p><strong>Пробег *</strong></p>
-                            <input name='millage' onInput={addParams} required className="inputMillageAddNew" type="number" />
+                            <input name='millage' onInput={addParams} min="0" required className="inputMillageAddNew" type="number" />
                             <label htmlFor="vehicleMillage">в километри</label>
                         </div>
                     </div>
@@ -242,7 +242,7 @@ export default function DetailsChoosing() {
 
                         <div className="phoneNewAd">
                             <p><strong className="moreInfoText">Данни за връзка *</strong></p>
-                            <input required name="contacts" onInput={addParams} className="phoneInput" type="number" />
+                            <input required name="contacts" min="0" onInput={addParams} className="phoneInput" type="number" />
                         </div>
 
                     </div>

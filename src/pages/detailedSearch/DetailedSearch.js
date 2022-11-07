@@ -130,11 +130,11 @@ const DetailedSearch = () => {
                     <div className="priceDeatiledSearch">
                         <div className="priceInputFrom">
                             <p><strong>Цена от</strong></p>
-                            <input onChange={addFilters} name="priceFrom" className="inputPriceFrom" type="number" id="from" />
+                            <input onChange={addFilters} name="priceFrom" min="0" className="inputPriceFrom" type="number" id="from" />
                         </div>
                         <div className="priceInputTo">
                             <p><strong>До</strong></p>
-                            <input onChange={addFilters} name="priceTo" className="inputPriceTo" type="number" id="to" />
+                            <input onChange={addFilters} name="priceTo" min="0" className="inputPriceTo" type="number" id="to" />
                             <select onChange={addFilters} name="currency" id="curencySelectDetailedSearch">
                                 <option value="Всяка">Всяка</option>
                                 <option value="лв.">лв.</option>
@@ -149,11 +149,11 @@ const DetailedSearch = () => {
                     <div className="powerDetailedSearch">
                         <div>
                             <p><strong>Мощност от</strong></p>
-                            <input onChange={addFilters} name="powerFrom" className="powerFrom" type="number" />
+                            <input onChange={addFilters} name="powerFrom" min="0" className="powerFrom" type="number" />
                         </div>
                         <div>
                             <p><strong>До</strong></p>
-                            <input onChange={addFilters} name="powerTo" className="powerTo" type="number" />
+                            <input onChange={addFilters} name="powerTo" min="0" className="powerTo" type="number" />
                         </div>
                     </div>
                     <div className="euroDetailedSearch">
